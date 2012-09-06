@@ -28,9 +28,16 @@ require.config({
 });
 
 require([
-    'jquery'
+    'jquery',
+    'tmpl!myEvents'
 ], function (
-    $
+    $,
+    myEvents
 ) {
     // start coding here
+    $(".accountBox").click(function () {
+        $.get("/events", function (data) {
+            $(".content").html(myEvents(data));
+        });
+    });
 });

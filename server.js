@@ -28,3 +28,4 @@ console.log("Server running on " + HOST + ":" + PORT);
 
 // REST Call Routing Registry
 app.get('/stopServer', indexServices.stopServer);
+app.get('/events', indexServices.getEvents);
