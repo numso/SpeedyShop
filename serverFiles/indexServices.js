@@ -1,47 +1,28 @@
 /*jshint node:true*/
 
-module.exports = function (io) {
+module.exports = function () {
+
+    var fs = require('fs');
 
     return {
-        stopServer: function (request, response, next) {
-            process.exit();
-        },
-        getEvents: function (request, response, next) {
-            response.writeHead(200, { "Content-Type": "application/json" });
-            var events = [
-                {
-                    name: "test1",
-                    time: "4:00"
-                },
-                {
-                    name: "test2",
-                    time: "6:00"
-                },
-                {
-                    name: "testaoeu",
-                    time: "4:00"
-                },
-                {
-                    name: "testhey",
-                    time: "6:00"
-                },
-                {
-                    name: "test5",
-                    time: "4:00"
-                },
-                {
-                    name: "test55",
-                    time: "6:00"
-                }
-            ];
+        getItems: function (request, response, next) {
+            var category = request.params.catID || "All";
 
-            for (var i = 0; i < events.length; i++) {
-                if (i % 2 === 0) {
-                    events[i].color = "#748294";
+            var items = JSON.parse(fs.readFileSync("serverData/items.json"));
+            var myObj = [];
+
+            if (category !== "All") {
+                for (var i = 0; i < items.length; ++i) {
+                    if (items[i].cat === category) {
+                        myObj.push(items[i]);
+                    }
                 }
+            } else {
+                myObj = items;
             }
 
-            response.end(JSON.stringify(events));
+            response.writeHead(200, { "Content-Type": "application/json" });
+            response.end(JSON.stringify(myObj));
         }
     };
 };
