@@ -23,20 +23,27 @@ require.config({
 
 require([
     'jquery',
-    'tmpl!templates/itemList'
+    'tmpl!templates/itemList',
+    'tmpl!templates/menuList'
 ], function (
     $,
-    itemListTmpl
+    itemListTmpl,
+    menuListTmpl
 ) {
     // start coding here
-//    $.get("/getItems/Electronics", function (data) {
-    $.get("/getItems", function (data) {
-        $(".content").html(itemListTmpl(data));
+
+    $.get("/getCategories/", function (data) {
+        $(".mainMenu").html(menuListTmpl(data));
+
+        $(".catChooser").click(function (e) {
+            $.get("/getItems/" + $(e.target).text(), function (data) {
+                $(".content").html(itemListTmpl(data));
+            });
+        });
+
     });
 
-    $(".catChooser").click(function (e) {
-        $.get("/getItems/" + $(e.target).text(), function (data) {
-            $(".content").html(itemListTmpl(data));
-        });
+    $.get("/getItems", function (data) {
+        $(".content").html(itemListTmpl(data));
     });
 });
