@@ -5,14 +5,14 @@ var PORT = process.env.PORT || process.argv[2] || 80,
 
 var http = require('http'),
     express = require('express'),
-    io = require('socket.io'),
+//    io = require('socket.io'),
     fs = require('fs');
 
 var app = express(),
-    server = http.createServer(app),
-    io = io.listen(server);
+    server = http.createServer(app);
+//var io = io.listen(server);
 
-var indexServices = require('./serverFiles/indexServices')(io);
+var indexServices = require('./serverFiles/indexServices')(/*io*/);
 
 app.configure(function () {
     app.use(express.logger({format: ":method :status :url"}));
@@ -27,5 +27,5 @@ server.listen(PORT, HOST);
 console.log("Server running on " + HOST + ":" + PORT);
 
 // REST Call Routing Registry
-app.get('/stopServer', indexServices.stopServer);
-app.get('/events', indexServices.getEvents);
+app.get('/getItems', indexServices.getItems);
+app.get('/getItems/:catID', indexServices.getItems);

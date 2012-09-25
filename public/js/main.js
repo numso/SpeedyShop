@@ -5,19 +5,13 @@ require.config({
         'jquery': 'lib/jquery',
         'underscore': 'lib/underscore',
         'backbone': 'lib/backbone',
-        'tmpl': 'lib/tmpl',
-        'socketio': '/socketio/socket.io.js'
+        'tmpl': 'lib/tmpl'
     },
 
     shim: {
         'jquery': {
             deps: [],
             exports: '$'
-        },
-
-        'socketio': {
-            deps: [],
-            exports: "io"
         },
 
         'backbone': {
@@ -29,15 +23,20 @@ require.config({
 
 require([
     'jquery',
-    'tmpl!myEvents'
+    'tmpl!templates/itemList'
 ], function (
     $,
-    myEvents
+    itemListTmpl
 ) {
     // start coding here
-    $(".accountBox").click(function () {
-        $.get("/events", function (data) {
-            $(".content").html(myEvents(data));
+//    $.get("/getItems/Electronics", function (data) {
+    $.get("/getItems", function (data) {
+        $(".content").html(itemListTmpl(data));
+    });
+
+    $(".catChooser").click(function (e) {
+        $.get("/getItems/" + $(e.target).text(), function (data) {
+            $(".content").html(itemListTmpl(data));
         });
     });
 });
