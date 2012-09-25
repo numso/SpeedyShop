@@ -3,6 +3,7 @@
         "name": "Computer",
         "cat": "Electronics",
         "price": "$400.00",
+        "rating": 4,
         "desc": "Super Sweet computer",
         "img": "//cdn.sheknows.com/articles/crave/desktop-computer.jpg"
     },
@@ -10,6 +11,7 @@
         "name": "Mousepad",
         "cat": "Electronics",
         "price": "$4.50",
+        "rating": 1,
         "desc": "For your Super Sweet computer",
         "img": "//www.qualitylogoproducts.com/computer-accessories/mouspad-extralarge.jpg"
     },
@@ -17,6 +19,7 @@
         "name": "Lamp",
         "cat": "Housing",
         "price": "$10.99",
+        "rating": 3,
         "desc": "To light the desk near your Super Sweet computer",
         "img": "//yourfurniturewebsite.com/11-grungemag/wp-content/blogs.dir/43/files/2012/04/stewart-lamp.jpg"
     },
@@ -24,6 +27,7 @@
         "name": "Laptop",
         "cat": "Electronics",
         "price": "$550.00",
+        "rating": 4,
         "desc": "Super Sweet laptop",
         "img": "//us.toshiba.com/images/showcase/products/satellite-l655-s5058-laptop.png"
     },
@@ -32,6 +36,7 @@
         "name": "iPhone",
         "cat": "Electronics",
         "price": "$500.00",
+        "rating": 5,
         "desc": "legitimate iphone from apple. this is the real deal man!!!!1!",
         "img": "//assets.inhabitat.com/wp-content/blogs.dir/1/files/2010/06/iphone4-LEAD.jpg"
     },
@@ -39,6 +44,7 @@
         "name": "40\" HDTV",
         "cat": "Electronics",
         "price": "$1999.99",
+        "rating": 4,
         "desc": "This monster will play your VHS Tapes like nothing else.",
         "img": "//www.gadgetreview.com/wp-content/uploads/2008/05/samsung_40_inch_720_lcd_hdtv.png"
     },
@@ -46,6 +52,7 @@
         "name": "Water Bottle",
         "cat": "Misc",
         "price": "$1.99",
+        "rating": 2,
         "desc": "Yum. Water tastes so good.",
         "img": "//cdn.instructables.com/FDA/04K9/FTTOTQW4/FDA04K9FTTOTQW4.LARGE.jpg"
     }

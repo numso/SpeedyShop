@@ -29,3 +29,5 @@ console.log("Server running on " + HOST + ":" + PORT);
 // REST Call Routing Registry
 app.get('/getItems', indexServices.getItems);
 app.get('/getItems/:catID', indexServices.getItems);
+
+app.get('/getCategories/', indexServices.getCategories);
