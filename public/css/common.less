@@ -1,0 +1,46 @@
+.linear-gradient (@startColor, @endColor, @fallback) {
+    background-color: @fallback;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@startColor), to(@endColor));
+    background: -webkit-linear-gradient(top, @startColor, @endColor) repeat-x;
+    background: -moz-linear-gradient(top, @startColor, @endColor) repeat-x;
+    background: -o-linear-gradient(top, @startColor, @endColor) repeat-x;
+    background: -ms-linear-gradient(top, @startColor, @endColor) repeat-x;
+    background: linear-gradient(top, @startColor, @endColor) repeat-x;
+}
+
+
+
+.box-shadow (@hshadow:0, @vshadow:0, @blur:20px, @spread:2px, @color:rgba(0, 0, 0, 0.5)) {
+    -moz-box-shadow: @hshadow @vshadow @blur @spread @color;
+    -webkit-box-shadow: @hshadow @vshadow @blur @spread @color;
+    box-shadow: @hshadow @vshadow @blur @spread @color;
+}
+
+.rotate (@deg) {
+    transform: rotate(@deg);
+    -ms-transform: rotate(@deg);
+    -webkit-transform: rotate(@deg);
+    -o-transform: rotate(@deg);
+    -moz-transform: rotate(@deg);
+}
+
+.transition (@el, @time) {
+    transition: @el @time;
+    -moz-transition: @el @time;
+    -webkit-transition: @el @time;
+    -o-transition: @el @time;
+}
+
+.down-arrow (@width, @height, @color) {
+    border-bottom: none;
+    border-left: @width/2 solid transparent;
+    border-right: @width/2 solid transparent;
+    border-top: @height solid @color;
+}
+
+.up-arrow (@width, @height, @color) {
+    border-top: none;
+    border-left: @width/2 solid transparent;
+    border-right: @width/2 solid transparent;
+    border-bottom: @height solid @color;
+}

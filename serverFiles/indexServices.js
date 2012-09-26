@@ -26,28 +26,28 @@ module.exports = function () {
         },
 
         getCategories: function (request, response, next) {
-            var items = JSON.parse(fs.readFileSync("serverData/items.json"));
-            var myCats = [];
+            var items = JSON.parse(fs.readFileSync("serverData/cat.json"));
+            // var myCats = [];
 
-            for (var i = 0; i < items.length; ++i) {
-                var testCat = items[i].cat;
+            // for (var i = 0; i < items.length; ++i) {
+            //     var testCat = items[i].cat;
 
-                var isThere = false;
-                for (var j = 0; j < myCats.length; ++j) {
-                    if (myCats[j] === testCat) {
-                        isThere = true;
-                    }
-                }
+            //     var isThere = false;
+            //     for (var j = 0; j < myCats.length; ++j) {
+            //         if (myCats[j] === testCat) {
+            //             isThere = true;
+            //         }
+            //     }
 
-                if (!isThere) {
-                    myCats.push(testCat);
-                }
-            }
+            //     if (!isThere) {
+            //         myCats.push(testCat);
+            //     }
+            // }
 
-            myCats.unshift("All");
+            // myCats.unshift("All");
 
             response.writeHead(200, { "Content-Type": "application/json" });
-            response.end(JSON.stringify(myCats));
+            response.end(JSON.stringify(items));
         }
     };
 };

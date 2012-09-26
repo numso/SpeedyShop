@@ -1,0 +1,27 @@
+<div class="header-container">
+    <div class="main-content">
+        <img class="logo" src="img/logo.png">
+        <div class="account-box">
+            <button class="btn">Sign In / Sign Up</button>
+        </div>
+        <div class="search-box">
+            <input type="text">
+        </div>
+    </div>
+    <div class="main-menu">
+        {{#each this}}
+            <div class="category{{#if subCats}} show-sub-cats{{else}} show-items{{/if}}">
+                <span>{{title}}</span>
+                {{#if subCats}}
+                    <div class="arrow"></div>
+                    <div class="sub-cat-container flyout">
+                        <div class="arrow"></div>
+                        {{#each subCats}}
+                            <div class="sub-category show-items">{{this}}</div>
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+</div>

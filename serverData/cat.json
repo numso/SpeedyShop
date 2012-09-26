@@ -1,0 +1,89 @@
+[
+    {
+        "title": "Hot Topics"
+    },
+    {
+        "title": "Home",
+        "subCats": [
+            "Decour",
+            "Furniture",
+            "Kitchen",
+            "Bedroom",
+            "Bathroom"
+        ]
+    },
+    {
+        "title": "Electronics",
+        "subCats": [
+            "Computers",
+            "Cameras",
+            "Mobile Phones",
+            "Tablets",
+            "Televisions",
+            "Accessories"
+        ]
+    },
+    {
+        "title": "Clothing",
+        "subCats": [
+            "Women's Clothing",
+            "Men's Clothing",
+            "Children's Clothing",
+            "Shoes",
+            "Accessories"
+        ]
+    },
+    {
+        "title": "Jewelry",
+        "subCats": [
+            "Rings",
+            "Necklaces",
+            "Earrings",
+            "Bracelets",
+            "Other"
+        ]
+    },
+    {
+        "title": "Books",
+        "subCats": [
+            "Action",
+            "Fantasy",
+            "Historical Fiction",
+            "Textbooks",
+            "Magazines"
+        ]
+    },
+    {
+        "title": "Automobiles",
+        "subCats": [
+            "Vehicles",
+            "Decals",
+            "Radios",
+            "Accessories"
+        ]
+    },
+    {
+        "title": "Toys",
+        "subCats": [
+            "Infants",
+            "Toddlers",
+            "Youngin's",
+            "Tweeners",
+            "Teens",
+            "Young Adults",
+            "Adults",
+            "Old People"
+        ]
+    },
+    {
+        "title": "Sports",
+        "subCats": [
+            "Equipment",
+            "Bikes",
+            "Helmets",
+            "Balls",
+            "Uniforms",
+            "Posters"
+        ]
+    }
+]
