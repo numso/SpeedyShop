@@ -24,26 +24,53 @@ require.config({
 require([
     'jquery',
     'backbone',
-    'tmpl!templates/itemList',
-    'views/header'
+    'pages/common/views/header',
+    'pages/common/views/footer',
+    'pages/customer/views/filters',
+    'pages/customer/views/items',
+    'pages/customer/views/cart'
 ], function (
     $,
     Backbone,
-    itemListTmpl,
-    HeaderView
+    HeaderView,
+    FooterView,
+    FiltersView,
+    ItemsView,
+    CartView
 ) {
 
     var headerView = new HeaderView({
-        className: "header",
+        className: "panel header",
         model: {}
     });
     $(".header").replaceWith(headerView.render().el);
 
-    $.get("/getItems", function (data) {
-        $(".content").html(itemListTmpl(data));
+    var footerView = new FooterView({
+        className: "panel footer",
+        model: {}
     });
+    $(".footer").replaceWith(footerView.render().el);
+
+    var filtersView = new FiltersView({
+        className: "filters",
+        model: {}
+    });
+    $(".left-panel").html(filtersView.render().el);
+
+    var itemsView = new ItemsView({
+        className: "items-list",
+        model: {}
+    });
+    $(".mid-panel").html(itemsView.render().el);
+
+    var cartView = new CartView({
+        className: "cart",
+        model: {}
+    });
+    $(".right-panel").html(cartView.render().el);
 
     $("body").click(function (e) {
         $(".flyout").hide();
+        $(".sign-in-modal").css("height", 0);
     });
 });

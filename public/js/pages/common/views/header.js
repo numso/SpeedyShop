@@ -2,7 +2,7 @@
 
 define([
     'backbone',
-    'tmpl!templates/header'
+    'tmpl!pages/common/templates/header'
 ], function (
     Backbone,
     headerTmpl
@@ -14,7 +14,22 @@ define([
 
         events: {
             "click .show-sub-cats": "showSubCats",
-            "click .show-items": "showItems"
+            "click .show-items": "showItems",
+            "click .btn": "showSignInScreen",
+            "click .sign-in-modal": "stopPropagation",
+            "click .log-in": "toggleSignUpScreen"
+        },
+
+        showSignInScreen: function (e) {
+            $(".sign-in-modal").css("height", "300px");
+            this.closeAllBut("sign-in");
+            this.stopPropagation(e);
+        },
+
+        toggleSignUpScreen: function (e) {
+            $(".sign-in-modal").css("height", "600px");
+            this.closeAllBut("sign-in");
+            this.stopPropagation(e);
         },
 
         render: function () {
@@ -44,6 +59,10 @@ define([
                     $(menus[i]).hide();
                 }
             }
+
+            // if (myMenu !== $(".sign-in-modal")) {
+            //     $(".sign-in-modal").css("height", 0);
+            // }
         },
 
         stopPropagation: function (e) {

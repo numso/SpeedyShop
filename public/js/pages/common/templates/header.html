@@ -2,11 +2,25 @@
     <img class="logo" src="img/logo.png">
     <div class="account-box">
         <button class="btn">Sign In / Sign Up</button>
+        <div class="sign-in-modal">
+            <div class="section">
+                <span>Username: </span>
+                <input type="text">
+            </div>
+            <div class="section">
+                <span>Password: </span>
+                <input type="text">
+            </div>
+            <div class="section">
+                <div class="log-in">Log In</div>
+            </div>
+        </div>
     </div>
     <div class="search-box">
         <input type="text">
     </div>
 </div>
+
 <div class="main-menu">
     {{#each this}}
         <div class="category{{#if subCats}} show-sub-cats{{else}} show-items{{/if}}">

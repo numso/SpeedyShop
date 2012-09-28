@@ -1,10 +1,23 @@
 @import "common";
-@import "header";
-@import "filters";
-@import "cart";
-@import "items";
-@import "footer";
 
+@import "admin/inventory";
+@import "admin/items";
+@import "admin/marketing";
+@import "admin/menu";
+@import "admin/sales-report";
+
+@import "common/header";
+@import "common/footer";
+
+@import "customer/breadcrumbs";
+@import "customer/cart";
+@import "customer/checkout";
+@import "customer/filters";
+@import "customer/items";
+@import "customer/reviews";
+
+@import "employee/menu";
+@import "employee/shipping";
 
 body {
     margin: 0;
@@ -31,4 +44,43 @@ body {
     padding-bottom: 30px;
     width: 92%;
     margin: 0 auto;
+}
+
+.panel {
+    background-color: #eee;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, .5);
+    border-radius: 5px;
+    padding: 15px;
+
+    &.header {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    &.footer {
+        width: 56%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    &.right-panel {
+        float: right;
+        width: 15%;
+        min-height: 500px;
+        margin-top: 10px;
+    }
+
+    &.left-panel {
+        float: left;
+        width: 15%;
+        min-height: 500px;
+        margin-top: 10px;
+    }
+
+    &.mid-panel {
+        width: 56%;
+        min-height: 430px;
+        margin: 0 auto;
+    }
 }
