@@ -2,10 +2,14 @@
 
 define([
     'backbone',
-    'tmpl!pages/common/templates/header'
+    'tmpl!pages/common/templates/header',
+    'tmpl!pages/common/templates/headerTemplates/login-modal',
+    'tmpl!pages/common/templates/headerTemplates/signed-in'
 ], function (
     Backbone,
-    headerTmpl
+    headerTmpl,
+    loginModalTmpl,
+    signedInTmpl
 ) {
     return Backbone.View.extend({
 
@@ -15,36 +19,47 @@ define([
         events: {
             "click .show-sub-cats": "showSubCats",
             "click .show-items": "showItems",
-            "click .btn": "showSignInScreen",
+            "click #logIn": "showSignInScreen",
+            "click #logOut": "logOut",
             "click .sign-in-modal": "stopPropagation",
             "click .log-in": "logIn"
         },
 
-        logIn: function (e) {
+        logOut: function (e) {
+            var that = this;
 
+            $.post('/logout', function (data) {
+                data = JSON.parse(data);
+                if (data.success) {
+                    that.$('.account-box').html(loginModalTmpl());
+                }
+            });
+        },
+
+        logIn: function (e) {
             var that = this;
 
             var userObj = {
-                user: 'Dallin',
-                pass: 'cheese'
+                user: this.$('.user').val(),
+                pass: this.$('.pass').val()
             };
 
             $.post('/login', JSON.stringify(userObj), function (data) {
                 data = JSON.parse(data);
                 if (data.success) {
-                    that.$('.account-box').html('Welcome ' + userObj.user);
+                    that.$('.account-box').html(signedInTmpl({user: userObj.user}));
                 }
             });
         },
 
         showSignInScreen: function (e) {
-            $(".sign-in-modal").css("height", "300px");
+            this.$(".sign-in-modal").css("height", "300px");
             this.closeAllBut("sign-in");
             this.stopPropagation(e);
         },
 
         toggleSignUpScreen: function (e) {
-            $(".sign-in-modal").css("height", "600px");
+            this.$(".sign-in-modal").css("height", "600px");
             this.closeAllBut("sign-in");
             this.stopPropagation(e);
         },
@@ -54,9 +69,11 @@ define([
             $.get("/getCategories/", function (data) {
                 that.$el.html(headerTmpl(data));
 
+                that.$('.account-box').html(loginModalTmpl());
+
                 $.get("/getUserName", function (data) {
                     if (data !== '') {
-                        that.$('.account-box').html('Welcome ' + data);
+                        that.$('.account-box').html(signedInTmpl({user: data}));
                     }
                 });
             });

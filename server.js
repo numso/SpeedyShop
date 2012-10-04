@@ -58,7 +58,7 @@ app.post('/login', function (req, res, next) {
     });
 });
 
-app.get('/logout', function (req, res, next) {
+app.post('/logout', function (req, res, next) {
     res.cookie('loggedIn', false);
     res.cookie('loggedInName', '');
     res.send(JSON.stringify({ success: true }));
