@@ -17,7 +17,24 @@ define([
             "click .show-items": "showItems",
             "click .btn": "showSignInScreen",
             "click .sign-in-modal": "stopPropagation",
-            "click .log-in": "toggleSignUpScreen"
+            "click .log-in": "logIn"
+        },
+
+        logIn: function (e) {
+
+            var that = this;
+
+            var userObj = {
+                user: 'Dallin',
+                pass: 'cheese'
+            };
+
+            $.post('/login', JSON.stringify(userObj), function (data) {
+                data = JSON.parse(data);
+                if (data.success) {
+                    that.$('.account-box').html('Welcome ' + userObj.user);
+                }
+            });
         },
 
         showSignInScreen: function (e) {
@@ -36,6 +53,12 @@ define([
             var that = this;
             $.get("/getCategories/", function (data) {
                 that.$el.html(headerTmpl(data));
+
+                $.get("/getUserName", function (data) {
+                    if (data !== '') {
+                        that.$('.account-box').html('Welcome ' + data);
+                    }
+                });
             });
             return this;
         },
