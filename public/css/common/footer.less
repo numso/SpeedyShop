@@ -6,8 +6,8 @@
   height: 40px;
   box-shadow: 0 0 2px 6px #666, 0px 0px 1px  #aaa;
   perspective: 750;
-  border-radius: 3px;
   -webkit-perspective: 750;
+  border-radius: 3px;
 }
 
 .left, .right, .tracks{
@@ -29,8 +29,8 @@
   height:40px;
   background-position:top right;
   background-size: 40px;
-  transition: transform 1.0s 1.0s ease-in-out, box-shadow 1.0s 1.0s ease-in-out;
-  -webkit-transition: transform 1.0s 1.0s ease-in-out, box-shadow 1.0s 1.0s ease-in-out;
+  transition: all 1.0s ease-in-out;
+  -webkit-transition: all 0.75s ease-in-out;
   transform-origin: left;
   -webkit-transform-origin: left;
   transform-style: preserve-3d;
@@ -49,8 +49,9 @@
   position:relative;
   z-index:-100;
   float:right;
+  margin-top: 5px;
   width:65%;
-  height:40px;
+  height:30px;
   background-color: #eee;
   transition: all 1.0s 1.0s ease-in-out;
   -webkit-transition: all 1.0s 1.0s ease-in-out;
@@ -59,6 +60,7 @@
 .tracks h3 {
   float:right;
   height:40px;
+  margin-top:1%;
   width:75%;
   text-align: center;
   color: #420101; 
@@ -82,8 +84,8 @@
 
 .thanks:hover .right {
   box-shadow: 10px 10px 50px black, inset 0px 20px 100px -15px black;
-  transition: transform 1.0s 1.0s ease-in-out, box-shadow 1.0s 1.0s ease-in-out;
-  -webkit-transform: transform 1.0s 1.0s ease-in-out, box-shadow 1.0s 1.0s ease-in-out;
+  transition: transform 1.0s 0s ease-in-out, box-shadow 1.0s 0s ease-in-out;
+  -webkit-transition: transform 1.0s 0s ease-in-out, box-shadow 1.0s 1.0s ease-in-out;
   transform: rotateY(-95deg);
    -webkit-transform: rotateY(-95deg);
 }
@@ -92,8 +94,8 @@
   box-shadow: 10px 10px 50px rgba(0, 0, 0, .5);
   transition: all 0.5s 0.5s ease-in-out;
   -webkit-transition: all 0.5s 0.5s ease-in-out;
-  transform: translateX(25px) rotate(5deg) translate3d( 0, 0, 0);
-  -webkit-transform: translateX(25px) rotateX(5deg) translate3d( 0, 0, 0);
+  transform: translateX(25px) rotate(3deg) translate3d( 0, 0, 0);
+  -webkit-transform: translateX(25px) rotate(3deg) translate3d( 0, 0, 0);
   transform-origin: left;
   -webkit-transform-origin: left;
   transform-style: preserve-3d;
