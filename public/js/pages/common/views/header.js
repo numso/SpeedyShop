@@ -48,9 +48,10 @@ define([
         },
 
         showInfo: function (e) {
-            var name = $(e.target).closest('input').attr('class');
-            console.log(name);
-            this.$('.' + name + '-info').addClass('show');
+            if (this.$('.log-in-specific').hasClass('toggle-hidden')) {
+                var name = $(e.target).closest('input').attr('class');
+                this.$('.' + name + '-info').addClass('show');
+            }
         },
 
         hideInfo: function (e) {
