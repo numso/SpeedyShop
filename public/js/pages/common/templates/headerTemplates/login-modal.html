@@ -1,14 +1,66 @@
-<button class="btn" id="logIn">Sign In / Sign Up</button>
-<div class="sign-in-modal">
-    <div class="section">
+<button tabindex="-1" class='btn' id='show-log-in'>Sign In / Sign Up</button>
+<div class='sign-in-modal'>
+    <div class='section'>
         <span>Username: </span>
-        <input class='user' type="text">
+        <input class='user' type='text'>
     </div>
-    <div class="section">
+    <div class='section'>
         <span>Password: </span>
-        <input class='pass' type="text">
+        <input class='pass' type='password'>
     </div>
-    <div class="section">
-        <div class="log-in">Log In</div>
+    <div class='section log-in-specific'>
+        <button tabindex="-1" class='btn log-in' id='log-in'>Log In</button>
     </div>
+    <div class='section log-in-specific'>
+        <span class='no-account-link' id='show-sign-up'>Don't have an account?</span>
+    </div>
+    <div class='section'>
+        <span>Confirm Password: </span>
+        <input class='cpass' type='password'>
+    </div>
+    <div class='section'>
+        <span>Email: </span>
+        <input class='email' type='text'>
+    </div>
+    <div class='section'>
+        <span>First Name: </span>
+        <input class='fname' type='text'>
+    </div>
+    <div class='section'>
+        <span>Last Name: </span>
+        <input class='lname' type='text'>
+    </div>
+        <div class='section'>
+        <button tabindex="-1" class='btn log-in' id='sign-up'>Sign Up</button>
+    </div>
+</div>
+
+<div class="info user-info">
+    <div class="info-arrow"></div>
+    <div class="info-text">Enter a Username between 4 and 18 characters long.</div>
+</div>
+
+<div class="info pass-info">
+    <div class="info-arrow"></div>
+    <div class="info-text">Enter a Password between 4 and 18 characters long. Must contain at least 1 digit and 1 special character.</div>
+</div>
+
+<div class="info cpass-info">
+    <div class="info-arrow"></div>
+    <div class="info-text">Make sure this password matches your other one.</div>
+</div>
+
+<div class="info email-info">
+    <div class="info-arrow"></div>
+    <div class="info-text">Enter a valid email address.</div>
+</div>
+
+<div class="info fname-info">
+    <div class="info-arrow"></div>
+    <div class="info-text">Enter your first name.</div>
+</div>
+
+<div class="info lname-info">
+    <div class="info-arrow"></div>
+    <div class="info-text">Enter your last name.</div>
 </div>
