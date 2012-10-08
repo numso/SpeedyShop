@@ -1,5 +1,3 @@
-@import "../common";
-
 .main-content {
     .logo {
         height: 60px;
@@ -17,7 +15,7 @@
             margin-bottom: 60px;
             width: 30%;
             height: 20px;
-            -webkit-transition: all .3s;
+            .transition (all, .3s);
 
             &:focus {
                 width: 50%;
@@ -63,29 +61,87 @@
             z-index: 1;
 
             span {
-                font-size: 20px;
+                font-size: 19px;
                 display: inline-block;
                 width: 90px;
             }
 
             input {
                 padding: 7px;
+
+                &.error {
+                    border-color: red;
+                }
             }
 
             .section {
                 padding-top: 10px;
                 padding-left: 15px;
+
+                &.log-in-specific {
+                    overflow: hidden;
+                }
+
+                &.toggle-hidden {
+                    .transition (all, .3s);
+                    height: 0;
+                    padding-top: 0;
+                }
             }
 
             .log-in {
-                background-color: white;
+                background-color: #fff;
                 color: black;
-                padding: 5px 10px;
-                width: 250px;
-                border-radius: 4px;
-                text-align: center;
-                display: inline-block;
+                left: 0;
+                width: 90%;
+
+                &:hover {
+                    background-color: #ddd;
+                }
+            }
+
+            .no-account-link {
+                width: 90%;
+                font-size: 14px;
                 cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .info {
+            position: absolute;
+            top: 0;
+            left: -440px;
+            width: 200px;
+            padding: 10px;
+            z-index: 3000;
+            background-color: #FCFFB6;
+            box-shadow: 0 0 20px 2px rgba(0, 0, 0, .5);
+            color: black;
+            border-radius: 5px;
+            opacity: 0;
+            -webkit-transition: all .5s;
+
+            &.show {
+                opacity: 1;
+            }
+
+            &.pass-info { top: 50px; }
+            &.cpass-info { top: 110px; }
+            &.email-info { top: 160px; }
+            &.fname-info { top: 210px; }
+            &.lname-info { top: 260px; }
+
+            .info-arrow {
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-left: 10px solid #FCFFB6;
+                position: absolute;
+                left: 220px;
+                top: 20px;
             }
         }
     }

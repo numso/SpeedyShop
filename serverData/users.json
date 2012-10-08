@@ -1,0 +1,38 @@
+{
+    "Dallin": {
+        "pass": "password",
+        "email": "dallin@osmun.net",
+        "fname": "Dallin",
+        "lname": "Osmun"
+    },
+    "Jerrica": {
+        "pass": "password",
+        "email": "jerrica@osmun.net",
+        "fname": "Jerrica",
+        "lname": "Osmun"
+    },
+    "Sierra": {
+        "pass": "password",
+        "email": "sierra@osmun.net",
+        "fname": "Sierra",
+        "lname": "Osmun"
+    },
+    "Aitrus": {
+        "pass": "test",
+        "email": "bubba@jones.com",
+        "fname": "bubba",
+        "lname": "jones"
+    },
+    "Greg": {
+        "pass": "test",
+        "email": "greg@anderson.com",
+        "fname": "Greg",
+        "lname": "Anderson"
+    },
+    "Bubba": {
+        "pass": "bubba",
+        "email": "bubba@gmail.com",
+        "fname": "Bubba",
+        "lname": "Jones"
+    }
+}
