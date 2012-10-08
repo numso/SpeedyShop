@@ -22,7 +22,45 @@
     -moz-transform: rotate(@deg);
 }
 
+.transform (@el1) {
+    transform: @el1;
+    -ms-transform: @el1;
+    -webkit-transform: @el1;
+    -o-transform: @el1;
+    -moz-transform: @el1;
+}
+
+.transform-origin (@loc) {
+    transform-origin: @loc;
+    -ms-transform-origin: @loc;
+    -webkit-transform-origin: @loc;
+    -o-transform-origin: @loc;
+    -moz-transform-origin: @loc;
+}
+
+.transform-style (@el) {
+    transform-style: @el;
+    -ms-transform-style: @el;
+    -webkit-transform-style: @el;
+    -o-transform-style: @el;
+    -moz-transform-style: @el;
+}
+
 .transition (@el, @time) {
+    transition: @el @time;
+    -moz-transition: @el @time;
+    -webkit-transition: @el @time;
+    -o-transition: @el @time;
+}
+
+.perspective (@val){
+    perspective: @val;
+    -moz-perspective: @val;
+    -webkit-perspective: @val;
+    -o-perspective: @val;
+}
+
+.transof (@el, @time) {
     transition: @el @time;
     -moz-transition: @el @time;
     -webkit-transition: @el @time;

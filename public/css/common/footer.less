@@ -1,103 +1,94 @@
 @import "../common";
 .thanks {
-  position: relative;
-  margin: auto;
-  width: 98%;
-  height: 40px;
-  box-shadow: 0 0 2px 6px #666, 0px 0px 1px  #aaa;
-  perspective: 750;
-  -webkit-perspective: 750;
-  border-radius: 3px;
+
+    position: relative;
+    margin: auto;
+    width: 98%;
+    height: 40px;
+    .box-shadow (0, 0, 2px, 6px, #666, 0px 0px 1px  #aaa);
+    .perspective (500);
+    border-radius: 3px;
+
+    .tracks {
+      position:relative;
+      z-index:-100;
+      float:right;
+      margin-bottom: 3px;
+      margin-top: 3px;
+      width:65%;
+      height:34px;
+      background-color: #CCE4F4;
+      .transition (all, 1.0s);
+          h3 {
+            text-align: center;
+            float:right;
+            margin-top: 0.5%;
+            width:75%;
+            color: #420101; 
+            text-shadow: 0px 0px 1px #aaa;
+            font-variant: small-caps;
+            font-size: 13px;
+          }
+    }
+
+
+    .left, .right, .tracks{
+      border-radius: 4px;
+    }
+
+    .left {
+      position: absolute;
+      width:50%;
+      height:40px;
+      background-position:top left;
+      background-size: 40px;
+      h2 {
+        margin: auto;
+        padding: 2%;
+        text-align:center;
+        font-variant: small-caps;
+        font-size: 24px;
+        color: #420101; 
+      }
+    }
+
+    .right {
+      position:absolute;
+      right:0px;
+      width:50%;
+      height:40px;
+      background-position:top right;
+      background-size: 40px;
+      .transition (all, 1.0s);
+      .transform-origin (top);
+      .transform-style (preserve-3d);
+      h2 {
+        margin-top: auto;
+        padding: 2%;
+        text-align:center;
+        font-variant: small-caps;
+        font-size: 24px;
+        color: #420101; 
+        font-style:italic;
+      }
+    }
 }
 
-.left, .right, .tracks{
-    border-radius: 4px;
-}
-
-.left {
-  position: absolute;
-  width:50%;
-  height:40px;
-  background-position:top left;
-  background-size: 40px;
-}
-
-.right {
-  position:absolute;
-  right:0px;
-  width:50%;
-  height:40px;
-  background-position:top right;
-  background-size: 40px;
-  transition: all 1.0s ease-in-out;
-  -webkit-transition: all 0.75s ease-in-out;
-  transform-origin: left;
-  -webkit-transform-origin: left;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-}
-
-.people .left {
+.people {
+  .left, .right {
     background-color: #eee;
-}
-
-.people .right {
-    background-color: #eee;
-}
-
-.tracks {
-  position:relative;
-  z-index:-100;
-  float:right;
-  margin-top: 5px;
-  width:65%;
-  height:30px;
-  background-color: #eee;
-  transition: all 1.0s 1.0s ease-in-out;
-  -webkit-transition: all 1.0s 1.0s ease-in-out;
-}
-
-.tracks h3 {
-  float:right;
-  height:40px;
-  margin-top:1%;
-  width:75%;
-  text-align: center;
-  color: #420101; 
-  list-style-type:none;
-  text-shadow: 0px 0px 1px #aaa;
-  font-variant: small-caps;
-  font-size: 16px;
-}
-
-.left h2, .right h2 {
-  margin: auto;
-  padding: 2%;
-  text-align:center;
-  font-variant: small-caps;
-  font-size: 24px;
-  color: #420101; 
-}
-.right h2 {
-    font-style:italic;
+  }
 }
 
 .thanks:hover .right {
-  box-shadow: 10px 10px 50px black, inset 0px 20px 100px -15px black;
-  transition: transform 1.0s 0s ease-in-out, box-shadow 1.0s 0s ease-in-out;
-  -webkit-transition: transform 1.0s 0s ease-in-out, box-shadow 1.0s 1.0s ease-in-out;
-  transform: rotateY(-95deg);
-   -webkit-transform: rotateY(-95deg);
+  .box-shadow;
+  .transform (rotateX(125deg));
 }
 
 .thanks:hover .tracks {
-  box-shadow: 10px 10px 50px rgba(0, 0, 0, .5);
-  transition: all 0.5s 0.5s ease-in-out;
-  -webkit-transition: all 0.5s 0.5s ease-in-out;
-  transform: translateX(25px) rotate(3deg) translate3d( 0, 0, 0);
-  -webkit-transform: translateX(25px) rotate(3deg) translate3d( 0, 0, 0);
-  transform-origin: left;
-  -webkit-transform-origin: left;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
+  .box-shadow;
+  .transition (all, 2.5s);
+  .transform (translateX(25px) rotate(3deg);
+  .transform-origin (left);
+  .transform-style (preserve-3d);
 }
