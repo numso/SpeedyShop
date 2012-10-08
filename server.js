@@ -31,4 +31,5 @@ app.get('/getCategories/', indexServices.getCategories);
 app.post('/login', authServices.login);
 app.post('/logout', authServices.logout);
 app.get('/getUserName', authServices.getUserName);
+app.post('/checkUserExistence', authServices.checkUserExistence);
 app.post('/signup', authServices.signup);

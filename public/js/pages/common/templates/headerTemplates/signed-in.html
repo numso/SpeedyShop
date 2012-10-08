@@ -1,2 +1,11 @@
-<p>Welcome {{user}}</p>
-<button class="btn" id="logOut">Log Out</button>
+<div class="logged-in-menu category show-sub-cats">
+    <span>Welcome {{user}}</span>
+    <div class="arrow"></div>
+    <div class="items-container sub-cat-container flyout">
+        <div class="arrow"></div>
+        {{#each loginItems}}
+            <!-- if {{cur}} then show a check mark -->
+            <div class="log-in-item sub-category" id='{{id}}'>{{title}}</div>
+        {{/each}}
+    </div>
+</div>

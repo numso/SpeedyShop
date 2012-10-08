@@ -1,6 +1,10 @@
 
 module.exports = function () {
 
+    var CUSTOMER_TYPE = 1,
+        EMPLOYEE_TYPE = 2,
+        ADMIN_TYPE = 3;
+
     var fs = require('fs'),
         userDB = JSON.parse(fs.readFileSync("serverData/users.json"));
 
@@ -19,7 +23,7 @@ module.exports = function () {
                 if (user && user.pass === input.pass) {
                     res.cookie('loggedIn', true);
                     res.cookie('loggedInName', input.user);
-                    res.send(JSON.stringify({ success: true, user: input.user }));
+                    res.send(JSON.stringify({ success: true, user: input.user, userID: user.type }));
                 } else {
                     res.send(JSON.stringify({ success: false, error: 'incorrect username / password' }));
                 }
@@ -27,17 +31,32 @@ module.exports = function () {
         },
 
         logout: function (req, res, next) {
-            res.cookie('loggedIn', false);
+            res.cookie('loggedIn', '');
             res.cookie('loggedInName', '');
             res.send(JSON.stringify({ success: true }));
         },
 
         getUserName: function (req, res, next) {
             if (req.cookies.loggedIn) {
-                res.send(req.cookies.loggedInName);
+                res.send(JSON.stringify({ user: req.cookies.loggedInName, userID: userDB[req.cookies.loggedInName].type }));
             } else {
                 res.send('');
             }
+        },
+
+        checkUserExistence: function (req, res, next) {
+            var input = '';
+            req.on('data', function (d) {
+                input += d;
+            });
+
+            req.on('end', function () {
+                if (userDB[input]) {
+                    res.send(true);
+                } else {
+                    res.send(false);
+                }
+            });
         },
 
         signup: function (req, res, next) {
@@ -49,18 +68,22 @@ module.exports = function () {
             req.on('end', function () {
                 input = JSON.parse(input);
                 if (userDB[input.user]) {
-                    res.send(JSON.stringify({ success: false, error: 'already exists'}));
+                    res.send(JSON.stringify({ success: false, error: 'already exists' }));
                 } else {
 
-                    userDB[input.user] = {
+                    var newUser = {
                         pass: input.pass,
                         email: input.email,
                         fname: input.fname,
-                        lname: input.lname
+                        lname: input.lname,
+                        type: CUSTOMER_TYPE
                     };
+                    userDB[input.user] = newUser;
 
                     fs.writeFile('serverData/users.json', JSON.stringify(userDB), function () {
-                        res.send(JSON.stringify({ success: true, user: input.user }));
+                        res.cookie('loggedIn', true);
+                        res.cookie('loggedInName', input.user);
+                        res.send(JSON.stringify({ success: true, user: input.user, userID: newUser.type }));
                     });
                 }
             });

@@ -71,6 +71,6 @@ require([
 
     $("body").click(function (e) {
         $(".flyout").hide();
-        $(".sign-in-modal").css("height", 0);
+        headerView.resetLogInModal();
     });
 });

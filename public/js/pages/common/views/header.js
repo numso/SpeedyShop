@@ -3,28 +3,27 @@
 define([
     'backbone',
     'tmpl!pages/common/templates/header',
-    'tmpl!pages/common/templates/headerTemplates/login-modal',
-    'tmpl!pages/common/templates/headerTemplates/signed-in'
+    'pages/common/views/headerViews/login-modal'
 ], function (
     Backbone,
     headerTmpl,
-    loginModalTmpl,
-    signedInTmpl
+    LoginModalView
 ) {
     return Backbone.View.extend({
+        loginModalView: undefined,
+
         render: function () {
             var that = this;
 
             $.get('/getCategories/', function (data) {
                 that.$el.html(headerTmpl(data));
 
-                $.get('/getUserName', function (user) {
-                    if (user === '') {
-                        that.$('.account-box').html(loginModalTmpl());
-                    } else {
-                        that.$('.account-box').html(signedInTmpl({ user: user }));
-                    }
+                var loginModalView = new LoginModalView({
+                    className: 'account-box',
+                    model: {}
                 });
+                $('.account-box').replaceWith(loginModalView.render().el);
+                that.loginModalView = loginModalView;
             });
 
             return this;
@@ -35,27 +34,7 @@ define([
 
         events: {
             'click .show-sub-cats': 'showSubCats',
-            'click .show-items': 'showItems',
-            'click #show-log-in': 'showLogInScreen',
-            'click #show-sign-up': 'showSignUpScreen',
-            'click #log-in': 'logIn',
-            'click #sign-up': 'signUp',
-            'click #logOut': 'logOut',
-            'click .sign-in-modal': 'stopPropagation',
-
-            'focus input': 'showInfo',
-            'blur input': 'hideInfo',
-        },
-
-        showInfo: function (e) {
-            if (this.$('.log-in-specific').hasClass('toggle-hidden')) {
-                var name = $(e.target).closest('input').attr('class');
-                this.$('.' + name + '-info').addClass('show');
-            }
-        },
-
-        hideInfo: function (e) {
-            this.$('.info').removeClass('show');
+            'click .show-items': 'showItems'
         },
 
         // Menu Methods ////////////////////////////////////////////////////////////////////////
@@ -69,104 +48,7 @@ define([
 
         showItems: function (e) {
             var itemName = $(e.target).closest('.show-items').text();
-            console.log('show items tagged with ' + itemName);
-        },
-
-        // Log-In Methods //////////////////////////////////////////////////////////////////////
-
-        showLogInScreen: function (e) {
-            this.$('.sign-in-modal').css('height', '170px');
-            this.$('.log-in-specific').removeClass('toggle-hidden');
-            this.closeAllBut('sign-in');
-            this.stopPropagation(e);
-        },
-
-        showSignUpScreen: function (e) {
-            this.$('.sign-in-modal').css('height', '360px');
-            this.$('.log-in-specific').addClass('toggle-hidden');
-            this.closeAllBut('sign-in');
-            this.stopPropagation(e);
-        },
-
-        logIn: function (e) {
-            var that = this;
-
-            var userObj = {
-                user: this.$('.user').val(),
-                pass: this.$('.pass').val()
-            };
-
-            $.post('/login', JSON.stringify(userObj), function (data) {
-                data = JSON.parse(data);
-                if (data.success) {
-                    that.$('.account-box').html(signedInTmpl({ user: data.user }));
-                }
-            });
-        },
-
-        signUp: function (e) {
-            var that = this;
-
-            if (this.validateForm()) {
-                var userObj = {
-                    user: this.$('.user').val(),
-                    pass: this.$('.pass').val(),
-                    email: this.$('.email').val(),
-                    fname: this.$('.fname').val(),
-                    lname: this.$('.lname').val()
-                };
-
-                $.post('/signup', JSON.stringify(userObj), function (data) {
-                    data = JSON.parse(data);
-                    if (data.success) {
-                        that.$('.account-box').html(signedInTmpl({ user: data.user }));
-                    }
-                });
-            }
-        },
-
-        validateForm: function () {
-            var myObjs = [
-                this.$('.user'),
-                this.$('.pass'),
-                this.$('.cpass'),
-                this.$('.email'),
-                this.$('.fname'),
-                this.$('.lname')
-            ];
-
-            var isValid = true;
-
-            for (var i = 0; i < myObjs.length; ++i) {
-                myObjs[i].removeClass('error');
-                if (myObjs[i].val() === '') {
-                    isValid = false;
-                    myObjs[i].addClass('error');
-                }
-            }
-
-            if (this.$('.pass').val() !== this.$('.cpass').val()) {
-                isValid = false;
-                this.$('.pass').addClass('error');
-                this.$('.cpass').addClass('error');
-            }
-
-            if (false) { // check email
-                isValid = false;
-            }
-
-            return isValid;
-        },
-
-        logOut: function (e) {
-            var that = this;
-
-            $.post('/logout', function (data) {
-                data = JSON.parse(data);
-                if (data.success) {
-                    that.$('.account-box').html(loginModalTmpl());
-                }
-            });
+            console.log('TODO:: show items tagged with ' + itemName);
         },
 
         // Helper Methods //////////////////////////////////////////////////////////////////////
@@ -179,9 +61,11 @@ define([
                 }
             }
 
-            if (myMenu !== 'sign-in') {
-                this.$('.sign-in-modal').css('height', 0);
-            }
+            this.resetLogInModal();
+        },
+
+        resetLogInModal: function () {
+            this.loginModalView.closeModal();
         },
 
         stopPropagation: function (e) {
