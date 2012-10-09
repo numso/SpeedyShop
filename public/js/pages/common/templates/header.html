@@ -1,21 +1,21 @@
-<div class="main-content">
-    <img class="logo" src="img/logo.png">
-    <div class="account-box"></div>
-    <div class="search-box">
-        <input type="text">
+<div class='main-content'>
+    <div class='logo-container'><img class='logo' src='img/logo.png'></div>
+    <div class='account-box-container'><div class="account-box"></div></div>
+    <div class='search-box'>
+        <input type='text'>
     </div>
 </div>
 
-<div class="main-menu">
+<div class='main-menu'>
     {{#each this}}
-        <div class="category{{#if subCats}} show-sub-cats{{else}} show-items{{/if}}">
+        <div class='category{{#if subCats}} show-sub-cats{{else}} show-items{{/if}}'>
             <span>{{title}}</span>
             {{#if subCats}}
-                <div class="arrow"></div>
-                <div class="sub-cat-container flyout">
-                    <div class="arrow"></div>
+                <div class='arrow'></div>
+                <div class='sub-cat-container flyout'>
+                    <div class='arrow'></div>
                     {{#each subCats}}
-                        <div class="sub-category show-items">{{this}}</div>
+                        <div class='sub-category show-items'>{{this}}</div>
                     {{/each}}
                 </div>
             {{/if}}
