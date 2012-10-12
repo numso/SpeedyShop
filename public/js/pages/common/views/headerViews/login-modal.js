@@ -73,6 +73,7 @@ define([
 
         showEmployeeView: function (e) {
             console.log('TODO:: Show the Employee View');
+            this.model.showEmployeeView();
         },
 
         showCustomerView: function (e) {
