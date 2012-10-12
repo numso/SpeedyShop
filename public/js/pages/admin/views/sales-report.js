@@ -2,10 +2,10 @@
 
 define([
     'backbone',
-    'tmpl!pages/templates/putNameHere'
+    'tmpl!pages/admin/templates/sales-report'
 ], function (
     Backbone,
-    putNameHereTmpl
+    salesReportTmpl
 ) {
     return Backbone.View.extend({
 
@@ -16,6 +16,7 @@ define([
         },
 
         render: function () {
+            this.$el.html(salesReportTmpl());
             return this;
         }
     });

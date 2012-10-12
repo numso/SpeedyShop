@@ -27,12 +27,15 @@ body {
     min-width: 950px;
     position: absolute;
     background-color: #CCE4F4;
+
+    -webkit-perspective: 1000;
 }
 
 .overlay {
     position: fixed;
     width: 100%;
     min-width: 950px;
+    z-index: 2;
 
     .padder {
         width: 92%;
@@ -46,45 +49,93 @@ body {
     padding-bottom: 30px;
     width: 92%;
     margin: 0 auto;
+    z-index:-1;
+}
+
+.header {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.footer {
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.right-panel {
+    float: right;
+    width: 15%;
+    margin-top: 10px;
+    position: relative;
+
+    .panel {
+        min-height: 500px;
+        position: absolute;
+    }
+}
+
+.left-panel {
+    float: left;
+    width: 15%;
+    margin-top: 10px;
+    position: relative;
+
+    .panel {
+        min-height: 500px;
+        position: absolute;
+    }
+}
+
+.mid-panel {
+    width: 65%;
+    margin: 0 auto;
+    position: relative;
+    min-height: 470px;
+
+    .panel {
+        z-index:-1;
+        width: 97%;
+        min-height: 430px;
+        position: absolute;
+    }
 }
 
 .panel {
     background-color: #eee;
-
     .box-shadow (0, 0, 20px, 2px, rgba(0, 0, 0, .5));
-
     border-radius: 5px;
     padding: 15px;
+    -webkit-backface-visibility: hidden;
 
-    &.header {
-        width: 90%;
-        margin: 0 auto;
-        margin-top: 10px;
+    &.hidden {
+        display: none;
     }
 
-    &.footer {
-        width: 56%;
-        margin: 0 auto;
-        margin-top: 20px;
+}
+
+.left {
+    .rotated {
+        -webkit-transform: rotateY(180deg);
+    }
+}
+
+.up {
+    .rotated {
+        -webkit-transform: rotateX(180deg);
+    }
+}
+
+.flipit {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 1s all;
+
+    &.left {
+        -webkit-transform: rotateY(180deg);
     }
 
-    &.right-panel {
-        float: right;
-        width: 15%;
-        min-height: 500px;
-        margin-top: 10px;
-    }
-
-    &.left-panel {
-        float: left;
-        width: 15%;
-        min-height: 500px;
-        margin-top: 10px;
-    }
-
-    &.mid-panel {
-        width: 56%;
-        min-height: 430px;
-        margin: 0 auto;
+    &.up {
+        -webkit-transform: rotateX(180deg);
     }
 }
