@@ -2,7 +2,7 @@
 
 define([
     'backbone',
-    'tmpl!pages/templates/marketing'
+    'tmpl!pages/admin/templates/marketing'
 ], function (
     Backbone,
     marketingTmpl

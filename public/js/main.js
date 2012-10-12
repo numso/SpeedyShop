@@ -80,7 +80,7 @@ require([
                 rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
                 curMid = $('.sales-report-view');
             }
-        }, 300);
+        }, 500);
     };
 
     var showCustomerView = function () {
@@ -94,7 +94,7 @@ require([
                 rotateView($('.items-list-view'), curMid, $('.mid-panel'));
                 curMid = $('.items-list-view');
             }
-        }, 300);
+        }, 500);
     };
 
     var showEmployeeView = function () {
@@ -108,7 +108,35 @@ require([
                 rotateView($('.shipping-view'), curMid, $('.mid-panel'));
                 curMid = $('.shipping-view');
             }
-        }, 300);
+        }, 500);
+    };
+
+    var adm_showSalesReports = function () {
+        if ($('.sales-report-view')[0] !== curMid[0]) {
+            rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
+            curMid = $('.sales-report-view');
+        }
+    };
+
+    var adm_showMarketing = function () {
+        if ($('.marketing-view')[0] !== curMid[0]) {
+            rotateView($('.marketing-view'), curMid, $('.mid-panel'));
+            curMid = $('.marketing-view');
+        }
+    };
+
+    var adm_showItems = function () {
+        if ($('.admin-items-view')[0] !== curMid[0]) {
+            rotateView($('.admin-items-view'), curMid, $('.mid-panel'));
+            curMid = $('.admin-items-view');
+        }
+    };
+
+    var adm_showInventory = function () {
+        if ($('.inventory-view')[0] !== curMid[0]) {
+            rotateView($('.inventory-view'), curMid, $('.mid-panel'));
+            curMid = $('.inventory-view');
+        }
     };
 
     var rotateView = function (toRotate, toHide, theParent) {
@@ -166,7 +194,12 @@ require([
 
     var adminMenuView = new AdminMenuView({
         className: "panel admin-menu-view hidden",
-        model: {}
+        model: {
+            showSalesReports: adm_showSalesReports,
+            showInventory: adm_showInventory,
+            showItems: adm_showItems,
+            showMarketing: adm_showMarketing
+        }
     });
     $(".left-panel").append(adminMenuView.render().el);
 

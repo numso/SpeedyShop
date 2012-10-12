@@ -2,7 +2,7 @@
 
 define([
     'backbone',
-    'tmpl!pages/templates/items'
+    'tmpl!pages/admin/templates/items'
 ], function (
     Backbone,
     itemsTmpl

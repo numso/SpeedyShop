@@ -2,7 +2,7 @@
 
 define([
     'backbone',
-    'tmpl!pages/templates/inventory'
+    'tmpl!pages/admin/templates/inventory'
 ], function (
     Backbone,
     inventoryTmpl
