@@ -111,6 +111,13 @@ require([
         }, 500);
     };
 
+    var emp_showShipping = function () {
+        if ($('.shipping-view')[0] !== curMid[0]) {
+            rotateView($('.shipping-view'), curMid, $('.mid-panel'));
+            curMid = $('.shipping-view');
+        }
+    };
+
     var adm_showSalesReports = function () {
         if ($('.sales-report-view')[0] !== curMid[0]) {
             rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
