@@ -66,8 +66,8 @@ require([
 
     CartView
 ) {
-
     // Define View Transitions
+    var animTime = 600;
 
     var showAdminView = function () {
         if ($('.admin-menu-view')[0] !== curLeft[0]) {
@@ -80,7 +80,7 @@ require([
                 rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
                 curMid = $('.sales-report-view');
             }
-        }, 500);
+        }, animTime);
     };
 
     var showCustomerView = function () {
@@ -94,7 +94,7 @@ require([
                 rotateView($('.items-list-view'), curMid, $('.mid-panel'));
                 curMid = $('.items-list-view');
             }
-        }, 500);
+        }, animTime);
     };
 
     var showEmployeeView = function () {
