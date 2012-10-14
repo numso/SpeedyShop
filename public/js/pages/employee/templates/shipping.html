@@ -1,1 +1,22 @@
-HERE IS WHERE THE SHIPPING MODULE GOES FOR EMPLOYEES
+<h3> Possible Layout </h3><br />
+orderStatus = Processed/Shipped<br />
+orderNum = integer value start at 1000<br />
+estimatedWeight = Sum of all items in Order<br />
+items = Array of Key : Value pairs (ItemNumber : Quantity)<br />
+shippingLabel = Shipping Label Object that contains customers shipping info<br />
+int [] orderStatusSearch("processed", "shipped")<br />
+	return int array with all of the OrderNums that have that status<br />
+<br />
+int getOrder(int thisOrderNum)<br />
+	return Order obj<br />
+### on shipping page ###<br />
+<br />
+Scroll window with refresh button<br />
+	Contain a list of Orders that have been processed but not shipped<br />
+<br />
+Form<br />
+	Checklist for items that have been packaged<br />
+<br />
+Total Package Weight<br />
+<br />
+Shipping Label -- need it to be print clickable<br />
