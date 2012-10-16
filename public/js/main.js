@@ -1,4 +1,4 @@
-/*global console, require */
+/*global console, require, window */
 
 require.config({
     paths: {
@@ -68,6 +68,20 @@ require([
 ) {
     // Define View Transitions
     var animTime = 600;
+	var curLeft, curMid, curRight;
+	
+    var rotateView = function (toRotate, toHide, theParent) {
+        toRotate.addClass('rotated');
+        toRotate.removeClass('hidden');
+        theParent.addClass('flipit');
+
+        theParent.on('webkitTransitionEnd', function () {
+            toHide.addClass('hidden');
+            toRotate.removeClass('rotated');
+            theParent.removeClass('flipit');
+            theParent.unbind('webkitTransitionEnd');
+        });
+    };
 
     var showAdminView = function () {
         if ($('.admin-menu-view')[0] !== curLeft[0]) {
@@ -75,7 +89,7 @@ require([
             curLeft = $('.admin-menu-view');
         }
 
-        setTimeout(function () {
+        window.setTimeout(function () {
             if ($('.sales-report-view')[0] !== curMid[0]) {
                 rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
                 curMid = $('.sales-report-view');
@@ -89,7 +103,7 @@ require([
             curLeft = $('.filters');
         }
 
-        setTimeout(function () {
+        window.setTimeout(function () {
             if ($('.items-list-view')[0] !== curMid[0]) {
                 rotateView($('.items-list-view'), curMid, $('.mid-panel'));
                 curMid = $('.items-list-view');
@@ -103,7 +117,7 @@ require([
             curLeft = $('.employee-menu-view');
         }
 
-        setTimeout(function () {
+        window.setTimeout(function () {
             if ($('.shipping-view')[0] !== curMid[0]) {
                 rotateView($('.shipping-view'), curMid, $('.mid-panel'));
                 curMid = $('.shipping-view');
@@ -145,20 +159,6 @@ require([
             curMid = $('.inventory-view');
         }
     };
-
-    var rotateView = function (toRotate, toHide, theParent) {
-        toRotate.addClass('rotated');
-        toRotate.removeClass('hidden');
-        theParent.addClass('flipit');
-
-        theParent.on('webkitTransitionEnd', function () {
-            toHide.addClass('hidden');
-            toRotate.removeClass('rotated');
-            theParent.removeClass('flipit');
-            theParent.unbind('webkitTransitionEnd');
-        });
-    };
-
 
     // Create the Header and Footer Views
 
@@ -273,9 +273,9 @@ require([
 
     // Set the Default Side Views
 
-    var curLeft = $('.filters');
-    var curMid = $('.items-list-view');
-    var curRight = $('.cart');
+    curLeft = $('.filters');
+    curMid = $('.items-list-view');
+    curRight = $('.cart');
 
 
     // default click handler for flyout menus
