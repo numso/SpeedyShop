@@ -2,10 +2,10 @@
 
 define([
     'backbone',
-    'tmpl!pages/templates/putNameHere'
+    'tmpl!pages/customer/templates/checkout'
 ], function (
     Backbone,
-    putNameHereTmpl
+    checkoutTmpl
 ) {
     return Backbone.View.extend({
 
@@ -16,6 +16,7 @@ define([
         },
 
         render: function () {
+            this.$el.html(checkoutTmpl());
             return this;
         }
     });

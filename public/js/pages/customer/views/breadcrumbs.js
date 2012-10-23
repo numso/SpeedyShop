@@ -2,10 +2,10 @@
 
 define([
     'backbone',
-    'tmpl!pages/templates/putNameHere'
+    'tmpl!pages/customer/templates/breadcrumbs'
 ], function (
     Backbone,
-    putNameHereTmpl
+    breadcrumbsTmpl
 ) {
     return Backbone.View.extend({
 
@@ -16,6 +16,7 @@ define([
         },
 
         render: function () {
+            this.$el.html(breadcrumbsTmpl());
             return this;
         }
     });

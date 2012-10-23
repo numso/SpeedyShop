@@ -1,0 +1,42 @@
+.admin-menu-content {
+    .title {
+        padding: 0 21px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid;
+        margin-bottom: 5px;
+    }
+
+    .menu {
+        .item {
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 5px 10px;
+
+            &:hover {
+                background-color: #ccc;
+            }
+
+            &:active {
+                background-color: #bbb;
+            }
+
+            .arrow {
+                border-bottom: 5px solid transparent;
+                border-top: 5px solid transparent;
+                border-left: 5px solid black;
+                display: inline-block;
+
+                -webkit-transition: .3s all;
+
+                &.rotate {
+                    -webkit-transform: rotate(90deg);
+                }
+            }
+        }
+
+        .sub-menu {
+            display: none;
+            padding-left: 10px;
+        }
+    }
+}

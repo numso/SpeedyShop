@@ -1,4 +1,4 @@
-/*global define */
+/*global define, $, console, window */
 
 define([
     'backbone',
@@ -20,7 +20,7 @@ define([
 
                 var loginModalView = new LoginModalView({
                     className: 'account-box',
-                    model: {}
+                    model: that.model
                 });
                 $('.account-box').replaceWith(loginModalView.render().el);
                 that.loginModalView = loginModalView;

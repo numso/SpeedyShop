@@ -2,10 +2,10 @@
 
 define([
     'backbone',
-    'tmpl!pages/templates/putNameHere'
+    'tmpl!pages/admin/templates/items'
 ], function (
     Backbone,
-    putNameHereTmpl
+    itemsTmpl
 ) {
     return Backbone.View.extend({
 
@@ -16,6 +16,7 @@ define([
         },
 
         render: function () {
+            this.$el.html(itemsTmpl());
             return this;
         }
     });

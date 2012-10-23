@@ -68,14 +68,17 @@ define([
 
         showAdminView: function (e) {
             console.log('TODO:: Show the Admin View');
+            this.model.showAdminView();
         },
 
         showEmployeeView: function (e) {
             console.log('TODO:: Show the Employee View');
+            this.model.showEmployeeView();
         },
 
         showCustomerView: function (e) {
             console.log('TODO:: Show the Customer View');
+            this.model.showCustomerView();
         },
 
         // Show-Modal Methods //////////////////////////////////////////////////////////////////
