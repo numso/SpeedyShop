@@ -1,2 +1,22 @@
-<button>Back</button>
-<div><img src="{{img}}"></div>
+<div>
+    <button>Back</button>
+    <div class="leftSide">
+        <div><img class="bigImg" src="{{img}}"></div>
+        <div>
+            {{#each smlImg}}
+                <div><img class="smlImg" src="{{this}}"></div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="rightSide">
+        <div><h2>{{name}}</h2></div>
+        <div>{{price}}</div>
+        <div><img src="img/ratings/{{rating}}.png"></div>
+        <div>{{desc}}</div>
+        <div>{{detail}}</div>
+        <input type="text"></input>
+        <button>Add to Cart</button>
+
+    </div>
+
+</div>
