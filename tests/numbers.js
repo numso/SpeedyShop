@@ -15,8 +15,8 @@ for (var i = 0; i <= 10; ++i) {
 /// Your Code Ends Here!! ///////////////////////////
 /////////////////////////////////////////////////////
 
-assert(numbers[5]() === 5);
+assert.equal(numbers[5](), 5);
 
-assert(numbers[10]() === 10);
+assert.equal(numbers[10](), 10);
 
 console.log("Success!")

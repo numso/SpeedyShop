@@ -12,8 +12,8 @@ var reverse = function (str) {
 /// Your Code Ends Here!! ///////////////////////////
 /////////////////////////////////////////////////////
 
-assert(reverse('foo') === 'oof');
+assert.equal(reverse('foo'), 'oof');
 
-assert(reverse('race car') === 'rac ecar');
+assert.equal(reverse('race car'), 'rac ecar');
 
 console.log("Success!")
