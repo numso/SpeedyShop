@@ -13,8 +13,10 @@ module.exports = function () {
 
             if (category !== "All") {
                 for (var i = 0; i < items.length; ++i) {
-                    if (items[i].cat === category) {
-                        myObj.push(items[i]);
+                    for (var j = 0; j < items[i].cat.length; ++j) {
+                        if (items[i].cat[j] === category) {
+                            myObj.push(items[i]);
+                        }
                     }
                 }
             } else {

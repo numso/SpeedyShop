@@ -47,8 +47,8 @@ define([
         },
 
         showItems: function (e) {
-            var itemName = $(e.target).closest('.show-items').text();
-            console.log('TODO:: show items tagged with ' + itemName);
+            var catName = $(e.target).closest('.show-items').text();
+            this.model.showItemsInList(catName);
         },
 
         // Helper Methods //////////////////////////////////////////////////////////////////////

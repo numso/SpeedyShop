@@ -69,7 +69,7 @@ require([
     // Define View Transitions
     var animTime = 600;
 	var curLeft, curMid, curRight;
-	
+
     var rotateView = function (toRotate, toHide, theParent) {
         toRotate.addClass('rotated');
         toRotate.removeClass('hidden');
@@ -162,12 +162,17 @@ require([
 
     // Create the Header and Footer Views
 
+    var showItemsInList = function (catName) {
+        itemsView.displayItemList(catName);
+    };
+
     var headerView = new HeaderView({
         className: "panel header",
         model: {
             showAdminView: showAdminView,
             showCustomerView: showCustomerView,
-            showEmployeeView: showEmployeeView
+            showEmployeeView: showEmployeeView,
+            showItemsInList: showItemsInList
         }
     });
     $(".header").replaceWith(headerView.render().el);

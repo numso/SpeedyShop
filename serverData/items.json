@@ -1,7 +1,7 @@
 [
     {
         "name": "Computer",
-        "cat": "Electronics",
+        "cat": ["Cameras"],
         "price": "$400.00",
         "rating": 4,
         "desc": "Super Sweet computer",
@@ -9,7 +9,7 @@
     },
     {
         "name": "Mousepad",
-        "cat": "Electronics",
+        "cat": ["Cameras", "Televisions"],
         "price": "$4.50",
         "rating": 1,
         "desc": "For your Super Sweet computer",
@@ -17,7 +17,7 @@
     },
     {
         "name": "Lamp",
-        "cat": "Housing",
+        "cat": ["Televisions"],
         "price": "$10.99",
         "rating": 3,
         "desc": "To light the desk near your Super Sweet computer",
@@ -25,7 +25,7 @@
     },
     {
         "name": "Laptop",
-        "cat": "Electronics",
+        "cat": ["Cameras"],
         "price": "$550.00",
         "rating": 4,
         "desc": "Super Sweet laptop",
@@ -34,7 +34,7 @@
 
     {
         "name": "iPhone",
-        "cat": "Electronics",
+        "cat": ["Cameras"],
         "price": "$500.00",
         "rating": 5,
         "desc": "legitimate iphone from apple. this is the real deal man!!!!1!",
@@ -42,7 +42,7 @@
     },
     {
         "name": "40\" HDTV",
-        "cat": "Electronics",
+        "cat": ["Cameras"],
         "price": "$1999.99",
         "rating": 4,
         "desc": "This monster will play your VHS Tapes like nothing else.",
@@ -50,7 +50,7 @@
     },
     {
         "name": "Water Bottle",
-        "cat": "Misc",
+        "cat": ["Kitchen"],
         "price": "$1.99",
         "rating": 2,
         "desc": "Yum. Water tastes so good.",
