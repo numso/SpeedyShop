@@ -28,15 +28,6 @@ define([
         },
 
         render: function () {
-
-
-            itemListView = new ItemListView({
-                className: "item-list-view",
-                model: {}
-            });
-
-
-
             this.$el.html(itemsTmpl());
             return this;
         },
@@ -49,8 +40,7 @@ define([
             $.get('/getItems/' + catName, function (items) {
                 // display the items in a list
                 that.curItems = items;
-                that.$el.html(itemListView.render(items).el);
-//                that.$el.html(itemsListTmpl(items));
+                that.$el.html(itemsListTmpl(items));
             });
         }
     });
