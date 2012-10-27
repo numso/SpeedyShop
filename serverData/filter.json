@@ -1,15 +1,3 @@
-{"Home": {
-  "id": "file",
-  "value": "File",
-  "popup": {
-    "menuitem": [
-      {"value": "New", "onclick": "CreateNewDoc()"},
-      {"value": "Open", "onclick": "OpenDoc()"},
-      {"value": "Close", "onclick": "CloseDoc()"}
-    ]
-  }
-}
-
 Electronics
     Price: below $49, 50-99, 100-199, 200-299, 300-300, 301-499, 500-599, 600-699, 700 and up
 
@@ -33,5 +21,38 @@ Electronics
     Tablets
 
     Televisions
-    
+
     Accessories
+
+[
+    {
+        "name": "Electronics",
+        "id": 0,
+        "filters": [
+            {
+                "name": "Price",
+                "type": "radio",
+                "values": [
+                    "below 49",
+                    "50-99",
+                    "..."
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Computers",
+        "id": 1,
+        "filters": [
+            {
+                "name": "Brand",
+                "type": "radio",
+                "values": ["Apple","HP","Toshiba","Asus","Samsung","Dell"]
+            },
+            {
+                "name": "Touchpad",
+                "type": "boolean"
+            }
+        ]
+    }
+]
