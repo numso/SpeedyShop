@@ -1,3 +1,4 @@
+/*
 Electronics
     Price: below $49, 50-99, 100-199, 200-299, 300-300, 301-499, 500-599, 600-699, 700 and up
 
@@ -23,36 +24,85 @@ Electronics
     Televisions
 
     Accessories
-
+*/
 [
-    {
-        "name": "Electronics",
-        "id": 0,
-        "filters": [
-            {
-                "name": "Price",
-                "type": "radio",
-                "values": [
-                    "below 49",
-                    "50-99",
-                    "..."
-                ]
-            }
-        ]
-    },
-    {
-        "name": "Computers",
-        "id": 1,
-        "filters": [
-            {
-                "name": "Brand",
-                "type": "radio",
-                "values": ["Apple","HP","Toshiba","Asus","Samsung","Dell"]
-            },
-            {
-                "name": "Touchpad",
-                "type": "boolean"
-            }
-        ]
-    }
+	{
+		"name": "Electronics",
+		"id": 0,
+		"filters": [
+			{
+				"name": "Price",
+				"type": "radio",
+				"values": ["below $100", "$100 - $199", "$200 - $299", 
+				"$300 - #399", "$400 - $499", "$500 - $599", "$600 - 699", "$700 and up"]
+			}
+		]
+	},
+	{
+		"name": "Computers",
+		"id": 1,
+		"filters": [
+			{
+				"name": "Brand",
+				"type": "radio",
+				"values": ["Apple", "HP", "Toshiba", "Asus", "Samsung", "Dell"]
+			},
+			{
+				"name": "Touchpad",
+				"type": "boolean",
+				"values": ["Yes", "No"]
+			}
+			{
+				"name": "Screensize",
+				"type": "radio",
+				"values": ["14\" and under", "15\" - 16\"", "17\" and up"]
+			}
+			{
+				"name": "Processor",
+				"type": "radio",
+				"values": ["Intel", "AMD"]
+			}
+			{
+				"name": "RAM",
+				"type": "radio",
+				"values": ["below 2GB", "2GB - 4GB", "4GB - 8GB", "8GB and above"]
+			}
+			{
+				"name": "Operating System",
+				"type": "radio",
+				"values": ["Windows", "Mac OS-X", "Linux", "Chrome"]
+			}
+			{
+				"name": "Features",
+				"type": "checkbox",
+				"values": ["backlit keyboard", "blu-ray", "webcam", "HDMI output"]
+			}
+		]
+	}
+	{
+		"name": "Cameras",
+		"id": 2,
+		"filters": [
+			{
+				"name": "Brand",
+				"type": "radio",
+				"values": ["Canon", "Nikon", "Sony", "Panasonic", "Olympus", "Samsung"]
+			},
+			{
+				"name": "Megapixels",
+				"type": "radio",
+				"values": ["5 or less", "11 - 14", "15 or more"]
+			}
+			{
+				"name": "Color",
+				"type": "radio",
+				"values": ["Black", "Red", "Silver/gray", "Blue", "White", "Orange", "Pink"]
+			}
+			{
+				"name": "Type",
+				"type": "radio",
+				"values": ["Compact", "Basic", "Advanced", "Kid's"]
+			}
+		]
+	}
 ]
