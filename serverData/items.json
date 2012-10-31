@@ -1,7 +1,7 @@
 [
     {
-        "name": "Computer",
-        "cat": ["Cameras"],
+        "name": "Gaming computer",
+        "cat": ["Electronics", "Computers", "$400 - $499"],
         "price": "$400.00",
         "rating": 4,
         "desc": "Super Sweet computer",
@@ -9,7 +9,7 @@
     },
     {
         "name": "Mousepad",
-        "cat": ["Cameras", "Televisions"],
+        "cat": ["Electronics", "Computers", "Below $50"],
         "price": "$4.50",
         "rating": 1,
         "desc": "For your Super Sweet computer",
@@ -17,7 +17,7 @@
     },
     {
         "name": "Lamp",
-        "cat": ["Televisions"],
+        "cat": ["Home", "Decour", "Below $100"],
         "price": "$10.99",
         "rating": 3,
         "desc": "To light the desk near your Super Sweet computer",
@@ -25,7 +25,7 @@
     },
     {
         "name": "Laptop",
-        "cat": ["Cameras"],
+        "cat": ["Electronics", "Computers", "$500 - $749"],
         "price": "$550.00",
         "rating": 4,
         "desc": "Super Sweet laptop",
@@ -34,7 +34,7 @@
 
     {
         "name": "iPhone",
-        "cat": ["Cameras"],
+        "cat": ["Electronics", "Mobile Phones", "$500 - $749"],
         "price": "$500.00",
         "rating": 5,
         "desc": "legitimate iphone from apple. this is the real deal man!!!!1!",
@@ -42,15 +42,15 @@
     },
     {
         "name": "40\" HDTV",
-        "cat": ["Cameras"],
+        "cat": ["Electronics", "Televisions", "$1000 and up"],
         "price": "$1999.99",
         "rating": 4,
-        "desc": "This monster will play your VHS Tapes like nothing else.",
+        "desc": "This monster will play your VHS Tapes like nothing else, lol.",
         "img": "//www.gadgetreview.com/wp-content/uploads/2008/05/samsung_40_inch_720_lcd_hdtv.png"
     },
     {
         "name": "Water Bottle",
-        "cat": ["Kitchen"],
+        "cat": ["Home", "Kitchen", "Below $100"],
         "price": "$1.99",
         "rating": 2,
         "desc": "Yum. Water tastes so good.",
