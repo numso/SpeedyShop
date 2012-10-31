@@ -3,24 +3,31 @@
 define([
     'backbone',
     'tmpl!pages/common/templates/header',
+    'tmpl!pages/common/templates/headerTemplates/main-menu',
     'pages/common/views/headerViews/login-modal'
 ], function (
     Backbone,
     headerTmpl,
+    mainMenuTmpl,
     LoginModalView
 ) {
     return Backbone.View.extend({
         loginModalView: undefined,
+        categories: undefined,
 
         render: function () {
             var that = this;
 
             $.get('/getCategories/', function (data) {
-                that.$el.html(headerTmpl(data));
+                that.$el.html(headerTmpl());
+                that.$('.main-menu').html(mainMenuTmpl(data));
+                that.categories = data;
 
                 var loginModalView = new LoginModalView({
                     className: 'account-box',
-                    model: that.model
+                    model: {
+                        headerView: that
+                    }
                 });
                 $('.account-box').replaceWith(loginModalView.render().el);
                 that.loginModalView = loginModalView;
@@ -35,6 +42,26 @@ define([
         events: {
             'click .show-sub-cats': 'showSubCats',
             'click .show-items': 'showItems'
+        },
+
+        // View Switch Methods /////////////////////////////////////////////////////////////////
+
+        showAdminView: function (e) {
+            this.$('.search-box').html("<div>Administrator Portal</div>");
+            this.$('.main-menu').html('<div style="height:30px;"></div>');
+            this.model.showAdminView();
+        },
+
+        showEmployeeView: function (e) {
+            this.$('.search-box').html("<div>Employee Portal</div>");
+            this.$('.main-menu').html('<div style="height:30px;"></div>');
+            this.model.showEmployeeView();
+        },
+
+        showCustomerView: function (e) {
+            this.$('.search-box').html("<input type='text'>");
+            this.$('.main-menu').html(mainMenuTmpl(this.categories));
+            this.model.showCustomerView();
         },
 
         // Menu Methods ////////////////////////////////////////////////////////////////////////

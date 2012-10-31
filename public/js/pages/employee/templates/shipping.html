@@ -1,22 +1,27 @@
-<h3> Possible Layout </h3><br />
-orderStatus = Processed/Shipped<br />
-orderNum = integer value start at 1000<br />
-estimatedWeight = Sum of all items in Order<br />
-items = Array of Key : Value pairs (ItemNumber : Quantity)<br />
-shippingLabel = Shipping Label Object that contains customers shipping info<br />
-int [] orderStatusSearch("processed", "shipped")<br />
-	return int array with all of the OrderNums that have that status<br />
-<br />
-int getOrder(int thisOrderNum)<br />
-	return Order obj<br />
-### on shipping page ###<br />
-<br />
-Scroll window with refresh button<br />
-	Contain a list of Orders that have been processed but not shipped<br />
-<br />
-Form<br />
-	Checklist for items that have been packaged<br />
-<br />
-Total Package Weight<br />
-<br />
-Shipping Label -- need it to be print clickable<br />
+<div class="emp-shipping-body">
+    <h3> Possible Layout </h3>
+<pre>
+    orderStatus = Processed/Shipped
+    orderNum = integer value start at 1000
+    estimatedWeight = Sum of all items in Order
+    items = Array of Key : Value pairs (ItemNumber : Quantity)
+    shippingLabel = Shipping Label Object that contains customers shipping info
+    int [] orderStatusSearch("processed", "shipped")
+    	return int array with all of the OrderNums that have that status
+
+    int getOrder(int thisOrderNum)
+    	return Order obj
+    ### on shipping page ###
+
+    Scroll window with refresh button
+    	Contain a list of Orders that have been processed but not shipped
+
+    Form
+    	Checklist for items that have been packaged
+
+    Total Package Weight
+
+    Shipping Label -- need it to be print clickable
+</pre>
+
+</div>

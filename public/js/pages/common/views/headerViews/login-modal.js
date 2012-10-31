@@ -67,18 +67,15 @@ define([
         // Change-View Methods /////////////////////////////////////////////////////////////////
 
         showAdminView: function (e) {
-            console.log('TODO:: Show the Admin View');
-            this.model.showAdminView();
+            this.model.headerView.showAdminView();
         },
 
         showEmployeeView: function (e) {
-            console.log('TODO:: Show the Employee View');
-            this.model.showEmployeeView();
+            this.model.headerView.showEmployeeView();
         },
 
         showCustomerView: function (e) {
-            console.log('TODO:: Show the Customer View');
-            this.model.showCustomerView();
+            this.model.headerView.showCustomerView();
         },
 
         // Show-Modal Methods //////////////////////////////////////////////////////////////////
@@ -256,7 +253,7 @@ define([
 
             if (item[0] === this.$('.cpass')[0]) {
                 if (this.$('.pass').val() !== this.$('.cpass').val()) {
-                    this.$('.cpass-info').find('.info-error').text('You\'re passwords don\'t match.');
+                    this.$('.cpass-info').find('.info-error').text('Your passwords don\'t match.');
                     item.addClass('error');
                     return false;
                 }
@@ -292,6 +289,8 @@ define([
                 if (data.success) {
                     that.$el.html(loginModalTmpl());
                     that.$el.removeClass('logged-in');
+
+                    that.showCustomerView();
                 }
             });
         },

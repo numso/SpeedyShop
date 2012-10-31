@@ -1,0 +1,14 @@
+{{#each this}}
+    <div class='category{{#if subCats}} show-sub-cats{{else}} show-items{{/if}}'>
+        <span>{{title}}</span>
+        {{#if subCats}}
+            <div class='arrow'></div>
+            <div class='sub-cat-container flyout'>
+                <div class='arrow'></div>
+                {{#each subCats}}
+                    <div class='sub-category show-items'>{{this}}</div>
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
+{{/each}}
