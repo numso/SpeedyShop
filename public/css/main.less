@@ -31,76 +31,54 @@ body {
     -webkit-perspective: 1000;
 }
 
-.overlay {
-    position: fixed;
-    width: 100%;
-    min-width: 950px;
-    z-index: 2;
-
-    .padder {
-        width: 92%;
-        margin: 0 auto;
-        margin-top: 17px;
-    }
-}
-
 .wrapper {
-    padding-top: 180px;
-    padding-bottom: 30px;
-    width: 92%;
+    width: 93%;
     margin: 0 auto;
-    z-index:-1;
+//    min-width: 950px;
 }
 
 .header {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 10px 0;
+    margin-bottom: 25px;
 }
 
-.footer {
-    width: 65%;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
-.right-panel {
-    float: right;
-    width: 15%;
-    margin-top: 10px;
+.side-panel {
+    display: inline-block;
     position: relative;
+    width: 15%;
+    height: 540px;
+    vertical-align: top;
 
     .panel {
-        min-height: 500px;
-        min-width: 160px;
         position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }
 
-.left-panel {
-    float: left;
-    width: 15%;
-    margin-top: 10px;
-    position: relative;
-
-    .panel {
-        min-height: 500px;
-        min-width: 160px;
-        position: absolute;
-    }
-}
-
-.mid-panel {
+.mid-section {
+    display: inline-block;
+    margin: 0 2%;
     width: 65%;
-    margin: 0 auto;
-    position: relative;
-    min-height: 470px;
 
-    .panel {
-//        z-index:-1;
-        width: 97%;
-        min-height: 430px;
-        position: absolute;
+    .mid-panel {
+        position: relative;
+        height: 450px;
+        margin-bottom: 50px;
+
+        .panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    .footer {
+        margin-top: 20px;
     }
 }
 
@@ -110,6 +88,7 @@ body {
     border-radius: 5px;
     padding: 15px;
     -webkit-backface-visibility: hidden;
+    height: 100%;
 
     &.hidden {
         display: none;
@@ -123,21 +102,11 @@ body {
     }
 }
 
-.up {
-    .rotated {
-        -webkit-transform: rotateX(180deg);
-    }
-}
-
 .flipit {
     -webkit-transform-style: preserve-3d;
     -webkit-transition: 1s all;
 
     &.left {
         -webkit-transform: rotateY(180deg);
-    }
-
-    &.up {
-        -webkit-transform: rotateX(180deg);
     }
 }
