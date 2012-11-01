@@ -13,7 +13,6 @@ define([
 ) {
     return Backbone.View.extend({
         curItems: undefined,
-        itemListView: undefined,
 
         initialize: function () {
         },
@@ -28,7 +27,7 @@ define([
         },
 
         render: function () {
-            this.$el.html(itemsTmpl());
+            this.$el.html(itemsTmpl('Click on a Category to Start'));
             return this;
         },
 
@@ -40,7 +39,11 @@ define([
             $.get('/getItems/' + catName, function (items) {
                 // display the items in a list
                 that.curItems = items;
-                that.$el.html(itemsListTmpl(items));
+                if (items.length === 0) {
+                    that.$el.html(itemsTmpl('Sorry, We don\'t have any items in that category.'));
+                } else {
+                    that.$el.html(itemsListTmpl(items));
+                }
             });
         }
     });
