@@ -1,15 +1,17 @@
 /*jshint node:true */
 
-var PORT = process.env.PORT || process.argv[2] || 80;
+var PORT = process.env.PORT || process.argv[2] || 80,
+    HOST = process.env.HOST,
+    ENCRYPTED = process.argv[3] || 'encrypted';
 
 var express = require('express'),
     app = express();
 
-app.listen(PORT);
+app.listen(PORT, HOST);
 console.log('Server running on port:' + PORT);
 
 var indexServices = require('./serverFiles/indexServices')();
-var authServices = require('./serverFiles/authServices')();
+var authServices = require('./serverFiles/authServices')(ENCRYPTED);
 
 app.configure(function () {
     app.use(express.logger({format: ':method :status :url'}));
