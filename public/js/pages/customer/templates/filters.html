@@ -1,73 +1,32 @@
-Sample filter (hardcoded)
+<i>Hardcoded filter</i>
 <div class="filters-module">
-	<div class="parent-filter">
+		Category Electronics
 		<ul style="list-style-type:disc">
-			<li>Electronics
-				<ul style="list-style-type:circle">
-
-					<li>Price
-						<ul style="list-style-type:none">
-							<li>Below $50</li>
-							<li>$50 - $99</li>
-							<li>$100 - $199</li>
-							<li>$200 - $299</li>
-							<li>$400 - $499</li>
-							<li>$500 - $749</li>
-							<li>$750 - $999</li>
-							<li>$1000 and up</li>
-						</ul>
-					</li>
-
+			<li>Price
+				<ul style="list-style-type:none">
+					<li>From:</li>
+					<li>To:</li>
 				</ul>
 			</li>
+			<li>Ratings
+				<form action="">
+					<input type="checkbox" name="vehicle" value="1">*<br>
+					<input type="checkbox" name="vehicle" value="2">**<br>
+					<input type="checkbox" name="vehicle" value="3">***<br>
+					<input type="checkbox" name="vehicle" value="4">****<br>
+					<input type="checkbox" name="vehicle" value="5">*****<br>
+					<button type="submit ratings filter">Submit ratings filter</button>
+				</form>
+
+			</li>
 		</ul>
-	</div>
-	<div class="child-filter">
+		Subcategory Cameras
 		<ul style="list-style-type:disc">
-			<li>Cameras
-				<ul style="list-style-type:circle">
-					
-					<li>Brand
-						<ul style="list-style-type:none">
-							<li>Canon</li>
-							<li>Nikon</li>
-							<li>Sony</li>
-							<li>Panasonic</li>
-							<li>Olympus</li>
-							<li>Samsung</li>
-						</ul>
-					</li>
-
-					<li>Megapixels
-						<ul style="list-style-type:none">
-							<li>5 or less</li>
-							<li>11 - 14</li>
-							<li>15 or more</li>
-						</ul>
-					</li>
-
-					<li>Color
-						<ul style="list-style-type:none">
-							<li>Black</li>
-							<li>Red</li>
-							<li>Silver/gray</li>
-							<li>Blue</li>
-							<li>White</li>
-							<li>Orange</li>
-							<li>Pink</li>
-						</ul>
-					</li>
-
-					<li>Type
-						<ul style="list-style-type:none">
-							<li>Compact</li>
-							<li>Basic</li>
-							<li>Advanced</li>
-							<li>Kid's</li>
-						</ul>
-					</li>
-
-				</ul>
+			<li>Brand
+				<form action="">
+					<input type="checkbox" name="vehicle" value="Sony">Sony<br>
+					<input type="checkbox" name="vehicle" value="Nikon">Nikon
+				</form>
 			</li>
 		</ul>
 	</div>
