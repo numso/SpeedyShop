@@ -27,7 +27,7 @@ define([
         },
 
         render: function () {
-            this.$el.html(itemsTmpl('Click on a Category to Start'));
+            this.$el.html(itemsTmpl('Welcome to SpeedyShop! To start, use the categories above to choose from our wide variety of products.'));
             return this;
         },
 
