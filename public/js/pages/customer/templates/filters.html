@@ -1,3 +1,33 @@
+<div class='filters-module'>
+
+	{{#if this}}
+		<div class='category-title'>Category {{subcat}}</div>
+
+		{{#each data}}
+			<div class='filter-title'>{{name}}</div>
+
+			<div class='filter-value-box'>
+				{{#each values}}
+					<div class='filter-value'>{{this}}</div>
+				{{/each}}
+			</div>
+		{{/each}}
+
+
+
+
+	{{else}}
+
+		<div>Filters</div>
+
+	{{/if}}
+</div>
+
+
+
+
+<!--
+
 Sample filter (hardcoded)
 <div class="filters-module">
 	<div class="parent-filter">
@@ -26,7 +56,7 @@ Sample filter (hardcoded)
 		<ul style="list-style-type:disc">
 			<li>Cameras
 				<ul style="list-style-type:circle">
-					
+
 					<li>Brand
 						<ul style="list-style-type:none">
 							<li>Canon</li>
@@ -72,7 +102,6 @@ Sample filter (hardcoded)
 		</ul>
 	</div>
 </div>
-<!--
 <div class="items-module">
     {{#each this}}
         <div class="clickable-item">
@@ -84,4 +113,4 @@ Sample filter (hardcoded)
         </div>
     {{/each}}
 </div>
--->
+ -->

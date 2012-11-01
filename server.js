@@ -11,6 +11,7 @@ app.listen(PORT, HOST);
 console.log('Server running on port:' + PORT);
 
 var indexServices = require('./serverFiles/indexServices')();
+var filterServices = require('./serverFiles/filterServices')();
 var authServices = require('./serverFiles/authServices')(ENCRYPTED);
 
 app.configure(function () {
@@ -28,6 +29,9 @@ app.configure(function () {
 app.get('/getItems', indexServices.getItems);
 app.get('/getItems/:catID', indexServices.getItems);
 app.get('/getCategories/', indexServices.getCategories);
+
+// Filters Stuff
+app.post('/filters', filterServices.getFilters);
 
 // Authentication Stuff
 app.post('/login', authServices.login);
