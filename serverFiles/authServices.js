@@ -1,13 +1,17 @@
 
-module.exports = function () {
+module.exports = function (encrypted) {
 
     var CUSTOMER_TYPE = 1,
         EMPLOYEE_TYPE = 2,
         ADMIN_TYPE = 3;
 
     var fs = require('fs'),
-        bcrypt = require('bcrypt'),
+        userDB = JSON.parse(fs.readFileSync("serverData/usersWin.json"));
+
+    if (encrypted === 'encrypted') {
+        var bcrypt = require('bcrypt');
         userDB = JSON.parse(fs.readFileSync("serverData/users.json"));
+    }
 
     return {
         login: function (req, res, next) {
@@ -21,8 +25,12 @@ module.exports = function () {
 
                 var user = userDB[input.user];
 
-                if (user && bcrypt.compareSync(input.pass, user.pass)) {
-//                if (user && user.pass === input.pass) {
+                var isAuth = user && (input.pass === user.pass);
+                if (encrypted === 'encrypted') {
+                    isAuth = user && bcrypt.compareSync(input.pass, user.pass);
+                }
+
+                if (isAuth) {
                     res.cookie('loggedIn', true);
                     res.cookie('loggedInName', input.user);
                     res.send(JSON.stringify({ success: true, user: input.user, userID: user.type }));
@@ -72,8 +80,13 @@ module.exports = function () {
                 if (userDB[input.user]) {
                     res.send(JSON.stringify({ success: false, error: 'already exists' }));
                 } else {
-                    var salt = bcrypt.genSaltSync(10);
-                    var hash = bcrypt.hashSync(input.pass, salt);
+
+                    var hash = input.pass;
+                    if (encrypted === 'encrypted') {
+                        var salt = bcrypt.genSaltSync(10);
+                        hash = bcrypt.hashSync(input.pass, salt);
+                    }
+
                     var newUser = {
                         pass: hash,
                         email: input.email,
