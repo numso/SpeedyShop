@@ -12,7 +12,7 @@
 	},
 		{ //home subcategories
 			"name": "Decour",
-			"id": 0,
+			"id": 1,
 			"filters": [
 				{
 					"name": "Categories",
@@ -23,7 +23,7 @@
 		},
 		{
 			"name": "Furniture",
-			"id": 0,
+			"id": 2,
 			"filters": [
 				{
 					"name": "Categories",
@@ -34,7 +34,7 @@
 		},
 		{
 			"name": "Kitchen",
-			"id": 0,
+			"id": 3,
 			"filters": [
 				{
 					"name": "Categories",
@@ -45,7 +45,7 @@
 		},
 		{
 			"name": "Bedroom",
-			"id": 0,
+			"id": 4,
 			"filters": [
 				{
 					"name": "Categories",
@@ -56,7 +56,7 @@
 		},
 		{
 			"name": "Bathroom",
-			"id": 0,
+			"id": 5,
 			"filters": [
 				{
 					"name": "Categories",
@@ -67,7 +67,7 @@
 		}, //end home subcategories
 	{
 		"name": "Electronics",
-		"id": 0,
+		"id": 6,
 		"filters": [
 			{
 				"name": "Price",
@@ -79,7 +79,7 @@
 	},
 		{ //electronics subcategories
 			"name": "Computers",
-			"id": 1,
+			"id": 7,
 			"filters": [
 				{
 					"name": "Brand",
@@ -120,7 +120,7 @@
 		},
 		{
 			"name": "Cameras",
-			"id": 2,
+			"id": 8,
 			"filters": [
 				{
 					"name": "Brand",
@@ -146,7 +146,7 @@
 		},
 		{
 			"name": "Mobile Phones",
-			"id": 2,
+			"id": 9,
 			"filters": [
 				{
 					"name": "Carrier",
@@ -167,7 +167,7 @@
 		},
 		{
 			"name": "Tablets",
-			"id": 2,
+			"id": 10,
 			"filters": [
 				{
 					"name": "Brand",
@@ -193,7 +193,7 @@
 		},
 		{
 			"name": "Televisions",
-			"id": 2,
+			"id": 11,
 			"filters": [
 				{
 					"name": "Size",
@@ -219,7 +219,7 @@
 		}, //end electronics subcategories
 	{
 		"name": "Clothing",
-		"id": 0,
+		"id": 12,
 		"filters": [
 			{
 				"name": "Price",
@@ -237,7 +237,7 @@
 	},
 		{ //clothing subcategories
 			"name": "Women's Clothing",
-			"id": 0,
+			"id": 13,
 			"filters": [
 				{
 					"name": "Type",
@@ -248,7 +248,7 @@
 		},
 		{
 			"name": "Men's Clothing",
-			"id": 0,
+			"id": 14,
 			"filters": [
 				{
 					"name": "Type",
@@ -259,7 +259,7 @@
 		},
 		{
 			"name": "Children's Clothing",
-			"id": 0,
+			"id": 15,
 			"filters": [
 				{
 					"name": "Gender",
@@ -270,7 +270,7 @@
 		},
 		{
 			"name": "Shoes",
-			"id": 0,
+			"id": 16,
 			"filters": [
 				{
 					"name": "Type",
@@ -281,7 +281,7 @@
 		},
 		{
 			"name": "Accessories",
-			"id": 0,
+			"id": 17,
 			"filters": [
 				{
 					"name": "Themed",
@@ -297,7 +297,7 @@
 		} //end clothing subcategories
 	{
 		"name": "Jewelry",
-		"id": 0,
+		"id": 18,
 		"filters": [
 			{
 				"name": "Price",
@@ -309,7 +309,7 @@
 	},
 		{
 			"name": "Rings",
-			"id": 0,
+			"id": 19,
 			"filters": [
 				{
 					"name": "Type",
@@ -321,7 +321,7 @@
 		},
 		{
 			"name": "Necklaces",
-			"id": 0,
+			"id": 20,
 			"filters": [
 				{
 					"name": "Type",
@@ -333,7 +333,7 @@
 		},
 		{
 			"name": "Earrings",
-			"id": 0,
+			"id": 21,
 			"filters": [
 				{
 					"name": "Type",
@@ -345,7 +345,7 @@
 		},
 		{
 			"name": "Bracelets",
-			"id": 0,
+			"id": 22,
 			"filters": [
 				{
 					"name": "Type",
@@ -357,12 +357,12 @@
 		},
 		{
 			"name": "Other",
-			"id": 0,
+			"id": 23,
 			"filters": [] //I hope this is OK, the Jewelry filters should be fine
 		} //end jewelery subcategories
 	{
 		"name": "Books",
-		"id": 0,
+		"id": 24,
 		"filters": [ //no more filters seem possible
 			{
 				"name": "Price",
@@ -374,12 +374,12 @@
 	},
 	{
 		"name": "Automobile",
-		"id": 0,
+		"id": 25,
 		"filters": [] //no base filters really applicable
 	},
 		{ //automobile subcategories
 			"name": "Vehicles",
-			"id": 0,
+			"id": 26,
 			"filters": [
 				{
 					"name": "Price",
@@ -404,7 +404,7 @@
 		},
 		{
 			"name": "Decals",
-			"id": 0,
+			"id": 27,
 			"filters": [
 				{
 					"name": "Categories",
@@ -416,7 +416,7 @@
 		},
 		{
 			"name": "Radios",
-			"id": 0,
+			"id": 28,
 			"filters": [
 				{
 					"name": "Speaker location",
@@ -428,7 +428,7 @@
 		},
 		{
 			"name": "Accessories",
-			"id": 0,
+			"id": 29,
 			"filters": [
 				{
 					"name": "Categories",
@@ -439,7 +439,7 @@
 		}, //end automobile subcategories
 	{
 		"name": "Toys",
-		"id": 0,
+		"id": 30,
 		"filters": [ //no more filters seem possible
 			{
 				"name": "Price",
@@ -451,7 +451,7 @@
 	},
 	{
 		"name": "Sports",
-		"id": 0,
+		"id": 31,
 		"filters": [
 			{
 				"name": "Price",
@@ -459,6 +459,6 @@
 				"values": ["Below $40", "$40 - $59", "$60 - $79", "$80 - $99", "$100 - $149", "$150 and up"]
 
 			}
-		] //I'm running out of ideas for more categories
+		]
 	},
 ]
