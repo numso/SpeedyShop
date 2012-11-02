@@ -11,7 +11,8 @@
         "rating": 5,
         "desc": "This unique natural dining table will be perfect in your home. Each piece of natural furniture has its own inherent character - no two pieces could ever be exactly alike.",
         "img": "//www.woodlandcreekfurniture.com/graphics/Natural%20Furniture%20Dining%20Table%20Ball%20Design.jpg",
-        "id": 0
+        "id": 0,
+        "available": true
     },
     {
         "name": "Comfy Sofa",
@@ -25,7 +26,8 @@
         "rating": 4,
         "desc": "This comfy is an excellent addition to your living room. Manufactured in the USA from 80% recycled materials.",
         "img": "//earth911.com/wp-content/uploads/2008/10/furniture.jpg",
-        "id": 1
+        "id": 1,
+        "available": true
     },
     {
         "name": "Macbook Pro",
@@ -49,7 +51,8 @@
             "//www.woodlandcreekfurniture.com/graphics/Natural%20Furniture%20Dining%20Table%20Ball%20Design.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
-        "id": 2
+        "id": 2,
+        "available": true
     },
     {
         "name": "Asus N61V laptop",
@@ -69,7 +72,8 @@
         "rating": 4,
         "desc": "The N61VN is a 16-inch 6lb gaming and multimedia notebook from ASUS. It includes a built-in Blu-ray player and NVIDIA GeForce GT 240M graphics card, 320 GB Hard Drive, a 1366x768 screen, and 4 GB of RAM. Windows 7 Home Premium 64-bit comes preinstalled, powered by an Intel Core 2 Quad Q9000 @ 2.0 GHz.",
         "img": "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
-        "id": 3
+        "id": 3,
+        "available": true
     },
     {
         "name": "Gaming computer",
@@ -82,7 +86,8 @@
         "rating": 4,
         "desc": "Super Sweet computer",
         "img": "//cdn.sheknows.com/articles/crave/desktop-computer.jpg",
-        "id": 4
+        "id": 4,
+        "available": false
     },
     {
         "name": "Mousepad",
@@ -95,7 +100,8 @@
         "rating": 5,
         "desc": "For your Super Sweet computer",
         "img": "//www.qualitylogoproducts.com/computer-accessories/mouspad-extralarge.jpg",
-        "id": 5
+        "id": 5,
+        "available": true
     },
     {
         "name": "Lamp",
@@ -108,7 +114,8 @@
         "rating": 3,
         "desc": "To light the desk near your Super Sweet computer",
         "img": "//yourfurniturewebsite.com/11-grungemag/wp-content/blogs.dir/43/files/2012/04/stewart-lamp.jpg",
-        "id": 6
+        "id": 6,
+        "available": true
     },
     {
         "name": "Laptop",
@@ -121,7 +128,8 @@
         "rating": 4,
         "desc": "Super Sweet laptop",
         "img": "//us.toshiba.com/images/showcase/products/satellite-l655-s5058-laptop.png",
-        "id": 7
+        "id": 7,
+        "available": true
     },
     {
         "name": "iPhone",
@@ -134,7 +142,8 @@
         "rating": 5,
         "desc": "legitimate iphone from apple. this is the real deal man!!!!1!",
         "img": "//assets.inhabitat.com/wp-content/blogs.dir/1/files/2010/06/iphone4-LEAD.jpg",
-        "id": 8
+        "id": 8,
+        "available": true
     },
     {
         "name": "40\" HDTV",
@@ -147,7 +156,8 @@
         "rating": 4,
         "desc": "This monster will play your VHS Tapes like nothing else, lol.",
         "img": "//www.gadgetreview.com/wp-content/uploads/2008/05/samsung_40_inch_720_lcd_hdtv.png",
-        "id": 9
+        "id": 9,
+        "available": true
     },
     {
         "name": "Water Bottle",
@@ -160,6 +170,7 @@
         "rating": 2,
         "desc": "Yum. Water tastes so good.",
         "img": "//cdn.instructables.com/FDA/04K9/FTTOTQW4/FDA04K9FTTOTQW4.LARGE.jpg",
-        "id": 10
+        "id": 10,
+        "available": true
     }
 ]
