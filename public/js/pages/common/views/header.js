@@ -41,10 +41,16 @@ define([
 
         events: {
             'click .show-sub-cats': 'showSubCats',
-            'click .show-items': 'showItems'
+            'click .show-items': 'showItems',
+            'click #keep-shopping-button': 'showCustomerView'
         },
 
         // View Switch Methods /////////////////////////////////////////////////////////////////
+
+        showKeepShoppingButton: function () {
+            this.$('.search-box').html('<div><button id="keep-shopping-button">Keep Shopping</button></div>');
+            this.$('.main-menu').html('<div style="height:30px;"></div>');
+        },
 
         showAdminView: function (e) {
             this.$('.search-box').html("<div>Administrator Portal</div>");
