@@ -173,7 +173,7 @@ require([
             curLeft = $('.reviews-view');
         }
 
-        reviewsView.clickedReview(id);
+        reviewsView.clickedItem(id);
     };
 
     // Create the Header and Footer Views

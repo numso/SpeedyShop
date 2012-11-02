@@ -1,1 +1,24 @@
-THIS IS THE REVIEWS MODULE FOR WHEN AN ITEM IS SELECTED
+{{#if msg}}
+    <div class="initial-review-page">{{msg}}</div>
+{{else}}
+    <div class="review-module">
+        <div class="review-header-container">
+                {{#each starReviews}}
+                    <div class="stars">
+                        <img src="img/ratings/{{ratings}}.png">
+                        <span>{{number}}</span>
+                    </div>
+                {{/each}}
+                <button class="star">Show All</button>
+        </div>
+        <div class="reviews">
+            {{#each reviews}}
+                <div class="individual-review">
+                    <img src="img/ratings/{{ratings}}.png">
+                    <span>{{name}}</span>
+                    <div >{{text}}</div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}
