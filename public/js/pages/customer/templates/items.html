@@ -1,1 +1,22 @@
-<div class="initial-items-page">{{this}}</div>
+{{#if msg}}
+    <div class="initial-items-page">{{msg}}</div>
+{{else}}
+    <div class="items-module">
+
+        <div class='item-header'>
+            <div class='item-header-container'>
+                <div class='item-bc'>{{cat}} > {{subcat}}</div>
+                <div class='item-info'>Showing 1 to 20 of 2000
+            </div>
+            <div class='item-nav'>
+                <button class="layout-btn show-block-layout"><img src="img/block.jpg"></button>
+                <button class="layout-btn show-list-layout"><img src="img/list.jpg"></button></div>
+            </div>
+        </div>
+
+        <div class='item-body'></div>
+
+        <div class='item-footer'>&lt;Prev 1 2 3 ... 40 Next&gt;</div>
+
+    </div>
+{{/if}}

@@ -24,7 +24,13 @@
 		"price": "$2999",
 		"rating": 4,
 		"desc": "Apple's derpiest laptop yet! This refined product offers a 15.5\" screen, 6 GB of RAM, OS-X Mountain Lion, and a backlit keyboard. Perfect for college!",
-		"img": "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
+		"img": "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+		"extraImg": [
+			"//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+			"//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+			"//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+			"//www.bmotorsports.com/shop/images/product-unavailable.jpg"
+		]
 	},
 
 	{

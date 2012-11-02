@@ -163,7 +163,7 @@ require([
     // Create the Header and Footer Views
 
     var showItemsInList = function (catName, subcatName) {
-        itemsView.displayItemList(subcatName);
+        itemsView.loadItems(catName, subcatName);
         filtersView.selectedItem(catName, subcatName);
     };
 

@@ -2,7 +2,7 @@
 
 var PORT = process.env.PORT || process.argv[2] || 80,
     HOST = process.env.HOST,
-    ENCRYPTED = process.argv[3] || 'encrypted';
+    ENV = process.argv[3] || 'dev';
 
 var express = require('express'),
     app = express();
@@ -12,7 +12,12 @@ console.log('Server running on port:' + PORT);
 
 var indexServices = require('./serverFiles/indexServices')();
 var filterServices = require('./serverFiles/filterServices')();
-var authServices = require('./serverFiles/authServices')(ENCRYPTED);
+
+if (ENV === 'prod') {
+    var authServices = require('./serverFiles/authServices')();
+} else {
+    var authServices = require('./serverFiles/authServicesDEV')();
+}
 
 app.configure(function () {
     app.use(express.logger({format: ':method :status :url'}));

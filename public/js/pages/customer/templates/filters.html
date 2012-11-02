@@ -7,14 +7,28 @@
 			<div class='filter-title'>{{name}}</div>
 
 			<div class='filter-value-box'>
-				{{#each values}}
-					<div class='filter-value'>{{this}}</div>
-				{{/each}}
+
+				{{#if radio}}
+					{{#each radio}}
+						<div class='filter-radio-value'>{{this}}</div>
+					{{/each}}
+				{{/if}}
+
+				{{#if boolean}}
+					{{#each boolean}}
+						<div class='filter-boolean-value'>{{this}}</div>
+					{{/each}}
+				{{/if}}
+
+				{{#if checkbox}}
+					{{#each checkbox}}
+						<div class='filter-checkbox-value'>{{this}}</div>
+					{{/each}}
+				{{/if}}
+
+
 			</div>
 		{{/each}}
-
-
-
 
 	{{else}}
 

@@ -30,8 +30,7 @@ define([
             $.post('/filters', JSON.stringify(myObj), function (data) {
                 that.$el.html(filtersTmpl({
                     data: data,
-                    subcat: subcat,
-                    cat: cat
+                    subcat: subcat
                 }));
             })
         }

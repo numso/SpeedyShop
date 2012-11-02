@@ -1,12 +1,11 @@
-module.exports = function () {
+module.exports = function (encrypted) {
 
     var CUSTOMER_TYPE = 1,
         EMPLOYEE_TYPE = 2,
         ADMIN_TYPE = 3;
 
     var fs = require('fs'),
-        bcrypt = require('bcrypt'),
-        userDB = JSON.parse(fs.readFileSync("serverData/users.json"));
+        userDB = JSON.parse(fs.readFileSync("serverData/usersWin.json"));
 
     return {
         login: function (req, res, next) {
@@ -20,7 +19,7 @@ module.exports = function () {
 
                 var user = userDB[input.user];
 
-                if (user && bcrypt.compareSync(input.pass, user.pass)) {
+                if (user && (input.pass === user.pass)) {
                     res.cookie('loggedIn', true);
                     res.cookie('loggedInName', input.user);
                     res.send(JSON.stringify({ success: true, user: input.user, userID: user.type }));
@@ -71,11 +70,9 @@ module.exports = function () {
                     res.send(JSON.stringify({ success: false, error: 'already exists' }));
                 } else {
 
-                    var salt = bcrypt.genSaltSync(10);
-                    var hash = bcrypt.hashSync(input.pass, salt);
-
+                    var pass = input.pass;
                     var newUser = {
-                        pass: hash,
+                        pass: pass,
                         email: input.email,
                         fname: input.fname,
                         lname: input.lname,

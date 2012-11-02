@@ -1,11 +1,12 @@
-<div class="items-module">
-    {{#each this}}
-        <div class="clickable-item">
-            <div><img class="item-img" src="{{img}}"></div>
-            <div>{{name}}</div>
-            <div>{{desc}}</div>
+{{#each this}}
+    <div class="clickable-item list-item{{#if isOdd}} odd-item{{else}} even-item{{/if}}">
+        <img class="item-img" src="{{img}}">
+        <div class="item-specs">
+            <div class='item-spec-name'>{{name}}</div>
             <div>{{price}}</div>
             <div><img src="img/ratings/{{rating}}.png"></div>
+            <button>Add to Cart</button>
         </div>
-    {{/each}}
-</div>
+        <div class="item-desc">{{desc}}</div>
+    </div>
+{{/each}}

@@ -1,0 +1,17 @@
+<div class='item-padder'></div>
+<div class='item-padder'></div>
+{{#each this}}
+    <div class="clickable-item block-item{{#if isOdd}} odd-item{{else}} even-item{{/if}}">
+        <div class="block-item-container">
+            <img class="item-img" src="{{img}}">
+            <div class="item-specs">
+                <div class='item-spec-name'>{{name}}</div>
+                <div>{{price}}</div>
+                <div><img src="img/ratings/{{rating}}.png"></div>
+                <button>Add to Cart</button>
+            </div>
+            <div class="item-desc">{{desc}}</div>
+        </div>
+    </div>
+{{/each}}
+<div class='item-padder'></div>

@@ -3,7 +3,7 @@
 module.exports = function () {
 
     var fs = require('fs'),
-        filters = JSON.parse(fs.readFileSync('serverData/filter.json'));
+        filters = JSON.parse(fs.readFileSync('serverData/newFilter.json'));
 
     return {
         getFilters: function (request, response, next) {
@@ -20,11 +20,15 @@ module.exports = function () {
                     subcat = data.subcat,
                     selectedFilters = [];
 
-                for (var i = 0; i < filters.length; ++i) {
-                    if (filters[i].name === cat || filters[i].name === subcat) {
-                        for (var j = 0; j < filters[i].filters.length; ++j) {
-                            selectedFilters.push(filters[i].filters[j]);
-                        }
+                if (filters[cat]) {
+                    for (var j = 0; j < filters[cat].filters.length; ++j) {
+                        selectedFilters.push(filters[cat].filters[j]);
+                    }
+                }
+
+                if (filters[subcat]) {
+                    for (var j = 0; j < filters[subcat].filters.length; ++j) {
+                        selectedFilters.push(filters[subcat].filters[j]);
                     }
                 }
 

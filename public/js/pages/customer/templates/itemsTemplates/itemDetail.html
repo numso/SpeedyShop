@@ -1,22 +1,18 @@
-<div>
-    <button>Back</button>
-    <div class="leftSide">
-        <div><img class="bigImg" src="{{img}}"></div>
-        <div>
-            {{#each smlImg}}
-                <div><img class="smlImg" src="{{this}}"></div>
+<div class='item-detail-view'>
+    <div class='item-images'>
+        <img class='item-big-img' src="{{img}}">
+        <div class='item-small-img-group'>
+            {{#each extraImg}}
+                <img class='item-small-img' src="{{this}}">
             {{/each}}
         </div>
     </div>
-    <div class="rightSide">
-        <div><h2>{{name}}</h2></div>
-        <div>{{price}}</div>
-        <div><img src="img/ratings/{{rating}}.png"></div>
-        <div>{{desc}}</div>
-        <div>{{detail}}</div>
-        <input type="text"></input>
+    <div class='item-details-box'>
+        <button>Back</button>
+        <div class='item-detail-name'>{{name}}</div>
+        <div class='item-detail-price'>{{price}}</div>
+        <img class='item-detail-rating' src="img/ratings/{{rating}}.png">
         <button>Add to Cart</button>
-
     </div>
-
+    <div class='item-detail-desc'>{{desc}}</div>
 </div>
