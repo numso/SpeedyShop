@@ -141,21 +141,6 @@
             }
         ]
     },
-    "Clothing": {
-        "id": 10,
-        "filters": [
-            {
-                "name": "Size",
-                "radio": [
-                    "Small",
-                    "Medium",
-                    "Large",
-                    "Extra large",
-                    "Really large and bigger"
-                ]
-            }
-        ]
-    },
     "Women's Clothing": {
         "id": 11,
         "filters": [
