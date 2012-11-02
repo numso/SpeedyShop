@@ -9,15 +9,14 @@
         "price": 2395,
         "rating": 5,
         "desc": "This unique natural dining table will be perfect in your home. Each piece of natural furniture has its own inherent character - no two pieces could ever be exactly alike.",
-        "images": "//www.woodlandcreekfurniture.com/graphics/Natural%20Furniture%20Dining%20Table%20Ball%20Design.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//www.woodlandcreekfurniture.com/graphics/Natural%20Furniture%20Dining%20Table%20Ball%20Design.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 0,
-        "available": true
+        "available": 5
     },
     {
         "name": "Glass Table",
@@ -29,15 +28,14 @@
         "price": 1349,
         "rating": 4,
         "desc": "The base of this table is carved out of stone.",
-        "images": "//www.digsdigs.com/photos/Modern-dining-table-with-stone-base-Vicenza-Shapes-from-Diotti-AF-1-554x353.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//www.digsdigs.com/photos/Modern-dining-table-with-stone-base-Vicenza-Shapes-from-Diotti-AF-1-554x353.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 1,
-        "available": true
+        "available": 5
     },
     {
         "name": "Living Room Lampshade",
@@ -49,15 +47,14 @@
         "price": 49,
         "rating": 4,
         "desc": "This lamp is perfect for your living room.",
-        "images": "//image.made-in-china.com/2f0j00TCvticAdEIoH/Lamp-Shade-1001-.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//image.made-in-china.com/2f0j00TCvticAdEIoH/Lamp-Shade-1001-.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 2,
-        "available": true
+        "available": 5
     },
     {
         "name": "Skyline Lampshade",
@@ -69,15 +66,14 @@
         "price": 79,
         "rating": 4,
         "desc": "This artistic lampshade features the skyscrapers of New York City.",
-        "images": "//cdn.decoist.com/wp-content/uploads/2012/03/city-skyline-lampshade.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//cdn.decoist.com/wp-content/uploads/2012/03/city-skyline-lampshade.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 3,
-        "available": true
+        "available": 5
     },
     {
         "name": "Comfy Sofa",
@@ -89,15 +85,14 @@
         "price": 499,
         "rating": 3,
         "desc": "This comfy is an excellent addition to your living room. Manufactured in the USA from 80% recycled materials.",
-        "images": "//earth911.com/wp-content/uploads/2008/10/furniture.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//earth911.com/wp-content/uploads/2008/10/furniture.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 4,
-        "available": true
+        "available": 5
     },
     {
         "name": "Lazyboy sofa",
@@ -109,15 +104,14 @@
         "price": 649,
         "rating": 5,
         "desc": "Light brown Lazyboy sofa, perfect for your living room.",
-        "images": "//www.la-z-boy.com/images/products/glamour/Sofas/435_sofa.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//www.la-z-boy.com/images/products/glamour/Sofas/435_sofa.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 5,
-        "available": true
+        "available": 5
     },
     {
         "name": "Pink Semicircular Recliner",
@@ -129,15 +123,14 @@
         "price": 574,
         "rating": 4,
         "desc": "Impress your guests and neighbors with this unique circular recliner.",
-        "images": "//i-cdn.apartmenttherapy.com/uimages/sf/9-24-recliner.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//i-cdn.apartmenttherapy.com/uimages/sf/9-24-recliner.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 6,
-        "available": true
+        "available": 5
     },
     {
         "name": "Tan Futuristic Recliner",
@@ -149,15 +142,14 @@
         "price": 649,
         "rating": 3,
         "desc": "This recliner is truly one-of-a-kind.",
-        "images": "//www.boscovs.com/wcsstore/boscovs/images/store/product/images/570559492ijoy100.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//www.boscovs.com/wcsstore/boscovs/images/store/product/images/570559492ijoy100.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 7,
-        "available": true
+        "available": 5
     },
     {
         "name": "Simple Sink",
@@ -169,15 +161,14 @@
         "price": 45,
         "rating": 3,
         "desc": "A simple kitchen sink, crafted out of aluminum. Perfect if you just want to ge the job done.",
-        "images": "//dreamhomedesigns.net/wp-content/uploads/2012/05/Stainless-Steel-Kitchen-Sink-Single-Bowl.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//dreamhomedesigns.net/wp-content/uploads/2012/05/Stainless-Steel-Kitchen-Sink-Single-Bowl.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 8,
-        "available": true
+        "available": 5
     },
     {
         "name": "Fancy Kitchen Sink",
@@ -189,15 +180,14 @@
         "price": 125,
         "rating": 4,
         "desc": "This dual-tub aluminum kitchen sink will hold up to the heaviest use, but still retains an artistic look. Comes with a set of ever-sharp knives.",
-        "images": "//homeinspirations.net/wp-content/uploads/2012/01/kitchen-sink-1.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//homeinspirations.net/wp-content/uploads/2012/01/kitchen-sink-1.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 9,
-        "available": true
+        "available": 5
     },
     {
         "name": "Aluminum Refrigerator",
@@ -209,15 +199,14 @@
         "price": 1199,
         "rating": 4,
         "desc": "High efficiency refrigerator/freezer. Comes with an ice maker. The inside hosts several snack drawers. Energy Star rated.",
-        "images": "//www.appliancist.com/whirlpool-super-premium-espresso-refrigerator-20ri-d4.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//www.appliancist.com/whirlpool-super-premium-espresso-refrigerator-20ri-d4.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 10,
-        "available": true
+        "available": 5
     },
     {
         "name": "Energy-star Refrigerator",
@@ -229,15 +218,14 @@
         "price": 1149,
         "rating": 4,
         "desc": "Refrigerator/freezer designed for low-energy environments, such as off-the-grid locations. The right side is the refrigerator, while the left is the freezer.",
-        "images": "//coastappliancerepair.com/los-angeles-blog/wp-content/uploads/2011/09/ge-refrigerator-repair-los-angeles.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//coastappliancerepair.com/los-angeles-blog/wp-content/uploads/2011/09/ge-refrigerator-repair-los-angeles.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 11,
-        "available": true
+        "available": 5
     },
     {
         "name": "Kitchen Stove",
@@ -249,15 +237,14 @@
         "price": 849,
         "rating": 4,
         "desc": "4-burner propane-powered stove with a large oven. Come Thanksgiving, you'll be grateful to own one of these.",
-        "images": "//lahomeseller.com/dansherman/featured_homes/3544_centinela/images/7kitchen_stove.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//lahomeseller.com/dansherman/featured_homes/3544_centinela/images/7kitchen_stove.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 12,
-        "available": true
+        "available": 5
     },
     {
         "name": "Inductive Stove",
@@ -269,15 +256,14 @@
         "price": 999,
         "rating": 5,
         "desc": "Inductive 4-burner stove. Simple enough for nearly anyone to use, and is never hot to the touch. Oven is even simpler.",
-        "images": "//4.bp.blogspot.com/_-SBWn5XSYVM/SLqY_4GwHSI/AAAAAAAACmw/LYlFF3m7cL0/s400/KitchenStove.JPG",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//4.bp.blogspot.com/_-SBWn5XSYVM/SLqY_4GwHSI/AAAAAAAACmw/LYlFF3m7cL0/s400/KitchenStove.JPG",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 13,
-        "available": true
+        "available": 5
     },
     {
         "name": "Macbook Pro",
@@ -289,15 +275,14 @@
         "price": 2999,
         "rating": 4,
         "desc": "Apple's derpiest laptop yet! This refined product offers a 15.5\" screen, 6 GB of RAM, OS-X Mountain Lion, and a backlit keyboard. Perfect for college!",
-        "images": "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
-        "extraimages": [
+        "images": [
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 14,
-        "available": true
+        "available": 5
     },
     {
         "name": "Asus N61V laptop",
@@ -309,15 +294,14 @@
         "price": 700,
         "rating": 4,
         "desc": "The N61VN is a 16-inch 6lb gaming and multimedia notebook from ASUS. It includes a built-in Blu-ray player and NVIDIA GeForce GT 240M graphics card, 320 GB Hard Drive, a 1366x768 screen, and 4 GB of RAM. Windows 7 Home Premium 64-bit comes preinstalled, powered by an Intel Core 2 Quad Q9000 @ 2.0 GHz.",
-        "images": "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
-        "extraimages": [
+        "images": [
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 15,
-        "available": true
+        "available": 5
     },
     {
         "name": "Gaming computer",
@@ -325,18 +309,17 @@
             "Electronics",
             "Computers"
         ],
-        "price": 400.00,
+        "price": 400,
         "rating": 4,
         "desc": "Super Sweet computer",
-        "images": "//cdn.sheknows.com/articles/crave/desktop-computer.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//cdn.sheknows.com/articles/crave/desktop-computer.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 16,
-        "available": true
+        "available": 5
     },
     {
         "name": "Mousepad",
@@ -344,18 +327,17 @@
             "Electronics",
             "Computers"
         ],
-        "price": 4.50,
+        "price": 4.5,
         "rating": 5,
         "desc": "For your Super Sweet computer",
-        "images": "//www.qualitylogoproducts.com/computer-accessories/mouspad-extralarge.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//www.qualitylogoproducts.com/computer-accessories/mouspad-extralarge.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 17,
-        "available": true
+        "available": 5
     },
     {
         "name": "Lamp",
@@ -366,15 +348,14 @@
         "price": 10.99,
         "rating": 3,
         "desc": "To light the desk near your Super Sweet computer",
-        "images": "//yourfurniturewebsite.com/11-grungemag/wp-content/blogs.dir/43/files/2012/04/stewart-lamp.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//yourfurniturewebsite.com/11-grungemag/wp-content/blogs.dir/43/files/2012/04/stewart-lamp.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 18,
-        "available": true
+        "available": 5
     },
     {
         "name": "Laptop",
@@ -383,18 +364,17 @@
             "Computers",
             "Toshiba"
         ],
-        "price": 550.00,
+        "price": 550,
         "rating": 4,
         "desc": "Super Sweet laptop",
-        "images": "//us.toshiba.com/images/showcase/products/satellite-l655-s5058-laptop.png",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//us.toshiba.com/images/showcase/products/satellite-l655-s5058-laptop.png",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 19,
-        "available": true
+        "available": 5
     },
     {
         "name": "iPhone",
@@ -403,18 +383,17 @@
             "Mobile Phones",
             "Apple"
         ],
-        "price": 500.00,
+        "price": 500,
         "rating": 5,
         "desc": "legitimate iphone from apple. this is the real deal man!!!!1!",
-        "images": "//assets.inhabitat.com/wp-content/blogs.dir/1/files/2010/06/iphone4-LEAD.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//assets.inhabitat.com/wp-content/blogs.dir/1/files/2010/06/iphone4-LEAD.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 20,
-        "available": true
+        "available": 5
     },
     {
         "name": "40\" HDTV",
@@ -426,15 +405,14 @@
         "price": 1999.99,
         "rating": 4,
         "desc": "This monster will play your VHS Tapes like nothing else, lol.",
-        "images": "//www.gadgetreview.com/wp-content/uploads/2008/05/samsung_40_inch_720_lcd_hdtv.png",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//www.gadgetreview.com/wp-content/uploads/2008/05/samsung_40_inch_720_lcd_hdtv.png",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 21,
-        "available": true
+        "available": 5
     },
     {
         "name": "Water Bottle",
@@ -445,14 +423,13 @@
         "price": 1.99,
         "rating": 2,
         "desc": "Yum. Water tastes so good.",
-        "images": "//cdn.instructables.com/FDA/04K9/FTTOTQW4/FDA04K9FTTOTQW4.LARGE.jpg",
-        "extraimages": [
-            "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+        "images": [
+            "//cdn.instructables.com/FDA/04K9/FTTOTQW4/FDA04K9FTTOTQW4.LARGE.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
             "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
         ],
         "id": 22,
-        "available": true
+        "available": 5
     }
 ]

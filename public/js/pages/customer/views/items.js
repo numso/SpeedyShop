@@ -63,6 +63,11 @@ define([
             // get the items from the server
             $.get('/getItems/' + subcatName, function (items) {
                 // display the items in a list
+                for (var i = 0; i < items.length; ++i) {
+                    items[i].img = items[i].images[0];
+                    items[i].isOdd = (i % 2 === 0);
+                }
+
                 that.curItems = items;
                 that.catName = catName;
                 that.subcatName = subcatName;
@@ -89,11 +94,6 @@ define([
             this.isList = true;
             this.$('.selected-btn').removeClass('selected-btn');
             this.$('.show-list-layout').addClass('selected-btn');
-
-            for (var i = 0; i < this.curItems.length; ++i) {
-                this.curItems[i].isOdd = (i % 2 === 0);
-            }
-
             this.$('.item-body').html(itemsListTmpl(this.curItems));
         },
 
@@ -101,11 +101,6 @@ define([
             this.isList = false;
             this.$('.selected-btn').removeClass('selected-btn');
             this.$('.show-block-layout').addClass('selected-btn');
-
-            for (var i = 0; i < this.curItems.length; ++i) {
-                this.curItems[i].isOdd = (i % 2 === 0);
-            }
-
             this.$('.item-body').html(itemsBlockTmpl(this.curItems));
         },
 
