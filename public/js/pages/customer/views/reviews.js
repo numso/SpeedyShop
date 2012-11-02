@@ -21,7 +21,7 @@ define([
             "click .show-btn":"showBtn",
             "click .add-review": "addReview",
             "click .submit-review":"submitReview",
-            "click .cancelt-review":"cancelReview"
+            "click .cancel-review":"cancelReview"
 
         },
 
@@ -55,7 +55,6 @@ define([
             var ratingNum = parseInt(el.attr("id"), 10);
             this.$(".individual-review").hide();
             this.$("."+ratingNum+"-rating").show();
-            console.log(ratingsArr);
         },
 
         showBtn:function(e){
@@ -69,12 +68,14 @@ define([
         },
 
         submitReview: function(e){
-            //$.post('')
-            this.renderHtml(curReviews);
+            //This needs the Post Function to post the review to the server
+            this.$el.html(showReviewsTmpl(this.curReviews));
+            this.renderHtml(this.curReviews);
         },
 
         cancelReview:function(e){
-            this.renderHtml(curReviews);
+            this.$el.html(showReviewsTmpl(this.curReviews));
+            this.renderHtml(this.curReviews);
         },
 
         renderHtml:function(data){

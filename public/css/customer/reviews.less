@@ -3,10 +3,15 @@
     text-align:center;
 }
 
+
 .gen-btn{
     height:25px;
     width:75%;
     margin: 5px 12.5%;
+}
+.input-text{
+    height:250px;
+    overflow:auto;
 }
 
 .review-module
@@ -14,6 +19,7 @@
     .review-header-container{
         position:absolute;
         top:8px;
+        margin-right:2%;
         .stars{
             &.selected-rating{
                 border:2px solid black;
@@ -32,12 +38,19 @@
             }
         }
         .show-btn{
-            width:15;
+            width:45%;
             display:none;
         }
     }
+    .add-review{
+        position:absolute;
+        top:78px;
+        margin:5px 6%;
+        height:25px;
+        width:75%;
+    }
     .reviews{
-        margin-top:75px;
+        margin-top:100px;
         overflow:auto;
         height:450px;
         .individual-review{
