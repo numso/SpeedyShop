@@ -1,18 +1,19 @@
 <div class='filters-module'>
 
-	Filters
+	<div class="sc-title">Filters</div>
 
 	{{#if this}}
-		<div class='common-filters'> <!--no CSS attached as of Nov 1st-->
+		<div class='common-filters'>
 			<form action="">
 				<ul style="list-style-type:circle">
 					<li>Price
 						<ul style="list-style-type:none">
 							<li>
-								From: <input type="text" name="lowerPrice">
-								To: <input type="text" name="upperPrice">
+								<label>From: </label><input class="text" type="text" name="lowerPrice"></br>
+								To: <input class="text" type="text" name="upperPrice">
+								<button type="submit ratings filter">Submit ratings filter</button>
 							</li>
-							<button type="submit ratings filter">Submit ratings filter</button>
+							
 						</ul>
 					</li>
 					<li>Rating
