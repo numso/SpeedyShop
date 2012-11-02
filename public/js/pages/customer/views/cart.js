@@ -15,6 +15,7 @@ define([
         },
 
         events: {
+            'click #check-out-btn': 'clickedCheckout'
         },
 
         render: function () {
@@ -27,11 +28,22 @@ define([
 
             $.get('/getItem/' + id, function (data) {
                 if (data.status === "success") {
-                    that.$('.sc-area').append(scItemTmpl(data.item));
+
+                    var el = that.$('#' + id + '-in-cart');
+                    if (el.length > 0) {
+                        el.find('.qty-cnt').attr('value', (parseInt(el.find('.qty-cnt').attr('value'), 10) + 1));
+                    } else {
+                        data.item.id = id;
+                        that.$('.sc-area').append(scItemTmpl(data.item));
+                    }
                 } else {
                     console.log('uh oh, something\'s up. Could\'t get the item');
                 }
             });
+        },
+
+        clickedCheckout: function (e) {
+            this.model.showCheckout();
         }
     });
 });

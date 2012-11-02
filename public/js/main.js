@@ -176,6 +176,20 @@ require([
         reviewsView.clickedReview(id);
     };
 
+    var cust_showCheckout = function (id) {
+        if ($('.breadcrumbs-view')[0] !== curLeft[0]) {
+            rotateView($('.breadcrumbs-view'), curLeft, $('.left-panel'));
+            curLeft = $('.breadcrumbs-view');
+        }
+
+        window.setTimeout(function () {
+            if ($('.checkout-view')[0] !== curMid[0]) {
+                rotateView($('.checkout-view'), curMid, $('.mid-panel'));
+                curMid = $('.checkout-view');
+            }
+        }, 500);
+    };
+
     // Create the Header and Footer Views
 
     var showItemsInList = function (catName, subcatName) {
@@ -297,7 +311,9 @@ require([
 
     var cartView = new CartView({
         className: "panel cart",
-        model: {}
+        model: {
+            showCheckout: cust_showCheckout
+        }
     });
     $(".right-panel").html(cartView.render().el);
 
