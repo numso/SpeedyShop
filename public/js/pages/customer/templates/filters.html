@@ -1,8 +1,50 @@
 <div class='filters-module'>
 
-	{{#if this}}
-		<div class='category-title'>Category {{subcat}}</div>
+	Filters
 
+	{{#if this}}
+		<div class='common-filters'> <!--no CSS attached as of Nov 1st-->
+			<form action="">
+				<ul style="list-style-type:circle">
+					<li>Price
+						<ul style="list-style-type:none">
+							<li>
+								From: <input type="text" name="lowerPrice">
+								To: <input type="text" name="upperPrice">
+							</li>
+							<button type="submit ratings filter">Submit ratings filter</button>
+						</ul>
+					</li>
+					<li>Rating
+						<ul style="list-style-type:none">
+							<li>
+								<input type="checkbox" name="vehicle" value="1">
+								<img src="../../../../../../img/ratings/1.png">
+							</li>
+							<li>
+								<input type="checkbox" name="vehicle" value="2">
+								<img src="../../../../../../img/ratings/2.png">
+							</li>
+							<li>
+								<input type="checkbox" name="vehicle" value="3">
+								<img src="../../../../../../img/ratings/3.png">
+							</li>
+							<li>
+								<input type="checkbox" name="vehicle" value="4">
+								<img src="../../../../../../img/ratings/4.png">
+							</li>
+							<li>
+								<input type="checkbox" name="vehicle" value="5">
+								<img src="../../../../../../img/ratings/5.png">
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</form>
+		</div>
+	
+		<div class='category-title'>Category {{subcat}}</div>
+		Filter, Y U NO WORK?
 		{{#each data}}
 			<div class='filter-title'>{{name}}</div>
 
@@ -25,14 +67,8 @@
 						<div class='filter-checkbox-value'>{{this}}</div>
 					{{/each}}
 				{{/if}}
-
-
+			</div>
 			</div>
 		{{/each}}
-
-	{{else}}
-
-		<div>Filters</div>
-
 	{{/if}}
 </div>

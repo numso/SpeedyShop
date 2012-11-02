@@ -1,25 +1,10 @@
+//I tried to follow your format. Clearly something isn't working right in the .js -Jesse
 {
-    "Home": {
+    "Decour": {
         "id": 0,
         "filters": [
             {
-                "name": "Price",
-                "radio": [
-                    "Below $100",
-                    "$100 - $199",
-                    "$200 - $299",
-                    "$300 - $399",
-                    "$400 - $499",
-                    "$500 and up"
-                ]
-            }
-        ]
-    },
-    "Decour": {
-        "id": 1,
-        "filters": [
-            {
-                "name": "Categories",
+                "name": "Subcategories",
                 "radio": [
                     "Tables",
                     "Lights"
@@ -28,10 +13,10 @@
         ]
     },
     "Furniture": {
-        "id": 2,
+        "id": 1,
         "filters": [
             {
-                "name": "Categories",
+                "name": "Subcategories",
                 "radio": [
                     "Couches",
                     "Chairs",
@@ -41,10 +26,10 @@
         ]
     },
     "Kitchen": {
-        "id": 3,
+        "id": 2,
         "filters": [
             {
-                "name": "Categories",
+                "name": "Subcategories",
                 "radio": [
                     "Sink",
                     "Refrigerator",
@@ -55,10 +40,10 @@
         ]
     },
     "Bedroom": {
-        "id": 4,
+        "id": 3,
         "filters": [
             {
-                "name": "Categories",
+                "name": "Subcategories",
                 "radio": [
                     "Beds",
                     "Curtains"
@@ -67,10 +52,10 @@
         ]
     },
     "Bathroom": {
-        "id": 5,
+        "id": 4,
         "filters": [
             {
-                "name": "Categories",
+                "name": "Subcategories",
                 "radio": [
                     "Showers",
                     "Tubs",
@@ -80,26 +65,8 @@
             }
         ]
     },
-    "Electronics": {
-        "id": 6,
-        "filters": [
-            {
-                "name": "Price",
-                "radio": [
-                    "Below $50",
-                    "$50 - $99",
-                    "$100 - $199",
-                    "$200 - $299",
-                    "$400 - $499",
-                    "$500 - $749",
-                    "$750 - $999",
-                    "$1000 and up"
-                ]
-            }
-        ]
-    },
     "Computers": {
-        "id": 7,
+        "id": 5,
         "filters": [
             {
                 "name": "Brand",
@@ -111,60 +78,11 @@
                     "Samsung",
                     "Dell"
                 ]
-            },
-            {
-                "name": "Touchpad",
-                "boolean": [
-                    "Yes",
-                    "No"
-                ]
-            },
-            {
-                "name": "Screensize",
-                "radio": [
-                    "14\" and under",
-                    "15\" - 16\"",
-                    "17\" and up"
-                ]
-            },
-            {
-                "name": "Processor",
-                "radio": [
-                    "Intel",
-                    "AMD"
-                ]
-            },
-            {
-                "name": "RAM",
-                "radio": [
-                    "Below 2GB",
-                    "2GB - 4GB",
-                    "4GB - 8GB",
-                    "8GB and above"
-                ]
-            },
-            {
-                "name": "Operating System",
-                "radio": [
-                    "Windows",
-                    "Mac OS-X",
-                    "Linux",
-                    "Chrome"
-                ]
-            },
-            {
-                "name": "Features",
-                "checkbox": [
-                    "Backlit keyboard",
-                    "Blu-ray",
-                    "Webcam",
-                    "HDMI output"
-                ]
             }
         ]
     },
     "Cameras": {
-        "id": 8,
+        "id": 6,
         "filters": [
             {
                 "name": "Brand",
@@ -176,50 +94,12 @@
                     "Olympus",
                     "Samsung"
                 ]
-            },
-            {
-                "name": "Megapixels",
-                "radio": [
-                    "5 or less",
-                    "11 - 14",
-                    "15 or more"
-                ]
-            },
-            {
-                "name": "Color",
-                "radio": [
-                    "Black",
-                    "Red",
-                    "Silver/gray",
-                    "Blue",
-                    "White",
-                    "Orange",
-                    "Pink"
-                ]
-            },
-            {
-                "name": "Type",
-                "radio": [
-                    "Compact",
-                    "Basic",
-                    "Advanced",
-                    "Kid's"
-                ]
             }
         ]
     },
     "Mobile Phones": {
-        "id": 9,
+        "id": 7,
         "filters": [
-            {
-                "name": "Carrier",
-                "radio": [
-                    "T-mobile",
-                    "Sprint",
-                    "Verizon",
-                    "AT&T"
-                ]
-            },
             {
                 "name": "Brand",
                 "radio": [
@@ -229,20 +109,11 @@
                     "Blackberry",
                     "Apple"
                 ]
-            },
-            {
-                "name": "Type",
-                "checkbox": [
-                    "Basic",
-                    "Smartphone",
-                    "Flip-phone",
-                    "Slider"
-                ]
             }
         ]
     },
     "Tablets": {
-        "id": 10,
+        "id": 8,
         "filters": [
             {
                 "name": "Brand",
@@ -252,52 +123,12 @@
                     "ASUS",
                     "Acer"
                 ]
-            },
-            {
-                "name": "Storage capacity",
-                "radio": [
-                    "16 GB",
-                    "32 GB",
-                    "64 GB"
-                ]
-            },
-            {
-                "name": "Operating system",
-                "radio": [
-                    "iOS",
-                    "Google Android"
-                ]
-            },
-            {
-                "name": "Data access",
-                "radio": [
-                    "Wi-fi only",
-                    "Wi-fi + 3G"
-                ]
             }
         ]
     },
     "Televisions": {
-        "id": 11,
+        "id": 9,
         "filters": [
-            {
-                "name": "Size",
-                "radio": [
-                    "Less than 20\"",
-                    "21\" - 29\"",
-                    "30\" - 39\"",
-                    "40\" - 49\"",
-                    "50\" - 59\"",
-                    "60\" and above"
-                ]
-            },
-            {
-                "name": "Resolution",
-                "radio": [
-                    "720p and below",
-                    "1080p and above"
-                ]
-            },
             {
                 "name": "Brand",
                 "radio": [
@@ -308,31 +139,12 @@
                     "Sony",
                     "Vizio"
                 ]
-            },
-            {
-                "name": "Type",
-                "radio": [
-                    "3D",
-                    "LCD",
-                    "LED",
-                    "Plasma"
-                ]
             }
         ]
     },
     "Clothing": {
-        "id": 12,
+        "id": 10,
         "filters": [
-            {
-                "name": "Price",
-                "radio": [
-                    "Below $50",
-                    "$50 - $99",
-                    "$100 - $150",
-                    "$150 - #199",
-                    "$200 and up"
-                ]
-            },
             {
                 "name": "Size",
                 "radio": [
@@ -346,10 +158,10 @@
         ]
     },
     "Women's Clothing": {
-        "id": 13,
+        "id": 11,
         "filters": [
             {
-                "name": "Type",
+                "name": "Subcategories",
                 "radio": [
                     "Activewear",
                     "Dresses & Skirts",
@@ -363,10 +175,10 @@
         ]
     },
     "Men's Clothing": {
-        "id": 14,
+        "id": 12,
         "filters": [
             {
-                "name": "Type",
+                "name": "Subcategories",
                 "radio": [
                     "Activewear",
                     "Workwear",
@@ -380,7 +192,7 @@
         ]
     },
     "Children's Clothing": {
-        "id": 15,
+        "id": 13,
         "filters": [
             {
                 "name": "Gender",
@@ -392,10 +204,10 @@
         ]
     },
     "Shoes": {
-        "id": 16,
+        "id": 14,
         "filters": [
             {
-                "name": "Type",
+                "name": "Subcategories",
                 "radio": [
                     "Tennis",
                     "Boots",
@@ -407,40 +219,26 @@
         ]
     },
     "Accessories": {
-        "id": 29,
+        "id": 15,
         "filters": [
             {
-                "name": "Categories",
+                "name": "Color",
                 "radio": [
-                    "Floor mats",
-                    "GPS",
-                    "Mirror ornaments",
-                    "Bumper stickers"
-                ]
-            }
-        ]
-    },
-    "Jewelry": {
-        "id": 18,
-        "filters": [
-            {
-                "name": "Price",
-                "radio": [
-                    "Below $100",
-                    "$100 - $299",
-                    "$300 - $499",
-                    "$500 - #699",
-                    "$700 - $899",
-                    "$900 and up"
+                    "Assorted",
+                    "Multicolor",
+                    "Black",
+                    "Blue",
+                    "Brown",
+                    "Gray"
                 ]
             }
         ]
     },
     "Rings": {
-        "id": 19,
+        "id": 16,
         "filters": [
             {
-                "name": "Type",
+                "name": "Subcategories",
                 "radio": [
                     "Elven",
                     "Dwarven",
@@ -451,10 +249,10 @@
         ]
     },
     "Necklaces": {
-        "id": 20,
+        "id": 17,
         "filters": [
             {
-                "name": "Type",
+                "name": "Subcategories",
                 "radio": [
                     "Jeweled",
                     "Multi-stranded",
@@ -464,10 +262,10 @@
         ]
     },
     "Earrings": {
-        "id": 21,
+        "id": 18,
         "filters": [
             {
-                "name": "Type",
+                "name": "Subcategories",
                 "radio": [
                     "Studs",
                     "Bead",
@@ -478,10 +276,10 @@
         ]
     },
     "Bracelets": {
-        "id": 22,
+        "id": 19,
         "filters": [
             {
-                "name": "Type",
+                "name": "Subcategories",
                 "radio": [
                     "Watches",
                     "Stiff",
@@ -492,43 +290,12 @@
         ]
     },
     "Other": {
-        "id": 23,
-        "filters": []
-    },
-    "Books": {
-        "id": 24,
-        "filters": [
-            {
-                "name": "Price",
-                "radio": [
-                    "Below $10",
-                    "$10 - $19",
-                    "$20 - $29",
-                    "$30 - $39",
-                    "$40 and up"
-                ]
-            }
-        ]
-    },
-    "Automobile": {
-        "id": 25,
+        "id": 20,
         "filters": []
     },
     "Vehicles": {
-        "id": 26,
+        "id": 21,
         "filters": [
-            {
-                "name": "Price",
-                "radio": [
-                    "Below $1,000",
-                    "$1,000 - $4,999",
-                    "$5,000 - $9,999",
-                    "$10,000 - $14,999",
-                    "15,000 - $19,999",
-                    "$20,000 - $25000",
-                    "$25000 and up"
-                ]
-            },
             {
                 "name": "Brand",
                 "radio": [
@@ -538,24 +305,14 @@
                     "Honda",
                     "Other"
                 ]
-            },
-            {
-                "name": "Type",
-                "radio": [
-                    "Truck",
-                    "Car",
-                    "Hybrid",
-                    "Sport",
-                    "Racing"
-                ]
             }
         ]
     },
     "Decals": {
-        "id": 27,
+        "id": 22,
         "filters": [
             {
-                "name": "Categories",
+                "name": "Subcategories",
                 "radio": [
                     "Hood ornaments",
                     "Antennas",
@@ -565,7 +322,7 @@
         ]
     },
     "Radios": {
-        "id": 28,
+        "id": 23,
         "filters": [
             {
                 "name": "Speaker location",
@@ -577,34 +334,30 @@
             }
         ]
     },
-    "Toys": {
-        "id": 30,
+    "Accessories": {
+        "id": 24,
         "filters": [
             {
-                "name": "Price",
+                "name": "Subcategories",
                 "radio": [
-                    "Below $20",
-                    "$20 - $39",
-                    "$40 - $59",
-                    "$60 - $79",
-                    "$80 - $99",
-                    "$100 and up"
+                    "Floor mats",
+                    "GPS",
+                    "Mirror ornaments",
+                    "Bumper stickers"
                 ]
             }
         ]
     },
     "Sports": {
-        "id": 31,
+        "id": 25,
         "filters": [
             {
-                "name": "Price",
+                "name": "Subcategories",
                 "radio": [
-                    "Below $40",
-                    "$40 - $59",
-                    "$60 - $79",
-                    "$80 - $99",
-                    "$100 - $149",
-                    "$150 and up"
+                    "Tennis",
+                    "Soccer",
+                    "Baseball",
+                    "Football"
                 ]
             }
         ]
