@@ -173,7 +173,7 @@ require([
             curLeft = $('.reviews-view');
         }
 
-        reviewsView.clickedReview(id);
+        reviewsView.clickedItem(id);
     };
 
     var cust_showCheckout = function (id) {
