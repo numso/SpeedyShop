@@ -1,5 +1,5 @@
 var fs = require('fs'),
-    filters = JSON.parse(fs.readFileSync('serverData/filter.json'));
+    filters = JSON.parse(fs.readFileSync('../serverData/filter.json'));
 
 var newObj = {};
 for (var i = 0; i < filters.length; ++i) {
@@ -18,4 +18,4 @@ for (var i = 0; i < filters.length; ++i) {
     };
 }
 
-fs.writeFileSync('serverData/newFilter.json', JSON.stringify(newObj));
+fs.writeFileSync('../serverData/newFilter.json', JSON.stringify(newObj));

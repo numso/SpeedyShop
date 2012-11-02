@@ -16,8 +16,8 @@ define([
     return Backbone.View.extend({
         curItems: undefined,
         isList: true,
-        catName:"",
-        subcatName:"",
+        catName: '',
+        subcatName: '',
 
         initialize: function () {
         },
@@ -32,9 +32,15 @@ define([
         },
 
         showDetailView: function (e) {
-            var el = $(e.target).closest('.clickable-item');
-            this.$el.html(itemDetailTmpl(this.curItems[0]));
-           $(this.$('.item-small-img')[0]).addClass('selected-img');
+            var id = parseInt($(e.target).closest('.clickable-item').attr('id'));
+            for (var i = 0; i < this.curItems.length; ++i) {
+                if (this.curItems[i].id === id) {
+                    this.$el.html(itemDetailTmpl(this.curItems[i]));
+                    $(this.$('.item-small-img')[0]).addClass('selected-img');
+                    this.model.showReviews(id);
+                    return;
+                }
+            }
         },
 
         render: function () {
@@ -53,7 +59,7 @@ define([
                 that.curItems = items;
                 that.catName = catName;
                 that.subcatName = subcatName;
-                
+
                 if (items.length === 0) {
                     that.$el.html(itemsTmpl({
                         msg: 'Sorry, We don\'t have any items in that category.'
@@ -109,11 +115,14 @@ define([
                 cat: this.catName,
                 subcat: this.subcatName
             }));
+
             if (this.isList) {
                 this.displayItemList();
             } else {
                 this.displayItemBlock();
             }
+
+            this.model.showFilters();
         }
     });
 });
