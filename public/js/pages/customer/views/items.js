@@ -69,7 +69,7 @@ define([
 
                 if (items.length === 0) {
                     that.$el.html(itemsTmpl({
-                        msg: 'Sorry, We don\'t have any items in that category.'
+                        msg: 'Sorry, we don\'t have any items in that category.'
                     }));
                 } else {
                     that.$el.html(itemsTmpl({
