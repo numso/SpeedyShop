@@ -23,9 +23,11 @@ define([
         },
 
         addItem: function (id) {
+            var that = this;
+
             $.get('/getItem/' + id, function (data) {
                 if (data.status === "success") {
-                    this.$('.sc-area').append(scItemTmpl(data));
+                    that.$('.sc-area').append(scItemTmpl(data.item));
                 } else {
                     console.log('uh oh, something\'s up. Could\'t get the item');
                 }

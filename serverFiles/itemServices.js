@@ -39,13 +39,13 @@ module.exports = function () {
 
             var items = JSON.parse(fs.readFileSync("serverData/newItems.json"));
             for (var i = 0; i < items.length; ++i) {
-                if (items[i].id === id) {
+                if (items[i].id == id) {
                     response.send({
                         status: "success",
                         item: {
-                            imgURL: item[i].img,
-                            name: item[i].name,
-                            price: item[i].price
+                            imgURL: items[i].img,
+                            name: items[i].name,
+                            price: items[i].price
                         }
                     });
                     return;

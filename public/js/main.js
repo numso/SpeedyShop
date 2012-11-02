@@ -185,7 +185,7 @@ require([
     };
 
     var addItemToCart = function (id) {
-        cartView.getItem(id);
+        cartView.addItem(id);
     }
 
     var headerView = new HeaderView({
