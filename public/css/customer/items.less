@@ -13,8 +13,6 @@
         right: 15px;
         background-color: #eee;
 
-        .item-bc {
-        }
         .item-nav {
             position: relative;
             float: right;
@@ -51,6 +49,8 @@
         cursor: pointer;
         padding: 5px;
         border-bottom: 1px solid #aaa;
+        clear: both;
+        min-height: 100px;
 
         &:first-child {
             border-top: 1px solid #aaa;
@@ -61,30 +61,31 @@
             margin-bottom: 19px;
         }
 
-        .item-img {
-            width: 100px;
-            display: inline-block;
-            vertical-align: top;
-        }
+        .item-list-info {
+            float: left;
 
-        .item-specs {
-            width: 120px;
-            display: inline-block;
-            vertical-align: top;
+            .item-img {
+                width: 100px;
+                display: inline-block;
+                vertical-align: top;
+            }
 
-            .item-spec-name {
-                white-space: nowrap;
-                max-width: 140px;
-                text-overflow: ellipsis;
-                overflow: hidden;
+            .item-specs {
+                width: 120px;
+                display: inline-block;
+                vertical-align: top;
+
+                .item-spec-name {
+                    white-space: nowrap;
+                    max-width: 140px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
             }
         }
 
         .item-desc {
-            margin-left: 30px;
-            width: 500px;
-            display: inline-block;
-            vertical-align: top;
+            margin-left: 230px;
         }
     }
 
@@ -151,6 +152,7 @@
 
     .item-images {
         float: left;
+        min-height: 300px;
 
         .item-big-img {
             width: 300px;
@@ -165,7 +167,12 @@
             .item-small-img {
                 display: block;
                 width: 50px;
-                padding-bottom: 5px;
+                margin-bottom: 5px;
+                cursor: pointer;
+
+                &.selected-img {
+                    border: 2px solid black;
+                }
             }
         }
     }

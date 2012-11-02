@@ -23,12 +23,14 @@ define([
         events: {
             "click .clickable-item": "showDetailView",
             "click .show-block-layout": "displayItemBlock",
-            "click .show-list-layout": "displayItemList"
+            "click .show-list-layout": "displayItemList",
+            "click .item-small-img": "loadImage"
         },
 
         showDetailView: function (e) {
             var el = $(e.target).closest('.clickable-item');
             this.$el.html(itemDetailTmpl(this.curItems[0]));
+           $(this.$('.item-small-img')[0]).addClass('selected-img');
         },
 
         render: function () {
@@ -86,6 +88,15 @@ define([
             }
 
             this.$('.item-body').html(itemsBlockTmpl(this.curItems));
+        },
+
+        loadImage: function (e) {
+            var el = $(e.target).closest('.item-small-img');
+            var imgSrc = el.attr('src');
+            this.$('.item-big-img').attr('src', imgSrc);
+
+            this.$('.selected-img').removeClass('selected-img');
+            el.addClass('selected-img');
         }
     });
 });
