@@ -122,7 +122,7 @@ require([
                 rotateView($('.shipping-view'), curMid, $('.mid-panel'));
                 curMid = $('.shipping-view');
             }
-        }, 500);
+        }, animTime);
     };
 
     var emp_showShipping = function () {
@@ -187,7 +187,9 @@ require([
                 rotateView($('.checkout-view'), curMid, $('.mid-panel'));
                 curMid = $('.checkout-view');
             }
-        }, 500);
+        }, animTime);
+
+        headerView.showKeepShoppingButton();
     };
 
     // Create the Header and Footer Views

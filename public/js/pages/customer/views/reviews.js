@@ -7,6 +7,8 @@ Backbone, reviewsTmpl) {
         initialize: function() {},
 
         events: {
+            "click .stars":"clickReview",
+            "click .show-btn":"showBtn"
 
         },
 
@@ -47,11 +49,6 @@ Backbone, reviewsTmpl) {
                         starReviews: ratingCount,
                         reviews: ratingsText
                     }));
-
-
-
-
-
                     return;
                 }
             });
@@ -59,20 +56,21 @@ Backbone, reviewsTmpl) {
             this.$el.html(reviewsTmpl({
                 msg: "This item hasn't yet been reviewed."
             }));
+        },
+        clickReview: function(e){
+            this.$(".show-btn").show();
+            this.$(".selected-rating").removeClass("selected-rating");
+            var el = $(e.target).closest('.stars');
+            el.addClass("selected-rating");
+            var ratingNum = parseInt(el.attr("id"), 10);
+            this.$(".individual-review").hide();
+            this.$("."+ratingNum+"-rating").show();
+            console.log(ratingsArr);
+        },
+        showBtn:function(e){
+            this.$(".show-btn").hide();
+            this.$(".selected-rating").removeClass("selected-rating");
+            this.$(".individual-review").show();
         }
     });
 });
-
-
-
-
-// $.get('/reviews/' + id, function (data) {
-// data is that array
-// });
-
-// arr[0].count; // number of 1 stars
-
-// for (var i = 0, len = arr[0].reviews.length; i < len; ++i) { // loops through all 1 stars
-//     arr[0].reviews[i].name;
-//     arr[0].reviews[i].text;
-// }

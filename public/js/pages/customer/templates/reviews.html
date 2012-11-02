@@ -4,16 +4,16 @@
     <div class="review-module">
         <div class="review-header-container">
                 {{#each starReviews}}
-                    <div class="stars">
+                    <div class="stars" id="{{ratings}}-select">
                         <img src="img/ratings/{{ratings}}.png">
                         <span>{{number}}</span>
                     </div>
                 {{/each}}
-                <button class="star">Show All</button>
+                <button class="show-btn" >Show All</button>
         </div>
         <div class="reviews">
             {{#each reviews}}
-                <div class="individual-review">
+                <div class="individual-review {{ratings}}-rating">
                     <img src="img/ratings/{{ratings}}.png">
                     <span>{{name}}</span>
                     <div >{{text}}</div>
