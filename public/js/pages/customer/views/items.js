@@ -33,10 +33,14 @@ define([
 
         showDetailView: function (e) {
             var id = parseInt($(e.target).closest('.clickable-item').attr('id'));
-            this.$el.html(itemDetailTmpl(this.curItems[id]));
-            $(this.$('.item-small-img')[0]).addClass('selected-img');
-
-            this.model.showReviews(id);
+            for (var i = 0; i < this.curItems.length; ++i) {
+                if (this.curItems[i].id === id) {
+                    this.$el.html(itemDetailTmpl(this.curItems[i]));
+                    $(this.$('.item-small-img')[0]).addClass('selected-img');
+                    this.model.showReviews(id);
+                    return;
+                }
+            }
         },
 
         render: function () {
