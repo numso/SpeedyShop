@@ -3,12 +3,31 @@
 	text-align: right;
 	font-size: 120%;
 
-
-	.cart-icon{
-		width: 50px;
+	.cart-rotate{
+		float:left;
 		height: 50px;
-		float: left;
-		
+		width: 50px;
+		-webkit-transition: 1s;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform: rotateY(180deg);
+
+
+
+		.cart-icon-pend{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			-webkit-backface-visibility: hidden;
+		}
+
+		.cart-icon-comp{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			-webkit-backface-visibility: hidden;
+			-webkit-transform: rotateY(180deg);
+		}
+	
 	}
 }
 
@@ -21,9 +40,7 @@
 		width: 50px;
 		height: 50px;
 		position: absolute;
-		-webkit-backface-visibility: hidden;
-		float: right;
-		
+		-webkit-backface-visibility: hidden;		
 	}
 
 	.billing-icon-comp{
@@ -32,54 +49,119 @@
 		position: absolute;
 		-webkit-backface-visibility: hidden;
 		-webkit-transform: rotateY(180deg);
-		float: right;
-		
 	}
 
 	.billing-rotate{
 		float:right;
 		height: 50px;
 		width: 50px;
-		-webkit-transition: 2s;
+		-webkit-transition: 1s;
+		-webkit-transform-style: preserve-3d;
 		-webkit-transform: rotateY(180deg);
 	}
 }
 
 .shipping-info{
 	margin-bottom: 100px;
+	clear: right;
 	text-align: right;
 	font-size: 120%;
 
-	.shipping-icon{
+	.shipping-icon-pend{
 		width: 50px;
 		height: 50px;
+		position: absolute;
+		-webkit-backface-visibility: hidden;
 		float: left;
 		
+	}
+
+	.shipping-icon-comp{
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		-webkit-backface-visibility: hidden;
+		-webkit-transform: rotateY(180deg);
+		float: left;
+		
+	}
+
+	.shippping-rotate{
+		float:left;
+		height: 50px;
+		width: 50px;
+		-webkit-transition: 1s;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform: rotateY(180deg);
 	}
 }
 
 .payment-info{
 	margin-bottom: 100px;
+	clear: left;
 	text-align: left;
 	font-size: 120%;
 
-	.payment-icon{
+	.payment-icon-pend{
 		width: 50px;
 		height: 50px;
-		float: right;
+		position: absolute;
+		-webkit-backface-visibility: hidden;
+		float: left;
 		
+	}
+
+	.payment-icon-comp{
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		-webkit-backface-visibility: hidden;
+		-webkit-transform: rotateY(180deg);
+		float: left;
+		
+	}
+
+	.payment-rotate{
+		float:left;
+		height: 50px;
+		width: 50px;
+		-webkit-transition: 1s;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform: rotateY(180deg);
 	}
 }
 
 .confirm-order{
 	margin-bottom: 100px;
+	clear: right;
 	text-align: right;
 	font-size: 120%;
 
-	.confirm-icon{
+	.confirm-icon-pend{
 		width: 50px;
 		height: 50px;
+		position: absolute;
+		-webkit-backface-visibility: hidden;
 		float: left;
 		
+	}
+
+	.confirm-icon-comp{
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		-webkit-backface-visibility: hidden;
+		-webkit-transform: rotateY(180deg);
+		float: left;
+		
+	}
+
+	.confirm-rotate{
+		float:left;
+		height: 50px;
+		width: 50px;
+		-webkit-transition: 1s;
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform: rotateY(180deg);
 	}
 }
