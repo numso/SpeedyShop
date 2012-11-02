@@ -2,11 +2,46 @@
     margin:50px;
     text-align:center;
 }
+
+.gen-btn{
+    height:25px;
+    width:75%;
+    margin: 5px 12.5%;
+}
+
+.input-text{
+    height:250px;
+    overflow:auto;
+}
+
+.text-input{
+    width: 85%
+}
+
+        .stars{
+            &.selected-rating{
+                border:2px solid black;
+            }
+            &:hover{
+                cursor:pointer;
+            }
+            .img{
+                padding-top: 2px;
+            }
+            width: 48%;
+            display:inline-block;
+            span{
+                top:-5px;
+                position:relative;
+            }
+        }
+
 .review-module
 {
     .review-header-container{
         position:absolute;
         top:8px;
+        margin-right:2%;
         .stars{
             &.selected-rating{
                 border:2px solid black;
@@ -25,16 +60,23 @@
             }
         }
         .show-btn{
-            width:15;
+            width:45%;
             display:none;
         }
     }
+    .add-review{
+        position:absolute;
+        top:78px;
+        margin:5px 6%;
+        height:25px;
+        width:75%;
+    }
     .reviews{
-        margin-top:75px;
+        margin-top:100px;
         overflow:auto;
-        height:475px;
+        height:450px;
         .individual-review{
-            max-height:200px;
+            max-height:175px;
             overflow:auto ;
             margin:5px;
             border-top:1px solid;
@@ -42,7 +84,6 @@
             img{
                 margin-top:5px;
             }
-
         }
     }
 }
