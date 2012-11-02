@@ -11,8 +11,8 @@ module.exports = function () {
     return {
         login: function (req, res, next) {
             var input = '';
-            req.on('data', function (d) {
-                input += d;
+            req.on('data', function (chunk) {
+                input += chunk;
             })
 
             req.on('end', function () {

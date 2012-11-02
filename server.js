@@ -10,7 +10,7 @@ var express = require('express'),
 app.listen(PORT, HOST);
 console.log('Server running on port:' + PORT);
 
-var indexServices = require('./serverFiles/indexServices')(),
+var itemServices = require('./serverFiles/itemServices')(),
     filterServices = require('./serverFiles/filterServices')(),
     reviewServices = require('./serverFiles/reviewServices')();
 
@@ -32,9 +32,14 @@ app.configure(function () {
 // REST Call Routing Registry
 
 // Menu Stuff
-app.get('/getItems', indexServices.getItems);
-app.get('/getItems/:catID', indexServices.getItems);
-app.get('/getCategories/', indexServices.getCategories);
+app.get('/getCategories/', itemServices.getCategories);
+
+// Items Stuff
+app.get('/getItems', itemServices.getItems);
+app.get('/getItems/:catID', itemServices.getItems);
+
+// Cart Stuff
+app.get('/getItem/:id', itemServices.getItem);
 
 // Filters Stuff
 app.post('/filters', filterServices.getFilters);

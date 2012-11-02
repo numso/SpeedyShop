@@ -184,6 +184,10 @@ require([
         cust_showFilters();
     };
 
+    var addItemToCart = function (id) {
+        cartView.getItem(id);
+    }
+
     var headerView = new HeaderView({
         className: "panel header",
         model: {
@@ -246,7 +250,8 @@ require([
         className: "panel items-list-view",
         model: {
             showReviews: cust_showReviews,
-            showFilters: cust_showFilters
+            showFilters: cust_showFilters,
+            addItemToCart: addItemToCart
         }
     });
     $(".mid-panel").html(itemsView.render().el);

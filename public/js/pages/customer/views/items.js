@@ -27,8 +27,14 @@ define([
             "click .show-block-layout": "displayItemBlock",
             "click .show-list-layout": "displayItemList",
             "click .item-small-img": "loadImage",
-            "click #back-btn": "back"
+            "click #back-btn": "back",
+            "click .add-item-to-cart": "addItemToCart"
 
+        },
+
+        addItemToCart: function (e) {
+            var id = 0;
+            this.model.addItemToCart(id);
         },
 
         showDetailView: function (e) {
