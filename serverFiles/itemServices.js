@@ -29,27 +29,33 @@ module.exports = function () {
 
         getCategories: function (request, response, next) {
             var items = JSON.parse(fs.readFileSync("serverData/cat.json"));
-            // var myCats = [];
-
-            // for (var i = 0; i < items.length; ++i) {
-            //     var testCat = items[i].cat;
-
-            //     var isThere = false;
-            //     for (var j = 0; j < myCats.length; ++j) {
-            //         if (myCats[j] === testCat) {
-            //             isThere = true;
-            //         }
-            //     }
-
-            //     if (!isThere) {
-            //         myCats.push(testCat);
-            //     }
-            // }
-
-            // myCats.unshift("All");
 
             response.writeHead(200, { "Content-Type": "application/json" });
             response.end(JSON.stringify(items));
+        },
+
+        getItem: function (request, response, next) {
+            var id = request.params.id;
+
+            var items = JSON.parse(fs.readFileSync("serverData/newItems.json"));
+            for (var i = 0; i < items.length; ++i) {
+                if (items[i].id == id) {
+                    response.send({
+                        status: "success",
+                        item: {
+                            imgURL: items[i].img,
+                            name: items[i].name,
+                            price: items[i].price
+                        }
+                    });
+                    return;
+                }
+            }
+
+            response.send({
+                status: "error",
+                code: "not found"
+            });
         }
     };
 };

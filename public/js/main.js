@@ -176,6 +176,20 @@ require([
         reviewsView.clickedItem(id);
     };
 
+    var cust_showCheckout = function (id) {
+        if ($('.breadcrumbs-view')[0] !== curLeft[0]) {
+            rotateView($('.breadcrumbs-view'), curLeft, $('.left-panel'));
+            curLeft = $('.breadcrumbs-view');
+        }
+
+        window.setTimeout(function () {
+            if ($('.checkout-view')[0] !== curMid[0]) {
+                rotateView($('.checkout-view'), curMid, $('.mid-panel'));
+                curMid = $('.checkout-view');
+            }
+        }, 500);
+    };
+
     // Create the Header and Footer Views
 
     var showItemsInList = function (catName, subcatName) {
@@ -183,6 +197,10 @@ require([
         filtersView.selectedItem(catName, subcatName);
         cust_showFilters();
     };
+
+    var addItemToCart = function (id) {
+        cartView.addItem(id);
+    }
 
     var headerView = new HeaderView({
         className: "panel header",
@@ -246,7 +264,8 @@ require([
         className: "panel items-list-view",
         model: {
             showReviews: cust_showReviews,
-            showFilters: cust_showFilters
+            showFilters: cust_showFilters,
+            addItemToCart: addItemToCart
         }
     });
     $(".mid-panel").html(itemsView.render().el);
@@ -292,7 +311,9 @@ require([
 
     var cartView = new CartView({
         className: "panel cart",
-        model: {}
+        model: {
+            showCheckout: cust_showCheckout
+        }
     });
     $(".right-panel").html(cartView.render().el);
 

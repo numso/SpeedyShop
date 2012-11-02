@@ -1,4 +1,4 @@
-<div class='item-detail-view'>
+<div class='item-detail-view id-cont' id="{{id}}-item">
     <div class='item-images'>
         <img class='item-big-img' src="{{img}}">
         <div class='item-small-img-group'>
@@ -10,9 +10,10 @@
     <div class='item-details-box'>
         <button id="back-btn">Back</button>
         <div class='item-detail-name'>{{name}}</div>
-        <div class='item-detail-price'>{{price}}</div>
+        <div class='item-detail-price'>Price: {{price}}</div>
         <img class='item-detail-rating' src="img/ratings/{{rating}}.png">
-        <button>Add to Cart</button>
+        <div class='availability'>Availability:</div>
+        <button class='add-to-cart'>Add to Cart</button>
     </div>
     <div class='item-detail-desc'>{{desc}}</div>
 </div>

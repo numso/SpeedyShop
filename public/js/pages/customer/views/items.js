@@ -27,12 +27,19 @@ define([
             "click .show-block-layout": "displayItemBlock",
             "click .show-list-layout": "displayItemList",
             "click .item-small-img": "loadImage",
-            "click #back-btn": "back"
+            "click #back-btn": "back",
+            "click .add-to-cart": "addItemToCart"
 
         },
 
+        addItemToCart: function (e) {
+            var id = parseInt($(e.target).closest('.id-cont').attr('id'), 10);
+            this.model.addItemToCart(id);
+            this.stopPropagation(e);
+        },
+
         showDetailView: function (e) {
-            var id = parseInt($(e.target).closest('.clickable-item').attr('id'));
+            var id = parseInt($(e.target).closest('.clickable-item').attr('id'), 10);
             for (var i = 0; i < this.curItems.length; ++i) {
                 if (this.curItems[i].id === id) {
                     this.$el.html(itemDetailTmpl(this.curItems[i]));
@@ -123,6 +130,12 @@ define([
             }
 
             this.model.showFilters();
+        },
+
+        stopPropagation: function (e) {
+            if (!e) { e = window.event; }
+            if (e.cancelBubble) { e.cancelBubble = true; }
+            else { e.stopPropagation(); }
         }
     });
 });
