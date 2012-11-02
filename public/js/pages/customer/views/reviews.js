@@ -64,7 +64,10 @@ define([
         },
 
         addReview:function(e){
-            this.$el.html(addReviewsTmpl());
+            var starObj = {
+                starReviews:[1,2,3,4,5]
+            }
+            this.$el.html(addReviewsTmpl(starObj));
         },
 
         submitReview: function(e){

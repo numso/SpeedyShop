@@ -1,18 +1,18 @@
 <div >Name:
-    <input type="text" class="input-name"></input>
+    <input type="text" class="text-input input-name"></input>
 </div>
 <div class="stars-given">
     
 </div>
 <div >Review:
-    <input type="textarea" class="inputText"></input>
+    <textarea rows="15" class="text-input textAreaText"></textarea>
 </div>
-<!-- <div >
+<div >
     {{#each starReviews}}
-        <div class="stars" id="{{ratings}}-select">
-            <img src="img/ratings/{{ratings}}.png">
+        <div class="stars" id="{{this}}-select">
+            <img src="img/ratings/{{this}}.png">
         </div>
     {{/each}}
-</div> -->
+</div>
 <button class="gen-btn submit-review">Submit Review</button>
 <button class="gen-btn cancel-review">Cancel Review</button>
