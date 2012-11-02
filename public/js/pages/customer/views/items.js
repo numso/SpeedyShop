@@ -16,6 +16,8 @@ define([
     return Backbone.View.extend({
         curItems: undefined,
         isList: true,
+        catName:"",
+        subcatName:"",
 
         initialize: function () {
         },
@@ -24,7 +26,9 @@ define([
             "click .clickable-item": "showDetailView",
             "click .show-block-layout": "displayItemBlock",
             "click .show-list-layout": "displayItemList",
-            "click .item-small-img": "loadImage"
+            "click .item-small-img": "loadImage",
+            "click #back-btn": "back"
+
         },
 
         showDetailView: function (e) {
@@ -47,7 +51,9 @@ define([
             $.get('/getItems/' + subcatName, function (items) {
                 // display the items in a list
                 that.curItems = items;
-
+                that.catName = catName;
+                that.subcatName = subcatName;
+                
                 if (items.length === 0) {
                     that.$el.html(itemsTmpl({
                         msg: 'Sorry, We don\'t have any items in that category.'
@@ -97,6 +103,17 @@ define([
 
             this.$('.selected-img').removeClass('selected-img');
             el.addClass('selected-img');
+        },
+        back: function (e) {
+            this.$el.html(itemsTmpl({
+                cat: this.catName,
+                subcat: this.subcatName
+            }));
+            if (this.isList) {
+                this.displayItemList();
+            } else {
+                this.displayItemBlock();
+            }
         }
     });
 });
