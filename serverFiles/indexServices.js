@@ -8,7 +8,7 @@ module.exports = function () {
         getItems: function (request, response, next) {
             var category = request.params.catID || "All";
 
-            var items = JSON.parse(fs.readFileSync("serverData/items.json"));
+            var items = JSON.parse(fs.readFileSync("serverData/newItems.json"));
             var myObj = [];
 
             if (category !== "All") {

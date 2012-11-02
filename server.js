@@ -10,8 +10,9 @@ var express = require('express'),
 app.listen(PORT, HOST);
 console.log('Server running on port:' + PORT);
 
-var indexServices = require('./serverFiles/indexServices')();
-var filterServices = require('./serverFiles/filterServices')();
+var indexServices = require('./serverFiles/indexServices')(),
+    filterServices = require('./serverFiles/filterServices')(),
+    reviewServices = require('./serverFiles/reviewServices')();
 
 if (ENV === 'prod') {
     var authServices = require('./serverFiles/authServices')();
@@ -37,6 +38,9 @@ app.get('/getCategories/', indexServices.getCategories);
 
 // Filters Stuff
 app.post('/filters', filterServices.getFilters);
+
+// Review Stuff
+app.get('/reviews/:id', reviewServices.getReviews);
 
 // Authentication Stuff
 app.post('/login', authServices.login);

@@ -160,11 +160,28 @@ require([
         }
     };
 
+    var cust_showFilters = function () {
+        if ($('.filters')[0] !== curLeft[0]) {
+            rotateView($('.filters'), curLeft, $('.left-panel'));
+            curLeft = $('.filters');
+        }
+    };
+
+    var cust_showReviews = function (id) {
+        if ($('.reviews-view')[0] !== curLeft[0]) {
+            rotateView($('.reviews-view'), curLeft, $('.left-panel'));
+            curLeft = $('.reviews-view');
+        }
+
+        reviewsView.clickedReview(id);
+    };
+
     // Create the Header and Footer Views
 
     var showItemsInList = function (catName, subcatName) {
         itemsView.loadItems(catName, subcatName);
         filtersView.selectedItem(catName, subcatName);
+        cust_showFilters();
     };
 
     var headerView = new HeaderView({
@@ -227,7 +244,10 @@ require([
 
     var itemsView = new ItemsView({
         className: "panel items-list-view",
-        model: {}
+        model: {
+            showReviews: cust_showReviews,
+            showFilters: cust_showFilters
+        }
     });
     $(".mid-panel").html(itemsView.render().el);
 
