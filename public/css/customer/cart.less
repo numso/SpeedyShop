@@ -13,6 +13,33 @@
         margin: 10px 0;
         border: 1px solid #aaa;
         overflow: scroll;
+
+        .sc-item {
+            clear: both;
+            padding: 5px 0;
+            border-bottom: 1px solid #aaa;
+
+            .sc-img {
+                width: 50px;
+                float: left;
+            }
+
+            .sc-right-side {
+                margin-left: 60px;
+
+                .sc-price {
+
+                }
+
+                .qty-cnt {
+                    width: 20px;
+                }
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
     }
 
     .sc-total {
