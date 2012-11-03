@@ -27,12 +27,15 @@ define([
             };
             var that = this;
 
+            if (cat == "Hot Items")
+                subcat = undefined;
+
             $.post('/filters', JSON.stringify(myObj), function (data) {
                 that.$el.html(filtersTmpl({
                     data: data,
                     subcat: subcat
                 }));
-            })
+            });
         }
     });
 });

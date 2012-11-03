@@ -41,30 +41,36 @@
 			</ul>
 		</div>
 
-		<div class='category-title'>Category: {{subcat}}</div>
-		{{#each data}}
-			<div class='filter-title'>{{name}}</div>
-			<div class='filter-value-box'>
-
-				{{#if radio}}
-					{{#each radio}}
-						<div class='filter-radio-value'><input type="radio" name="subCatFilter">{{this}}</div>
-					{{/each}}
-				{{/if}}
-
-				{{#if boolean}}
-					{{#each boolean}}
-						<div class='filter-boolean-value'>{{this}}</div>
-					{{/each}}
-				{{/if}}
-
-				{{#if checkbox}}
-					{{#each checkbox}}
-						<div class='filter-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
-					{{/each}}
-				{{/if}}
+		{{#if subcat}}
+			<div class='category-title'>
+				Category: {{subcat}}
 			</div>
-			</div>
-		{{/each}}
+			{{#each data}}
+				<div class='filter-title'>{{name}}</div>
+				<div class='filter-value-box'>
+
+					{{#if radio}}
+						{{#each radio}}
+							<div class='filter-radio-value'><input type="radio" name="subCatFilter">{{this}}</div>
+						{{/each}}
+					{{/if}}
+
+					<!--
+					{{#if boolean}}
+						{{#each boolean}}
+							<div class='filter-boolean-value'>{{this}}</div>
+						{{/each}}
+					{{/if}}
+					-->
+
+					{{#if checkbox}}
+						{{#each checkbox}}
+							<div class='filter-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
+						{{/each}}
+					{{/if}}
+				</div>
+				</div>
+			{{/each}}
+		{{/if}}
 	{{/if}}
 </div>
