@@ -29,16 +29,39 @@ module.exports = function () {
 
             request.on('end', function () {
                 data = JSON.parse(data);
+                var revObj = {
+                    name: data.name,
+                    text: data.text
+                };
+                var added = false;
 
                 for (var i = 0; i<reviews.length;++i){
                     if (id == reviews[i].id){
-                        var newRev ={
-                            name: data.name,
-                            text: data.text
-                        };
-                        reviews[i].stars[data.stars-1].reviews.push(newRev);
-                        response.send("OK");
+                        reviews[i].stars[data.stars-1].reviews.push(revObj);
+                        added = true;
+                        response.send(reviews[i].stars);
                     }
+                }
+
+                if (!added){
+                    var starsArr = [];
+                    for (var j = 0; j<5;++j){
+                        if (data.stars-1 == j){
+                            starsArr[j] = {reviews:[revObj]};
+                        }
+                        else {
+                            starsArr[j] = {reviews:[]};
+                        }
+                    } 
+
+                    var newRev = {
+                        id: id,
+                        stars: starsArr
+                    };
+
+                    reviews.push(newRev);
+                    response.send(newRev.stars);
+
                 }
             });
         }
