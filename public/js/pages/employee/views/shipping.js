@@ -8,11 +8,13 @@ define([
     shippingTmpl
 ) {
     return Backbone.View.extend({
-
+        pickedOrder: undefined,
         initialize: function () {
         },
 
         events: {
+
+            'click .completed-btn': 'updateOrder'
         },
 
         render: function () {
@@ -22,7 +24,14 @@ define([
             return this;
         },
         gotOrder: function (data) {
+            this.pickedOrder = data;
             this.$el.html(shippingTmpl(data));
+        },
+
+        updateOrder: function(e){
+            this.pickedOrder.orderStatus = "Completed";
+            console.log(this.pickedOrder.orderStatus);
+            
         }
     });
 });
