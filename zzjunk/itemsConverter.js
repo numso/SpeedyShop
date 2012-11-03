@@ -27,17 +27,19 @@ var updateImages = function () {
 var addMore = function () { //I wrote this! Ha! :)  -Jesse
     var fs = require('fs');
     var allItems = "";
-    for (var i = 24; i < 24 + 70; ++i)
+    var startIndex = 210;
+    var numItems = 32;
+    for (var i = startIndex; i < startIndex + numItems; ++i)
     {
         var item = [
             '   {',
             '       "name": "Item '+i+'",',
             '       "cat": [',
-            '           "Sports",',
-            '           "Posters"',
+            '           "Book",',
+            '           "Magazines"',
             '       ],',
             '       "price": 1234,',
-            '       "rating": 5,',
+            '       "rating": 4,',
             '       "desc": "Awesome item '+i+'",',
             '       "images": [',
             '           "//www.bmotorsports.com/shop/images/product-unavailable.jpg",',
@@ -46,7 +48,8 @@ var addMore = function () { //I wrote this! Ha! :)  -Jesse
             '           "//www.bmotorsports.com/shop/images/product-unavailable.jpg"',
             '       ],',
             '       "id": '+i+',',
-            '       "available": 5',
+            '       "available": 5,',
+            '       "popularity": 0',
             '   },',
             ''].join('\n');
 
