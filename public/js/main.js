@@ -202,7 +202,11 @@ require([
 
     var addItemToCart = function (id) {
         cartView.addItem(id);
-    }
+    };
+
+    var showOrderToEmployee = function (data) {
+        shippingView.gotOrder(data);
+    };
 
     var headerView = new HeaderView({
         className: "panel header",
@@ -255,7 +259,9 @@ require([
 
     var employeeMenuView = new EmployeeMenuView({
         className: "panel employee-menu-view hidden",
-        model: {}
+        model: {
+            showOrder: showOrderToEmployee
+        }
     });
     $(".left-panel").append(employeeMenuView.render().el);
 
