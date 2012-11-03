@@ -38,6 +38,7 @@ app.get('/getCategories/', itemServices.getCategories);
 // Items Stuff
 app.get('/getItems', itemServices.getItems);
 app.get('/getItems/:catID', itemServices.getItems);
+app.get('/incrementPopularity/:itemNumber', itemServices.incrementPopularity);
 
 // Cart Stuff
 app.get('/getItem/:id', itemServices.getItem);
@@ -47,6 +48,7 @@ app.post('/filters', filterServices.getFilters);
 
 // Review Stuff
 app.get('/reviews/:id', reviewServices.getReviews);
+app.post("/createReview/:objID", reviewServices.createReview);
 
 // Shipping Stuff
 app.get('/orders', employeeServices.getOrders);

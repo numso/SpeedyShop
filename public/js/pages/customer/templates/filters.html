@@ -4,7 +4,7 @@
 
 	{{#if this}}
 		<div class='common-filters'>
-			<ul style="list-style-type:circle">
+			<ul class="common-choices" style="list-style-type:circle">
 				<li>Price
 					<ul style="list-style-type:none">
 						<li>
@@ -12,7 +12,6 @@
 							To: <input class="text" type="text" name="upperPrice">
 							<button type="submit ratings filter">Submit ratings filter</button>
 						</li>
-						
 					</ul>
 				</li>
 				<li>Rating
@@ -41,11 +40,13 @@
 				</li>
 			</ul>
 		</div>
-	
-		<div class='category-title'>Category: {{subcat}}</div>
-		{{#each data}}
-			<div class='filter-title'>{{name}}</div>
 
+		{{#if subcat}}
+			<div class='category-title'>
+				Category: {{subcat}}
+			</div>
+			{{#each data}}
+				<div class='filter-title'>{{name}}</div>
 				<div class='filter-value-box'>
 
 					{{#if radio}}
@@ -54,11 +55,13 @@
 						{{/each}}
 					{{/if}}
 
+					<!--
 					{{#if boolean}}
 						{{#each boolean}}
 							<div class='filter-boolean-value'>{{this}}</div>
 						{{/each}}
 					{{/if}}
+					-->
 
 					{{#if checkbox}}
 						{{#each checkbox}}
@@ -66,7 +69,8 @@
 						{{/each}}
 					{{/if}}
 				</div>
-			</div>
-		{{/each}}
+				</div>
+			{{/each}}
+		{{/if}}
 	{{/if}}
 </div>
