@@ -4,70 +4,68 @@
 
 	{{#if this}}
 		<div class='common-filters'>
-			<form action="">
-				<ul style="list-style-type:circle">
-					<li>Price
-						<ul style="list-style-type:none">
-							<li>
-								<label>From: </label><input class="text" type="text" name="lowerPrice"></br>
-								To: <input class="text" type="text" name="upperPrice">
-								<button type="submit ratings filter">Submit ratings filter</button>
-							</li>
-							
-						</ul>
-					</li>
-					<li>Rating
-						<ul style="list-style-type:none">
-							<li>
-								<input type="checkbox" name="vehicle" value="1">
-								<img src="../../../../../../img/ratings/1.png">
-							</li>
-							<li>
-								<input type="checkbox" name="vehicle" value="2">
-								<img src="../../../../../../img/ratings/2.png">
-							</li>
-							<li>
-								<input type="checkbox" name="vehicle" value="3">
-								<img src="../../../../../../img/ratings/3.png">
-							</li>
-							<li>
-								<input type="checkbox" name="vehicle" value="4">
-								<img src="../../../../../../img/ratings/4.png">
-							</li>
-							<li>
-								<input type="checkbox" name="vehicle" value="5">
-								<img src="../../../../../../img/ratings/5.png">
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</form>
+			<ul style="list-style-type:circle">
+				<li>Price
+					<ul style="list-style-type:none">
+						<li>
+							<label>From: </label><input class="text" type="text" name="lowerPrice"></br>
+							To: <input class="text" type="text" name="upperPrice">
+							<button type="submit ratings filter">Submit ratings filter</button>
+						</li>
+						
+					</ul>
+				</li>
+				<li>Rating
+					<ul style="list-style-type:none">
+						<li>
+							<input type="checkbox" name="ratingFilter" value="1" checked>
+							<img src="../../../../../../img/ratings/1.png">
+						</li>
+						<li>
+							<input type="checkbox" name="ratingFilter" value="2" checked>
+							<img src="../../../../../../img/ratings/2.png">
+						</li>
+						<li>
+							<input type="checkbox" name="ratingFilter" value="3" checked>
+							<img src="../../../../../../img/ratings/3.png">
+						</li>
+						<li>
+							<input type="checkbox" name="ratingFilter" value="4" checked>
+							<img src="../../../../../../img/ratings/4.png">
+						</li>
+						<li>
+							<input type="checkbox" name="ratingFilter" value="5" checked>
+							<img src="../../../../../../img/ratings/5.png">
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 	
 		<div class='category-title'>Category: {{subcat}}</div>
 		{{#each data}}
 			<div class='filter-title'>{{name}}</div>
 
-			<div class='filter-value-box'>
+				<div class='filter-value-box'>
 
-				{{#if radio}}
-					{{#each radio}}
-						<div class='filter-radio-value'>{{this}}</div>
-					{{/each}}
-				{{/if}}
+					{{#if radio}}
+						{{#each radio}}
+							<div class='filter-radio-value'><input type="radio" name="subCatFilter">{{this}}</div>
+						{{/each}}
+					{{/if}}
 
-				{{#if boolean}}
-					{{#each boolean}}
-						<div class='filter-boolean-value'>{{this}}</div>
-					{{/each}}
-				{{/if}}
+					{{#if boolean}}
+						{{#each boolean}}
+							<div class='filter-boolean-value'>{{this}}</div>
+						{{/each}}
+					{{/if}}
 
-				{{#if checkbox}}
-					{{#each checkbox}}
-						<div class='filter-checkbox-value'>{{this}}</div>
-					{{/each}}
-				{{/if}}
-			</div>
+					{{#if checkbox}}
+						{{#each checkbox}}
+							<div class='filter-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
+						{{/each}}
+					{{/if}}
+				</div>
 			</div>
 		{{/each}}
 	{{/if}}
