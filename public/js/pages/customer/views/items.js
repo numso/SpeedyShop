@@ -18,6 +18,8 @@ define([
         isList: true,
         catName: '',
         subcatName: '',
+        MAX_ITEMS: 15,
+        curIndex: 0,
 
         initialize: function () {
         },
@@ -81,6 +83,10 @@ define([
                         cat: catName,
                         subcat: subcatName
                     }));
+
+                    that.curIndex = 0;
+                    that.updateFrame();
+
                     if (that.isList) {
                         that.displayItemList();
                     } else {
@@ -88,6 +94,27 @@ define([
                     }
                 }
             });
+        },
+
+        updateFrame: function () {
+            // fix the "Showing 1 to 20 of 2000" text
+            var len = this.curItems.length,
+                start = this.curIndex + 1,
+                end = (start + this.MAX_ITEMS - 1) > len ? len : (start + this.MAX_ITEMS - 1);
+
+            this.$('.item-info').find('span').text(start + ' to ' + end + ' of ' + len);
+
+            // fix the "<Prev 1 2 3 ... 40 Next>" text
+            var tempArr = ['&lt;Prev'];
+            for (var i = 0; i < len / this.MAX_ITEMS; ++i) {
+                tempArr.push(i+1);
+            }
+            tempArr.push('Next&gt;');
+
+
+            var newFooter = '<span class="items-bottom-nav">' + tempArr.join('</span> <span class="items-bottom-nav">') + '</span>';
+            this.$('.item-footer').html(newFooter);
+            this.$('.item-footer')
         },
 
         displayItemList: function () {
