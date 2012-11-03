@@ -6,11 +6,15 @@
 		<div class="order-box {{orderStatus}}-item">
 		    <div class="order-status">Status: {{orderStatus}}</div>
 		    <div class="order-num">Order Number: {{orderNum}}</div>
-		    <div class="order-weight">Est. Weight: {{estimatedWeight}}</div>
+		    <ul>
 		    {{#each items}}
-		    	<div class = "order-item">Item: {{itemID}}</div>
-		    	<div class = "order-quantity">Quantity: {{quantity}}</div>
+		    	<li>
+		    	<div class = "order-item">Item #: {{itemID}}</div>
+		    	<div class = "order-quantity">-Quantity: {{quantity}}</div>
+		    	</li>
 		    {{/each}}
+			</ul>
+			<div class="order-weight">Package Weight: {{estimatedWeight}} lbs</div>
 		</div>
 	{{/each}}
 </div>
