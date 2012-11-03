@@ -1,40 +1,42 @@
 <div class='filters-module'>
 
-	<div class="sc-title">Filters</div>
+	<div class="sc-title">
+		Filters
+	</div>
 
 	{{#if this}}
 		<div class='common-filters'>
 			<ul class="common-choices" style="list-style-type:circle">
 				<li>Price
-					<ul style="list-style-type:none">
+					<ul class="priceFilter" style="list-style-type:none">
 						<li>
-							<label>From: </label><input class="text" type="text" name="lowerPrice"></br>
-							To: <input class="text" type="text" name="upperPrice">
-							<button type="submit ratings filter">Submit ratings filter</button>
+							<label>From: </label><input type="text" class="lowerPriceText"></br>
+							To: <input type="text" class="upperPriceText"><br/>
+							<button>Submit price filter</button>
 						</li>
 					</ul>
 				</li>
 				<li>Rating
-					<ul style="list-style-type:none">
+					<ul class="ratingFilterList" style="list-style-type:none">
 						<li>
-							<input type="checkbox" name="ratingFilter" value="1" checked>
-							<img src="../../../../../../img/ratings/1.png">
+							<input type="checkbox" value="1" checked>
+							<img class="ratingsImg" src="img/ratings/1.png">
 						</li>
 						<li>
-							<input type="checkbox" name="ratingFilter" value="2" checked>
-							<img src="../../../../../../img/ratings/2.png">
+							<input type="checkbox" value="2" checked>
+							<img class="ratingsImg" src="img/ratings/2.png">
 						</li>
 						<li>
-							<input type="checkbox" name="ratingFilter" value="3" checked>
-							<img src="../../../../../../img/ratings/3.png">
+							<input type="checkbox" value="3" checked>
+							<img class="ratingsImg" src="img/ratings/3.png">
 						</li>
 						<li>
-							<input type="checkbox" name="ratingFilter" value="4" checked>
-							<img src="../../../../../../img/ratings/4.png">
+							<input type="checkbox" value="4" checked>
+							<img class="ratingsImg" src="img/ratings/4.png">
 						</li>
 						<li>
-							<input type="checkbox" name="ratingFilter" value="5" checked>
-							<img src="../../../../../../img/ratings/5.png">
+							<input type="checkbox" value="5" checked>
+							<img class="ratingsImg" src="img/ratings/5.png">
 						</li>
 					</ul>
 				</li>
@@ -46,26 +48,27 @@
 				Category: {{subcat}}
 			</div>
 			{{#each data}}
-				<div class='filter-title'>{{name}}</div>
+				<div class='filter-title'>
+					{{name}}
+				</div>
 				<div class='filter-value-box'>
 
 					{{#if radio}}
+							<div class='subcat-radio-value'>
+								<input type="radio" name="subCatFilter" value="Everything" checked>
+								Everything
+							</div>
 						{{#each radio}}
-							<div class='filter-radio-value'><input type="radio" name="subCatFilter">{{this}}</div>
+							<div class='subcat-radio-value'>
+								<input type="radio" name="subCatFilter" value={{this}}>
+								{{this}}
+							</div>
 						{{/each}}
 					{{/if}}
-
-					<!--
-					{{#if boolean}}
-						{{#each boolean}}
-							<div class='filter-boolean-value'>{{this}}</div>
-						{{/each}}
-					{{/if}}
-					-->
 
 					{{#if checkbox}}
 						{{#each checkbox}}
-							<div class='filter-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
+							<div class='subcat-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
 						{{/each}}
 					{{/if}}
 				</div>
