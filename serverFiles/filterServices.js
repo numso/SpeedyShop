@@ -3,7 +3,7 @@
 module.exports = function () {
 
     var fs = require('fs'),
-        filters = JSON.parse(fs.readFileSync('serverData/newFilter.json'));
+        filters = JSON.parse(fs.readFileSync('serverData/filter.json'));
 
     return {
         getFilters: function (request, response, next) {

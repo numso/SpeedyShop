@@ -30,9 +30,9 @@
             {
                 "name": "Subcategories",
                 "radio": [
-                    "Sink",
-                    "Refrigerator",
-                    "Stove/oven",
+                    "Sinks",
+                    "Refrigerators",
+                    "Stoves/ovens",
                     "Cabinets"
                 ]
             }

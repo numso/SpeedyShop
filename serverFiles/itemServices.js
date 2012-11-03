@@ -8,7 +8,7 @@ module.exports = function () {
         getItems: function (request, response, next) {
             var category = request.params.catID || "All";
 
-            var items = JSON.parse(fs.readFileSync("serverData/newItems.json"));
+            var items = JSON.parse(fs.readFileSync("serverData/items.json"));
             var myObj = [];
 
             if (category !== "All") {
@@ -37,13 +37,13 @@ module.exports = function () {
         getItem: function (request, response, next) {
             var id = request.params.id;
 
-            var items = JSON.parse(fs.readFileSync("serverData/newItems.json"));
+            var items = JSON.parse(fs.readFileSync("serverData/items.json"));
             for (var i = 0; i < items.length; ++i) {
                 if (items[i].id == id) {
                     response.send({
                         status: "success",
                         item: {
-                            imgURL: items[i].img,
+                            imgURL: items[i].images[0],
                             name: items[i].name,
                             price: items[i].price
                         }

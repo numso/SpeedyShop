@@ -1,7 +1,9 @@
 {{#each this}}
     <div class="id-cont clickable-item list-item{{#if isOdd}} odd-item{{else}} even-item{{/if}}" id="{{id}}-item">
         <div class='item-list-info'>
-            <img class="item-img" src="{{img}}">
+            <div class="item-img-wrapper">
+                <img class="item-img" src="{{img}}">
+            </div>
             <div class="item-specs">
                 <div class='item-spec-name'>{{name}}</div>
                 <div>${{price}}</div>

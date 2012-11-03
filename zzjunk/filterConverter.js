@@ -18,4 +18,4 @@ for (var i = 0; i < filters.length; ++i) {
     };
 }
 
-fs.writeFileSync('../serverData/newFilter.json', JSON.stringify(newObj));
+fs.writeFileSync('../serverData/filter.json', JSON.stringify(newObj));
