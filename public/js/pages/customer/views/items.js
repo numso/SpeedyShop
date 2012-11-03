@@ -15,9 +15,12 @@ define([
 ) {
     return Backbone.View.extend({
         curItems: undefined,
+        dispItems: [],
         isList: true,
         catName: '',
         subcatName: '',
+        MAX_ITEMS: 15,
+        curIndex: 0,
 
         initialize: function () {
         },
@@ -28,8 +31,8 @@ define([
             "click .show-list-layout": "displayItemList",
             "click .item-small-img": "loadImage",
             "click #back-btn": "back",
-            "click .add-to-cart": "addItemToCart"
-
+            "click .add-to-cart": "addItemToCart",
+            "click .items-bottom-nav": "pageItems"
         },
 
         addItemToCart: function (e) {
@@ -86,6 +89,10 @@ define([
                         cat: catName,
                         subcat: subcatName
                     }));
+
+                    that.curIndex = 0;
+                    that.updateFrame();
+
                     if (that.isList) {
                         that.displayItemList();
                     } else {
@@ -95,18 +102,98 @@ define([
             });
         },
 
+        pageItems: function (e) {
+            var el = $(e.target).closest('.items-bottom-nav');
+
+            if (el.hasClass('selected')) {
+                return;
+            }
+
+            var type = el.text()[0];
+
+            if (type === "N") {
+                if (this.curIndex + this.MAX_ITEMS >= this.curItems.length) {
+                    return;
+                }
+                this.curIndex += this.MAX_ITEMS;
+            } else if (type === "<") {
+                if (this.curIndex === 0) {
+                    return;
+                }
+                this.curIndex -= this.MAX_ITEMS;
+            } else {
+                var clickedNum = parseInt(type, 10);
+                this.curIndex = (clickedNum - 1) * this.MAX_ITEMS;
+            }
+
+            this.$('.item-body').scrollTop(0);
+
+            this.updateFrame();
+
+            if (this.isList) {
+                this.displayItemList();
+            } else {
+                this.displayItemBlock();
+            }
+        },
+
+        updateFrame: function () {
+            // draw the header (Showing 1 to 20 of 2000) ///////////////////////////
+            var len = this.curItems.length,
+                start = this.curIndex + 1,
+                end = (start + this.MAX_ITEMS - 1) > len ? len : (start + this.MAX_ITEMS - 1);
+
+            this.$('.item-info').find('span').text(start + ' to ' + end + ' of ' + len);
+
+            // draw the footer (<Prev 1 2 3 Next>) /////////////////////////////////
+            var tempArr = [],
+                prevExists = 0;
+
+            // if it's not the first page, put Prev on there
+            if (this.curIndex > 0) {
+                prevExists = 1;
+                tempArr.push('&lt;Prev');
+            }
+
+            // put a number for every page
+            for (var i = 0; i < len / this.MAX_ITEMS; ++i) {
+                tempArr.push(i+1);
+            }
+
+            // if it's not the last item, put Next on there
+            if (this.curIndex < len - this.MAX_ITEMS) {
+                tempArr.push('Next&gt;');
+            }
+
+            if (tempArr.length <= 1) {
+                this.$('.item-footer').html('');
+            } else {
+                // put the correct html tags around the array items
+                var newFooter = '<span class="items-bottom-nav">' + tempArr.join('</span> <span class="items-bottom-nav">') + '</span>';
+                this.$('.item-footer').html(newFooter);
+
+                var selectedIndex = this.curIndex / 15 + prevExists;
+                $(this.$('.items-bottom-nav')[selectedIndex]).addClass('selected');
+            }
+
+            this.dispItems.length = 0;
+            for (var i = start - 1; i < end; ++i) {
+                this.dispItems.push(this.curItems[i]);
+            }
+        },
+
         displayItemList: function () {
             this.isList = true;
             this.$('.selected-btn').removeClass('selected-btn');
             this.$('.show-list-layout').addClass('selected-btn');
-            this.$('.item-body').html(itemsListTmpl(this.curItems));
+            this.$('.item-body-container').html(itemsListTmpl(this.dispItems));
         },
 
         displayItemBlock: function () {
             this.isList = false;
             this.$('.selected-btn').removeClass('selected-btn');
             this.$('.show-block-layout').addClass('selected-btn');
-            this.$('.item-body').html(itemsBlockTmpl(this.curItems));
+            this.$('.item-body-container').html(itemsBlockTmpl(this.dispItems));
         },
 
         loadImage: function (e) {
