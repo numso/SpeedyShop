@@ -1,41 +1,19 @@
-
-<div class = 'confirm-cart'>
-	<div class = 'cart-rotate'>
-		<img class = 'cart-icon-pend' src = "img/ice.png">
-		<img class = 'cart-icon-comp' src = "img/fire.png">
-	</div>
-
-	Confirm Cart
-</div>
-
-<div class = 'billing-info'>
-	Billing Info
-		<div class = 'billing-rotate'>
-			<img class = 'billing-icon-pend' src = "img/ice.png">
-			<img class = 'billing-icon-comp' src = "img/fire.png">
+{{#each this}}
+	{{#if isOdd}}
+		<div class='bc-group'>
+			<span class='bc-right bc-text'>{{text}}</span>
+			<div class='bc-left bc-coin'>
+				<img class='bc-coin-front' src = "img/ice.png">
+				<img class='bc-coin-back' src = "img/fire.png">
+			</div>
 		</div>
-</div>
-
-<div class = 'shipping-info'>
-		<div class = 'shipping-rotate'>
-			<img class = 'shipping-icon-pend' src = "img/ice.png">
-			<img class = 'shipping-icon-comp' src = "img/fire.png">
+	{{else}}
+		<div class='bc-group'>
+			<div class='bc-right bc-coin'>
+				<img class='bc-coin-front' src = "img/ice.png">
+				<img class='bc-coin-back' src = "img/fire.png">
+			</div>
+			<span class='bc-left bc-text'>{{text}}</span>
 		</div>
-	Shipping Info
-</div>
-
-<div class = 'payment-info'>
-	Payment Info
-	<div class = 'payment-rotate'>
-		<img class = 'payment-icon-pend' src = "img/ice.png">
-		<img class = 'payment-icon-comp' src = "img/fire.png">
-	</div>
-</div>
-
-<div class = 'confirm-order'>
-	<div class = 'confirm-rotate'>
-		<img class = 'confirm-icon-pend' src = "img/ice.png">
-		<img class = 'confirm-icon-comp' src = "img/fire.png">
-	</div>
-	Confirm Order
-</div>
+	{{/if}}
+{{/each}}

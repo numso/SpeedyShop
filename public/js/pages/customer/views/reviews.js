@@ -71,9 +71,10 @@ define([
         },
 
         submitReview: function(e){
-            //This needs the Post Function to post the review to the server
             this.$el.html(showReviewsTmpl(this.curReviews));
             this.renderHtml(this.curReviews);
+            
+
         },
 
         cancelReview:function(e){
