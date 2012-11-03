@@ -62,22 +62,31 @@
 
         .item-list-info {
             float: left;
+            width: 280px;
 
-            .item-img {
+            .item-img-wrapper {
                 max-width: 100px;
                 max-height: 100px;
-                display: inline-block;
-                vertical-align: top;
+            }
+
+            .item-img {
+                max-width: inherit;
+                max-height: inherit;
+                display: block;
+                vertical-align: middle;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .item-specs {
-                width: 120px;
+                width: 170px;
                 display: inline-block;
                 vertical-align: top;
+                float: right;
 
                 .item-spec-name {
                     white-space: nowrap;
-                    max-width: 140px;
+                    max-width: 165px;
                     text-overflow: ellipsis;
                     overflow: hidden;
                 }
