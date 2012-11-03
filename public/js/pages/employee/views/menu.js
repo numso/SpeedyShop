@@ -21,6 +21,8 @@ define([
         showProcessed: function (e) {
             this.$('.order-box').hide();
             this.$('.Processed-item').show();
+            this.$('.processed-btn').addClass('selected-btn');
+            this.$('.completed-btn').removeClass('selected-btn');
 
 
         },
@@ -29,6 +31,8 @@ define([
         showCompleted: function (e) {
             this.$('.order-box').hide();
             this.$('.Completed-item').show();
+            this.$('.completed-btn').addClass('selected-btn');
+            this.$('.processed-btn').removeClass('selected-btn');
 
             
         },
