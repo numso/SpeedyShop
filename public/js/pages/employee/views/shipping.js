@@ -17,7 +17,7 @@ define([
 
         render: function () {
             this.$el.html(shippingTmpl({
-                msg: "Click on an Order to Load it"
+                msg: "Click on an order to load it."
             }));
             return this;
         },

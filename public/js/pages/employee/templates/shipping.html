@@ -1,20 +1,27 @@
 <div class = "emp-shipping-body">
     {{#if msg}}
-
+        <div class = 'default-shipping-msg'> {{msg}} </div>
 {{else}}
 
     <div class = 'shipping-order-status'>Order Status: {{orderStatus}}</div>
+    <br />
     <div class = 'shipping-order-num'>Order Number: {{orderNum}}</div>
+    <br />
 
     <ul>
     {{#each items}}
         <li>
-            <input type = 'checkbox'>{{itemID}}
-            <div class = 'shipping-quantity'>{{quantity}}</div>
+            <input type = 'checkbox'> Item Number: {{itemID}}
+            <div class = 'shipping-quantity'>Quantity: {{quantity}}</div>
         </li>
+        <br />
+    {{/each}}
     </ul>
     <div class = 'shipping-weight'>Package Weight: {{estimatedWeight}} lbs </div>
-    {{/each}}
+    <br />
+    <hr>
+
+    <input type = 'submit' value = 'Order Completed'>
 
 {{/if}}
 </div>
