@@ -144,10 +144,12 @@ define([
             this.$('.item-info').find('span').text(start + ' to ' + end + ' of ' + len);
 
             // draw the footer (<Prev 1 2 3 Next>) /////////////////////////////////
-            var tempArr = [];
+            var tempArr = [],
+                prevExists = 0;
 
             // if it's not the first page, put Prev on there
             if (this.curIndex > 0) {
+                prevExists = 1;
                 tempArr.push('&lt;Prev');
             }
 
@@ -167,7 +169,9 @@ define([
                 // put the correct html tags around the array items
                 var newFooter = '<span class="items-bottom-nav">' + tempArr.join('</span> <span class="items-bottom-nav">') + '</span>';
                 this.$('.item-footer').html(newFooter);
-                // $(this.$('.items-bottom-nav')[1]).addClass('selected');
+
+                var selectedIndex = this.curIndex / 15 + prevExists;
+                $(this.$('.items-bottom-nav')[selectedIndex]).addClass('selected');
             }
 
             this.dispItems.length = 0;
