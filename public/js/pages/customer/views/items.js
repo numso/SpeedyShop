@@ -47,6 +47,7 @@ define([
                     this.$el.html(itemDetailTmpl(this.curItems[i]));
                     $(this.$('.item-small-img')[0]).addClass('selected-img');
                     this.model.showReviews(id);
+                    $.get("/incrementPopularity/" + id);
                     return;
                 }
             }
@@ -61,6 +62,10 @@ define([
 
         loadItems: function (catName, subcatName) {
             var that = this;
+
+            //special case for Hot Items
+            if (catName === "Hot Items")
+                subcatName = catName;
 
             // get the items from the server
             $.get('/getItems/' + subcatName, function (items) {
