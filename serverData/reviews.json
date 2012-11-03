@@ -1,6 +1,6 @@
 [
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -65,7 +65,7 @@
         "id": 0
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -130,7 +130,7 @@
         "id": 1
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -195,7 +195,7 @@
         "id": 2
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -260,7 +260,7 @@
         "id": 3
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -325,7 +325,7 @@
         "id": 4
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -390,7 +390,7 @@
         "id": 5
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -455,7 +455,7 @@
         "id": 6
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -520,7 +520,7 @@
         "id": 7
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -585,7 +585,7 @@
         "id": 8
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
@@ -650,7 +650,7 @@
         "id": 9
     },
     {
-        "reviews": [
+        "stars": [
             {
                 "reviews": [
                     {
