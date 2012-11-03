@@ -12,7 +12,7 @@ module.exports = function () {
             var arr = [];
 
             for (var i = 0; i < reviews.length; ++i) {
-                if (reviews[i].id === id) {
+                if (reviews[i].id == id) {
                     arr = reviews[i].reviews;
                 }
             }
