@@ -13,6 +13,11 @@ define([
     return Backbone.View.extend({
 
         curReviews: undefined,
+        unsubmittedReview: {
+            stars: 5,
+            name: "",
+            text: ""
+        },
 
         initialize: function() {},
 
@@ -65,19 +70,39 @@ define([
 
         addReview:function(e){
             var starObj = {
-                starReviews:[1,2,3,4,5]
+                starReviews:[1,2,3,4,5],
+                nameGiven: this.unsubmittedReview.name,
+                textGiven: this.unsubmittedReview.text,
             }
             this.$el.html(addReviewsTmpl(starObj));
+            this.$("#" + this.unsubmittedReview.stars + "-select").addClass("selected-rating")
+        },
+
+        updateReview: function(){
+            var t = this.$('.textAreaText').attr("value");
+            var n = this.$(".input-name").attr("value");
+            var s = parseInt(this.$(".selected-rating").attr("id"),10);
+            this.unsubmittedReview.stars = s;
+            this.unsubmittedReview.name = n;
+            this.unsubmittedReview.text = t;
         },
 
         submitReview: function(e){
+            this.updateReview();
             this.$el.html(showReviewsTmpl(this.curReviews));
             this.renderHtml(this.curReviews);
-            
-
+            var objID = 0;
+            $.post("/createReview/" + objID, JSON.stringify(this.unsubmittedReview), function (data){
+            });
+            this.unsubmittedReview = {
+                stars: 5,
+                name: "",
+                text: ""
+            }
         },
 
         cancelReview:function(e){
+            this.updateReview();
             this.$el.html(showReviewsTmpl(this.curReviews));
             this.renderHtml(this.curReviews);
         },

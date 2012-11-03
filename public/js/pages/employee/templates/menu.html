@@ -1,6 +1,18 @@
-<div class="employee-menu-content">
-    <div class="title">Employee Menu</div>
-    <div class="menu">
-        <div class="item clickable" id="showShipping">Shipping</div>
-    </div>
+<button class = "processed-btn">Processed</button>
+<button class = "completed-btn">Completed</button>
+
+<div class = "order-wrapper">
+	{{#each this}}
+		<div class="order-box {{orderStatus}}-item">
+		    <div class="order-status">Status: {{orderStatus}}</div>
+		    <div class="order-num">Order Number: {{orderNum}}</div>
+		    <div class="order-weight">Est. Weight: {{estimatedWeight}}</div>
+		    {{#each items}}
+		    	<div class = "order-item">Item: {{itemID}}</div>
+		    	<div class = "order-quantity">Quantity: {{quantity}}</div>
+		    {{/each}}
+		</div>
+	{{/each}}
 </div>
+
+
