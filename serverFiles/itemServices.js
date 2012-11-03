@@ -39,7 +39,7 @@ module.exports = function () {
                         return 1;
                 });
 
-                for (var i = 0; i < 30; ++i)
+                for (var i = 0; i < 15; ++i)
                     if (items[i].popularity !== 0)
                         myObj.push(items[i]);
             }
