@@ -13,22 +13,24 @@ define([
         },
 
         events: {
-            'click .expandable': 'toggleMenu',
-            'click .clickable': 'openModule'
+            'click .clickable': 'openModule',
+            'click .processed-btn': 'showProcessed',
+            'click .completed-btn': 'showCompleted'
         },
 
-        toggleMenu: function (e) {
-            var el = $(e.target).closest('.expandable');
-            var arrow = el.find('.arrow');
-            var subMenu = el.next();
+        showProcessed: function (e) {
+            this.$('.order-box').hide();
+            this.$('.Processed-item').show();
 
-            if (arrow.hasClass('rotate')) {
-                arrow.removeClass('rotate');
-            } else {
-                arrow.addClass('rotate');
-            }
 
-            subMenu.slideToggle(100);
+        },
+
+
+        showCompleted: function (e) {
+            this.$('.order-box').hide();
+            this.$('.Completed-item').show();
+
+            
         },
 
         openModule: function (e) {
@@ -37,7 +39,12 @@ define([
         },
 
         render: function () {
-            this.$el.html(menuTmpl());
+
+            var that = this;
+            $.get('/orders', function (data) {
+                that.$el.html(menuTmpl(data));
+            });
+
             return this;
         }
     });
