@@ -126,6 +126,8 @@ define([
                 this.curIndex = (clickedNum - 1) * this.MAX_ITEMS;
             }
 
+            this.$('.item-body').scrollTop(0);
+
             this.updateFrame();
 
             if (this.isList) {
