@@ -30,13 +30,13 @@ module.exports = function () {
             request.on('end', function () {
                 data = JSON.parse(data);
 
-                for (var i = 0; i<reveiws.length;++i){
+                for (var i = 0; i<reviews.length;++i){
                     if (id == reviews[i].id){
                         var newRev ={
                             name: data.name,
                             text: data.text
                         };
-                        reviews[i].stars[data.stars-1].push(newRev);
+                        reviews[i].stars[data.stars-1].reviews.push(newRev);
                         response.send("OK");
                     }
                 }
