@@ -93,9 +93,12 @@ define([
             this.renderHtml(this.curReviews);
             var objID = 0;
             $.post("/createReview/" + objID, JSON.stringify(this.unsubmittedReview), function (data){
-                
             });
-
+            this.unsubmittedReview = {
+                stars: 5,
+                name: "",
+                text: ""
+            }
         },
 
         cancelReview:function(e){
