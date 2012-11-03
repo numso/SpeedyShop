@@ -18,6 +18,7 @@ define([
             name: "",
             text: ""
         },
+        itemID: 0,
 
         initialize: function() {},
 
@@ -40,6 +41,7 @@ define([
 
         clickedItem: function(id) {
             var that = this;
+            this.itemID = id;
             // someone clicked on item with id: id
             $.get('/reviews/' + id, function (data) {
                 //now curReviews has gotten data
@@ -88,22 +90,22 @@ define([
         },
 
         submitReview: function(e){
+            var that=this;
             this.updateReview();
-            this.$el.html(showReviewsTmpl(this.curReviews));
-            this.renderHtml(this.curReviews);
-            var objID = 0;
-            $.post("/createReview/" + objID, JSON.stringify(this.unsubmittedReview), function (data){
+            $.post("/createReview/" + this.itemID, JSON.stringify(this.unsubmittedReview), function (data){
+                that.curReviews=data;
+                that.unsubmittedReview = {
+                    stars: 5,
+                    name: "",
+                    text: ""
+                }
+                that.renderHtml(that.curReviews);
             });
-            this.unsubmittedReview = {
-                stars: 5,
-                name: "",
-                text: ""
-            }
+            that.renderHtml(that.curReviews);
         },
 
         cancelReview:function(e){
             this.updateReview();
-            this.$el.html(showReviewsTmpl(this.curReviews));
             this.renderHtml(this.curReviews);
         },
 
