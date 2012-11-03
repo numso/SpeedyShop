@@ -18,6 +18,12 @@ define([
         render: function () {
             this.$el.html(shippingTmpl());
             return this;
+
+
+            $.get('/orders', function (data) {
+                
+
+            });
         }
     });
 });

@@ -12,7 +12,8 @@ console.log('Server running on port:' + PORT);
 
 var itemServices = require('./serverFiles/itemServices')(),
     filterServices = require('./serverFiles/filterServices')(),
-    reviewServices = require('./serverFiles/reviewServices')();
+    reviewServices = require('./serverFiles/reviewServices')(),
+    employeeServices = require('./serverFiles/employeeServices')();
 
 if (ENV === 'prod') {
     var authServices = require('./serverFiles/authServices')();
@@ -48,6 +49,9 @@ app.post('/filters', filterServices.getFilters);
 // Review Stuff
 app.get('/reviews/:id', reviewServices.getReviews);
 app.post("/createReview/:objID", reviewServices.createReview);
+
+// Shipping Stuff
+app.get('/orders', employeeServices.getOrders);
 
 // Authentication Stuff
 app.post('/login', authServices.login);

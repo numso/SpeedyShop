@@ -18,9 +18,9 @@ define([
         render: function () {
             var arr = [
                 "Confirm Cart",
-                "Billing Info",
-                "Shipping Info",
-                "Payment Info",
+                "Billing",
+                "Shipping",
+                "Payment",
                 "Confirm Order"
             ];
 
