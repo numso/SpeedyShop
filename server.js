@@ -37,6 +37,7 @@ app.get('/getCategories/', itemServices.getCategories);
 // Items Stuff
 app.get('/getItems', itemServices.getItems);
 app.get('/getItems/:catID', itemServices.getItems);
+app.get('/incrementPopularity/:itemNumber', itemServices.incrementPopularity);
 
 // Cart Stuff
 app.get('/getItem/:id', itemServices.getItem);
