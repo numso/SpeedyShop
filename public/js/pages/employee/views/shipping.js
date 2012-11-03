@@ -16,14 +16,13 @@ define([
         },
 
         render: function () {
-            this.$el.html(shippingTmpl());
+            this.$el.html(shippingTmpl({
+                msg: "Click on an Order to Load it"
+            }));
             return this;
-
-
-            $.get('/orders', function (data) {
-                
-
-            });
+        },
+        gotOrder: function (data) {
+            this.$el.html(shippingTmpl(data));
         }
     });
 });
