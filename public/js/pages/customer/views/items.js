@@ -14,8 +14,10 @@ define([
     itemDetailTmpl
 ) {
     return Backbone.View.extend({
-        curItems: undefined,
+        rawItems: [],
         dispItems: [],
+        filteredItems: [],
+        filters: {},
         isList: true,
         catName: '',
         subcatName: '',
@@ -43,9 +45,9 @@ define([
 
         showDetailView: function (e) {
             var id = parseInt($(e.target).closest('.clickable-item').attr('id'), 10);
-            for (var i = 0; i < this.curItems.length; ++i) {
-                if (this.curItems[i].id === id) {
-                    this.$el.html(itemDetailTmpl(this.curItems[i]));
+            for (var i = 0; i < this.filteredItems.length; ++i) {
+                if (this.filteredItems[i].id === id) {
+                    this.$el.html(itemDetailTmpl(this.filteredItems[i]));
                     $(this.$('.item-small-img')[0]).addClass('selected-img');
                     this.model.showReviews(id);
                     $.get("/incrementPopularity/" + id);
@@ -59,6 +61,15 @@ define([
                 msg: 'Welcome to SpeedyShop! To start, use the categories above to choose from our wide variety of products.'
             }));
             return this;
+        },
+
+        updateFilteredItems: function (data) {
+            // called from main.js
+            // update this.filteredItems based on the filters
+            // this.rawItems has all the items possible for this category
+            // append ally our applied filters to the this.filters object
+            this.filteredItems.length = 0;
+            this.filteredItems = this.rawItems;
         },
 
         loadItems: function (catName, subcatName) {
@@ -76,7 +87,11 @@ define([
                     items[i].isOdd = (i % 2 === 0);
                 }
 
-                that.curItems = items;
+                that.rawItems.length = 0;
+                that.rawItems = items;
+                // we might want to take out all the filters right here
+                //that.filters = {};
+                that.updateFilteredItems();
                 that.catName = catName;
                 that.subcatName = subcatName;
 
@@ -112,7 +127,7 @@ define([
             var type = el.text()[0];
 
             if (type === "N") {
-                if (this.curIndex + this.MAX_ITEMS >= this.curItems.length) {
+                if (this.curIndex + this.MAX_ITEMS >= this.filteredItems.length) {
                     return;
                 }
                 this.curIndex += this.MAX_ITEMS;
@@ -139,7 +154,7 @@ define([
 
         updateFrame: function () {
             // draw the header (Showing 1 to 20 of 2000) ///////////////////////////
-            var len = this.curItems.length,
+            var len = this.filteredItems.length,
                 start = this.curIndex + 1,
                 end = (start + this.MAX_ITEMS - 1) > len ? len : (start + this.MAX_ITEMS - 1);
 
@@ -178,7 +193,7 @@ define([
 
             this.dispItems.length = 0;
             for (var i = start - 1; i < end; ++i) {
-                this.dispItems.push(this.curItems[i]);
+                this.dispItems.push(this.filteredItems[i]);
             }
         },
 
