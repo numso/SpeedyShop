@@ -16,7 +16,22 @@ define([
         },
 
         render: function () {
-            this.$el.html(breadcrumbsTmpl());
+            var arr = [
+                "Confirm Cart",
+                "Billing Info",
+                "Shipping Info",
+                "Payment Info",
+                "Confirm Order"
+            ];
+
+            for (var i = 0; i < arr.length; ++i) {
+                arr[i] = {
+                    text: arr[i],
+                    isOdd: (i % 2 === 0)
+                }
+            }
+
+            this.$el.html(breadcrumbsTmpl(arr));
             return this;
         }
     });
