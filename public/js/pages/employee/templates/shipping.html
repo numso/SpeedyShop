@@ -1,27 +1,27 @@
-<div class="emp-shipping-body">
-    <h3> Possible Layout </h3>
-<pre>
-    orderStatus = Processed/Shipped
-    orderNum = integer value start at 1000
-    estimatedWeight = Sum of all items in Order
-    items = Array of Key : Value pairs (ItemNumber : Quantity)
-    shippingLabel = Shipping Label Object that contains customers shipping info
-    int [] orderStatusSearch("processed", "shipped")
-    	return int array with all of the OrderNums that have that status
+<div class = "emp-shipping-body">
+    {{#if msg}}
+        <div class = 'default-shipping-msg'> {{msg}} </div>
+{{else}}
 
-    int getOrder(int thisOrderNum)
-    	return Order obj
-    ### on shipping page ###
+    <div class = 'shipping-order-status'>Order Status: {{orderStatus}}</div>
+    <br />
+    <div class = 'shipping-order-num'>Order Number: {{orderNum}}</div>
+    <br />
 
-    Scroll window with refresh button
-    	Contain a list of Orders that have been processed but not shipped
+    <ul>
+    {{#each items}}
+        <li>
+            <input type = 'checkbox'> Item Number: {{itemID}}
+            <div class = 'shipping-quantity'>Quantity: {{quantity}}</div>
+        </li>
+        <br />
+    {{/each}}
+    </ul>
+    <div class = 'shipping-weight'>Package Weight: {{estimatedWeight}} lbs </div>
+    <br />
+    <hr>
 
-    Form
-    	Checklist for items that have been packaged
+    <input type = 'submit' value = 'Order Completed'>
 
-    Total Package Weight
-
-    Shipping Label -- need it to be print clickable
-</pre>
-
+{{/if}}
 </div>
