@@ -47,6 +47,7 @@ app.post('/filters', filterServices.getFilters);
 
 // Review Stuff
 app.get('/reviews/:id', reviewServices.getReviews);
+app.post("/createReview/:objID", reviewServices.createReview);
 
 // Authentication Stuff
 app.post('/login', authServices.login);
