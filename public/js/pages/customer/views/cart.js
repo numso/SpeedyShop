@@ -40,6 +40,14 @@ define([
                         console.log('uh oh, something\'s up. Could\'t get the item');
                     }
                 });
+
+                //add event to item div so that user can type in a new quantity then press Enter
+                $('.sc-area').keypress(function(event) {
+                    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    if(keycode == '13') { //user pressed Enter key
+                        that.recalculateTotal();
+                    }
+                });
             }
         },
 
@@ -51,7 +59,7 @@ define([
             var total = 0;
             var items = this.$('.sc-item');
             for (var i = 0; i < items.length; ++i) {
-                var qty = parseInt($(items[i]).find('.qty-cnt').attr('value'), 10);
+                var qty = parseInt($(items[i]).find('.qty-cnt').attr('value').replace(/[^0-9]/g, ''), 10);
                 var price = parseFloat($(items[i]).find('.sc-price').find('span').html(), 10);
                 total += qty * price;
             }
