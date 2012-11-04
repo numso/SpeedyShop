@@ -23,12 +23,19 @@ define([
             return this;
         },
 
+        getCurrentQuantity: function(item) {
+            var quantity = parseInt(item.find('.qty-cnt').attr('value').replace(/[^0-9]/g, ''), 10);
+            if (isNaN(quantity))
+                return 0;
+            return quantity;
+        },
+
         addItem: function (id) {
             var that = this;
 
             var el = that.$('#' + id + '-in-cart');
             if (el.length > 0) {
-                el.find('.qty-cnt').attr('value', (parseInt(el.find('.qty-cnt').attr('value'), 10) + 1));
+                el.find('.qty-cnt').attr('value', this.getCurrentQuantity(el) + 1);
                 this.recalculateTotal();
             } else {
                 $.get('/getItem/' + id, function (data) {
@@ -45,6 +52,10 @@ define([
                 $('.sc-area').keypress(function(event) {
                     var keycode = (event.keyCode ? event.keyCode : event.which);
                     if(keycode == '13') { //user pressed Enter key
+                        //if the quantity text box is made blank or contains no numerical characters, reset to show "0"
+                        if (that.getCurrentQuantity($('.sc-area')) === 0)
+                            that.$('.qty-cnt').attr('value', "0");
+
                         that.recalculateTotal();
                     }
                 });
@@ -59,7 +70,7 @@ define([
             var total = 0;
             var items = this.$('.sc-item');
             for (var i = 0; i < items.length; ++i) {
-                var qty = parseInt($(items[i]).find('.qty-cnt').attr('value').replace(/[^0-9]/g, ''), 10);
+                var qty = this.getCurrentQuantity($(items[i]));
                 var price = parseFloat($(items[i]).find('.sc-price').find('span').html(), 10);
                 total += qty * price;
             }
