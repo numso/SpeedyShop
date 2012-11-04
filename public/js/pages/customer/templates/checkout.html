@@ -1,1 +1,49 @@
-THIS IS THE CHECKOUT MODULE
+<div class="checkout-module">
+
+    <div class="checkout-title">
+        Checkout
+    </div>
+
+    <div class="checkout-subtitle">
+        Your current shopping cart:
+    </div>
+
+    {{#each this}}
+        <div id="{{id}}-item">
+            <div class="item-quantity">
+                Quantity: {{quantity}}
+            </div>
+            <div class='checkout-item-info'>
+                <div class="checkout-img-wrapper">
+                    <img class="item-img" src="{{img}}">
+                </div>
+                <div class="item-desc">
+                    <div class='item-spec-name'>
+                        {{name}}
+                    </div>
+                    <div>
+                        Item #: {{id}}
+                    </div>
+                </div>
+                <div>
+                    <input type="text" class="promoCodeText">
+                    <button class="submit-promo">
+                        Submit Promo
+                    </button>
+                </div>
+            </div>
+            <div class="total-price">
+                {{total}}
+            </div>
+        </div>
+    {{/each}}
+
+    <div class="confirm-order">
+        <button class="submit-promo">
+            Confirm Order
+        </button>
+    </div>
+
+</div>
+
+<!--Could look like http://assets.baymard.com/blog/checkout-usability-apply-buttons-2-newegg-full.png -->
