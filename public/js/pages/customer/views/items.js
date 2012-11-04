@@ -158,7 +158,7 @@ define([
                 start = this.curIndex + 1,
                 end = (start + this.MAX_ITEMS - 1) > len ? len : (start + this.MAX_ITEMS - 1);
 
-            this.$('.item-info').find('span').text(start + ' to ' + end + ' of ' + len);
+            this.$('.item-info').find('span').text(start + ' - ' + end + ' out of ' + len);
 
             // draw the footer (<Prev 1 2 3 Next>) /////////////////////////////////
             var tempArr = [],
