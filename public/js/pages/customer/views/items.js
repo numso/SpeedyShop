@@ -225,6 +225,8 @@ define([
                 subcat: this.subcatName
             }));
 
+            this.updateFrame();
+
             if (this.isList) {
                 this.displayItemList();
             } else {
