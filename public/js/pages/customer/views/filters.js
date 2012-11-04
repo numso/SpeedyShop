@@ -32,8 +32,8 @@ define([
                 el.attr('checked', true);
             }
 
-            var lowerPrice = this.$('.lowerPriceText').attr('value');
-            var upperPrice = this.$('.upperPriceText').attr('value');
+            var lowerPrice = this.$('.lowerPriceText').attr('value').replace(/[^0-9]/g, '');
+            var upperPrice = this.$('.upperPriceText').attr('value').replace(/[^0-9]/g, '');
 
             var chosenRatings = [];
             for (var i = 0; i < 5; ++i)
