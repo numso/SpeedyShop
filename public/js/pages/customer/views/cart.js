@@ -52,10 +52,7 @@ define([
                 $('.sc-area').keypress(function(event) {
                     var keycode = (event.keyCode ? event.keyCode : event.which);
                     if(keycode == '13') { //user pressed Enter key
-                        //if the quantity text box is made blank or contains no numerical characters, reset to show "0"
-                        if (that.getCurrentQuantity($('.sc-area')) === 0)
-                            that.$('.qty-cnt').attr('value', "0");
-
+                        that.$('.qty-cnt').attr('value', that.getCurrentQuantity($('.sc-area'))); //sanitize input textbox
                         that.recalculateTotal();
                     }
                 });

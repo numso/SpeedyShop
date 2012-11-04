@@ -1,89 +1,102 @@
-.initial-review-page{
-    margin:50px;
-    text-align:center;
+.initial-review-page {
+    margin: 50px;
+    text-align: center;
 }
 
-.gen-btn{
-    height:25px;
-    width:75%;
+.gen-btn {
+    height: 25px;
+    width: 75%;
     margin: 5px 12.5%;
 }
 
-.input-text{
-    height:250px;
-    overflow:auto;
+.input-text {
+    height: 250px;
+    overflow: auto;
 }
 
-.text-input{
+.text-input {
     width: 85%
 }
 
+.stars {
+    width: 48%;
+    display: inline-block;
+
+    &.selected-rating {
+        border: 2px solid black;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .img {
+        padding-top: 2px;
+    }
+
+    span {
+        top: -5px;
+        position: relative;
+    }
+}
+
+.review-module {
+    .review-header-container {
+        position: absolute;
+        top: 8px;
+        margin-right: 2%;
+
         .stars{
-            width: 48%;
-            display:inline-block;
-            &.selected-rating{
-                border:2px solid black;
+            &.selected-rating {
+                border: 2px solid black;
             }
-            &:hover{
-                cursor:pointer;
+
+            &:hover {
+                cursor: pointer;
             }
-            .img{
+
+            .img {
                 padding-top: 2px;
             }
-            span{
-                top:-5px;
-                position:relative;
+
+            width: 48%;
+            display: inline-block;
+
+            span {
+                top: -5px;
+                position: relative;
             }
         }
 
-.review-module
-{
-    .review-header-container{
-        position:absolute;
-        top:8px;
-        margin-right:2%;
-        .stars{
-            &.selected-rating{
-                border:2px solid black;
-            }
-            &:hover{
-                cursor:pointer;
-            }
-            .img{
-                padding-top: 2px;
-            }
-            width: 48%;
-            display:inline-block;
-            span{
-                top:-5px;
-                position:relative;
-            }
-        }
-        .show-btn{
-            width:45%;
-            display:none;
+        .show-btn {
+            width: 45%;
+            display: none;
         }
     }
-    .add-review{
-        top:78px;
-        margin-top:75px;
-        margin-left:6%;
-        margin-right:6%;
-        margin-bottom:5px;
-        height:25px;
-        width:75%;
+
+    .add-review {
+        top: 78px;
+        margin-top: 75px;
+        margin-left: 6%;
+        margin-right: 6%;
+        margin-bottom: 5px;
+        height: 25px;
+        width: 75%;
     }
-    .reviews{
-        overflow:auto;
-        height:450px;
-        .individual-review{
-            max-height:175px;
-            overflow:auto ;
-            margin:5px;
-            border-top:1px solid;
+
+    .reviews {
+        overflow: auto;
+        height: 450px;
+
+        .individual-review {
+            max-height: 175px;
+            overflow: auto;
+            margin: 5px;
+            border-top: 1px solid;
             margin-top: 3px;
-            img{
-                margin-top:5px;
+
+            img {
+                margin-top: 5px;
             }
         }
     }
