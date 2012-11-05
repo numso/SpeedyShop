@@ -80,3 +80,11 @@
     border-right: @width/2 solid transparent;
     border-bottom: @height solid @color;
 }
+
+.stop-flicker () {
+    transform: translateZ(.1px);
+    -ms-transform: translateZ(.1px);
+    -webkit-transform: translateZ(.1px);
+    -o-transform: translateZ(.1px);
+    -moz-transform: translateZ(.1px);
+}
