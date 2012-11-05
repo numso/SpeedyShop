@@ -10,6 +10,7 @@ define([
     scItemTmpl
 ) {
     return Backbone.View.extend({
+        cart: [],
 
         initialize: function () {
         },
@@ -23,7 +24,7 @@ define([
             return this;
         },
 
-        getCurrentQuantity: function(item) {
+        getCurrentQuantity: function (item) {
             var quantity = parseInt(item.find('.qty-cnt').attr('value').replace(/[^0-9]/g, ''), 10);
             if (isNaN(quantity))
                 return 0;
@@ -35,11 +36,25 @@ define([
 
             var el = that.$('#' + id + '-in-cart');
             if (el.length > 0) {
+
+                for (var i = 0; i < this.cart.length; ++i) {
+                    if (this.cart[i].id === id) {
+                        ++this.cart[i].quantity;
+                    }
+                }
+
                 el.find('.qty-cnt').attr('value', this.getCurrentQuantity(el) + 1);
                 this.recalculateTotal();
             } else {
                 $.get('/getItem/' + id, function (data) {
                     if (data.status === "success") {
+                        that.cart.push({
+                            id: id,
+                            img: data.item.imgURL,
+                            name: data.item.name,
+                            price: data.item.price,
+                            quantity: 1
+                        })
                         data.item.id = id;
                         that.$('.sc-area').append(scItemTmpl(data.item));
                         that.recalculateTotal();

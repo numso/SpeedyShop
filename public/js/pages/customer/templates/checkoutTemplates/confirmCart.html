@@ -1,142 +1,36 @@
 <div class="confirm-cart-page">
 
-    <hr>
-
-    <div class='checkout-item' id="1-item">
-        <div class="item-img-wrapper">
-            <img src="//www.woodlandcreekfurniture.com/graphics/Natural%20Furniture%20Dining%20Table%20Ball%20Design.jpg">
-        </div>
-        <div class='checkout-item-info'>
-            <div>
-                Natural Dining Table - 48"
+    <hr/>
+    {{#each cart}}
+        <div class='checkout-item' id="{{id}}-item">
+            <div class="item-img-wrapper">
+                <img src="{{img}}">
             </div>
-            <div class='sc-price'>
-                $<span>2395.00</span>
+            <div class='checkout-item-info'>
+                <div>{{name}}</div>
+                <div class='sc-price'>$<span>{{price}}</span></div>
+                <div>Quantity: <input class='item-quantity' type='text' value='{{quantity}}'></div>
             </div>
-            <div>
-                Quantity: <input class='item-quantity' type='text' value='1'>
-            </div>
-        </div>
-        <div class="item-promo-wrapper">
-            <label>
-                Promo code:
-            </label>
-            <input class="promo-code-text" type="text">
-            <button>
-                Add
-            </button>
-        </div>
-    </div>
-
-    <hr>
-
-    <div class='checkout-item' id="2-item">
-        <div class="item-img-wrapper">
-            <img src="//www.digsdigs.com/photos/Modern-dining-table-with-stone-base-Vicenza-Shapes-from-Diotti-AF-1-554x353.jpg">
-        </div>
-        <div class='checkout-item-info'>
-            <div>
-                Glass Table
-            </div>
-            <div class='sc-price'>
-                $<span>1349.00</span>
-            </div>
-            <div>
-                Quantity: <input class='item-quantity' type='text' value='1'>
+            <div class="item-promo-wrapper">
+                <label>Promo code:</label>
+                <input class="promo-code-text" type="text">
+                <button>Add</button>
             </div>
         </div>
-        <div class="item-promo-wrapper">
-            <label>
-                Promo code:
-            </label>
-            <input class="promo-code-text" type="text">
-            <button>
-                Add
-            </button>
-        </div>
-    </div>
-
-    <hr>
-
-    <div class='checkout-item' id="3-item">
-        <div class="item-img-wrapper">
-            <img src="//assets.inhabitat.com/wp-content/blogs.dir/1/files/2010/06/iphone4-LEAD.jpg">
-        </div>
-        <div class='checkout-item-info'>
-            <div>
-                iPhone 5
-            </div>
-            <div class='sc-price'>
-                $<span>500.00</span>
-            </div>
-            <div>
-                Quantity: <input class='item-quantity' type='text' value='1'>
-            </div>
-        </div>
-        <div class="item-promo-wrapper">
-            <label>
-                Promo code:
-            </label>
-            <input class="promo-code-text" type="text">
-            <button>
-                Add
-            </button>
-        </div>
-    </div>
-
-    <hr>
-
-    <div class='checkout-item' id="4-item">
-        <div class="item-img-wrapper">
-            <img src="//www.qualitylogoproducts.com/computer-accessories/mouspad-extralarge.jpg">
-        </div>
-        <div class='checkout-item-info'>
-            <div>
-                Mousepad
-            </div>
-            <div class='sc-price'>
-                $<span>4.50</span>
-            </div>
-            <div>
-                Quantity: <input class='item-quantity' type='text' value='1'>
-            </div>
-        </div>
-        <div class="item-promo-wrapper">
-            <label>
-                Promo code:
-            </label>
-            <input class="promo-code-text" type="text">
-            <button>
-                Add
-            </button>
-        </div>
-    </div>
-
-    <hr>
+        <hr/>
+    {{/each}}
 
      <div class="general-promo-wrapper">
-        <label>
-            General promo code:
-        </label>
+        <label>General promo code:</label>
         <input class="general-promo-text" type="text">
-        <button>
-            Add
-        </button>
+        <button>Add</button>
         <br/>
-        <label>
-            15% Electronics Discount
-        </label>
+        <label>15% Electronics Discount</label>
     </div>
 
     <div class="totals-wrapper">
-        <label>
-            Original: $4248.50
-        </label>
-        <label>
-            Discount: $0.00
-        </label>
-        <label>
-            Total: $4248.50
-        </label>
+        <label>Original: ${{total}}</label>
+        <label>Discount: $0.00</label>
+        <label>Total: ${{total}}</label>
     </div>
 </div>
