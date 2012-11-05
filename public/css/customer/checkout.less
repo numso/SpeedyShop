@@ -1,111 +1,109 @@
 
 .checkout-module {
-
     .checkout-title {
         font-size: 24px;
         text-decoration: underline;
         text-align: center;
+    }
 
-        button {
+    .checkout-body {
+        height: 490px;
+        overflow: auto;
+    }
+
+    .checkout-nav {
+        #checkout-next-step {
             float: right;
         }
     }
+}
 
-    .checkout-subtitle {
-        font-size: 20px;
-        text-align: center;
+
+
+
+
+
+
+
+.confirm-cart-page {
+    .item-img-wrapper {
+        display: inline-block;
+        width: 75px;
+        margin-right: 20px;
+        vertical-align: top;
+
+        img {
+            max-width: 75px;
+            max-height: 65px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
-    .confirm-cart-page {
-        .item-img-wrapper {
-            display: inline-block;
-            width: 75px;
-            margin-right: 20px;
-            vertical-align: top;
+    .checkout-item-info {
+        display: inline-block;
+        width: 20%;
 
-            img {
-                max-width: 75px;
-                max-height: 65px;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
+        .item-quantity {
+            width: 50px;
         }
+    }
 
-        .checkout-item-info {
-            display: inline-block;
-            width: 20%;
+    .item-promo-wrapper {
+        display: inline-block;
 
-            .item-quantity {
-                width: 50px;
-            }
+        .promo-code-text {
+            width: 80px;
         }
+    }
 
-        .item-promo-wrapper {
-            display: inline-block;
+    .general-promo-wrapper {
+        display: inline-block;
+        margin-right: 80px;
 
-            .promo-code-text {
-                width: 80px;
-            }
+        .general-promo-text {
+            width: 130px;
         }
+    }
 
-        .general-promo-wrapper {
-            display: inline-block;
-            margin-right: 80px;
+    .totals-wrapper {
+        display: inline-block;
 
-            .general-promo-text {
+        label {
+            display: block;
+        }
+    }
+}
+
+.billings-shipping-page {
+
+    .section-title {
+        font-style: italic;
+    }
+
+    .billing-info {
+        margin-left: 30px;
+        width: 340px;
+        .name {
+            margin: 10px 0px;
+            .firstName, .lastName {
                 width: 130px;
             }
         }
-
-        .totals-wrapper {
-            display: inline-block;
-
-            label {
-                display: block;
-            }
-        }
     }
 
-    .billings-shipping-page {
-
-        .section-title {
-            font-style: italic;
-        }
-
-        .billing-info {
-            margin-left: 30px;
-            width: 340px;
-            .name {
-                margin: 10px 0px;
-                .firstName, .lastName {
-                    width: 130px;
-                }
-            }
-        }
-
-        .notes {
-            max-width: 80px;
-        }
-
-        .address {
-            .street, .PO-box {
-                width: 225px;
-            }
-
-            .city, .state, .zip {
-                width: 70px;
-            }
-        }
+    .notes {
+        max-width: 80px;
     }
 
-    .nav-buttons {
-        display: inline-block;
-        float: right;
+    .address {
+        .street, .PO-box {
+            width: 225px;
+        }
 
-        button {
-            width: 75px;
-            height: 50px;
+        .city, .state, .zip {
+            width: 70px;
         }
     }
 }

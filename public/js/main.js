@@ -190,6 +190,7 @@ require([
         }, animTime);
 
         headerView.showKeepShoppingButton();
+        checkoutView.showCartConfirm();
     };
 
     // Create the Header and Footer Views
