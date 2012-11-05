@@ -1,5 +1,4 @@
 <div class="checkout-module">
-
     <div class="checkout-title">
         <label>
             Checkout
@@ -8,162 +7,71 @@
             X
         </button>
     </div>
-
-    <div class="checkout-subtitle">
-        Confirm Cart
-    </div>
-
     <div> <!-- class="checkout-body"  -->
-
         <!-- begin paste of one of the items templates -->
-        <div class="confirm-cart-page">
-
+        <div class="checkout-subtitle">
+            Addresses
+        </div>
+        <div class="billings-shipping-page">
             <hr>
-
-            <div class='checkout-item' id="1-item">
-                <div class="item-img-wrapper">
-                    <img src="//www.woodlandcreekfurniture.com/graphics/Natural%20Furniture%20Dining%20Table%20Ball%20Design.jpg">
+            <div class="billing-section">
+                <div class="section-title">
+                    Billing
                 </div>
-                <div class='checkout-item-info'>
-                    <div>
-                        Natural Dining Table - 48"
+                <div class="billing-info">
+                    <div class="name">
+                        Name: <input class='firstName' type='text'> <input class='lastName' type='text'>
                     </div>
-                    <div class='sc-price'>
-                        $<span>2395.00</span>
+                    <div class="address-label">
+                        Address
                     </div>
-                    <div>
-                        Quantity: <input class='item-quantity' type='text' value='1'>
+                    <div class="address">
+                        <input class='street' type='text'><br/>
+                        <input class='PO-box' type='text'><br/>
+                        <input class='city' type='text'>
+                        <input class='state' type='text'>
+                        <input class='zip' type='text'>
                     </div>
                 </div>
-                <div class="item-promo-wrapper">
-                    <label>
-                        Promo code:
+                <div class="Notes"> <!--  rows="4" cols="50" -->
+                    <textarea>
+                        Notes
+                    </textarea>
+                </div>
+            </div>
+            <hr>
+            <div class="shipping-section">
+                <div class="shipping-titles">
+                    <label class="section-title">
+                        Shipping Address
                     </label>
-                    <input class="promo-code-text" type="text">
-                    <button>
-                        Add
-                    </button>
+                    <div class="same-question">
+                        <label>
+                            (Same as billing
+                        </label>
+                        <input class='zip' type='checkbox'>
+                        <label>
+                            )
+                        </label>
+                    </div>
+                </div>
+                <div class="address">
+                    <input class='street' type='text'><br/>
+                    <input class='PO-box' type='text'><br/>
+                    <input class='city' type='text'>
+                    <input class='state' type='text'>
+                    <input class='zip' type='text'>
                 </div>
             </div>
-
             <hr>
-
-            <div class='checkout-item' id="2-item">
-                <div class="item-img-wrapper">
-                    <img src="//www.digsdigs.com/photos/Modern-dining-table-with-stone-base-Vicenza-Shapes-from-Diotti-AF-1-554x353.jpg">
-                </div>
-                <div class='checkout-item-info'>
-                    <div>
-                        Glass Table
-                    </div>
-                    <div class='sc-price'>
-                        $<span>1349.00</span>
-                    </div>
-                    <div>
-                        Quantity: <input class='item-quantity' type='text' value='1'>
-                    </div>
-                </div>
-                <div class="item-promo-wrapper">
-                    <label>
-                        Promo code:
-                    </label>
-                    <input class="promo-code-text" type="text">
-                    <button>
-                        Add
-                    </button>
-                </div>
-            </div>
-
-            <hr>
-
-            <div class='checkout-item' id="3-item">
-                <div class="item-img-wrapper">
-                    <img src="//assets.inhabitat.com/wp-content/blogs.dir/1/files/2010/06/iphone4-LEAD.jpg">
-                </div>
-                <div class='checkout-item-info'>
-                    <div>
-                        iPhone 5
-                    </div>
-                    <div class='sc-price'>
-                        $<span>500.00</span>
-                    </div>
-                    <div>
-                        Quantity: <input class='item-quantity' type='text' value='1'>
-                    </div>
-                </div>
-                <div class="item-promo-wrapper">
-                    <label>
-                        Promo code:
-                    </label>
-                    <input class="promo-code-text" type="text">
-                    <button>
-                        Add
-                    </button>
-                </div>
-            </div>
-
-            <hr>
-
-            <div class='checkout-item' id="4-item">
-                <div class="item-img-wrapper">
-                    <img src="//www.qualitylogoproducts.com/computer-accessories/mouspad-extralarge.jpg">
-                </div>
-                <div class='checkout-item-info'>
-                    <div>
-                        Mousepad
-                    </div>
-                    <div class='sc-price'>
-                        $<span>4.50</span>
-                    </div>
-                    <div>
-                        Quantity: <input class='item-quantity' type='text' value='1'>
-                    </div>
-                </div>
-                <div class="item-promo-wrapper">
-                    <label>
-                        Promo code:
-                    </label>
-                    <input class="promo-code-text" type="text">
-                    <button>
-                        Add
-                    </button>
-                </div>
-            </div>
-
-            <hr>
-
-             <div class="general-promo-wrapper">
-                <label>
-                    General promo code:
-                </label>
-                <input class="general-promo-text" type="text">
-                <button>
-                    Add
-                </button>
-                <br/>
-                <label>
-                    15% Electronics Discount
-                </label>
-            </div>
-
-            <div class="totals-wrapper">
-                <label>
-                    Original: $4248.50
-                </label>
-                <label>
-                    Discount: $0.00
-                </label>
-                <label>
-                    Total: $4248.50
-                </label>
-            </div>
-
             <div class="nav-buttons">
-                <button id="goto-billing">
+                <button id="goto-confirm-cart">
+                    Previous Step
+                </button>
+                <button id="goto-payment">
                     Next Step
                 </button>
             </div>
-
         </div>
         <!-- end paste from one of the checkout templates -->
 
