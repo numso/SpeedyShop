@@ -20,7 +20,7 @@ define([
     return Backbone.View.extend({
         myTmpls: undefined,
         index: 0,
-        cart: undefined,
+        cartData: undefined,
 
         initialize: function () {
             this.myTmpls = [
@@ -58,7 +58,15 @@ define([
         },
 
         showCartConfirm: function (cart) {
-            this.cart = cart;
+            var total = 0;
+            for (var i = 0; i < cart.length; ++i) {
+                total += cart[i].quantity * cart[i].price;
+            }
+            this.cartData = {
+                cart: cart,
+                total: total
+            };
+
             this.index = 0;
             this.updateScreen();
         },
@@ -97,7 +105,10 @@ define([
             }
 
             // update body
-            this.$('.checkout-body').html(this.myTmpls[this.index].tmpl(this.cart));
+            this.$('.checkout-body').html(this.myTmpls[this.index].tmpl({
+                cart: this.cartData.cart,
+                total: this.cartData.total
+            }));
         },
 
         completeTransaction: function () {
