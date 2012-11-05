@@ -12,7 +12,7 @@ module.exports = function () {
 
             for (var i = 0; i < items.length; ++i) {
                 if (items[i].id == id) {
-                    items[i].popularity++;
+                    ++items[i].popularity;
                     break;
                 }
             }
@@ -27,23 +27,23 @@ module.exports = function () {
             var items = JSON.parse(fs.readFileSync("serverData/items.json"));
             var myObj = [];
 
-            if (category === "Hot Items")
-            { //get top 30 most viewed items
-
-                items.sort(function(a, b){
-                    if (a.popularity === b.popularity)
+            if (category === "Hot Items") { //get top 15 most viewed items
+                items.sort(function (a, b) {
+                    if (a.popularity === b.popularity) {
                         return 0;
-                    else if (a.popularity > b.popularity)
+                    } else if (a.popularity > b.popularity) {
                         return -1;
-                    else
+                    } else {
                         return 1;
+                    }
                 });
 
-                for (var i = 0; i < 15; ++i)
-                    if (items[i].popularity !== 0)
+                for (var i = 0; i < 15; ++i) {
+                    if (items[i].popularity !== 0) {
                         myObj.push(items[i]);
-            }
-            else if (category !== "All") {
+                    }
+                }
+            } else if (category !== "All") {
                 for (var i = 0; i < items.length; ++i) {
                     for (var j = 0; j < items[i].cat.length; ++j) {
                         if (items[i].cat[j] === category) {

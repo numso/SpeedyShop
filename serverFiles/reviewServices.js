@@ -7,19 +7,21 @@ module.exports = function () {
 
     return {
         getReviews: function (request, response, next) {
-            var id = request.params.id;
+            var id = request.params.id,
+                found = false,
+                arr = [];
 
-            var arr = [];
-
-            for (var i = 0; i < reviews.length; ++i) {
+            for (var i = 0; i < reviews.length && !found; ++i) {
                 if (reviews[i].id == id) {
                     arr = reviews[i].stars;
+                    found = true;
                 }
             }
 
             response.send(arr);
         },
-        createReview: function(request, response, next){
+
+        createReview: function (request, response, next){
             var id = request.params.objID;
 
             var data = '';
@@ -32,36 +34,31 @@ module.exports = function () {
                 var revObj = {
                     name: data.name,
                     text: data.text
-                };
-                var added = false;
+                },
+                    added = false;
 
-                for (var i = 0; i<reviews.length;++i){
-                    if (id == reviews[i].id){
-                        reviews[i].stars[data.stars-1].reviews.push(revObj);
+                for (var i = 0; i < reviews.length; ++i) {
+                    if (id == reviews[i].id) {
+                        reviews[i].stars[data.stars - 1].reviews.push(revObj);
                         added = true;
                         response.send(reviews[i].stars);
+                        break;
                     }
                 }
 
-                if (!added){
+                if (!added) {
                     var starsArr = [];
-                    for (var j = 0; j<5;++j){
-                        if (data.stars-1 == j){
-                            starsArr[j] = {reviews:[revObj]};
-                        }
-                        else {
-                            starsArr[j] = {reviews:[]};
-                        }
-                    } 
+                    for (var j = 0; j < 5; ++j) {
+                        starsArr.push({ reviews: [] });
+                    }
 
-                    var newRev = {
+                    starsArr[data.stars - 1].reviews.push(revObj);
+
+                    reviews.push({
                         id: id,
                         stars: starsArr
-                    };
-
-                    reviews.push(newRev);
-                    response.send(newRev.stars);
-
+                    });
+                    response.send(starsArr);
                 }
             });
         }

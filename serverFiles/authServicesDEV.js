@@ -12,7 +12,7 @@ module.exports = function (encrypted) {
             var input = '';
             req.on('data', function (d) {
                 input += d;
-            })
+            });
 
             req.on('end', function () {
                 input = JSON.parse(input);

@@ -13,7 +13,7 @@ module.exports = function () {
             var input = '';
             req.on('data', function (chunk) {
                 input += chunk;
-            })
+            });
 
             req.on('end', function () {
                 input = JSON.parse(input);
@@ -46,8 +46,8 @@ module.exports = function () {
 
         checkUserExistence: function (req, res, next) {
             var input = '';
-            req.on('data', function (d) {
-                input += d;
+            req.on('data', function (chunk) {
+                input += chunk;
             });
 
             req.on('end', function () {
@@ -61,8 +61,8 @@ module.exports = function () {
 
         signup: function (req, res, next) {
             var input = '';
-            req.on('data', function (d) {
-                input += d;
+            req.on('data', function (chunk) {
+                input += chunk;
             });
 
             req.on('end', function () {

@@ -7,8 +7,6 @@ module.exports = function () {
 
     return {
         getOrders: function (request, response, next) {
-            
-
             response.send(orders);
         }
     };
