@@ -219,6 +219,7 @@ define([
             this.$('.selected-img').removeClass('selected-img');
             el.addClass('selected-img');
         },
+
         back: function (e) {
             this.$el.html(itemsTmpl({
                 cat: this.catName,

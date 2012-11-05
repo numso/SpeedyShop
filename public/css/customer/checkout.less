@@ -2,14 +2,70 @@
 .checkout-module {
 
     .checkout-title {
-        font-size: 20px;
+        font-size: 24px;
         text-decoration: underline;
         text-align: center;
+
+        button {
+            float: right;
+        }
     }
 
     .checkout-subtitle {
-        font-size: 16px;
-        text-decoration: underline;
+        font-size: 20px;
         text-align: center;
+    }
+
+    .confirm-cart-page {
+        .checkout-item-img {
+            max-width: 55px;
+            max-height: 55px;
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        .checkout-item-info {
+            display: inline-block;
+            width: 20%;
+
+            .item-quantity {
+                width: 50px;
+            }
+        }
+
+        .item-promo-wrapper {
+            display: inline-block;
+
+            .promo-code-text {
+                width: 80px;
+            }
+        }
+
+        .general-promo-wrapper {
+            display: inline-block;
+            margin-right: 80px;
+
+            .general-promo-text {
+                width: 130px;
+            }
+        }
+
+        .totals-wrapper {
+            display: inline-block;
+
+            label {
+                display: block;
+            }
+        }
+    }
+
+    .nav-buttons {
+        display: inline-block;
+        float: right;
+
+        button {
+            width: 60px;
+            height: 50px;
+        }
     }
 }
