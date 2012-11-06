@@ -1,13 +1,6 @@
-<div>Name:
-    <input type="text" class="text-input input-name" value="{{nameGiven}}"></input>
-</div>
-<div class="stars-given">
-    
-</div>
-<div >Review:
-    <textarea rows="15" class="text-input textAreaText">{{textGiven}}</textarea>
-</div>
-<div >
+<div>Name: <input type="text" class="text-input input-name" value="{{nameGiven}}"></input></div>
+<div>Review: <textarea rows="15" class="text-input textAreaText">{{textGiven}}</textarea></div>
+<div>
     {{#each starReviews}}
         <div class="stars" id="{{this}}-select">
             <img src="img/ratings/{{this}}.png">

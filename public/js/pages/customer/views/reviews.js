@@ -20,7 +20,7 @@ define([
         },
         itemID: 0,
 
-        initialize: function() {},
+        initialize: function () {},
 
         events: {
             "click .stars":"clickReview",
@@ -30,16 +30,14 @@ define([
             "click .cancel-review":"cancelReview"
         },
 
-        //I don't think this function is ever called. -Jesse V.
-        /*
-        render: function() {
+        render: function () {
            this.$el.html(showReviewsTmpl({
                 msg:"This item hasn't yet been reviewed"
             }));
             return this;
-        },*/
+        },
 
-        clickedItem: function(id) {
+        clickedItem: function (id) {
             var that = this;
             this.itemID = id;
             // someone clicked on item with id: id
@@ -54,7 +52,7 @@ define([
             }));
         },
 
-        clickReview: function(e) {
+        clickReview: function (e) {
             this.$(".show-btn").show();
             this.$(".selected-rating").removeClass("selected-rating");
             var el = $(e.target).closest('.stars');
@@ -64,13 +62,13 @@ define([
             this.$("."+ratingNum+"-rating").show();
         },
 
-        showBtn: function(e) {
+        showBtn: function (e) {
             this.$(".show-btn").hide();
             this.$(".selected-rating").removeClass("selected-rating");
             this.$(".individual-review").show();
         },
 
-        addReview: function(e) {
+        addReview: function (e) {
             var starObj = {
                 starReviews: [1, 2, 3, 4, 5],
                 nameGiven: this.unsubmittedReview.name,
@@ -81,7 +79,7 @@ define([
             this.$("#" + this.unsubmittedReview.stars + "-select").addClass("selected-rating")
         },
 
-        updateReview: function() {
+        updateReview: function () {
             var t = this.$('.textAreaText').attr("value");
             var n = this.$(".input-name").attr("value");
             var s = parseInt(this.$(".selected-rating").attr("id"),10);
@@ -91,7 +89,7 @@ define([
             this.unsubmittedReview.text = t;
         },
 
-        submitReview: function(e) {
+        submitReview: function (e) {
             var that=this;
             this.updateReview();
             $.post("/createReview/" + this.itemID, JSON.stringify(this.unsubmittedReview), function (data){
@@ -106,18 +104,17 @@ define([
             that.renderHtml(that.curReviews);
         },
 
-        cancelReview: function(e) {
-            //this.updateReview();
+        cancelReview: function (e) {
+            this.updateReview();
             this.renderHtml(this.curReviews);
         },
 
-        renderHtml: function(data) {
+        renderHtml: function (data) {
             if (data.length === 0) {
                 this.$el.html(showReviewsTmpl({
                     msg: "This item hasn't yet been reviewed."
                 }));
-            }
-            else {
+            } else {
                     // set myObj
                 var ratingCount = [];
                 for (var i = 0; i < 5; ++i) {
