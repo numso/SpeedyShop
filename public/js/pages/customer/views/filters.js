@@ -17,7 +17,8 @@ define([
         events: {
             "click .ratingFilterList li": "applyFilter",
             "blur .priceFilter input": "applyFilter",
-            "click .filter-value-box": "applyFilter"
+            "click .subcat-radio-value": "applyFilter",
+            "click .reset-filters": "resetFilters"
         },
 
         applyFilter: function (e) {
@@ -49,9 +50,11 @@ define([
             }
 
             var chosenRatings = [];
-            for (var i = 0; i < 5; ++i)
-                if ($(this.$('.ratingFilterList input')[i]).is(':checked'))
+            for (var i = 0; i < 5; ++i) {
+                if ($(this.$('.ratingFilterList input')[i]).is(':checked')) {
                     chosenRatings.push(i + 1);
+                }
+            }
 
             var chosenSubcat = $('input[name=subCatFilter]:radio:checked').val();
 
@@ -62,6 +65,8 @@ define([
                 cat: chosenSubcat
             };
             this.model.applyFilters(chosenFilters);
+
+            this.$('.reset-filters').show();
         },
 
         render: function () {
@@ -76,8 +81,9 @@ define([
             };
             var that = this;
 
-            if (cat == "Hot Items")
+            if (cat === "Hot Items" || cat === "search") {
                 subcat = undefined;
+            }
 
             $.post('/filters', JSON.stringify(myObj), function (data) {
                 that.$el.html(filtersTmpl({
@@ -86,6 +92,17 @@ define([
                     ratings: [1, 2, 3, 4, 5]
                 }));
             });
+        },
+
+        resetFilters: function (e) {
+            this.$('.upperPriceText').val('');
+            this.$('.lowerPriceText').val('');
+            this.$('.ratingFilterList').find('input').attr('checked', true);
+            $(this.$('.subcat-radio-value').find('input')[0]).attr('checked', true);
+
+            this.$('.reset-filters').hide();
+
+            this.model.applyFilters({});
         }
     });
 });

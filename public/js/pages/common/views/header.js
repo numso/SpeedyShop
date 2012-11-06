@@ -42,7 +42,8 @@ define([
         events: {
             'click .show-sub-cats': 'showSubCats',
             'click .show-items': 'showItems',
-            'click #keep-shopping-button': 'showCustomerView'
+            'click #keep-shopping-button': 'showCustomerView',
+            'keyup .search-box input': 'searchItems'
         },
 
         // View Switch Methods /////////////////////////////////////////////////////////////////
@@ -83,6 +84,12 @@ define([
             var catName = $(e.target).closest('.category').find('span').text();
             var subcatName = $(e.target).closest('.show-items').text();
             this.model.showItemsInList(catName, subcatName);
+        },
+
+        searchItems: function (e) {
+            var searchTerms = this.$('.search-box input').val();
+
+            this.model.showItemsInList('search', searchTerms);
         },
 
         // Helper Methods //////////////////////////////////////////////////////////////////////

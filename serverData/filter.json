@@ -4,7 +4,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Tables",
                     "Lights"
                 ]
@@ -16,7 +16,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Couches",
                     "Chairs",
                     "Recliners"
@@ -29,7 +29,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Sinks",
                     "Refrigerators",
                     "Stoves/ovens",
@@ -43,7 +43,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Beds",
                     "Curtains"
                 ]
@@ -55,7 +55,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Showers",
                     "Tubs",
                     "Toilets",
@@ -69,7 +69,7 @@
         "filters": [
             {
                 "name": "Brand",
-                "radio": [
+                "options": [
                     "Apple",
                     "HP",
                     "Toshiba",
@@ -85,7 +85,7 @@
         "filters": [
             {
                 "name": "Brand",
-                "radio": [
+                "options": [
                     "Canon",
                     "Nikon",
                     "Sony",
@@ -101,7 +101,7 @@
         "filters": [
             {
                 "name": "Brand",
-                "radio": [
+                "options": [
                     "Samsung",
                     "Motorola",
                     "HTC",
@@ -116,7 +116,7 @@
         "filters": [
             {
                 "name": "Brand",
-                "radio": [
+                "options": [
                     "Apple",
                     "Google",
                     "ASUS",
@@ -130,7 +130,7 @@
         "filters": [
             {
                 "name": "Brand",
-                "radio": [
+                "options": [
                     "Panasonic",
                     "Philips",
                     "Samsung",
@@ -146,7 +146,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Activewear",
                     "Dresses & Skirts",
                     "Sleepwear",
@@ -163,7 +163,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Activewear",
                     "Workwear",
                     "Sleepwear",
@@ -180,7 +180,7 @@
         "filters": [
             {
                 "name": "Gender",
-                "radio": [
+                "options": [
                     "Boy",
                     "Girl"
                 ]
@@ -192,7 +192,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Tennis",
                     "Boots",
                     "Hip waders",
@@ -207,7 +207,7 @@
         "filters": [
             {
                 "name": "Color",
-                "radio": [
+                "options": [
                     "Assorted",
                     "Multicolor",
                     "Black",
@@ -223,7 +223,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Elven",
                     "Dwarven",
                     "Men",
@@ -237,7 +237,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Jeweled",
                     "Multi-stranded",
                     "Handmade"
@@ -250,7 +250,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Studs",
                     "Bead",
                     "Dangle",
@@ -264,7 +264,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Watches",
                     "Stiff",
                     "Elastic",
@@ -282,7 +282,7 @@
         "filters": [
             {
                 "name": "Brand",
-                "radio": [
+                "options": [
                     "Ford",
                     "GMC",
                     "Toyota",
@@ -297,7 +297,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Hood ornaments",
                     "Antennas",
                     "Other"
@@ -310,7 +310,7 @@
         "filters": [
             {
                 "name": "Speaker location",
-                "radio": [
+                "options": [
                     "Front",
                     "Rear",
                     "Surround sound"
@@ -323,7 +323,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Floor mats",
                     "GPS",
                     "Mirror ornaments",
@@ -337,7 +337,7 @@
         "filters": [
             {
                 "name": "Subcategories",
-                "radio": [
+                "options": [
                     "Tennis",
                     "Soccer",
                     "Baseball",

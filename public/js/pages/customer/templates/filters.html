@@ -31,31 +31,23 @@
 
         {{#if subcat}}
             <div class='category-title'>Category: {{subcat}}</div>
-
             {{#each data}}
                 <div class='filter-title'>{{name}}</div>
-
                 <div class='filter-value-box'>
-                    {{#if radio}}
-                            <div class='subcat-radio-value'>
-                                <input type="radio" name="subCatFilter" value="Everything" checked>
-                                Everything
-                            </div>
-                        {{#each radio}}
-                            <div class='subcat-radio-value'>
-                                <input type="radio" name="subCatFilter" value={{this}}>
-                                {{this}}
-                            </div>
-                        {{/each}}
-                    {{/if}}
-
-                    {{#if checkbox}}
-                        {{#each checkbox}}
-                            <div class='subcat-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
-                        {{/each}}
-                    {{/if}}
+                        <div class='subcat-radio-value'>
+                            <input type="radio" name="subCatFilter" value="Everything" checked>
+                            Everything
+                        </div>
+                    {{#each options}}
+                        <div class='subcat-radio-value'>
+                            <input type="radio" name="subCatFilter" value={{this}}>
+                            {{this}}
+                        </div>
+                    {{/each}}
                 </div>
             {{/each}}
         {{/if}}
+
+        <button class="reset-filters">Reset Filters</button>
     {{/if}}
 </div>

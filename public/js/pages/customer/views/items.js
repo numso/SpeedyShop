@@ -142,36 +142,52 @@ define([
             var that = this;
 
             //special case for Hot Items
-            if (catName === "Hot Items")
+            if (catName === "Hot Items") {
                 subcatName = catName;
+            }
+
+            if (catName === "search") {
+                if (subcatName === '') {
+                    this.gotItemsFromServer([], catName, subcatName);
+                } else {
+                    $.post('/search', JSON.stringify({searchString: subcatName}), function (items) {
+                        that.gotItemsFromServer(items, catName, subcatName);
+                    });
+                }
+                return;
+            }
 
             // get the items from the server
             $.get('/getItems/' + subcatName, function (items) {
                 // display the items in a list
-                for (var i = 0; i < items.length; ++i) {
-                    items[i].img = items[i].images[0];
-                    items[i].isOdd = (i % 2 === 0);
-                }
-
-                that.rawItems = items;
-                that.filteredItems = items;
-                that.catName = catName;
-                that.subcatName = subcatName;
-
-                if (items.length === 0) {
-                    that.$el.html(itemsTmpl({
-                        msg: 'Sorry, we don\'t have any items in that category.'
-                    }));
-                } else {
-                    that.$el.html(itemsTmpl({
-                        cat: catName,
-                        subcat: subcatName
-                    }));
-
-                    that.curIndex = 0;
-                    that.showItems();
-                }
+                that.gotItemsFromServer(items, catName, subcatName);
             });
+        },
+
+        gotItemsFromServer: function (items, catName, subcatName) {
+            for (var i = 0; i < items.length; ++i) {
+                items[i].img = items[i].images[0];
+                items[i].isOdd = (i % 2 === 0);
+            }
+
+            this.rawItems = items;
+            this.filteredItems = items;
+            this.catName = catName;
+            this.subcatName = subcatName;
+
+            if (items.length === 0) {
+                this.$el.html(itemsTmpl({
+                    msg: 'Sorry, we don\'t have any items in that category.'
+                }));
+            } else {
+                this.$el.html(itemsTmpl({
+                    cat: catName,
+                    subcat: subcatName
+                }));
+
+                this.curIndex = 0;
+                this.showItems();
+            }
         },
 
         showItems: function () {
@@ -191,14 +207,14 @@ define([
                 return;
             }
 
-            var type = el.text()[0];
+            var type = el.attr('id').replace('-navbuttons', '');
 
-            if (type === "N") {
+            if (type === "Next>") {
                 if (this.curIndex + this.MAX_ITEMS >= this.filteredItems.length) {
                     return;
                 }
                 this.curIndex += this.MAX_ITEMS;
-            } else if (type === "<") {
+            } else if (type === "<Prev") {
                 if (this.curIndex === 0) {
                     return;
                 }
@@ -221,13 +237,11 @@ define([
             this.$('.item-info').find('span').text(start + ' - ' + end + ' out of ' + len);
 
             // draw the footer (<Prev 1 2 3 Next>) /////////////////////////////////
-            var tempArr = [],
-                prevExists = 0;
+            var tempArr = [];
 
             // if it's not the first page, put Prev on there
             if (this.curIndex > 0) {
-                prevExists = 1;
-                tempArr.push('&lt;Prev');
+                tempArr.push('<Prev');
             }
 
             // put a number for every page
@@ -237,18 +251,21 @@ define([
 
             // if it's not the last item, put Next on there
             if (this.curIndex < len - this.MAX_ITEMS) {
-                tempArr.push('Next&gt;');
+                tempArr.push('Next>');
             }
 
             if (tempArr.length <= 1) {
                 this.$('.item-footer').html('');
             } else {
                 // put the correct html tags around the array items
-                var newFooter = '<span class="items-bottom-nav">' + tempArr.join('</span> <span class="items-bottom-nav">') + '</span>';
-                this.$('.item-footer').html(newFooter);
+                var newFooter = $('<div>').addClass('item-footer');
+                for (var i = 0; i < tempArr.length; ++i) {
+                    newFooter.append($("<span>").addClass('items-bottom-nav').text(tempArr[i]).attr('id', tempArr[i]+'-navbuttons'));
+                }
+                this.$('.item-footer').replaceWith(newFooter);
 
-                var selectedIndex = this.curIndex / 15 + prevExists;
-                $(this.$('.items-bottom-nav')[selectedIndex]).addClass('selected');
+                var selectedIndex = this.curIndex / 15 + 1;
+                this.$('#' + selectedIndex + '-navbuttons').addClass('selected');
             }
 
             this.dispItems.length = 0;

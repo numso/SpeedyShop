@@ -7,6 +7,28 @@ module.exports = function () {
         categories = JSON.parse(fs.readFileSync("serverData/cat.json"));
 
     return {
+        search: function (request, response, next) {
+            var data = '';
+
+            request.on('data', function (chunk) {
+                data += chunk;
+            });
+
+            request.on('end', function () {
+                data = JSON.parse(data);
+
+                var itemsArr = [];
+                for (var i = 0; i < items.length; ++i) {
+                    if (items[i].name.toLowerCase().indexOf(data.searchString.toLowerCase()) !== -1 || items[i].desc.toLowerCase().indexOf(data.searchString.toLowerCase()) !== -1) {
+                        itemsArr.push(items[i]);
+                    }
+                }
+
+            response.writeHead(200, { "Content-Type": "application/json" });
+            response.end(JSON.stringify(itemsArr));
+            });
+        },
+
         incrementPopularity: function (request, response, next) {
             var id = parseInt(request.params.itemNumber, 10);
 
