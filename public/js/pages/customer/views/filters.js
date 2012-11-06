@@ -16,7 +16,7 @@ define([
 
         events: {
             "click .ratingFilterList li": "applyFilter",
-            "click .priceFilter button": "applyFilter",
+            "blur .priceFilter input": "applyFilter",
             "click .filter-value-box": "applyFilter"
         },
 
@@ -32,16 +32,20 @@ define([
                 el.attr('checked', true);
             }
 
-            var lowerPrice = parseFloat(this.$('.lowerPriceText').attr('value'), 10);
+            var lowerPrice = parseFloat(this.$('.lowerPriceText').val(), 10);
             if (isNaN(lowerPrice)) {
-                this.$('.lowerPriceText').attr('value', '');
+                this.$('.lowerPriceText').val('');
                 lowerPrice = undefined;
+            } else {
+                this.$('.lowerPriceText').val(lowerPrice);
             }
 
-            var upperPrice = parseFloat(this.$('.upperPriceText').attr('value'), 10);
+            var upperPrice = parseFloat(this.$('.upperPriceText').val(), 10);
             if (isNaN(upperPrice)) {
-                this.$('.upperPriceText').attr('value', '');
+                this.$('.upperPriceText').val('');
                 upperPrice = undefined;
+            } else {
+                this.$('.upperPriceText').val(upperPrice);
             }
 
             var chosenRatings = [];
@@ -49,7 +53,7 @@ define([
                 if ($(this.$('.ratingFilterList input')[i]).is(':checked'))
                     chosenRatings.push(i + 1);
 
-            var chosenSubcat = $('input[name=subCatFilter]:radio:checked').attr('value');
+            var chosenSubcat = $('input[name=subCatFilter]:radio:checked').val();
 
             var chosenFilters = {
                 lwrPrice: lowerPrice,

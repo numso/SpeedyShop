@@ -1,63 +1,61 @@
 <div class='filters-module'>
+    <div class="filters-title">Filters</div>
 
-	<div class="filters-title">Filters</div>
+    {{#if this}}
+        <div class='common-filters'>
+            <ul class="common-choices" style="list-style-type:circle">
+                <li>Price
+                    <ul class="priceFilter" style="list-style-type:none">
+                        <li>
+                            <div class="priceLabelDiv">From:</div>
+                            <input type="text" class="lowerPriceText">
+                        </li>
+                        <li>
+                            <div class="priceLabelDiv">To:</div>
+                            <input type="text" class="upperPriceText">
+                        </li>
+                    </ul>
+                </li>
+                <li>Rating
+                    <ul class="ratingFilterList" style="list-style-type:none">
+                        {{#each ratings}}
+                            <li>
+                                <input type="checkbox" value="{{this}}" checked>
+                                <img class="ratingsImg" src="img/ratings/{{this}}.png">
+                            </li>
+                        {{/each}}
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-	{{#if this}}
-		<div class='common-filters'>
-			<ul class="common-choices" style="list-style-type:circle">
-				<li>Price
-					<ul class="priceFilter" style="list-style-type:none">
-						<li>
-							<div class="priceLabelDiv">From:</div>
-							<input type="text" class="lowerPriceText">
-						</li>
-						<li>
-							<div class="priceLabelDiv">To:</div>
-							<input type="text" class="upperPriceText">
-						</li>
-						<li><button>Apply</button></li>
-					</ul>
-				</li>
-				<li>Rating
-					<ul class="ratingFilterList" style="list-style-type:none">
-						{{#each ratings}}
-							<li>
-								<input type="checkbox" value="{{this}}" checked>
-								<img class="ratingsImg" src="img/ratings/{{this}}.png">
-							</li>
-						{{/each}}
-					</ul>
-				</li>
-			</ul>
-		</div>
+        {{#if subcat}}
+            <div class='category-title'>Category: {{subcat}}</div>
 
-		{{#if subcat}}
-			<div class='category-title'>Category: {{subcat}}</div>
+            {{#each data}}
+                <div class='filter-title'>{{name}}</div>
 
-			{{#each data}}
-				<div class='filter-title'>{{name}}</div>
+                <div class='filter-value-box'>
+                    {{#if radio}}
+                            <div class='subcat-radio-value'>
+                                <input type="radio" name="subCatFilter" value="Everything" checked>
+                                Everything
+                            </div>
+                        {{#each radio}}
+                            <div class='subcat-radio-value'>
+                                <input type="radio" name="subCatFilter" value={{this}}>
+                                {{this}}
+                            </div>
+                        {{/each}}
+                    {{/if}}
 
-				<div class='filter-value-box'>
-					{{#if radio}}
-							<div class='subcat-radio-value'>
-								<input type="radio" name="subCatFilter" value="Everything" checked>
-								Everything
-							</div>
-						{{#each radio}}
-							<div class='subcat-radio-value'>
-								<input type="radio" name="subCatFilter" value={{this}}>
-								{{this}}
-							</div>
-						{{/each}}
-					{{/if}}
-
-					{{#if checkbox}}
-						{{#each checkbox}}
-							<div class='subcat-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
-						{{/each}}
-					{{/if}}
-				</div>
-			{{/each}}
-		{{/if}}
-	{{/if}}
+                    {{#if checkbox}}
+                        {{#each checkbox}}
+                            <div class='subcat-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
+                        {{/each}}
+                    {{/if}}
+                </div>
+            {{/each}}
+        {{/if}}
+    {{/if}}
 </div>

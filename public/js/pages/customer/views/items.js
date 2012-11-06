@@ -98,11 +98,22 @@ define([
                 this.filteredItems = tempArray;
             }
 
-            // filter based on price
+            // filter based on lower price
             tempArray = [];
-            if (data.lwrPrice !== undefined && data.uprPrice !== undefined) {
+            if (data.lwrPrice !== undefined) {
                 for (i = 0; i < this.filteredItems.length; ++i) {
-                    if (this.filteredItems[i].price <= data.uprPrice && this.filteredItems[i].price >= data.lwrPrice) {
+                    if (this.filteredItems[i].price >= data.lwrPrice) {
+                        tempArray.push(this.filteredItems[i]);
+                    }
+                }
+                this.filteredItems = tempArray;
+            }
+
+            // filter based on upper price
+            tempArray = [];
+            if (data.uprPrice !== undefined) {
+                for (i = 0; i < this.filteredItems.length; ++i) {
+                    if (this.filteredItems[i].price <= data.uprPrice) {
                         tempArray.push(this.filteredItems[i]);
                     }
                 }
