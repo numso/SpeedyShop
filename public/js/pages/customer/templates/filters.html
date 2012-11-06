@@ -1,8 +1,6 @@
 <div class='filters-module'>
 
-	<div class="sc-title">
-		Filters
-	</div>
+	<div class="filters-title">Filters</div>
 
 	{{#if this}}
 		<div class='common-filters'>
@@ -10,59 +8,36 @@
 				<li>Price
 					<ul class="priceFilter" style="list-style-type:none">
 						<li>
-							<div class="priceLabelDiv">
-								<label>From:</label>
-							</div>
+							<div class="priceLabelDiv">From:</div>
 							<input type="text" class="lowerPriceText">
 						</li>
 						<li>
-							<div class="priceLabelDiv">
-								<label>To:</label>
-							</div>
+							<div class="priceLabelDiv">To:</div>
 							<input type="text" class="upperPriceText">
 						</li>
-						<li>
-							<button>Submit price filter</button>
-						</li>
+						<li><button>Apply</button></li>
 					</ul>
 				</li>
 				<li>Rating
 					<ul class="ratingFilterList" style="list-style-type:none">
-						<li>
-							<input type="checkbox" value="1" checked>
-							<img class="ratingsImg" src="img/ratings/1.png">
-						</li>
-						<li>
-							<input type="checkbox" value="2" checked>
-							<img class="ratingsImg" src="img/ratings/2.png">
-						</li>
-						<li>
-							<input type="checkbox" value="3" checked>
-							<img class="ratingsImg" src="img/ratings/3.png">
-						</li>
-						<li>
-							<input type="checkbox" value="4" checked>
-							<img class="ratingsImg" src="img/ratings/4.png">
-						</li>
-						<li>
-							<input type="checkbox" value="5" checked>
-							<img class="ratingsImg" src="img/ratings/5.png">
-						</li>
+						{{#each ratings}}
+							<li>
+								<input type="checkbox" value="{{this}}" checked>
+								<img class="ratingsImg" src="img/ratings/{{this}}.png">
+							</li>
+						{{/each}}
 					</ul>
 				</li>
 			</ul>
 		</div>
 
 		{{#if subcat}}
-			<div class='category-title'>
-				Category: {{subcat}}
-			</div>
-			{{#each data}}
-				<div class='filter-title'>
-					{{name}}
-				</div>
-				<div class='filter-value-box'>
+			<div class='category-title'>Category: {{subcat}}</div>
 
+			{{#each data}}
+				<div class='filter-title'>{{name}}</div>
+
+				<div class='filter-value-box'>
 					{{#if radio}}
 							<div class='subcat-radio-value'>
 								<input type="radio" name="subCatFilter" value="Everything" checked>
@@ -81,7 +56,6 @@
 							<div class='subcat-checkbox-value'><input type="checkbox" name="subCatFilter">{{this}}</div>
 						{{/each}}
 					{{/if}}
-				</div>
 				</div>
 			{{/each}}
 		{{/if}}

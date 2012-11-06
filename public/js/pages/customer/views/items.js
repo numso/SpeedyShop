@@ -17,7 +17,6 @@ define([
         rawItems: [],
         dispItems: [],
         filteredItems: [],
-        filters: {},
         isList: true,
         catName: '',
         subcatName: '',
@@ -64,12 +63,68 @@ define([
         },
 
         updateFilteredItems: function (data) {
-            // called from main.js
-            // update this.filteredItems based on the filters
-            // this.rawItems has all the items possible for this category
-            // append ally our applied filters to the this.filters object
-            this.filteredItems.length = 0;
+            this.applyFilters(data);
+
+           if (this.filteredItems.length === 0) {
+                this.$el.html(itemsTmpl({
+                    msg: 'Sorry, we don\'t have any items in that category that match your filters.'
+                }));
+            } else {
+                this.$el.html(itemsTmpl({
+                    cat: this.catName,
+                    subcat: this.subcatName
+                }));
+
+                this.curIndex = 0;
+                this.showItems();
+            }
+        },
+
+        applyFilters: function (data) {
             this.filteredItems = this.rawItems;
+
+            // filter based on rating
+            var tempArray = [];
+            if (data.ratings !== undefined) {
+                for (var i = 0; i < this.filteredItems.length; ++i) {
+                    var added = false;
+                    for (var j = 0; j < data.ratings.length && !added; ++j) {
+                        if (this.filteredItems[i].rating === data.ratings[j]) {
+                            tempArray.push(this.filteredItems[i]);
+                            added = true;
+                        }
+                    }
+                }
+                this.filteredItems = tempArray;
+            }
+
+            // filter based on price
+            tempArray = [];
+            if (data.lwrPrice !== undefined && data.uprPrice !== undefined) {
+                for (i = 0; i < this.filteredItems.length; ++i) {
+                    if (this.filteredItems[i].price <= data.uprPrice && this.filteredItems[i].price >= data.lwrPrice) {
+                        tempArray.push(this.filteredItems[i]);
+                    }
+                }
+                this.filteredItems = tempArray;
+            }
+
+            // filter based on category
+            tempArray = [];
+            if (data.cat && data.cat !== "Everything") {
+                for (i = 0; i < this.filteredItems.length; ++i) {
+                    if (this.filteredItems[i].cat) {
+                        added = false;
+                        for (j = 0; j < this.filteredItems[i].cat.length; ++j) {
+                            if (this.filteredItems[i].cat[j] === data.cat) {
+                                tempArray.push(this.filteredItems[i])
+                                added = true;
+                            }
+                        }
+                    }
+                }
+                this.filteredItems = tempArray;
+            }
         },
 
         loadItems: function (catName, subcatName) {
@@ -87,11 +142,8 @@ define([
                     items[i].isOdd = (i % 2 === 0);
                 }
 
-                that.rawItems.length = 0;
                 that.rawItems = items;
-                // we might want to take out all the filters right here
-                //that.filters = {};
-                that.updateFilteredItems();
+                that.filteredItems = items;
                 that.catName = catName;
                 that.subcatName = subcatName;
 
@@ -106,15 +158,19 @@ define([
                     }));
 
                     that.curIndex = 0;
-                    that.updateFrame();
-
-                    if (that.isList) {
-                        that.displayItemList();
-                    } else {
-                        that.displayItemBlock();
-                    }
+                    that.showItems();
                 }
             });
+        },
+
+        showItems: function () {
+            this.updateFrame();
+
+            if (this.isList) {
+                this.displayItemList();
+            } else {
+                this.displayItemBlock();
+            }
         },
 
         pageItems: function (e) {
@@ -142,14 +198,7 @@ define([
             }
 
             this.$('.item-body').scrollTop(0);
-
-            this.updateFrame();
-
-            if (this.isList) {
-                this.displayItemList();
-            } else {
-                this.displayItemBlock();
-            }
+            this.showItems();
         },
 
         updateFrame: function () {
@@ -226,14 +275,7 @@ define([
                 subcat: this.subcatName
             }));
 
-            this.updateFrame();
-
-            if (this.isList) {
-                this.displayItemList();
-            } else {
-                this.displayItemBlock();
-            }
-
+            this.showItems();
             this.model.showFilters();
         },
 

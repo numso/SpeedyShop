@@ -67,8 +67,8 @@ require([
     CartView
 ) {
     // Define View Transitions
-    var animTime = 600;
-	var curLeft, curMid, curRight;
+    var animTime = 600,
+        curLeft, curMid, curRight;
 
     var rotateView = function (toRotate, toHide, theParent) {
         toRotate.addClass('rotated');
@@ -209,6 +209,10 @@ require([
         shippingView.gotOrder(data);
     };
 
+    var sendFiltersToItemView = function (filters) {
+        itemsView.updateFilteredItems(filters);
+    };
+
     var headerView = new HeaderView({
         className: "panel header",
         model: {
@@ -231,7 +235,9 @@ require([
 
     var filtersView = new FiltersView({
         className: "panel filters",
-        model: {}
+        model: {
+            applyFilters: sendFiltersToItemView
+        }
     });
     $(".left-panel").html(filtersView.render().el);
 

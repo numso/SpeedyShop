@@ -32,8 +32,17 @@ define([
                 el.attr('checked', true);
             }
 
-            var lowerPrice = this.$('.lowerPriceText').attr('value').replace(/[^0-9]/g, '');
-            var upperPrice = this.$('.upperPriceText').attr('value').replace(/[^0-9]/g, '');
+            var lowerPrice = parseFloat(this.$('.lowerPriceText').attr('value'), 10);
+            if (isNaN(lowerPrice)) {
+                this.$('.lowerPriceText').attr('value', '');
+                lowerPrice = undefined;
+            }
+
+            var upperPrice = parseFloat(this.$('.upperPriceText').attr('value'), 10);
+            if (isNaN(upperPrice)) {
+                this.$('.upperPriceText').attr('value', '');
+                upperPrice = undefined;
+            }
 
             var chosenRatings = [];
             for (var i = 0; i < 5; ++i)
@@ -42,8 +51,13 @@ define([
 
             var chosenSubcat = $('input[name=subCatFilter]:radio:checked').attr('value');
 
-            var chosenFilters = [lowerPrice, upperPrice, chosenRatings, chosenSubcat];
-            console.log("applyFilter called, " + JSON.stringify(chosenFilters));
+            var chosenFilters = {
+                lwrPrice: lowerPrice,
+                uprPrice: upperPrice,
+                ratings: chosenRatings,
+                cat: chosenSubcat
+            };
+            this.model.applyFilters(chosenFilters);
         },
 
         render: function () {
@@ -64,7 +78,8 @@ define([
             $.post('/filters', JSON.stringify(myObj), function (data) {
                 that.$el.html(filtersTmpl({
                     data: data,
-                    subcat: subcat
+                    subcat: subcat,
+                    ratings: [1, 2, 3, 4, 5]
                 }));
             });
         }
