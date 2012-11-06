@@ -2,13 +2,13 @@
 
 module.exports = function () {
 
-    var fs = require('fs');
+    var fs = require('fs'),
+        items = JSON.parse(fs.readFileSync("serverData/items.json")),
+        categories = JSON.parse(fs.readFileSync("serverData/cat.json"));
 
     return {
         incrementPopularity: function (request, response, next) {
-
             var id = parseInt(request.params.itemNumber, 10);
-            var items = JSON.parse(fs.readFileSync("serverData/items.json"));
 
             for (var i = 0; i < items.length; ++i) {
                 if (items[i].id == id) {
@@ -17,15 +17,12 @@ module.exports = function () {
                 }
             }
 
-            fs.writeFileSync("serverData/items.json", JSON.stringify(items));
             response.send("OK");
         },
 
         getItems: function (request, response, next) {
-            var category = request.params.catID || "All";
-
-            var items = JSON.parse(fs.readFileSync("serverData/items.json"));
-            var myObj = [];
+            var category = request.params.catID || "All",
+                myObj = [];
 
             if (category === "Hot Items") { //get top 15 most viewed items
                 items.sort(function (a, b) {
@@ -60,16 +57,13 @@ module.exports = function () {
         },
 
         getCategories: function (request, response, next) {
-            var items = JSON.parse(fs.readFileSync("serverData/cat.json"));
-
             response.writeHead(200, { "Content-Type": "application/json" });
-            response.end(JSON.stringify(items));
+            response.end(JSON.stringify(categories));
         },
 
         getItem: function (request, response, next) {
             var id = request.params.id;
 
-            var items = JSON.parse(fs.readFileSync("serverData/items.json"));
             for (var i = 0; i < items.length; ++i) {
                 if (items[i].id == id) {
                     response.send({
