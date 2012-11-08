@@ -16,7 +16,8 @@ define([
         },
 
         events: {
-            'click #check-out-btn': 'clickedCheckout'
+            'click #check-out-btn': 'clickedCheckout',
+            'click .qty-cnt': 'sanitizeQuantityInput'
         },
 
         render: function () {
@@ -25,8 +26,9 @@ define([
         },
 
         getCurrentQuantity: function (item) {
-            var quantity = parseInt(item.find('.qty-cnt').attr('value').replace(/[^0-9]/g, ''), 10);
-            if (isNaN(quantity))
+            var text = item.find('.qty-cnt').attr('value');
+            var quantity = parseInt(text.replace(/[^0-9]/g, ''), 10);
+            if (isNaN(quantity) || text.charAt(0) == '-')
                 return 0;
             return quantity;
         },
@@ -66,12 +68,15 @@ define([
                 //add event to item div so that user can type in a new quantity then press Enter
                 $('.sc-area').keypress(function(event) {
                     var keycode = (event.keyCode ? event.keyCode : event.which);
-                    if(keycode == '13') { //user pressed Enter key
-                        that.$('.qty-cnt').attr('value', that.getCurrentQuantity($('.sc-area'))); //sanitize input textbox
-                        that.recalculateTotal();
-                    }
+                    if(keycode == '13')
+                        that.sanitizeQuantityInput();
                 });
             }
+        },
+
+        sanitizeQuantityInput: function () {
+            $('.qty-cnt').attr('value', this.getCurrentQuantity($('.sc-area'))); //sanitize input textbox
+            this.recalculateTotal();
         },
 
         clickedCheckout: function (e) {
