@@ -13,16 +13,30 @@ define([
 ) {
     return Backbone.View.extend({
         graphID: 'sales-graph',
+        chartID: 'sales-chart',
 
         initialize: function () {
         },
 
         events: {
+            'click .show-chart': 'showChart',
+            'click .show-graph': 'showGraph'
+        },
+
+        showChart: function (e) {
+            $("#" + this.chartID).show();
+            $("#" + this.graphID).hide();
+        },
+
+        showGraph: function (e) {
+            $("#" + this.chartID).hide();
+            $("#" + this.graphID).show();
         },
 
         render: function () {
             this.$el.html(salesReportTmpl({
-                graphID: this.graphID
+                graphID: this.graphID,
+                chartID: this.chartID
             }));
             this.drawGraph();
             return this;
@@ -32,7 +46,7 @@ define([
             var that = this;
 
             $.get('/sales', function (d) {
-                $('#' + that.graphID).html('');
+                $('.sr-loader').hide();
                 var r = Raphael(that.graphID);
                 var labels = [],
                     labelsLong = [[], []],
@@ -49,14 +63,14 @@ define([
                 }
 
                 r.raphalytics(data, labels, labelsLong, {
-                        'width': 800,
-                        'height': 200,
-                        'color': ['#f00', '#0f0'],
-                        'y_labels_number': 10,
-                        'y_labels_position': 'outside',
-                        'y_label_0': true,
-                        'fill': true,
-                        'gridtype': 'full_grid'
+                    'width': 800,
+                    'height': 200,
+                    'color': ['#f00', '#0f0'],
+                    'y_labels_number': 10,
+                    'y_labels_position': 'outside',
+                    'y_label_0': true,
+                    'fill': true,
+                    'gridtype': 'full_grid'
                 });
             });
         }
