@@ -91,6 +91,7 @@ define([
 
         updateScreen: function () {
             // update title
+            this.model.updateBreadcrumbs(this.index);
             this.$('.checkout-title').html(this.myTmpls[this.index].name);
 
             // update buttons

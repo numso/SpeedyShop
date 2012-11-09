@@ -67,6 +67,7 @@ require([
     CartView
 ) {
     // Define View Transitions
+
     var animTime = 600,
         curLeft, curMid, curRight;
 
@@ -193,7 +194,7 @@ require([
         checkoutView.showCartConfirm(cartView.cart);
     };
 
-    // Create the Header and Footer Views
+    // other intra-module communication functions
 
     var showItemsInList = function (catName, subcatName) {
         itemsView.loadItems(catName, subcatName);
@@ -209,9 +210,15 @@ require([
         shippingView.gotOrder(data);
     };
 
+    var updateBreadcrumbs = function (curStep) {
+        breadcrumbsView.animateBreadcrumbs(curStep);
+    };
+
     var sendFiltersToItemView = function (filters) {
         itemsView.updateFilteredItems(filters);
     };
+
+    // Create the Header and Footer Views
 
     var headerView = new HeaderView({
         className: "panel header",
@@ -287,7 +294,9 @@ require([
 
     var checkoutView = new CheckoutView({
         className: "panel checkout-view hidden",
-        model: {}
+        model: {
+            updateBreadcrumbs: updateBreadcrumbs
+        }
     });
     $(".mid-panel").append(checkoutView.render().el);
 
@@ -333,7 +342,7 @@ require([
     $(".right-panel").html(cartView.render().el);
 
 
-    // Set the Default Side Views
+    // Set the Default Views
 
     curLeft = $('.filters');
     curMid = $('.items-list-view');
