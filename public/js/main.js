@@ -6,6 +6,9 @@ require.config({
         'underscore': 'lib/underscore',
         'backbone': 'lib/backbone',
         'tmpl': 'lib/tmpl'
+        // 'raphael': 'lib/raphael-min',
+        // 'popup': 'lib/popup',
+        // 'raphalytics': 'lib/raphalytics'
     },
 
     shim: {
@@ -13,6 +16,21 @@ require.config({
             deps: [],
             exports: '$'
         },
+
+        // 'raphael': {
+        //     deps: [],
+        //     exports: 'Raphael'
+        // },
+
+        // 'raphalytics': {
+        //     deps: ['raphael', 'popup'],
+        //     exports: ''
+        // },
+
+        // 'popup': {
+        //     deps: ['raphael'],
+        //     exports: ''
+        // },
 
         'backbone': {
             deps: ['underscore', 'jquery'],
