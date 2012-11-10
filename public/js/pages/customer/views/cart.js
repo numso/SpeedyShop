@@ -64,7 +64,6 @@ define([
                         };
 
                         that.cart.push(itemObj);
-                        //data.item.id = id;
                         that.$('.sc-area').append(scItemTmpl(itemObj)); //show item
                         that.$('#check-out-btn').removeAttr("disabled"); //enable checkout button
                         that.recalculateTotal();
