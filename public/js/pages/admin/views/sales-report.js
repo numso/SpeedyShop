@@ -121,7 +121,7 @@ define([
                 for (var i = 0; i < d.length; ++i) {
                     if (d[i] !== null) {
                         labels.push(that.getMonthName(i).abbr);
-                        labelsLong[0].push("Projected: " + d[i].projected + " for " + that.getMonthName(i).full + year);
+                        labelsLong[0].push("Projected: " + d[i].projected + " for " + that.getMonthName(i).full + " " + year);
                         data[0].push(d[i].projected);
                         labelsLong[1].push("Actual: " + d[i].actual + " for " + that.getMonthName(i).full + " " + year);
                         data[1].push(d[i].actual);
