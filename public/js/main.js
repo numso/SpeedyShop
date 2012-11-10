@@ -196,6 +196,7 @@ require([
 
         headerView.showKeepShoppingButton();
         checkoutView.showCartConfirm(cartView.cart);
+        breadcrumbsView.animateBreadcrumbs(0);
     };
 
     // other intra-module communication functions

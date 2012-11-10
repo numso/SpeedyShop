@@ -38,7 +38,7 @@ define([
 
         animateBreadcrumbs: function (id) {
             for (var i = 0; i < this.ids.length; ++i) {
-                if (i < id) {
+                if (i === id) {
                     this.$('#' + this.ids[i]).addClass('rotate');
                 } else {
                     this.$('#' + this.ids[i]).removeClass('rotate');
