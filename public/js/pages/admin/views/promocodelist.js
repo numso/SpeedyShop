@@ -19,5 +19,10 @@ define([
             this.$el.html(promocodelistTmpl());
             return this;
         }
+
+        loadPromoCodes: function(){
+
+            
+        }
     });
 });
