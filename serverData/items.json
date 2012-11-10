@@ -286,13 +286,13 @@
             "Rings",
             "The One Ring"
         ],
-        "price": 9001,
+        "price": 9000.01,
         "rating": 5,
         "desc": "In the land of Mordor, in the fires of Mount Doom, The Dark Lord Sauron forged in secret a Master Ring, to control all others. One Ring to rule them all.",
         "images": [
             "//upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Unico_Anello.png/200px-Unico_Anello.png",
             "//jimmyakin.com/wp-content/uploads/misc/6a00d8341bfbfe53ef01310f25bdca970c-800wi.jpg",
-            "//www.patriotresource.com/lotr/pics/things/onering.jpg",
+            "//www.alicia-logic.com/capsimages/LOTR_Fell001_SauronRing.jpg",
             "//24.media.tumblr.com/tumblr_m8e8vet15y1qmyfkao1_500.jpg"
         ],
         "id": 14,
