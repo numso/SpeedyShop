@@ -6,9 +6,6 @@ require.config({
         'underscore': 'lib/underscore',
         'backbone': 'lib/backbone',
         'tmpl': 'lib/tmpl'
-        // 'raphael': 'lib/raphael-min',
-        // 'popup': 'lib/popup',
-        // 'raphalytics': 'lib/raphalytics'
     },
 
     shim: {
@@ -16,21 +13,6 @@ require.config({
             deps: [],
             exports: '$'
         },
-
-        // 'raphael': {
-        //     deps: [],
-        //     exports: 'Raphael'
-        // },
-
-        // 'raphalytics': {
-        //     deps: ['raphael', 'popup'],
-        //     exports: ''
-        // },
-
-        // 'popup': {
-        //     deps: ['raphael'],
-        //     exports: ''
-        // },
 
         'backbone': {
             deps: ['underscore', 'jquery'],
@@ -112,6 +94,7 @@ require([
             if ($('.sales-report-view')[0] !== curMid[0]) {
                 rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
                 curMid = $('.sales-report-view');
+                salesReportView.gotFocus();
             }
         }, animTime);
     };
@@ -155,6 +138,7 @@ require([
         if ($('.sales-report-view')[0] !== curMid[0]) {
             rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
             curMid = $('.sales-report-view');
+            salesReportView.gotFocus();
         }
     };
 

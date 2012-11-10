@@ -13,7 +13,8 @@ console.log('Server running on port:' + PORT);
 var itemServices = require('./serverFiles/itemServices')(),
     filterServices = require('./serverFiles/filterServices')(),
     reviewServices = require('./serverFiles/reviewServices')(),
-    employeeServices = require('./serverFiles/employeeServices')();
+    employeeServices = require('./serverFiles/employeeServices')(),
+    adminServices = require('./serverFiles/adminServices')();
 
 if (ENV === 'prod') {
     var authServices = require('./serverFiles/authServices')();
@@ -61,27 +62,6 @@ app.get('/getUserName', authServices.getUserName);
 app.post('/checkUserExistence', authServices.checkUserExistence);
 app.post('/signup', authServices.signup);
 
-
-var sales = JSON.parse(require('fs').readFileSync('serverData/test.json'));
-app.get('/sales', function (request, response, next) {
-    var newArr = [];
-
-    for (var i = 0; i < sales.length; ++i) {
-        var newDate = new Date(sales[i].timestamp);
-        if (newDate.getMonth() === 0) {
-            var actual = 0,
-                projected = 0;
-            for (var j = 0; j < sales[i].items.length; ++j) {
-                actual += sales[i].items[j].actual;
-                projected += sales[i].items[j].projected;
-            }
-
-            newArr[newDate.getDate()] = {
-                actual: actual,
-                projected: projected
-            };
-        }
-    }
-
-    response.send(newArr);
-});
+// Admin Stuff
+app.get('/sales/year/:yearID', adminServices.getSalesByYear);
+app.get('/sales/year/:yearID/month/:monthID', adminServices.getSalesByYearMonth);

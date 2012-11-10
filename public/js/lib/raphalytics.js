@@ -334,7 +334,6 @@ function raphalytics(paper,data,labels,tooltips,options)
 		value=value.toString();
 		var label_x=(y_labels_position=='outside'?leftgutter-1:leftgutter +1);
 		var label_y=(y_labels_position=='outside'?height-bottomgutter-i*Math.round((height - topgutter - bottomgutter)/y_labels_number):(i==0?height-bottomgutter-i*Math.round((height - topgutter - bottomgutter)/y_labels_number)-8:height-bottomgutter-i*Math.round((height - topgutter - bottomgutter)/y_labels_number)+8));
-		label_y /= 2;
 		paper.text(label_x,label_y,value).attr(txt).attr({fill:'white','stroke':'#fff','stroke-width':2,'text-anchor':y_label_anchor}).toFront();
 		paper.text(label_x,label_y,value).attr(txt).attr({fill:labelcolor,'text-anchor':y_label_anchor}).toFront();
 	}
@@ -346,7 +345,7 @@ function raphalytics(paper,data,labels,tooltips,options)
 		{
 		var x = Math.round(leftgutter + X * i),
 			x_label_anchor = (i==0?'start':(i==ii-1?'end':'middle'));
-			t = paper.text(x, (height - 6)/2, labels[i]).attr(txt).attr({fill: labelcolor,'text-anchor':x_label_anchor}).toBack();
+			t = paper.text(x, height - 6, labels[i]).attr(txt).attr({fill: labelcolor,'text-anchor':x_label_anchor}).toBack();
 		}
 	}
 
