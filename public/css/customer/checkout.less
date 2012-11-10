@@ -7,7 +7,7 @@
     }
 
     .checkout-body {
-        height: 490px;
+        height: 475px;
         overflow: auto;
     }
 
@@ -15,95 +15,149 @@
         #checkout-next-step {
             float: right;
         }
-    }
-}
 
-
-
-
-
-
-
-
-.confirm-cart-page {
-    .item-img-wrapper {
-        display: inline-block;
-        width: 75px;
-        margin-right: 20px;
-        vertical-align: top;
-
-        img {
-            max-width: 75px;
-            max-height: 65px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+        .nav-buttons {
+            width: 100px;
+            height: 40px;
         }
     }
 
-    .checkout-item-info {
-        display: inline-block;
-        width: 20%;
+    .confirm-cart-page {
+        .item-img-wrapper {
+            display: inline-block;
+            width: 75px;
+            margin-right: 20px;
+            vertical-align: top;
 
-        .item-quantity {
-            width: 50px;
+            img {
+                max-width: 75px;
+                max-height: 65px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .checkout-item-info {
+            display: inline-block;
+            width: 20%;
+
+            .item-quantity {
+                width: 50px;
+            }
+        }
+
+        .item-promo-wrapper {
+            display: inline-block;
+
+            .promo-code-text {
+                width: 80px;
+            }
+        }
+
+        .general-promo-wrapper {
+            display: inline-block;
+            margin-right: 80px;
+
+            .general-promo-text {
+                width: 130px;
+            }
+        }
+
+        .totals-wrapper {
+            display: inline-block;
+
+            label {
+                display: block;
+            }
         }
     }
 
-    .item-promo-wrapper {
-        display: inline-block;
+    .billings-shipping-page {
 
-        .promo-code-text {
-            width: 80px;
+        .section-title {
+            font-style: italic;
         }
-    }
 
-    .general-promo-wrapper {
-        display: inline-block;
-        margin-right: 80px;
-
-        .general-promo-text {
-            width: 130px;
+        .billing-info, .shipping-section {
+            margin: 15px 0px 15px 30px;
+            width: 340px;
+            display: inline-block;
         }
-    }
 
-    .totals-wrapper {
-        display: inline-block;
-
-        label {
-            display: block;
-        }
-    }
-}
-
-.billings-shipping-page {
-
-    .section-title {
-        font-style: italic;
-    }
-
-    .billing-info {
-        margin-left: 30px;
-        width: 340px;
         .name {
             margin: 10px 0px;
             .firstName, .lastName {
                 width: 130px;
             }
         }
-    }
 
-    .notes {
-        max-width: 80px;
-    }
+        .notes {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 40px;
+            width: 45%;
 
-    .address {
-        .street, .PO-box {
-            width: 225px;
+            textarea {
+                width: 100%;
+                height: 110px; //160
+                resize: none;
+            }
         }
 
-        .city, .state, .zip {
-            width: 70px;
+        .address {
+            .street, .PO-box {
+                width: 225px;
+            }
+
+            .city, .state, .zip {
+                width: 70px;
+            }
+        }
+    }
+
+    .payment-page {
+
+        margin-top: 50px;
+        margin-left: 20px;
+
+        .section-title {
+            margin-top: 100px;
+            font-style: italic;
+        }
+
+        .payment-info {
+            width: 330px;
+
+            .name, .cardNum {
+                display: block;
+                height: 30px;
+                input {
+                    float: right;
+                    width: 65%;
+                }
+            }
+
+            .expirationDate, .CVC-div {
+                display: inline-block;
+                input {
+                    width: 40px;
+                }
+            }
+
+            .expirationDate label {
+                margin-right: 8px;
+            }
+
+            .CVC-div {
+                float: right;
+            }
+        }
+
+        .notice {
+            margin-top: 35%;
+            font-style: italic;
+            text-align: center;
         }
     }
 }

@@ -1,0 +1,29 @@
+<div class"chart">
+    <table>
+        {{#each months}}
+            <th>{{this}}</th>
+        {{/each}}
+        {{#each item}}
+            <tr>
+                {{#each this}}
+                    <td>
+                        <div class="top">
+                            <span class="left">{{profitP}}</span>
+                            <span class="right">{{profitA}}</span>
+                        </div>
+                        <div class="middle">
+                            <span class="left">{{dollarsP}}</span>
+                            <span class="right">{{dollarsA}}</span>
+                        </div>
+                        <div class="bottom">
+                            <span class="left">{{itemsP}}</span>
+                            <span class="right">{{itemsA}}</span>
+                        </div>
+                    </td>
+                {{/each}}
+            </tr>
+        {{/each}}
+
+
+    </table>
+</div>
