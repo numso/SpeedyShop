@@ -1,1 +1,21 @@
-THIS IS THE SALES REPORT MODULE
+<div class='sales-reports-body'>
+    <div class="sr-header">
+        <button class='show-graph'>Graph</button>
+        <button class='show-chart'>Chart</button>
+    </div>
+    <div class="sr-panels">
+        <div class="{{graphID}}-box">
+            <div class="graph-title"></div>
+            <div id="{{graphID}}" style="width: 800px; height: 200px;"></div>
+            <img class='sr-loader' src="img/loading.gif">
+            <button class="graph-month-view">Month</button>
+            <button class="graph-year-view">Year</button>
+            <button class="graph-prev">Prev</button>
+            <button class="graph-next">Next</button>
+        </div>
+        <div id="{{chartID}}" style='display: none;'>
+
+
+        </div>
+    </div>
+</div>

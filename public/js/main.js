@@ -62,8 +62,8 @@ require([
     CheckoutView,
     SalesReportView,
     MarketingView,
-    promoCodeView,
     promoCodeListView,
+    promoCodeView,
     InventoryView,
     AdminItemsView,
     ShippingView,
@@ -71,6 +71,7 @@ require([
     CartView
 ) {
     // Define View Transitions
+
     var animTime = 600,
         curLeft, curMid, curRight;
 
@@ -97,6 +98,7 @@ require([
             if ($('.sales-report-view')[0] !== curMid[0]) {
                 rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
                 curMid = $('.sales-report-view');
+                salesReportView.gotFocus();
             }
         }, animTime);
     };
@@ -113,6 +115,8 @@ require([
                 curMid = $('.items-list-view');
             }
         }, animTime);
+
+        
     };
 
     var showEmployeeView = function () {
@@ -140,6 +144,7 @@ require([
         if ($('.sales-report-view')[0] !== curMid[0]) {
             rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
             curMid = $('.sales-report-view');
+            salesReportView.gotFocus();
         }
     };
 
@@ -158,7 +163,7 @@ require([
 
         window.setTimeout(function () {
             if ($('.promo-code-list-view')[0] !== curRight[0]) {
-                rotateView($('.promo-code-list-view'), curRight, $('.right-panel'));
+                rotateView($('.promo-code-list-view'), curRight, $('.mid-panel'));
                 curRight = $('.promo-code-list-view');
             } 
         }, animTime);
@@ -211,7 +216,7 @@ require([
         checkoutView.showCartConfirm(cartView.cart);
     };
 
-    // Create the Header and Footer Views
+    // other intra-module communication functions
 
     var showItemsInList = function (catName, subcatName) {
         itemsView.loadItems(catName, subcatName);
@@ -227,9 +232,15 @@ require([
         shippingView.gotOrder(data);
     };
 
+    var updateBreadcrumbs = function (curStep) {
+        breadcrumbsView.animateBreadcrumbs(curStep);
+    };
+
     var sendFiltersToItemView = function (filters) {
         itemsView.updateFilteredItems(filters);
     };
+
+    // Create the Header and Footer Views
 
     var headerView = new HeaderView({
         className: "panel header",
@@ -306,7 +317,9 @@ require([
 
     var checkoutView = new CheckoutView({
         className: "panel checkout-view hidden",
-        model: {}
+        model: {
+            updateBreadcrumbs: updateBreadcrumbs
+        }
     });
     $(".mid-panel").append(checkoutView.render().el);
 
@@ -364,7 +377,7 @@ require([
     $(".right-panel").append(cartView.render().el);
 
 
-    // Set the Default Side Views
+    // Set the Default Views
 
     curLeft = $('.filters');
     curMid = $('.items-list-view');

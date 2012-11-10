@@ -1,0 +1,31 @@
+<div class"chart">
+    <table border="1">
+        {{#each months}}
+            <th>{{this}}</th>
+        {{/each}}
+        {{#each item}}
+            <tr>
+                {{#each this}}
+                    <td>
+                        <div class="cell">
+                            <div class="bottom">
+                                <input type="text" class="left" placeholder="{{itemsP}}"></input>
+                                <span class="right">{{itemsA}}</span>
+                            </div>
+                            <div class="middle">
+                                <input type="text" class="left" placeholder="${{dollarsP}}"></input>
+                                <span class="right">${{dollarsA}}</span>
+                            </div>
+                            <div class="top">
+                                <input type="text" class="left" placeholder="${{profitP}}"></input>
+                                <span class="right">${{profitA}}</span>
+                            </div>
+                        </div>
+                    </td>
+                {{/each}}
+            </tr>
+        {{/each}}
+
+
+    </table>
+</div>

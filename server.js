@@ -13,7 +13,8 @@ console.log('Server running on port:' + PORT);
 var itemServices = require('./serverFiles/itemServices')(),
     filterServices = require('./serverFiles/filterServices')(),
     reviewServices = require('./serverFiles/reviewServices')(),
-    employeeServices = require('./serverFiles/employeeServices')();
+    employeeServices = require('./serverFiles/employeeServices')(),
+    adminServices = require('./serverFiles/adminServices')();
 
 if (ENV === 'prod') {
     var authServices = require('./serverFiles/authServices')();
@@ -60,3 +61,7 @@ app.post('/logout', authServices.logout);
 app.get('/getUserName', authServices.getUserName);
 app.post('/checkUserExistence', authServices.checkUserExistence);
 app.post('/signup', authServices.signup);
+
+// Admin Stuff
+app.get('/sales/year/:yearID', adminServices.getSalesByYear);
+app.get('/sales/year/:yearID/month/:monthID', adminServices.getSalesByYearMonth);

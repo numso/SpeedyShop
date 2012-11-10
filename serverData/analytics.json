@@ -1,0 +1,22 @@
+[
+    {
+        "timestamp": 1351749600000,
+        "items": [
+            {
+                "id": 1,
+                "projected": 80,
+                "actual": 240
+            }
+        ]
+    },
+    {
+        "timestamp": 1351836000000,
+        "items": [
+            {
+                "id": 4,
+                "projected": 39,
+                "actual": 20
+            }
+        ]
+    }
+]
