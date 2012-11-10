@@ -23,11 +23,11 @@ define([
         initialize: function () {},
 
         events: {
-            "click .stars":"clickReview",
-            "click .show-btn":"showBtn",
+            "click .stars": "clickReview",
+            "click .show-btn": "showBtn",
             "click .add-review": "addReview",
-            "click .submit-review":"submitReview",
-            "click .cancel-review":"cancelReview"
+            "click .submit-review": "submitReview",
+            "click .cancel-review": "cancelReview"
         },
 
         render: function () {

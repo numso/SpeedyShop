@@ -35,9 +35,9 @@ define([
         },
 
         animateBreadcrumbs: function (id) {
-            console.log('You are now on step ' + id + '. Animate appropriately.');
-            console.log('id will be between 0 and the length');
-            console.log('Remember, it could go backwards or forwards.');
+            //console.log('You are now on step ' + id + '. Animate appropriately.');
+            //console.log('id will be between 0 and the length');
+            //console.log('Remember, it could go backwards or forwards.');
         }
     });
 });
