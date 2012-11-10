@@ -17,7 +17,9 @@ define([
 
         events: {
             'click #check-out-btn': 'clickedCheckout',
-            'click .qty-cnt': 'sanitizeQuantityInput'
+            'click .qty-cnt': 'sanitizeQuantityInput',
+            'mousewheel .qty-cnt': 'sanitizeQuantityInput',
+            'click .X-button': 'removeItem'
         },
 
         render: function () {
@@ -53,16 +55,17 @@ define([
             } else { //item is not already in cart, so find it and add it
                 $.get('/getItem/' + id, function (data) {
                     if (data.status === "success") {
-                        that.cart.push({
+                        var itemObj = {
                             id: id,
-                            img: data.item.imgURL,
+                            imgURL: data.item.imgURL,
                             name: data.item.name,
                             price: data.item.price,
                             quantity: 1
-                        })
+                        };
 
-                        data.item.id = id;
-                        that.$('.sc-area').append(scItemTmpl(data.item)); //show item
+                        that.cart.push(itemObj);
+                        //data.item.id = id;
+                        that.$('.sc-area').append(scItemTmpl(itemObj)); //show item
                         that.$('#check-out-btn').removeAttr("disabled"); //enable checkout button
                         that.recalculateTotal();
 
@@ -81,16 +84,31 @@ define([
             }
         },
 
-        sanitizeQuantityInput: function () {
-            var itemQuantity = $('.qty-cnt');
-            itemQuantity.attr('value', this.getCurrentQuantity($('.sc-area'))); //sanitize input textbox
-
-            //update value in cart
-            var itemID = itemQuantity.closest('.sc-item').attr('id');
+        removeItem: function (e) {
+            var itemID = $(e.target).closest('.sc-item').attr('id');
             for (var i = 0; i < this.cart.length; ++i) {
+                console.log(i+": '"+itemID+"'' ?= '"+this.cart[i].id+"'");
                 if (this.cart[i].id == itemID) {
-                    this.cart[i].quantity = this.getCurrentQuantity(this.$('#' + itemID));
+                    console.log("   found");
+                    this.cart.splice(i, 1); //remove object at index i
+                    break;
                 }
+            }
+
+            this.$el.html(cartTmpl()); //reset cart
+            for (var i = 0; i < this.cart.length; ++i) {
+                $('.sc-area').append(scItemTmpl(this.cart[i])); //show item
+            }
+            this.recalculateTotal();
+        },
+
+        sanitizeQuantityInput: function () {
+            for (var i = 0; i < this.cart.length; ++i) {
+                var item = $('#' + this.cart[i].id);
+                var quantity = this.getCurrentQuantity(item);
+
+                item.find('.qty-cnt').attr('value', quantity);
+                this.cart[i].quantity = quantity;
             }
 
             this.recalculateTotal();
@@ -105,10 +123,17 @@ define([
             var total = 0;
             var items = this.$('.sc-item');
             for (var i = 0; i < items.length; ++i) {
+                console.log("totaling item #"+i);
                 var qty = this.getCurrentQuantity($(items[i]));
                 var price = parseFloat($(items[i]).find('.sc-price').find('span').html(), 10);
                 total += qty * price;
             }
+
+            //disable the checkout button if the cart is empty
+            if (total === 0)
+                $('#check-out-btn').attr("disabled", true);
+            else
+                $('#check-out-btn').attr("disabled", false);
 
             $('.sc-total').find('span').html(total);
         }
