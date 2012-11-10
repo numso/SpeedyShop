@@ -3,24 +3,24 @@
     <div class="billing-section">
         <div class="billing-info">
             <label class="section-title">
-                Billing Address
+                Billing Information
             </label>
             <div class="name">
-                Name: <input class='firstName' type='text'> <input class='lastName' type='text'>
+                Name: <input class='firstName' type='text' placeholder="(first)"> <input class='lastName' type='text' placeholder="(last)">
             </div>
             <div class="address-label">
                 Address
             </div>
             <div class="address">
-                <input class='street' type='text'><br/>
+                <input class='street' type='text' placeholder="(street)"><br/>
                 <input class='PO-box' type='text'><br/>
-                <input class='city' type='text'>
-                <input class='state' type='text'>
-                <input class='zip' type='text'>
+                <input class='city' type='text' placeholder="(city)">
+                <input class='state' type='text' placeholder="(state)">
+                <input class='zip' type='text' placeholder="(zip)">
             </div>
         </div>
-        <div class="Notes"> <!--  rows="4" cols="50" -->
-            <textarea>Notes</textarea>
+        <div class="notes"> <!--  rows="4" cols="50" -->
+            <textarea placeholder="Notes or special instructions"></textarea>
         </div>
     </div>
 
@@ -29,24 +29,27 @@
     <div class="shipping-section">
         <div class="shipping-titles">
             <label class="section-title">
-                Shipping Address
+                Shipping Information
             </label>
             <div class="same-question">
                 <label>
                     (Same as billing
                 </label>
-                <input class='zip' type='checkbox'>
+                <input id='sameCheckbox' class="sameCheckbox" type='checkbox'>
                 <label>
                     )
                 </label>
             </div>
         </div>
+        <div class="name">
+            <input class='firstName' type='text' placeholder="(first)"> <input class='lastName' type='text' placeholder="(last)">
+        </div>
         <div class="address">
-            <input class='street' type='text'><br/>
+            <input class='street' type='text' placeholder="(street)"><br/>
             <input class='PO-box' type='text'><br/>
-            <input class='city' type='text'>
-            <input class='state' type='text'>
-            <input class='zip' type='text'>
+            <input class='city' type='text' placeholder="(city)">
+            <input class='state' type='text' placeholder="(state)">
+            <input class='zip' type='text' placeholder="(zip)">
         </div>
     </div>
 

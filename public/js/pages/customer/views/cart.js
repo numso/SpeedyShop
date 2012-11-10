@@ -36,6 +36,8 @@ define([
         addItem: function (id) {
             var that = this;
 
+            $('.qty-cnt').attr('disabled', false);
+
             var el = that.$('#' + id);
             if (el.length > 0) {
                 //item is already in cart, so just increment its quantity
@@ -95,6 +97,7 @@ define([
         },
 
         clickedCheckout: function (e) {
+            $('.qty-cnt').attr('disabled', true);
             this.model.showCheckout();
         },
 
