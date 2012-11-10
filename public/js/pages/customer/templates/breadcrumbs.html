@@ -2,16 +2,16 @@
 	{{#if isOdd}}
 		<div class='bc-group'>
 			<span class='bc-right bc-text'>{{text}}</span>
-			<div class='bc-left bc-coin'>
-				<img class='bc-coin-front' src = "img/ice.png">
-				<img class='bc-coin-back' src = "img/fire.png">
+			<div class='bc-left bc-coin' id='{{id}}'>
+				<img class='bc-coin-front' src = "img/fire.png">
+				<img class='bc-coin-back' src = "img/ice.png">
 			</div>
 		</div>
 	{{else}}
 		<div class='bc-group'>
-			<div class='bc-right bc-coin'>
-				<img class='bc-coin-front' src = "img/ice.png">
-				<img class='bc-coin-back' src = "img/fire.png">
+			<div class='bc-right bc-coin' id='{{id}}'>
+				<img class='bc-coin-front' src = "img/fire.png">
+				<img class='bc-coin-back' src = "img/ice.png">
 			</div>
 			<span class='bc-left bc-text'>{{text}}</span>
 		</div>
