@@ -1,0 +1,26 @@
+[
+	{
+		"product": "Item",
+		"product-detail": "Awesome Computer",
+		"code": 6546879,
+		"amount": "10",
+		"percent":5,	
+		"start": "11/13/12",
+		"now": false,
+		"end": "12/13/12",
+		"end": false, 
+		"stackable": false
+	},
+	{
+		"product": "Category",
+		"product-detail": "Electronics",
+		"code": 5234218,
+		"amount": "8",
+		"percent":4,
+		"start": "10/20/12",
+		"now": false,
+		"end": "12/20/12",
+		"end": false, 
+		"stackable": false
+	}
+]

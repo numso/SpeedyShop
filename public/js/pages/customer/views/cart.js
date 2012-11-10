@@ -114,7 +114,14 @@ define([
         },
 
         clickedCheckout: function (e) {
+
+            var items = this.$('.sc-item');
+            if (items.length > 0)
+            {
+                this.model.showCheckout();
+            }
             $('.qty-cnt, .X-button').attr('disabled', true);
+
             this.model.showCheckout();
         },
 
