@@ -65,3 +65,4 @@ app.post('/signup', authServices.signup);
 // Admin Stuff
 app.get('/sales/year/:yearID', adminServices.getSalesByYear);
 app.get('/sales/year/:yearID/month/:monthID', adminServices.getSalesByYearMonth);
+app.get('/promocodes', adminServices.getPromoCodes);

@@ -5,7 +5,9 @@ require.config({
         'jquery': 'lib/jquery',
         'underscore': 'lib/underscore',
         'backbone': 'lib/backbone',
-        'tmpl': 'lib/tmpl'
+        'tmpl': 'lib/tmpl',
+        'jquery.drag': 'lib/jquery.drag',
+        'jquery.drop': 'lib/jquery.drop'
     },
 
     shim: {
@@ -166,7 +168,7 @@ require([
             if ($('.promo-code-list-view')[0] !== curRight[0]) {
                 rotateView($('.promo-code-list-view'), curRight, $('.mid-panel'));
                 curRight = $('.promo-code-list-view');
-            } 
+            }
         }, animTime);
     };
 

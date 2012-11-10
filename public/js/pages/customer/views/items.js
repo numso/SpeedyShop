@@ -5,7 +5,9 @@ define([
     'tmpl!pages/customer/templates/items',
     'tmpl!pages/customer/templates/itemsTemplates/itemsList',
     'tmpl!pages/customer/templates/itemsTemplates/itemsBlock',
-    'tmpl!pages/customer/templates/itemsTemplates/itemDetail'
+    'tmpl!pages/customer/templates/itemsTemplates/itemDetail',
+    'jquery.drag',
+    'jquery.drop'
 ], function (
     Backbone,
     itemsTmpl,
