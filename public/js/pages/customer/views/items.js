@@ -5,9 +5,8 @@ define([
     'tmpl!pages/customer/templates/items',
     'tmpl!pages/customer/templates/itemsTemplates/itemsList',
     'tmpl!pages/customer/templates/itemsTemplates/itemsBlock',
-    'tmpl!pages/customer/templates/itemsTemplates/itemDetail'
-    // 'jquery.drag',
-    // 'jquery.drop'
+    'tmpl!pages/customer/templates/itemsTemplates/itemDetail',
+    'jquery-ui'
 ], function (
     Backbone,
     itemsTmpl,
@@ -281,6 +280,7 @@ define([
             this.$('.selected-btn').removeClass('selected-btn');
             this.$('.show-list-layout').addClass('selected-btn');
             this.$('.item-body-container').html(itemsListTmpl(this.dispItems));
+            this.setDragStuff();
         },
 
         displayItemBlock: function () {
@@ -288,6 +288,20 @@ define([
             this.$('.selected-btn').removeClass('selected-btn');
             this.$('.show-block-layout').addClass('selected-btn');
             this.$('.item-body-container').html(itemsBlockTmpl(this.dispItems));
+            this.setDragStuff();
+        },
+
+        setDragStuff: function () {
+            var that = this;
+
+            this.$(".clickable-item" ).draggable({
+                helper: 'clone',
+                appendTo: 'body',
+                start: function (e, ui) {
+                    var newWidth = that.$('.clickable-item').width();
+                    ui.helper.width(newWidth);
+                }
+            });
         },
 
         loadImage: function (e) {

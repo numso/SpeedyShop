@@ -70,105 +70,105 @@
             }
         }
     }
+}
 
-    .list-item {
-        cursor: pointer;
-        padding: 5px;
-        border-bottom: 1px solid #aaa;
-        clear: both;
-        min-height: 100px;
+.list-item {
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid #aaa;
+    clear: both;
+    min-height: 100px;
 
-        &:first-child {
-            border-top: 1px solid #aaa;
+    &:first-child {
+        border-top: 1px solid #aaa;
+    }
+
+    .item-list-info {
+        float: left;
+        width: 280px;
+
+        .item-img-wrapper {
+            width: 100px;
+            height: 100px;
+            display: inline-block
         }
 
-        .item-list-info {
-            float: left;
-            width: 280px;
+        .item-img {
+            max-width: 100px;
+            max-height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
 
-            .item-img-wrapper {
-                width: 100px;
-                height: 100px;
-                display: inline-block
+        .item-specs {
+            width: 170px;
+            display: inline-block;
+            vertical-align: top;
+
+            .item-spec-name {
+                white-space: nowrap;
+                max-width: 165px;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
+        }
+    }
 
-            .item-img {
-                max-width: 100px;
-                max-height: 100px;
-                display: block;
-                margin: 0 auto;
-            }
+    .item-desc {
+        margin-left: 230px;
+    }
+}
 
-            .item-specs {
-                width: 170px;
-                display: inline-block;
-                vertical-align: top;
+.block-item {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    width: 32%;
+    height: 200px;
+    margin-bottom: 5px;
 
-                .item-spec-name {
-                    white-space: nowrap;
-                    max-width: 165px;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                }
+    .block-item-container {
+        padding: 4px;
+
+        .item-img {
+            max-width: 100px;
+            max-height: 90px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .item-specs {
+            display: inline-block;
+            vertical-align: top;
+
+            .item-spec-name {
+                white-space: nowrap;
+                max-width: 140px;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
         }
 
         .item-desc {
-            margin-left: 230px;
+            overflow: hidden;
+            max-height: 90px;
         }
     }
+}
 
-    .block-item {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: top;
-        width: 32%;
-        height: 200px;
-        margin-bottom: 5px;
+.even-item {
+    background-color: #ddd;
 
-        .block-item-container {
-            padding: 4px;
-
-            .item-img {
-                max-width: 100px;
-                max-height: 90px;
-                display: inline-block;
-                vertical-align: top;
-            }
-
-            .item-specs {
-                display: inline-block;
-                vertical-align: top;
-
-                .item-spec-name {
-                    white-space: nowrap;
-                    max-width: 140px;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                }
-            }
-
-            .item-desc {
-                overflow: hidden;
-                max-height: 90px;
-            }
-        }
+    &:hover {
+        background-color: #999;
     }
+}
 
-    .even-item {
-        background-color: #ddd;
+.odd-item {
+    background-color: #ccc;
 
-        &:hover {
-            background-color: #999;
-        }
-    }
-
-    .odd-item {
-        background-color: #ccc;
-
-        &:hover {
-            background-color: #999;
-        }
+    &:hover {
+        background-color: #999;
     }
 }
 
