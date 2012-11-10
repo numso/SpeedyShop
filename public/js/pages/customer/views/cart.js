@@ -80,7 +80,12 @@ define([
         },
 
         clickedCheckout: function (e) {
-            this.model.showCheckout();
+            var items = this.$('.sc-item');
+            if (items.length > 0)
+            {
+                this.model.showCheckout();
+            }
+            
         },
 
         recalculateTotal: function () {
