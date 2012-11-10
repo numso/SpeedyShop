@@ -4,12 +4,19 @@
         <button class='show-chart'>Chart</button>
     </div>
     <div class="sr-panels">
-        <img class='sr-loader' src="img/loading.gif">
-        <div id="{{graphID}}" style="width: 800px; height: 200px;"></div>
+        <div class="{{graphID}}-box">
+            <div class="graph-title"></div>
+            <div id="{{graphID}}" style="width: 800px; height: 200px;"></div>
+            <button class="graph-month-view">Month</button>
+            <button class="graph-year-view">Year</button>
+            <button class="graph-prev">Prev</button>
+            <button class="graph-next">Next</button>
+        </div>
         <div id="{{chartID}}" style='display: none;'>
 
             Ok Fred. All your chart code goes right here. You might want to wait til I get there. What you're going to want to do is render a template inside the template. Good luck :).
 
         </div>
+        <img class='sr-loader' src="img/loading.gif">
     </div>
 </div>

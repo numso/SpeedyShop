@@ -94,6 +94,7 @@ require([
             if ($('.sales-report-view')[0] !== curMid[0]) {
                 rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
                 curMid = $('.sales-report-view');
+                salesReportView.gotFocus();
             }
         }, animTime);
     };
@@ -137,6 +138,7 @@ require([
         if ($('.sales-report-view')[0] !== curMid[0]) {
             rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
             curMid = $('.sales-report-view');
+            salesReportView.gotFocus();
         }
     };
 

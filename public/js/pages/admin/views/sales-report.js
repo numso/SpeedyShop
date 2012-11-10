@@ -14,23 +14,76 @@ define([
     return Backbone.View.extend({
         graphID: 'sales-graph',
         chartID: 'sales-chart',
+        status: {},
 
         initialize: function () {
         },
 
         events: {
             'click .show-chart': 'showChart',
-            'click .show-graph': 'showGraph'
+            'click .show-graph': 'showGraph',
+            'click .graph-month-view': 'showMonthView',
+            'click .graph-year-view': 'showYearView',
+            'click .graph-prev': 'prevSection',
+            'click .graph-next': 'nextSection'
         },
 
         showChart: function (e) {
             $("#" + this.chartID).show();
-            $("#" + this.graphID).hide();
+            $("." + this.graphID + '-box').hide();
         },
 
         showGraph: function (e) {
             $("#" + this.chartID).hide();
-            $("#" + this.graphID).show();
+            $("." + this.graphID + '-box').show();
+        },
+
+        prevSection: function (e) {
+            if (this.status.type === 'month') {
+                --this.status.month;
+                if (this.status.month < 0) {
+                    this.status.month = 11;
+                    --this.status.year;
+                }
+                this.drawMonthGraph();
+            } else {
+                --this.status.year;
+                this.drawYearGraph();
+            }
+        },
+
+        nextSection: function (e) {
+            if (this.status.type === 'month') {
+                ++this.status.month;
+                if (this.status.month > 11) {
+                    this.status.month = 0;
+                    ++this.status.year;
+                }
+                this.drawMonthGraph();
+            } else {
+                ++this.status.year;
+                this.drawYearGraph();
+            }
+        },
+
+        showMonthView: function (e) {
+            var curDate = new Date();
+            this.status = {
+                type: 'month',
+                year: curDate.getFullYear(),
+                month: curDate.getMonth()
+            };
+            this.drawMonthGraph();
+        },
+
+        showYearView: function (e) {
+            var curDate = new Date();
+            this.status = {
+                type: 'year',
+                year: curDate.getFullYear(),
+                month: curDate.getMonth()
+            };
+            this.drawYearGraph();
         },
 
         render: function () {
@@ -38,15 +91,28 @@ define([
                 graphID: this.graphID,
                 chartID: this.chartID
             }));
-            this.drawGraph();
+
             return this;
         },
 
-        drawGraph: function () {
+        gotFocus: function () {
+            this.showMonthView();
+        },
+
+        drawYearGraph: function () {
+            $("#" + this.graphID).html('');
+            var year = this.status.year;
+            this.$('.graph-title').html('Sales Report for ' + year);
+
             var that = this;
 
-            $.get('/sales/year/2012/month/0', function (d) {
+            $('.sr-loader').show();
+            $.get('/sales/year/' + year, function (d) {
                 $('.sr-loader').hide();
+                if (d.length === 0) {
+                    $('#' + that.graphID).html('No Data Available for this time frame.');
+                    return;
+                }
                 var r = Raphael(that.graphID);
                 var labels = [],
                     labelsLong = [[], []],
@@ -54,11 +120,11 @@ define([
 
                 for (var i = 0; i < d.length; ++i) {
                     if (d[i] !== null) {
-                        labels.push(i);
-                        labelsLong[0].push("Projected: " + d[i].projected + " for January " + i + " 2012");
-                        data[0].push(d[i].projected)
-                        labelsLong[1].push("Actual: " + d[i].actual + " for January " + i + " 2012");
-                        data[1].push(d[i].actual)
+                        labels.push(that.getMonthName(i).abbr);
+                        labelsLong[0].push("Projected: " + d[i].projected + " for " + that.getMonthName(i).full + year);
+                        data[0].push(d[i].projected);
+                        labelsLong[1].push("Actual: " + d[i].actual + " for " + that.getMonthName(i).full + " " + year);
+                        data[1].push(d[i].actual);
                     }
                 }
 
@@ -73,6 +139,58 @@ define([
                     'gridtype': 'full_grid'
                 });
             });
+        },
+
+        drawMonthGraph: function () {
+            $("#" + this.graphID).html('');
+            var year = this.status.year,
+                month = this.status.month;
+            this.$('.graph-title').html('Sales Report for ' + this.getMonthName(month).full + ' ' + year);
+
+            var that = this;
+
+            $('.sr-loader').show();
+            $.get('/sales/year/' + year + '/month/' + month, function (d) {
+                $('.sr-loader').hide();
+                if (d.length === 0) {
+                    $('#' + that.graphID).html('No Data Available for this time frame.');
+                    return;
+                }
+                var r = Raphael(that.graphID);
+                var labels = [],
+                    labelsLong = [[], []],
+                    data = [[], []];
+
+                for (var i = 0; i < d.length; ++i) {
+                    if (d[i] !== null) {
+                        labels.push(i);
+                        labelsLong[0].push("Projected: " + d[i].projected + " for " + that.getMonthName(month).full + " " + i + " " + year);
+                        data[0].push(d[i].projected);
+                        labelsLong[1].push("Actual: " + d[i].actual + " for " + that.getMonthName(month).full + " " + i + " " + year);
+                        data[1].push(d[i].actual);
+                    }
+                }
+
+                r.raphalytics(data, labels, labelsLong, {
+                    'width': 800,
+                    'height': 200,
+                    'color': ['#f00', '#0f0'],
+                    'y_labels_number': 10,
+                    'y_labels_position': 'outside',
+                    'y_label_0': true,
+                    'fill': true,
+                    'gridtype': 'full_grid'
+                });
+            });
+        },
+
+        getMonthName: function (id) {
+            var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var monthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            return {
+                full: monthNames[id],
+                abbr: monthAbbr[id]
+            };
         }
     });
 });
