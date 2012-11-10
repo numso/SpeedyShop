@@ -38,6 +38,8 @@ require([
     'pages/customer/views/checkout',
     'pages/admin/views/sales-report',
     'pages/admin/views/marketing',
+    'pages/admin/views/promocodelist',
+    'pages/admin/views/promocode',
     'pages/admin/views/inventory',
     'pages/admin/views/items',
     'pages/employee/views/shipping',
@@ -60,6 +62,8 @@ require([
     CheckoutView,
     SalesReportView,
     MarketingView,
+    promoCodeListView,
+    promoCodeView,
     InventoryView,
     AdminItemsView,
     ShippingView,
@@ -113,6 +117,7 @@ require([
         }, animTime);
 
         $('.qty-cnt, .X-button').attr('disabled', false);
+
     };
 
     var showEmployeeView = function () {
@@ -149,6 +154,20 @@ require([
             rotateView($('.marketing-view'), curMid, $('.mid-panel'));
             curMid = $('.marketing-view');
         }
+    };
+
+    var adm_showPromoCode = function () {
+        if ($('.promo-code-view')[0] !== curMid[0]) {
+            rotateView($('.promo-code-view'), curMid, $('.mid-panel'));
+            curMid = $('.promo-code-view');
+        }
+
+        window.setTimeout(function () {
+            if ($('.promo-code-list-view')[0] !== curRight[0]) {
+                rotateView($('.promo-code-list-view'), curRight, $('.mid-panel'));
+                curRight = $('.promo-code-list-view');
+            } 
+        }, animTime);
     };
 
     var adm_showItems = function () {
@@ -271,7 +290,8 @@ require([
             showSalesReports: adm_showSalesReports,
             showInventory: adm_showInventory,
             showItems: adm_showItems,
-            showMarketing: adm_showMarketing
+            showMarketing: adm_showMarketing,
+            showPromoCode: adm_showPromoCode
         }
     });
     $(".left-panel").append(adminMenuView.render().el);
@@ -317,6 +337,18 @@ require([
     });
     $(".mid-panel").append(marketingView.render().el);
 
+    var promoCodeView = new promoCodeView({
+        className: "panel promo-code-view hidden",
+        model: {}
+    });
+    $(".mid-panel").append(promoCodeView.render().el);
+
+    var promoCodeListView = new promoCodeListView({
+        className: "panel promo-code-list-view hidden",
+        model: {}
+    });
+    $(".right-panel").append(promoCodeListView.render().el);
+
     var inventoryView = new InventoryView({
         className: "panel inventory-view hidden",
         model: {}
@@ -344,7 +376,7 @@ require([
             showCheckout: cust_showCheckout
         }
     });
-    $(".right-panel").html(cartView.render().el);
+    $(".right-panel").append(cartView.render().el);
 
 
     // Set the Default Views
