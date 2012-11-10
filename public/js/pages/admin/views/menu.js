@@ -8,6 +8,7 @@ define([
     menuTmpl
 ) {
     return Backbone.View.extend({
+        currentView: undefined,
 
         initialize: function () {
         },
@@ -34,6 +35,11 @@ define([
         openModule: function (e) {
             var el = $(e.target).closest('.clickable');
             this.model[el.attr('id')]();
+
+            if (this.currentView)
+                this.currentView.removeClass('active');
+            el.addClass('active');
+            this.currentView = el;
         },
 
         render: function () {
