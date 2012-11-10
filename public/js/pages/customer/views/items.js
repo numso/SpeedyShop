@@ -300,6 +300,7 @@ define([
                 start: function (e, ui) {
                     var newWidth = that.$('.clickable-item').width();
                     ui.helper.width(newWidth);
+                    ui.helper.attr('id', this.id);
                 }
             });
         },
