@@ -38,6 +38,9 @@ define([
 
             if (this.currentView)
                 this.currentView.removeClass('active');
+            else
+                $('#showSalesReports').removeClass('active'); //sales report is active by default
+
             el.addClass('active');
             this.currentView = el;
         },
