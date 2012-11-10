@@ -103,30 +103,6 @@ define([
         },
 
         drawChart: function () {
-            $("#" + this.graphID).html('');
-            var year = this.status.year;
-            this.$('.graph-title').html('Sales Report for ' + year);
-            var that = this;
-
-            $.get('/sales/year/' + year, function (d) {
-                $('.sr-loader').hide();
-                if (d.length === 0) {
-                    $('#' + that.graphID).html('No Data Available for this time frame.');
-                    return;
-                }
-                var labels = [],
-                    data = [[], []];
-
-
-                for (var i = 0; i < d.length; ++i) {
-                    if (d[i] !== null) {
-                        labels.push(that.getMonthName(i).abbr);
-                        data[0].push(d[i].projected);
-                        data[1].push(d[i].actual);
-                    }
-                };
-            });
-
             this.$("#" + this.chartID).html(chartTmpl({
                 months: ["January", "Febuary", "March", "April", "May", "June","July", "Febuary", "March", "April", "May", "June"],
                 item: [
@@ -759,19 +735,22 @@ define([
         },
 
         drawYearGraph: function () {
-            $("#" + this.graphID).html('');
-            var year = this.status.year;
-            this.$('.graph-title').html('Sales Report for ' + year);
-            var that = this;
+            var that = this,
+                year = this.status.year;
 
-            $('.sr-loader').show();
+            this.$("#" + this.graphID).html('');
+            this.$("#" + this.graphID).hide();
+            this.$('.sr-loader').show();
+            this.$('.graph-title').html('Sales Report for ' + year);
+
             $.get('/sales/year/' + year, function (d) {
-                $('.sr-loader').hide();
+                that.$('.sr-loader').hide();
+                that.$("#" + that.graphID).show();
                 if (d.length === 0) {
-                    $('#' + that.graphID).html('No Data Available for this time frame.');
+                    that.$('#' + that.graphID).html('No Data Available for this time frame.');
                     return;
                 }
-                var r = Raphael(that.graphID);
+
                 var labels = [],
                     labelsLong = [[], []],
                     data = [[], []];
@@ -786,35 +765,28 @@ define([
                     }
                 }
 
-                r.raphalytics(data, labels, labelsLong, {
-                    'width': 800,
-                    'height': 200,
-                    'color': ['#f00', '#0f0'],
-                    'y_labels_number': 10,
-                    'y_labels_position': 'outside',
-                    'y_label_0': true,
-                    'fill': true,
-                    'gridtype': 'full_grid'
-                });
+                that.makeGraph(data, labels, labelsLong);
             });
         },
 
         drawMonthGraph: function () {
-            $("#" + this.graphID).html('');
-            var year = this.status.year,
+            var that = this,
+                year = this.status.year,
                 month = this.status.month;
+
+            this.$("#" + this.graphID).html('');
+            this.$("#" + this.graphID).hide();
+            this.$('.sr-loader').show();
             this.$('.graph-title').html('Sales Report for ' + this.getMonthName(month).full + ' ' + year);
 
-            var that = this;
-
-            $('.sr-loader').show();
             $.get('/sales/year/' + year + '/month/' + month, function (d) {
-                $('.sr-loader').hide();
+                that.$('.sr-loader').hide();
+                that.$("#" + that.graphID).show();
                 if (d.length === 0) {
                     $('#' + that.graphID).html('No Data Available for this time frame.');
                     return;
                 }
-                var r = Raphael(that.graphID);
+
                 var labels = [],
                     labelsLong = [[], []],
                     data = [[], []];
@@ -829,16 +801,21 @@ define([
                     }
                 }
 
-                r.raphalytics(data, labels, labelsLong, {
-                    'width': 800,
-                    'height': 200,
-                    'color': ['#f00', '#0f0'],
-                    'y_labels_number': 10,
-                    'y_labels_position': 'outside',
-                    'y_label_0': true,
-                    'fill': true,
-                    'gridtype': 'full_grid'
-                });
+                that.makeGraph(data, labels, labelsLong);
+            });
+        },
+
+        makeGraph: function (data, labels, labelsLong) {
+            var r = Raphael(this.graphID);
+            r.raphalytics(data, labels, labelsLong, {
+                'width': 800,
+                'height': 200,
+                'color': ['#f00', '#0f0'],
+                'y_labels_number': 10,
+                'y_labels_position': 'outside',
+                'y_label_0': true,
+                'fill': true,
+                'gridtype': 'full_grid'
             });
         },
 
