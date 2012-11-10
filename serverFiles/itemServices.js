@@ -42,6 +42,78 @@ module.exports = function () {
             response.send("OK");
         },
 
+        addItem: function (request, response, next) {
+            var data = '';
+
+            request.on('data', function (d) {
+                data += d;
+            });
+
+            request.on('end', function () {
+                data = JSON.stringify(data);
+/* format of data passed in:
+data = {
+    name: 'aoeu',
+    desc: 'aeouoaeuoaeueoau',
+    cat: ['cat', "subcat", "brand"],
+    price: 1234,
+    images: ['aoeu', 'aoeu', 'aoeu', 'aoue']
+};
+*/
+                if (!data.name || !data.desc || !data.price) {
+                    response.send({
+                        status: "err",
+                        msg: "Missing data"
+                    });
+                    return;
+                }
+
+                if (!data.cat || typeof data.cat.length !== 'function' || data.cat.length === 0) {
+                    response.send({
+                        status: "err",
+                        msg: "Missing data"
+                    });
+                    return;
+                }
+
+                if (!data.images || typeof data.images.length !== 'function' || data.images.length === 0) {
+                    response.send({
+                        status: "err",
+                        msg: "Missing data"
+                    });
+                    return;
+                }
+
+                var items = JSON.parse(fs.readFileSync('../serverData/items.json'));
+
+                var newId = 0;
+                for (var i = 0; i < items.length; ++i) {
+                    if (items[i].id >= newId) {
+                        newId = items[i].id + 1;
+                    }
+                }
+
+                var myNewItem = {
+                    name: data.name,
+                    cat: data.cat,
+                    price: data.price,
+                    rating: Math.floor(Math.random() * 4) + 1,
+                    desc: data.desc,
+                    images: data.images,
+                    id: newId,
+                    availability: 0,
+                    popularity: 0
+                };
+
+                items.push(myNewItem);
+                fs.writeFileSync('../serverData/items.json', JSON.stringify(items));
+                response.send({
+                    status: "OK",
+                    id: newId
+                });
+            });
+        },
+
         getItems: function (request, response, next) {
             var category = request.params.catID || "All",
                 myObj = [];
