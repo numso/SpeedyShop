@@ -116,7 +116,8 @@ require([
             }
         }, animTime);
 
-        
+        $('.qty-cnt, .X-button').attr('disabled', false);
+
     };
 
     var showEmployeeView = function () {

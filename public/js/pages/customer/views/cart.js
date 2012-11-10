@@ -38,7 +38,7 @@ define([
         addItem: function (id) {
             var that = this;
 
-            $('.qty-cnt').attr('disabled', false);
+            $('.qty-cnt, .X-button').attr('disabled', false);
 
             var el = that.$('#' + id);
             if (el.length > 0) {
@@ -64,7 +64,6 @@ define([
                         };
 
                         that.cart.push(itemObj);
-                        //data.item.id = id;
                         that.$('.sc-area').append(scItemTmpl(itemObj)); //show item
                         that.$('#check-out-btn').removeAttr("disabled"); //enable checkout button
                         that.recalculateTotal();
@@ -115,13 +114,19 @@ define([
         },
 
         clickedCheckout: function (e) {
+
             var items = this.$('.sc-item');
             if (items.length > 0)
             {
                 this.model.showCheckout();
             }
-            $('.qty-cnt').attr('disabled', true);
+            $('.qty-cnt, .X-button').attr('disabled', true);
+
             this.model.showCheckout();
+        },
+
+        continueShopping: function () {
+            $('.qty-cnt, .X-button').attr('disabled', false);
         },
 
         recalculateTotal: function () {
