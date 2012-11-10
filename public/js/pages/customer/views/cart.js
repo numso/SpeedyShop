@@ -36,18 +36,19 @@ define([
         addItem: function (id) {
             var that = this;
 
-            var el = that.$('#' + id + '-in-cart');
+            var el = that.$('#' + id);
             if (el.length > 0) {
-
+                //item is already in cart, so just increment its quantity
                 for (var i = 0; i < this.cart.length; ++i) {
                     if (this.cart[i].id === id) {
-                        ++this.cart[i].quantity;
+                        this.cart[i].quantity++;
                     }
                 }
 
                 el.find('.qty-cnt').attr('value', this.getCurrentQuantity(el) + 1);
                 this.recalculateTotal();
-            } else {
+
+            } else { //item is not already in cart, so find it and add it
                 $.get('/getItem/' + id, function (data) {
                     if (data.status === "success") {
                         that.cart.push({
@@ -57,9 +58,12 @@ define([
                             price: data.item.price,
                             quantity: 1
                         })
+
                         data.item.id = id;
-                        that.$('.sc-area').append(scItemTmpl(data.item));
+                        that.$('.sc-area').append(scItemTmpl(data.item)); //show item
+                        that.$('#check-out-btn').removeAttr("disabled"); //enable checkout button
                         that.recalculateTotal();
+
                     } else {
                         console.log('uh oh, something\'s up. Could\'t get the item');
                     }
@@ -68,14 +72,25 @@ define([
                 //add event to item div so that user can type in a new quantity then press Enter
                 $('.sc-area').keypress(function(event) {
                     var keycode = (event.keyCode ? event.keyCode : event.which);
-                    if(keycode == '13')
+                    if (keycode == '13') {
                         that.sanitizeQuantityInput();
+                    }
                 });
             }
         },
 
         sanitizeQuantityInput: function () {
-            $('.qty-cnt').attr('value', this.getCurrentQuantity($('.sc-area'))); //sanitize input textbox
+            var itemQuantity = $('.qty-cnt');
+            itemQuantity.attr('value', this.getCurrentQuantity($('.sc-area'))); //sanitize input textbox
+
+            //update value in cart
+            var itemID = itemQuantity.closest('.sc-item').attr('id');
+            for (var i = 0; i < this.cart.length; ++i) {
+                if (this.cart[i].id == itemID) {
+                    this.cart[i].quantity = this.getCurrentQuantity(this.$('#' + itemID));
+                }
+            }
+
             this.recalculateTotal();
         },
 

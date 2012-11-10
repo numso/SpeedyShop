@@ -3,16 +3,14 @@
 define([
     'backbone',
     'tmpl!pages/customer/templates/checkoutTemplates/confirmCart',
-    'tmpl!pages/customer/templates/checkoutTemplates/billing',
-    'tmpl!pages/customer/templates/checkoutTemplates/shipping',
+    'tmpl!pages/customer/templates/checkoutTemplates/billing-shipping',
     'tmpl!pages/customer/templates/checkoutTemplates/payment',
     'tmpl!pages/customer/templates/checkoutTemplates/confirmOrder',
     'tmpl!pages/customer/templates/checkout'
 ], function (
     Backbone,
     confirmCartTmpl,
-    billingTmpl,
-    shippingTmpl,
+    billingShippingTmpl,
     paymentTmpl,
     confirmOrderTmpl,
     checkoutTmpl
@@ -29,12 +27,8 @@ define([
                     tmpl: confirmCartTmpl
                 },
                 {
-                    name: 'Billing Info',
-                    tmpl: billingTmpl
-                },
-                {
-                    name: 'Shipping Info',
-                    tmpl: shippingTmpl
+                    name: 'Billing-Shipping Info',
+                    tmpl: billingShippingTmpl
                 },
                 {
                     name: 'Payment Info',
@@ -58,6 +52,7 @@ define([
         },
 
         showCartConfirm: function (cart) {
+
             var total = 0;
             for (var i = 0; i < cart.length; ++i) {
                 total += cart[i].quantity * cart[i].price;
