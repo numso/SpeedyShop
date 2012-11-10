@@ -27,7 +27,8 @@ define([
             'click .graph-month-view': 'showMonthView',
             'click .graph-year-view': 'showYearView',
             'click .graph-prev': 'prevSection',
-            'click .graph-next': 'nextSection'
+            'click .graph-next': 'nextSection',
+            'click .projected-sale': 'changeProjected'
         },
 
         showChart: function (e) {
@@ -88,6 +89,11 @@ define([
             this.drawYearGraph();
         },
 
+        changeProjected: function (e) {
+            var el = this.$('est-projection').closest();
+            consel.log(el);
+        },
+
         render: function () {
             this.$el.html(salesReportTmpl({
                 graphID: this.graphID,
@@ -126,6 +132,450 @@ define([
                 ["January", "Febuary", "March", "April", "May", "June","July", "Febuary", "March", "April", "May", "June"],
                 item:
                 [[
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    }
+                ],
+                [
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    }
+                ],
+                [
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    },
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    }
+                ],
+                [
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    }
+                ],
+                [
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    },
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    }
+                ],
+                [
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    }
+                ],
+                [
+                    {
+                        profitP: 100,
+                        profitA: 200,
+                        dollarsP: 3000,
+                        dollarsA: 4000,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 700,
+                        profitA: 800,
+                        dollarsP: 9000,
+                        dollarsA: 10000,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 1300,
+                        profitA: 1400,
+                        dollarsP: 15000,
+                        dollarsA: 16000,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 1900,
+                        profitA: 2000,
+                        dollarsP: 21000,
+                        dollarsA: 22000,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 2500,
+                        profitA: 2600,
+                        dollarsP: 27000,
+                        dollarsA: 28000,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 3100,
+                        profitA: 3200,
+                        dollarsP: 33000,
+                        dollarsA: 34000,
+                        itemsP: 35,
+                        itemsA: 36
+                    },
                     {
                         profitP: 100,
                         profitA: 200,
