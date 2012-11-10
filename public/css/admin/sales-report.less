@@ -4,9 +4,37 @@
         .stop-flicker ();
     }
 
+.chart{
+    overflow: auto;
+}
+
     table{
-        border-spacing: 25px;
-        border-collapse: 10px;
+        margin-left: 50px;
+
+        div{
+            text-align: center;
+            border-width: 2px black;
+        }
+
+        th{
+            width: 0555px;
+        }
+
+        .left{
+            text-align:left;
+            color: gray;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .right{
+            margin-left: 5%;
+            color: red;
+        }
+
+        .top{
+        }
     }
 
 }
