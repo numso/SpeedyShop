@@ -1,6 +1,5 @@
 .bc-group {
 	.stop-flicker ();
-
 	margin-bottom: 85px;
 
 	.bc-coin {
@@ -8,7 +7,10 @@
 		width: 50px;
 		-webkit-transition: 1s;
 		-webkit-transform-style: preserve-3d;
-		-webkit-transform: rotateY(180deg);
+
+		&.rotate {
+			-webkit-transform: rotateY(180deg);
+		}
 
 		.bc-coin-front {
 			width: 50px;

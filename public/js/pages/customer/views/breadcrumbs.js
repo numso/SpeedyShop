@@ -8,6 +8,7 @@ define([
     breadcrumbsTmpl
 ) {
     return Backbone.View.extend({
+        ids: ['bc-confirmc', 'bc-billing', 'bc-payment', 'bc-confirmo'],
 
         initialize: function () {
         },
@@ -26,6 +27,7 @@ define([
             for (var i = 0; i < arr.length; ++i) {
                 arr[i] = {
                     text: arr[i],
+                    id: this.ids[i],
                     isOdd: (i % 2 === 0)
                 }
             }
@@ -35,9 +37,13 @@ define([
         },
 
         animateBreadcrumbs: function (id) {
-            console.log('You are now on step ' + id + '. Animate appropriately.');
-            console.log('id will be between 0 and the length');
-            console.log('Remember, it could go backwards or forwards.');
+            for (var i = 0; i < this.ids.length; ++i) {
+                if (i < id) {
+                    this.$('#' + this.ids[i]).addClass('rotate');
+                } else {
+                    this.$('#' + this.ids[i]).removeClass('rotate');
+                }
+            }
         }
     });
 });
