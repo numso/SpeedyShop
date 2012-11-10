@@ -2,13 +2,15 @@
 
 define([
     'backbone',
-    'tmpl!pages/admin/templates/sales-report'
+    'tmpl!pages/admin/templates/sales-report',
+    'tmpl!pages/admin/templates/salesReport/charts'
     // 'raphael',
     // 'popup',
     // 'raphalytics'
 ], function (
     Backbone,
-    salesReportTmpl
+    salesReportTmpl,
+    chartTmpl
     // Raphael
 ) {
     return Backbone.View.extend({
@@ -39,7 +41,67 @@ define([
                 chartID: this.chartID
             }));
             this.drawGraph();
+            this.drawChart();
             return this;
+        },
+
+        drawChart: function () {
+            this.$("#" + this.chartID).html(chartTmpl({
+                months: 
+                ["January", "Febuary", "March", "April", "May", "June","July"],
+                data:
+                [
+                    {
+                        profitP: 1,
+                        profitA: 2,
+                        dollarsP: 3,
+                        dollarsA: 4,
+                        itemsP: 5,
+                        itemsA: 6
+                    },
+                    {
+                        profitP: 7,
+                        profitA: 8,
+                        dollarsP: 9,
+                        dollarsA: 10,
+                        itemsP: 11,
+                        itemsA: 12
+                    },
+                    {
+                        profitP: 13,
+                        profitA: 14,
+                        dollarsP: 15,
+                        dollarsA: 16,
+                        itemsP: 17,
+                        itemsA: 18
+                    },
+                    {
+                        profitP: 19,
+                        profitA: 20,
+                        dollarsP: 21,
+                        dollarsA: 22,
+                        itemsP: 23,
+                        itemsA: 24
+                    },
+                    {
+                        profitP: 25,
+                        profitA: 26,
+                        dollarsP: 27,
+                        dollarsA: 28,
+                        itemsP: 29,
+                        itemsA: 30
+                    },
+                    {
+                        profitP: 31,
+                        profitA: 32,
+                        dollarsP: 33,
+                        dollarsA: 34,
+                        itemsP: 35,
+                        itemsA: 36
+                    }
+                ]
+            }));
+
         },
 
         drawGraph: function () {
