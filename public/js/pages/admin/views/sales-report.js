@@ -45,7 +45,7 @@ define([
         drawGraph: function () {
             var that = this;
 
-            $.get('/sales', function (d) {
+            $.get('/sales/year/2012/month/0', function (d) {
                 $('.sr-loader').hide();
                 var r = Raphael(that.graphID);
                 var labels = [],
