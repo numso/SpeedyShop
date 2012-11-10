@@ -111,6 +111,8 @@ require([
                 curMid = $('.items-list-view');
             }
         }, animTime);
+
+        $('.qty-cnt, .X-button').attr('disabled', false);
     };
 
     var showEmployeeView = function () {

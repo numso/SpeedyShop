@@ -118,6 +118,10 @@ define([
             this.model.showCheckout();
         },
 
+        continueShopping: function () {
+            $('.qty-cnt, .X-button').attr('disabled', false);
+        },
+
         recalculateTotal: function () {
             var total = 0;
             var items = this.$('.sc-item');
