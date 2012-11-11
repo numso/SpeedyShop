@@ -34,6 +34,7 @@ app.configure(function () {
 // REST Call Routing Registry
 
 // Menu Stuff
+app.get('/getCategories', itemServices.getCategories);
 app.get('/getCategories/', itemServices.getCategories);
 
 // Items Stuff

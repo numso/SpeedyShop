@@ -1,6 +1,7 @@
 module.exports = function () {
 
-    var sales = JSON.parse(require('fs').readFileSync('serverData/test.json'));
+    var fs = require('fs'),
+        sales = JSON.parse(fs.readFileSync('serverData/test.json'));
 
     return {
         getSalesByYear: function (request, response, next) {

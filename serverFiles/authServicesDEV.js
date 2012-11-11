@@ -83,7 +83,11 @@ module.exports = function (encrypted) {
                     fs.writeFile('serverData/usersWin.json', JSON.stringify(userDB), function () {
                         res.cookie('loggedIn', true);
                         res.cookie('loggedInName', input.user);
-                        res.send(JSON.stringify({ success: true, user: input.user, userID: newUser.type }));
+                        res.send(JSON.stringify({
+                            success: true,
+                            user: input.user,
+                            userID: newUser.type
+                        }));
                     });
                 }
             });

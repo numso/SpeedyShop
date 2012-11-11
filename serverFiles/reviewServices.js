@@ -41,6 +41,7 @@ module.exports = function () {
                     if (id == reviews[i].id) {
                         reviews[i].stars[data.stars - 1].reviews.push(revObj);
                         added = true;
+                        fs.writeFile('serverData/reviews.json', JSON.stringify(reviews));
                         response.send(reviews[i].stars);
                         break;
                     }
@@ -58,6 +59,7 @@ module.exports = function () {
                         id: id,
                         stars: starsArr
                     });
+                    fs.writeFile('serverData/reviews.json', JSON.stringify(reviews));
                     response.send(starsArr);
                 }
             });
