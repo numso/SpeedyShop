@@ -77,7 +77,7 @@ require([
 ) {
     // Define View Transitions
 
-    var animTime = 600,
+    var animTime = 300,
         isAnimating = false,
         animCount, curLeft, curMid, curRight;
 
