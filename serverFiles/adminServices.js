@@ -1,6 +1,7 @@
 module.exports = function () {
 
-    var sales = JSON.parse(require('fs').readFileSync('serverData/test.json'));
+    var fs = require('fs');
+    var sales = JSON.parse(fs.readFileSync('serverData/test.json'));
 
     return {
         getSalesByYear: function (request, response, next) {
@@ -58,8 +59,13 @@ module.exports = function () {
         },
 
         getPromoCodes: function (request, response, next) {
-            var codes = fs.readFileSync('../serverData/promocodes.json');
+            var codes = fs.readFileSync('serverData/promocodes.json');
             response.send(codes);
+        },
+
+        getInventory: function(request, response, next) {
+            var inventory = fs.readFileSync('serverData/items.json');
+            response.send(inventory);
         }
     };
 };
