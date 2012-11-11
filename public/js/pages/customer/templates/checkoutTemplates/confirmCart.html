@@ -4,12 +4,12 @@
     {{#each cart}}
         <div class='checkout-item' id="{{id}}-item">
             <div class="item-img-wrapper">
-                <img src="{{img}}">
+                <img src="{{imgURL}}">
             </div>
             <div class='checkout-item-info'>
                 <div>{{name}}</div>
                 <div class='sc-price'>$<span>{{price}}</span></div>
-                <div>Quantity: <input class='item-quantity' type='text' value='{{quantity}}'></div>
+                <div>Quantity: {{quantity}}</div>
             </div>
             <div class="item-promo-wrapper">
                 <label>Promo code:</label>

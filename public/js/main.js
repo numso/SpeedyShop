@@ -121,7 +121,7 @@ require([
             }
         }, animTime);
 
-        $('.qty-cnt, .X-button').attr('disabled', false);
+        $('.qty-cnt, .X-button, #check-out-btn').attr('disabled', false);
 
     };
 
