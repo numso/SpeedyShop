@@ -81,10 +81,13 @@ require([
         isAnimating = false,
         animCount, curLeft, curMid, curRight;
 
-    var decrementAnimCount = function () {
+    var decrementAnimCount = function (cb) {
         --animCount;
         if (animCount === 0) {
             isAnimating = false;
+            if (typeof cb === "function") {
+                cb();
+            }
         }
     };
 
@@ -238,7 +241,7 @@ require([
         }
     };
 
-    var adm_showSalesReports = function () {
+    var adm_showSalesReports = function (cb) {
         if (!isAnimating) {
             isAnimating = true;
             animCount = 2;
@@ -247,26 +250,26 @@ require([
                 rotateView($('.sales-report-view'), curMid, $('.mid-panel'), function () {
                     curMid = $('.sales-report-view');
                     salesReportView.gotFocus();
-                    decrementAnimCount();
+                    decrementAnimCount(cb);
                 });
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
 
             if ($('.cart')[0] !== curRight[0]) {
                 window.setTimeout(function () {
                     rotateView($('.cart'), curRight, $('.right-panel'), function () {
                         curRight = $('.cart');
-                        decrementAnimCount();
+                        decrementAnimCount(cb);
                     });
                 }, animTime);
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
         }
     };
 
-    var adm_showMarketing = function () {
+    var adm_showMarketing = function (cb) {
         if (!isAnimating) {
             isAnimating = true;
             animCount = 2;
@@ -274,26 +277,26 @@ require([
             if ($('.marketing-view')[0] !== curMid[0]) {
                 rotateView($('.marketing-view'), curMid, $('.mid-panel'), function () {
                     curMid = $('.marketing-view');
-                    decrementAnimCount();
+                    decrementAnimCount(cb);
                 });
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
 
             if ($('.cart')[0] !== curRight[0]) {
                 window.setTimeout(function () {
                     rotateView($('.cart'), curRight, $('.right-panel'), function () {
                         curRight = $('.cart');
-                        decrementAnimCount();
+                        decrementAnimCount(cb);
                     });
                 }, animTime);
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
         }
     };
 
-    var adm_showPromoCode = function () {
+    var adm_showPromoCode = function (cb) {
         if (!isAnimating) {
             isAnimating = true;
             animCount = 2;
@@ -301,26 +304,26 @@ require([
             if ($('.promo-code-view')[0] !== curMid[0]) {
                 rotateView($('.promo-code-view'), curMid, $('.mid-panel'), function () {
                     curMid = $('.promo-code-view');
-                    decrementAnimCount();
+                    decrementAnimCount(cb);
                 });
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
 
             if ($('.promo-code-list-view')[0] !== curRight[0]) {
                 window.setTimeout(function () {
                     rotateView($('.promo-code-list-view'), curRight, $('.right-panel'), function () {
                         curRight = $('.promo-code-list-view');
-                        decrementAnimCount();
+                        decrementAnimCount(cb);
                     });
                 }, animTime);
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
         }
     };
 
-    var adm_showItems = function () {
+    var adm_showItems = function (cb) {
         if (!isAnimating) {
             isAnimating = true;
             animCount = 2;
@@ -328,26 +331,26 @@ require([
             if ($('.admin-items-view')[0] !== curMid[0]) {
                 rotateView($('.admin-items-view'), curMid, $('.mid-panel'), function () {
                     curMid = $('.admin-items-view');
-                    decrementAnimCount();
+                    decrementAnimCount(cb);
                 });
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
 
             if ($('.cart')[0] !== curRight[0]) {
                 window.setTimeout(function () {
                     rotateView($('.cart'), curRight, $('.right-panel'), function () {
                         curRight = $('.cart');
-                        decrementAnimCount();
+                        decrementAnimCount(cb);
                     });
                 }, animTime);
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
         }
     };
 
-    var adm_showInventory = function () {
+    var adm_showInventory = function (cb) {
         if (!isAnimating) {
             isAnimating = true;
             animCount = 2;
@@ -355,21 +358,21 @@ require([
             if ($('.inventory-view')[0] !== curMid[0]) {
                 rotateView($('.inventory-view'), curMid, $('.mid-panel'), function () {
                     curMid = $('.inventory-view');
-                    decrementAnimCount();
+                    decrementAnimCount(cb);
                 });
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
 
             if ($('.cart')[0] !== curRight[0]) {
                 window.setTimeout(function () {
                     rotateView($('.cart'), curRight, $('.right-panel'), function () {
                         curRight = $('.cart');
-                        decrementAnimCount();
+                        decrementAnimCount(cb);
                     });
                 }, animTime);
             } else {
-                decrementAnimCount();
+                decrementAnimCount(cb);
             }
         }
     };
