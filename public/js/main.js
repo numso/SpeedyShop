@@ -77,10 +77,21 @@ require([
 ) {
     // Define View Transitions
 
-    var animTime = 600,
-        curLeft, curMid, curRight;
+    var animTime = 300,
+        isAnimating = false,
+        animCount, curLeft, curMid, curRight;
 
-    var rotateView = function (toRotate, toHide, theParent) {
+    var decrementAnimCount = function (cb) {
+        --animCount;
+        if (animCount === 0) {
+            isAnimating = false;
+            if (typeof cb === "function") {
+                cb();
+            }
+        }
+    };
+
+    var rotateView = function (toRotate, toHide, theParent, cb) {
         toRotate.addClass('rotated');
         toRotate.removeClass('hidden');
         theParent.addClass('flipit');
@@ -90,137 +101,345 @@ require([
             toRotate.removeClass('rotated');
             theParent.removeClass('flipit');
             theParent.unbind('webkitTransitionEnd');
+            if (typeof cb === 'function') {
+                cb();
+            }
         });
     };
 
     var showAdminView = function () {
-        if ($('.admin-menu-view')[0] !== curLeft[0]) {
-            rotateView($('.admin-menu-view'), curLeft, $('.left-panel'));
-            curLeft = $('.admin-menu-view');
-        }
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 3;
 
-        window.setTimeout(function () {
-            if ($('.sales-report-view')[0] !== curMid[0]) {
-                rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
-                curMid = $('.sales-report-view');
-                salesReportView.gotFocus();
+            if ($('.admin-menu-view')[0] !== curLeft[0]) {
+                rotateView($('.admin-menu-view'), curLeft, $('.left-panel'), function () {
+                    curLeft = $('.admin-menu-view');
+                    decrementAnimCount();
+                });
+            } else {
+                decrementAnimCount();
             }
-        }, animTime);
+
+            if ($('.sales-report-view')[0] !== curMid[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.sales-report-view'), curMid, $('.mid-panel'), function () {
+                        curMid = $('.sales-report-view');
+                        salesReportView.gotFocus();
+                        decrementAnimCount();
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount();
+            }
+
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount();
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount();
+            }
+        }
     };
 
     var showCustomerView = function () {
-        if ($('.filters')[0] !== curLeft[0]) {
-            rotateView($('.filters'), curLeft, $('.left-panel'));
-            curLeft = $('.filters');
-        }
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 3;
 
-        window.setTimeout(function () {
-            if ($('.items-list-view')[0] !== curMid[0]) {
-                rotateView($('.items-list-view'), curMid, $('.mid-panel'));
-                curMid = $('.items-list-view');
+            if ($('.filters')[0] !== curLeft[0]) {
+                rotateView($('.filters'), curLeft, $('.left-panel'), function () {
+                    curLeft = $('.filters');
+                    decrementAnimCount();
+                });
+            } else {
+                decrementAnimCount();
             }
-        }, animTime);
 
-        $('.qty-cnt, .X-button, #check-out-btn').attr('disabled', false);
+            if ($('.items-list-view')[0] !== curMid[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.items-list-view'), curMid, $('.mid-panel'), function () {
+                        curMid = $('.items-list-view');
+                        decrementAnimCount();
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount()
+            }
 
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount();
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount();
+            }
+
+            $('.qty-cnt, .X-button, #check-out-btn').attr('disabled', false);
+        }
     };
 
     var showEmployeeView = function () {
-        if ($('.employee-menu-view')[0] !== curLeft[0]) {
-            rotateView($('.employee-menu-view'), curLeft, $('.left-panel'));
-            curLeft = $('.employee-menu-view');
-        }
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 3;
 
-        window.setTimeout(function () {
-            if ($('.shipping-view')[0] !== curMid[0]) {
-                rotateView($('.shipping-view'), curMid, $('.mid-panel'));
-                curMid = $('.shipping-view');
+            if ($('.employee-menu-view')[0] !== curLeft[0]) {
+                rotateView($('.employee-menu-view'), curLeft, $('.left-panel'), function () {
+                    curLeft = $('.employee-menu-view');
+                    decrementAnimCount();
+                });
+            } else {
+                decrementAnimCount();
             }
-        }, animTime);
+
+            if ($('.shipping-view')[0] !== curMid[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.shipping-view'), curMid, $('.mid-panel'), function () {
+                        curMid = $('.shipping-view');
+                        decrementAnimCount();
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount();
+            }
+
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount();
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount();
+            }
+
+        }
     };
 
     var emp_showShipping = function () {
-        if ($('.shipping-view')[0] !== curMid[0]) {
-            rotateView($('.shipping-view'), curMid, $('.mid-panel'));
-            curMid = $('.shipping-view');
-        }
-    };
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 1;
 
-    var adm_showSalesReports = function () {
-        if ($('.sales-report-view')[0] !== curMid[0]) {
-            rotateView($('.sales-report-view'), curMid, $('.mid-panel'));
-            curMid = $('.sales-report-view');
-            salesReportView.gotFocus();
-        }
-    };
-
-    var adm_showMarketing = function () {
-        if ($('.marketing-view')[0] !== curMid[0]) {
-            rotateView($('.marketing-view'), curMid, $('.mid-panel'));
-            curMid = $('.marketing-view');
-        }
-    };
-
-    var adm_showPromoCode = function () {
-        if ($('.promo-code-view')[0] !== curMid[0]) {
-            rotateView($('.promo-code-view'), curMid, $('.mid-panel'));
-            curMid = $('.promo-code-view');
-        }
-
-        window.setTimeout(function () {
-            if ($('.promo-code-list-view')[0] !== curRight[0]) {
-                rotateView($('.promo-code-list-view'), curRight, $('.mid-panel'));
-                curRight = $('.promo-code-list-view');
+            if ($('.shipping-view')[0] !== curMid[0]) {
+                rotateView($('.shipping-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.shipping-view');
+                    decrementAnimCount();
+                });
+            } else {
+                decrementAnimCount();
             }
-        }, animTime);
-    };
-
-    var adm_showItems = function () {
-        if ($('.admin-items-view')[0] !== curMid[0]) {
-            rotateView($('.admin-items-view'), curMid, $('.mid-panel'));
-            curMid = $('.admin-items-view');
         }
     };
 
-    var adm_showInventory = function () {
-        if ($('.inventory-view')[0] !== curMid[0]) {
-            rotateView($('.inventory-view'), curMid, $('.mid-panel'));
-            curMid = $('.inventory-view');
+    var adm_showSalesReports = function (cb) {
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 2;
+
+            if ($('.sales-report-view')[0] !== curMid[0]) {
+                rotateView($('.sales-report-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.sales-report-view');
+                    salesReportView.gotFocus();
+                    decrementAnimCount(cb);
+                });
+            } else {
+                decrementAnimCount(cb);
+            }
+
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount(cb);
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount(cb);
+            }
+        }
+    };
+
+    var adm_showMarketing = function (cb) {
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 2;
+
+            if ($('.marketing-view')[0] !== curMid[0]) {
+                rotateView($('.marketing-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.marketing-view');
+                    decrementAnimCount(cb);
+                });
+            } else {
+                decrementAnimCount(cb);
+            }
+
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount(cb);
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount(cb);
+            }
+        }
+    };
+
+    var adm_showPromoCode = function (cb) {
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 2;
+
+            if ($('.promo-code-view')[0] !== curMid[0]) {
+                rotateView($('.promo-code-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.promo-code-view');
+                    decrementAnimCount(cb);
+                });
+            } else {
+                decrementAnimCount(cb);
+            }
+
+            if ($('.promo-code-list-view')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.promo-code-list-view'), curRight, $('.right-panel'), function () {
+                        curRight = $('.promo-code-list-view');
+                        decrementAnimCount(cb);
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount(cb);
+            }
+        }
+    };
+
+    var adm_showItems = function (cb) {
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 2;
+
+            if ($('.admin-items-view')[0] !== curMid[0]) {
+                rotateView($('.admin-items-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.admin-items-view');
+                    decrementAnimCount(cb);
+                });
+            } else {
+                decrementAnimCount(cb);
+            }
+
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount(cb);
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount(cb);
+            }
+        }
+    };
+
+    var adm_showInventory = function (cb) {
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 2;
+
+            if ($('.inventory-view')[0] !== curMid[0]) {
+                rotateView($('.inventory-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.inventory-view');
+                    decrementAnimCount(cb);
+                });
+            } else {
+                decrementAnimCount(cb);
+            }
+
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount(cb);
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount(cb);
+            }
         }
     };
 
     var cust_showFilters = function () {
-        if ($('.filters')[0] !== curLeft[0]) {
-            rotateView($('.filters'), curLeft, $('.left-panel'));
-            curLeft = $('.filters');
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 1;
+
+            if ($('.filters')[0] !== curLeft[0]) {
+                rotateView($('.filters'), curLeft, $('.left-panel'), function () {
+                    curLeft = $('.filters');
+                    decrementAnimCount();
+                });
+            } else {
+                decrementAnimCount();
+            }
         }
     };
 
     var cust_showReviews = function (id) {
-        if ($('.reviews-view')[0] !== curLeft[0]) {
-            rotateView($('.reviews-view'), curLeft, $('.left-panel'));
-            curLeft = $('.reviews-view');
-        }
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 1;
 
-        reviewsView.clickedItem(id);
+            if ($('.reviews-view')[0] !== curLeft[0]) {
+                rotateView($('.reviews-view'), curLeft, $('.left-panel'), function () {
+                    curLeft = $('.reviews-view');
+                    decrementAnimCount();
+                });
+            } else {
+                decrementAnimCount();
+            }
+
+            reviewsView.clickedItem(id);
+        }
     };
 
     var cust_showCheckout = function (id) {
-        if ($('.breadcrumbs-view')[0] !== curLeft[0]) {
-            rotateView($('.breadcrumbs-view'), curLeft, $('.left-panel'));
-            curLeft = $('.breadcrumbs-view');
-        }
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 2;
 
-        window.setTimeout(function () {
-            if ($('.checkout-view')[0] !== curMid[0]) {
-                rotateView($('.checkout-view'), curMid, $('.mid-panel'));
-                curMid = $('.checkout-view');
+            if ($('.breadcrumbs-view')[0] !== curLeft[0]) {
+                rotateView($('.breadcrumbs-view'), curLeft, $('.left-panel'), function () {
+                    curLeft = $('.breadcrumbs-view');
+                    decrementAnimCount();
+                });
+            } else {
+                decrementAnimCount();
             }
-        }, animTime);
 
-        headerView.showKeepShoppingButton();
-        checkoutView.showCartConfirm(cartView.cart);
-        breadcrumbsView.animateBreadcrumbs(0);
+            if ($('.checkout-view')[0] !== curMid[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.checkout-view'), curMid, $('.mid-panel'), function () {
+                        curMid = $('.checkout-view');
+                        decrementAnimCount();
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount();
+            }
+
+            headerView.showKeepShoppingButton();
+            checkoutView.showCartConfirm(cartView.cart);
+            breadcrumbsView.animateBreadcrumbs(0);
+        }
     };
 
     // other intra-module communication functions
