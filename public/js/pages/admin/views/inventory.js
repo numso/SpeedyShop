@@ -15,9 +15,21 @@ define([
         events: {
         },
 
+        lowInventory: function() {
+            console.log(this.available);
+            return this.available < 2;
+        },
+
         render: function () {
-            this.$el.html(inventoryTmpl());
-            return this;
+
+        var that = this;
+        $.get('/inventory', function (data) {
+            that.inventoryData = JSON.parse(data);
+            that.$el.html(inventoryTmpl(that.inventoryData));
+        });
+
+        return this;
         }
+
     });
 });

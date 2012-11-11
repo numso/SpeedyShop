@@ -59,8 +59,13 @@ module.exports = function () {
         },
 
         getPromoCodes: function (request, response, next) {
-            var codes = fs.readFileSync('../serverData/promocodes.json');
+            var codes = fs.readFileSync('serverData/promocodes.json');
             response.send(codes);
+        },
+
+        getInventory: function(request, response, next) {
+            var inventory = fs.readFileSync('serverData/items.json');
+            response.send(inventory);
         }
     };
 };
