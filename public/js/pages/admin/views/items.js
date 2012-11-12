@@ -16,10 +16,9 @@ define([
     return Backbone.View.extend({
 
         myTmpls: undefined,
-        currentTab: undefined,
+        currentTab: null,
 
         initialize: function () {
-            currentTab = this.$('#tab-0');
             this.myTmpls = [
                 addItemTmpl,
                 editItemsTmpl,
@@ -33,17 +32,17 @@ define([
 
         render: function () {
             this.$el.html(itemsTmpl());
-            this.$('.items-body').html(addItemTmpl);
+            this.$('#tab-0').trigger('click');
             return this;
         },
 
         changeTab: function (e) {
             var tab = this.$(e.target).closest('.tab');
-            currentTab.removeClass('active');
+            if (this.currentTab)
+                this.currentTab.removeClass('active');
             tab.addClass('active');
-            console.log(tab);
             this.$('.items-body').html(this.myTmpls[tab.attr('id').charAt(4)]);
-            currentTab = tab;
+            this.currentTab = tab;
         }
     });
 });
