@@ -52,8 +52,6 @@ define([
                 }
             }
 
-
-
         },
 
         render: function () {
