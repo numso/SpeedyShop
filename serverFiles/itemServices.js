@@ -50,15 +50,7 @@ module.exports = function () {
 
             request.on('end', function () {
                 data = JSON.stringify(data);
-/* format of data passed in:
-data = {
-    name: 'aoeu',
-    desc: 'aeouoaeuoaeueoau',
-    cat: ['cat', "subcat", "brand"],
-    price: 1234,
-    images: ['aoeu', 'aoeu', 'aoeu', 'aoue']
-};
-*/
+
                 if (!data.name || !data.desc || !data.price) {
                     response.send({
                         status: "err",
