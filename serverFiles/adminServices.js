@@ -1,5 +1,6 @@
 module.exports = function () {
 
+
     var fs = require('fs'),
         sales = JSON.parse(fs.readFileSync('serverData/test.json'));
 
@@ -67,5 +68,67 @@ module.exports = function () {
             var inventory = fs.readFileSync('serverData/items.json');
             response.send(inventory);
         }
+
+        // editInventory: function(request, response, next) {
+        //      var input = '';
+        //     req.on('data', function (chunk) {
+        //         input += chunk;
+        //     });
+
+        //     var myNewItem = {
+        //         name: data.name,
+        //         cat: data.cat,
+        //         price: data.price,
+        //         rating: Math.floor(Math.random() * 4) + 1,
+        //         desc: data.desc,
+        //         images: data.images,
+        //         id: newId,
+        //         availability: 0,
+        //         popularity: 0
+        //     };
+
+        //     items.push(myNewItem);
+        //     fs.writeFileSync('../serverData/items.json', JSON.stringify(items));
+        //     response.send({
+        //         status: "OK",
+        //         id: newId
+        //     });
+
+
+
+
+
+
+
+
+
+//start template
+
+//             {
+//     "name": "Item 205",
+//     "cat": [
+//         "Book",
+//         "Textbooks"
+//     ],
+//     "price": 1234,
+//     "rating": 4,
+//     "desc": "Awesome item 205",
+//     "images": [
+//         "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+//         "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+//         "//www.bmotorsports.com/shop/images/product-unavailable.jpg",
+//         "//www.bmotorsports.com/shop/images/product-unavailable.jpg"
+//     ],
+//     "id": 205,
+//     "available": 5,
+//     "popularity": 0
+// },
+
+
+//end of template
+
+
+
+        //}
     };
 };

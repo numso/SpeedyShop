@@ -9,10 +9,18 @@ define([
 ) {
     return Backbone.View.extend({
 
+        curInventory : undefined,
+
         initialize: function () {
         },
 
         events: {
+            'click .update-items' :  'editQuantity'
+        },
+
+        editQuantity: function() {
+            
+            
         },
 
         lowInventory: function() {
@@ -24,8 +32,8 @@ define([
 
         var that = this;
         $.get('/inventory', function (data) {
-            that.inventoryData = JSON.parse(data);
-            that.$el.html(inventoryTmpl(that.inventoryData));
+            that.curInventory = JSON.parse(data);
+            that.$el.html(inventoryTmpl(that.curInventory));
         });
 
         return this;
