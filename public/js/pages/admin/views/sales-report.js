@@ -127,7 +127,7 @@ define([
 
         drawChart: function () {
             this.$("#" + this.chartID).html(chartTmpl({
-                months: ["January", "Febuary", "March", "April", "May", "June","July", "Febuary", "March", "April", "May", "June"],
+                months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
                 item: [
                     {
                         chartCat: "home",
@@ -179,6 +179,50 @@ define([
                                 dollarsA: 34000,
                                 itemsP: 35,
                                 itemsA: 36
+                            },
+                            {
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },
+                            {
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },{
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },{
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },{
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },{
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
                             }
                         ]
                     }
