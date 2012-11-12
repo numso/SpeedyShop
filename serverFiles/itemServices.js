@@ -49,7 +49,7 @@ module.exports = function () {
             });
 
             request.on('end', function () {
-                data = JSON.stringify(data);
+                data = JSON.parse(data);
 
                 if (!data.name || !data.desc || !data.price) {
                     response.send({
@@ -59,7 +59,7 @@ module.exports = function () {
                     return;
                 }
 
-                if (!data.cat || typeof data.cat.length !== 'function' || data.cat.length === 0) {
+                if (!data.cat || !data.cat.length) {
                     response.send({
                         status: "err",
                         msg: "Missing data"
@@ -67,15 +67,13 @@ module.exports = function () {
                     return;
                 }
 
-                if (!data.images || typeof data.images.length !== 'function' || data.images.length === 0) {
+                if (!data.images || !data.images.length) {
                     response.send({
                         status: "err",
                         msg: "Missing data"
                     });
                     return;
                 }
-
-                var items = JSON.parse(fs.readFileSync('../serverData/items.json'));
 
                 var newId = 0;
                 for (var i = 0; i < items.length; ++i) {
@@ -97,7 +95,7 @@ module.exports = function () {
                 };
 
                 items.push(myNewItem);
-                fs.writeFileSync('../serverData/items.json', JSON.stringify(items));
+                fs.writeFileSync('serverData/items.json', JSON.stringify(items));
                 response.send({
                     status: "OK",
                     id: newId

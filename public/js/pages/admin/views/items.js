@@ -79,8 +79,7 @@ define([
                 if (allFilled) {
                     this.$('.submit-button').attr("disabled", false); //we're good
                     //this.updateImages(formData); //has issues, so commenting out for now
-                }
-                else {
+                } else {
                     this.$('.submit-button').attr("disabled", true); //we can't submit an item with any empty fields
                 }
             }
@@ -101,15 +100,16 @@ define([
                 "name": formData[0],
                 "desc": formData[1],
                 "cat": [formData[2], formData[3], formData[4]],
-                "price": formData[6], //what about price? hmm..
+                "price": parseInt(formData[6], 10), //what about price? hmm..
                 "images": [formData[7], formData[8], formData[9], formData[10]]
             };
 
-            console.log(JSON.stringify(itemData));
-            var resp = $.post("/addItem/" + itemData);
-            console.log("Response: " + resp); //is this how I check the response? I'm confused...
+            console.log('sending: ' + JSON.stringify(itemData));
+            var resp = $.post("/addItem", JSON.stringify(itemData), function (resp) {
+                console.log("Response: " + JSON.stringify(resp)); //is this how I check the response? I'm confused...
+            });
 
-            this.$('.items-body').html(addItemTmpl); //reset
+            this.$('.items-body').html(addItemTmpl()); //reset
             this.verify(null); //will disable submit button due to reset
         }
     });
