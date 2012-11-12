@@ -42,7 +42,7 @@ require([
     'pages/customer/views/items',
     'pages/customer/views/checkout',
     'pages/admin/views/sales-report',
-    'pages/admin/views/marketing',
+    //'pages/admin/views/marketing',
     'pages/admin/views/promocodelist',
     'pages/admin/views/promocode',
     'pages/admin/views/inventory',
@@ -66,7 +66,7 @@ require([
     ItemsView,
     CheckoutView,
     SalesReportView,
-    MarketingView,
+    //MarketingView,
     promoCodeListView,
     promoCodeView,
     InventoryView,
@@ -269,32 +269,32 @@ require([
         }
     };
 
-    var adm_showMarketing = function (cb) {
-        if (!isAnimating) {
-            isAnimating = true;
-            animCount = 2;
+    //var adm_showMarketing = function (cb) {
+        // if (!isAnimating) {
+        //     isAnimating = true;
+        //     animCount = 2;
 
-            if ($('.marketing-view')[0] !== curMid[0]) {
-                rotateView($('.marketing-view'), curMid, $('.mid-panel'), function () {
-                    curMid = $('.marketing-view');
-                    decrementAnimCount(cb);
-                });
-            } else {
-                decrementAnimCount(cb);
-            }
+        //     if ($('.marketing-view')[0] !== curMid[0]) {
+        //         rotateView($('.marketing-view'), curMid, $('.mid-panel'), function () {
+        //             curMid = $('.marketing-view');
+        //             decrementAnimCount(cb);
+        //         });
+        //     } else {
+        //         decrementAnimCount(cb);
+        //     }
 
-            if ($('.cart')[0] !== curRight[0]) {
-                window.setTimeout(function () {
-                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
-                        curRight = $('.cart');
-                        decrementAnimCount(cb);
-                    });
-                }, animTime);
-            } else {
-                decrementAnimCount(cb);
-            }
-        }
-    };
+        //     if ($('.cart')[0] !== curRight[0]) {
+        //         window.setTimeout(function () {
+        //             rotateView($('.cart'), curRight, $('.right-panel'), function () {
+        //                 curRight = $('.cart');
+        //                 decrementAnimCount(cb);
+        //             });
+        //         }, animTime);
+        //     } else {
+        //         decrementAnimCount(cb);
+        //     }
+        // }
+    //};
 
     var adm_showPromoCode = function (cb) {
         if (!isAnimating) {
@@ -514,7 +514,7 @@ require([
             showSalesReports: adm_showSalesReports,
             showInventory: adm_showInventory,
             showItems: adm_showItems,
-            showMarketing: adm_showMarketing,
+            //showMarketing: adm_showMarketing,
             showPromoCode: adm_showPromoCode
         }
     });
@@ -555,11 +555,11 @@ require([
     });
     $(".mid-panel").append(salesReportView.render().el);
 
-    var marketingView = new MarketingView({
-        className: "panel marketing-view hidden",
-        model: {}
-    });
-    $(".mid-panel").append(marketingView.render().el);
+    // var marketingView = new MarketingView({
+    //     className: "panel marketing-view hidden",
+    //     model: {}
+    // });
+    //$(".mid-panel").append(marketingView.render().el);
 
     var promoCodeView = new promoCodeView({
         className: "panel promo-code-view hidden",
