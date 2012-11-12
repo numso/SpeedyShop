@@ -1,15 +1,84 @@
 
 .sales-reports-body {
-    #sales-graph {
-        .stop-flicker ();
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    .stop-flicker ();
+
+    .sr-header {
+        height: 40px;
+
+        .sr-nav-items {
+            float: right;
+            position: relative;
+
+            button {
+                position: absolute;
+                height: 40px;
+                width: 50px;
+                top: 0;
+                left: -50px;
+
+                &.selected {
+                    background-color: black;
+                    color: white;
+                }
+            }
+
+            .show-graph {
+                left: -100px;
+            }
+        }
+    }
+
+    .sr-buttons-box {
+        position: relative;
+        text-align: center;
+
+        .sr-buttons-box-container {
+            position: relative;
+            display: inline-block;
+
+            button {
+                position: absolute;
+                height: 40px;
+                width: 50px;
+                top: 0;
+                left: 0;
+
+                &.selected {
+                    background-color: black;
+                    color: white;
+                }
+            }
+
+            .graph-prev {
+                left: -100px;
+            }
+            .graph-month-view {
+                left: -25px;
+            }
+            .graph-year-view {
+                left: 25px;
+            }
+            .graph-next {
+                left: 100px;
+            }
+        }
+    }
+
+    .graph-title {
+        text-align: center;
+        font-size: 30px;
+        color: #F03E3E;
+        font-weight: bold;
     }
 
     .sr-loader {
         display: block;
         margin: 0 auto;
+        height: 200px;
     }
-
-
 
     #sales-chart {
         overflow: auto;

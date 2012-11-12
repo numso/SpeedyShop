@@ -32,13 +32,17 @@ define([
         },
 
         showChart: function (e) {
-            $("#" + this.chartID).show();
-            $("." + this.graphID + '-box').hide();
+            this.$('.show-graph').removeClass('selected');
+            this.$('.show-chart').addClass('selected');
+            this.$("#" + this.chartID).show();
+            this.$("." + this.graphID + '-box').hide();
         },
 
         showGraph: function (e) {
-            $("#" + this.chartID).hide();
-            $("." + this.graphID + '-box').show();
+            this.$('.show-chart').removeClass('selected');
+            this.$('.show-graph').addClass('selected');
+            this.$("#" + this.chartID).hide();
+            this.$("." + this.graphID + '-box').show();
         },
 
         prevSection: function (e) {
@@ -70,6 +74,9 @@ define([
         },
 
         showMonthView: function (e) {
+            this.$('.graph-year-view').removeClass('selected');
+            this.$('.graph-month-view').addClass('selected');
+
             var curDate = new Date();
             this.status = {
                 type: 'month',
@@ -80,6 +87,9 @@ define([
         },
 
         showYearView: function (e) {
+            this.$('.graph-month-view').removeClass('selected');
+            this.$('.graph-year-view').addClass('selected');
+
             var curDate = new Date();
             this.status = {
                 type: 'year',
