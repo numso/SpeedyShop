@@ -1,13 +1,13 @@
 <div class"chart">
     <table border="1">
+            <th><h3>Catagory</h3></th>
         {{#each months}}
             <th>{{this}}</th>
         {{/each}}
-        {{#each item}}
-            <div class="cat">{{charCat}}</div> 
-                <!-- DERPY DERP DERP DERPER THIS DOESN"T WORK YET DALLIN, SORRY BUT I GOT TO GO -->
             <tr>
-                {{#each chartData}}
+                {{#each item}}
+                    <td><h4 class="cat">{{chartCat}}</h4> </td>
+                    {{#each chartData}}
                     <td>
                         <div class="cell">
                             <div class="bottom">
@@ -27,7 +27,5 @@
                 {{/each}}
             </tr>
         {{/each}}
-
-
     </table>
 </div>
