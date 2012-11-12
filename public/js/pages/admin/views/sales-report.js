@@ -113,14 +113,28 @@ define([
         },
 
         /*
-        I need an
+        Dallin we need a function for this from the server
+        I will try and do it myself but may need your help
+        
 
         Object {
             item1: [ array of time variable (Year, Month)]
             item2: [array of objects (One object for each time interval)
                 {Object with 2 items () 
                     chartCat:
-                    ChartData:
+                    ChartData:[ an array of objects with the same number of elements as are in 
+                                the 'item1' object.
+                        { Each object has the data for that time period (6 keys)
+                            profitP:
+                            profitA:
+                            dollarsP: 
+                            dollarsA: 
+                            itemsP: 
+                            itemsA:
+                            ///// P stands for Projected
+                            ///// A stands for Actual
+                         }
+                    ]
                 }
             ]
         }*/
@@ -130,7 +144,7 @@ define([
                 months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
                 item: [
                     {
-                        chartCat: "home",
+                        chartCat: "Home",
                         chartData:[
                             {
                                 profitP: 1,
