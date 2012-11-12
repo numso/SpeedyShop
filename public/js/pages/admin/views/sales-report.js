@@ -99,11 +99,6 @@ define([
             this.drawYearGraph();
         },
 
-        changeProjected: function (e) {
-            var el = this.$('est-projection').closest();
-            consel.log(el);
-        },
-
         render: function () {
             this.$el.html(salesReportTmpl({
                 graphID: this.graphID,
@@ -242,6 +237,11 @@ define([
                     }
                 ]
             }));
+        },
+
+        changeProjected: function (e) {
+            var el = this.$('est-projection').closest();
+            consel.log(el);
         },
 
         gotFocus: function () {
