@@ -32,7 +32,7 @@ define([
             item: [
                 {
                     chartCat: "Home",
-                    chartData:[]
+                    chartData:[] // for each month
                 }
             ]
         },
@@ -161,7 +161,9 @@ define([
         */
 
         drawChart: function () {
+            this.rawItemsData
             this.initialize();
+            this.updateChartItem();
             this.$("#" + this.chartID).html(chartTmpl(this.chartObject));
         },
 
@@ -171,9 +173,42 @@ define([
             }
         },
 
-        createChartItem: function () {
-
-
+        updateChartItem: function () {
+            var byID = [];
+            for (var i = 0; i < this.rawItemsData.length; ++i){
+                var index = this.rawItemsData[i].id;
+                byID[index] = {
+                    id: this.rawItemsData[i].id,
+                    price: this.rawItemsData[i].price,
+                    // GENERATIONG COST BY MYSELF, UPDATE HERE IF WE CHANGE ITEMS JSON TO HAVE COST
+                    cost: this.rawItemsData[i].price*0.5,
+                    name:this.rawItemsData[i].name,
+                    chartCat: this.rawItemsData[i].cat[0],
+                    data:[]
+                };
+            }
+            // console.log(byID);
+            for (i = 0; i < this.rawSalesData.length; ++i){
+                var obj = this.rawSalesData;
+                var index = obj[i].items[0].id;
+                var tempObj = {
+                    timestamp: obj[i].timestamp,
+                    project: obj[i].items[0].projected,
+                    actual: obj[i].items[0].actual
+                };
+                byID[index].data.push(tempObj);
+            }
+            for (i = 0; i<byID.length;++i){
+                obj = this.chartObject.item[i];
+                // if (obj.chartCat){
+                //      obj.chartCat = byID[i].chartCat;
+                // }
+                
+                
+                // for (var j = 0; j < byID[i].data.length; ++j){
+                //     obj.chartData[j]
+                // }
+            }
         },
 
         changeProjected: function (e) {
