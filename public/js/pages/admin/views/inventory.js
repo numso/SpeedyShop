@@ -63,6 +63,8 @@ define([
             });
 
             $('.submitted-change').css('display', 'inline');
+
+            this.render();
         },
 
         render: function () {
