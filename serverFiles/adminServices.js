@@ -60,6 +60,7 @@ module.exports = function () {
         },
 
         getPromoCodes: function (request, response, next) {
+
             var codes = fs.readFileSync('serverData/promocodes.json');
             response.send(codes);
         },

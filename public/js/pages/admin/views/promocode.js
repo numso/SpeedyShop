@@ -10,6 +10,7 @@ define([
     return Backbone.View.extend({
 
         initialize: function () {
+            
         },
 
         events: {

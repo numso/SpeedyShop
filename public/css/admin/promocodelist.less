@@ -1,8 +1,49 @@
-.promocode-list-module {
+.code-list{
+	cursor: pointer;
+    padding: 5px;
+    clear: both;
+    height: 90%;
+    overflow: auto;
 
-    width: 100%;
-    img {
-        width: 100%;
-        height: auto;
+    .code-item{
+	    .code-title{
+	    	font-size: 14px;
+	        text-align: left;
+	    }
     }
+
+    table{
+    	width: 100%;
+    	border-collapse:collapse;
+    	
+    	&:first-child {
+    		border-top: 1px solid #aaa; 
+    	}
+    }
+	tr.row {
+		height: 40px;
+		border-bottom: 1px solid #aaa;
+		    &:hover {
+        	background-color: #999;
+    	}
+
+    	button {
+    		float:right;
+    	}
+
+    	.code-field {
+    		float:left;
+    	}
+    	.percent-field{
+    		float:right;
+    	}
+    	.amount-field{
+    		float:right;
+    	}
+
+	}
+}
+
+.outer-area{
+	text-align: right;
 }
