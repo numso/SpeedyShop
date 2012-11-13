@@ -184,32 +184,49 @@ define([
                     cost: this.rawItemsData[i].price*0.5,
                     name:this.rawItemsData[i].name,
                     chartCat: this.rawItemsData[i].cat[0],
-                    data:[]
+                    chartData:[]
                 };
             }
             // console.log(byID);
             for (i = 0; i < this.rawSalesData.length; ++i){
                 var obj = this.rawSalesData;
                 var index = obj[i].items[0].id;
+                var proj = obj[i].items[0].projected;
+                var act = obj[i].items[0].actual;
+                var itemCost = byID[i].cost;
+                var itemPrice = byID[i].price;
                 var tempObj = {
                     timestamp: obj[i].timestamp,
-                    project: obj[i].items[0].projected,
-                    actual: obj[i].items[0].actual
+                    project: proj,
+                    actual: act,
+                    profitP: (itemPrice-itemCost)*proj,
+                    profitA: (itemPrice-itemCost)*act,
+                    dollarsP: (itemPrice)*proj,
+                    dollarsA: (itemPrice)*act,
+                    itemsP: proj,
+                    itemsA: act
                 };
-                byID[index].data.push(tempObj);
+                byID[index].chartData.push(tempObj);
             }
-            for (i = 0; i<byID.length;++i){
-                // obj = this.chartObject.item[i];
-                // console.log(obj.chartCat);
-                // if (obj.chartCat){
-                //     console.log(byID[i].chartCat);
-                //     obj.chartCat = byID[i].chartCat;
-                // }
-                
-                
-                // for (var j = 0; j < byID[i].data.length; ++j){
-                //     obj.chartData[j]
-                // }
+            this.chartObject.months = ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+            for (i = 0; i < byID.length; ++i){
+                //if (!this.chartObject){
+                    this.chartObject[i] = {
+                    item: [
+                        {
+                            chartCat:byID[i].chartCat,
+                            chartData: [ function(){
+                                    var tempObj = []
+                                    for (var j = 0; j < this.byID[i].chartData.length; ++j){
+                                        tempObj[j].push(this.byID[i].chartData[j]);
+                                    }
+                                    return tempObj;
+                                }
+                            ]
+                        }
+                    ]
+                }
+                console.log(this.chartObject);
             }
         },
 
