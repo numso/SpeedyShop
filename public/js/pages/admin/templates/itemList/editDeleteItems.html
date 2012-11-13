@@ -1,12 +1,13 @@
 <div class="delete-items tab-page">
     <table>
-        <th>Item Number</th><th>Name</th><th>Popularity</th><th>Delete</th>
+        <th>Item Number</th><th>Name</th><th>Popularity</th><th>Edit</th><th>Delete</th>
 
        {{#each this}}
             <tr id="{{id}}">
                 <td class="id">{{id}}</td>
                 <td class="name">{{name}}</td>
                 <td class="popularity">{{popularity}}</td>
+                <td class="edit"><button class="edit-button">Edit</button></td>
                 <td class="delete"><button class="delete-button">Delete</button></td>
             </tr>
         {{/each}}

@@ -140,16 +140,16 @@ define([
         Object {
             item1: [ array of time variable (Year, Month)]
             item2: [array of objects (One object for each time interval)
-                {Object with 2 items () 
+                {Object with 2 items ()
                     chartCat:
-                    ChartData:[ an array of objects with the same number of elements as are in 
+                    ChartData:[ an array of objects with the same number of elements as are in
                                 the 'item1' object.
                         { Each object has the data for that time period (6 keys)
                             profitP:
                             profitA:
-                            dollarsP: 
-                            dollarsA: 
-                            itemsP: 
+                            dollarsP:
+                            dollarsA:
+                            itemsP:
                             itemsA:
                             ///// P stands for Projected
                             ///// A stands for Actual
@@ -174,7 +174,7 @@ define([
         },
 
         updateChartItem: function () {
-            var byID = [];
+            /*var byID = [];
             for (var i = 0; i < this.rawItemsData.length; ++i){
                 var index = this.rawItemsData[i].id;
                 byID[index] = {
@@ -227,7 +227,7 @@ define([
                     ]
                 }
                 console.log(this.chartObject);
-            }
+            }*/
         },
 
         changeProjected: function (e) {

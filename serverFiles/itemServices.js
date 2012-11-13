@@ -103,18 +103,24 @@ module.exports = function () {
             });
         },
 
-        deleteItem: function (request, response, next) {
+        deleteItem: function (request, response, next) { //Dallin I need help with this
             console.log("need to communication with the " + request); //remainingItems.push()
-            var remainingItems = [];
             for (var j = 0; j < items.length; ++j) {
+                console.log(items[j]);
                 if (items[j].id == request) { //ERROR: cannot read id of undefined? Why?
                     console.log("server deleting item " + j);
-                    remainingItems.push(items[j]);
+                    items.splice(j, 1);
                 }
             }
 
-            items = remainingItems;
-            fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+            //fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+
+            response.send({
+                status: "OK"
+            });
+        },
+
+        changeItem: function (request, response, next) { //Dallin I need help with this
 
             response.send({
                 status: "OK"
@@ -163,9 +169,11 @@ module.exports = function () {
                     response.send({
                         status: "success",
                         item: {
-                            imgURL: items[i].images[0],
                             name: items[i].name,
-                            price: items[i].price
+                            price: items[i].price,
+                            desc: items[i].desc,
+                            imgURL: items[i].images[0],
+                            images: items[i].images
                         }
                     });
                     return;

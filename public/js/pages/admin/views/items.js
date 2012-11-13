@@ -3,36 +3,29 @@
 define([
     'backbone',
     'tmpl!pages/admin/templates/items',
-    'tmpl!pages/admin/templates/itemList/addItem',
-    'tmpl!pages/admin/templates/itemList/deleteItems',
-    'tmpl!pages/admin/templates/itemList/editItems'
+    'tmpl!pages/admin/templates/itemList/editableItem',
+    'tmpl!pages/admin/templates/itemList/editDeleteItems'
 ], function (
     Backbone,
     itemsTmpl,
-    addItemTmpl,
-    deleteItemsTmpl,
-    editItemsTmpl
+    editableItemTmpl,
+    editDeleteItemsTmpl
 ) {
     return Backbone.View.extend({
 
-        myTmpls: undefined,
         currentTab: undefined,
         inventory: undefined,
 
         initialize: function () {
-            this.myTmpls = [
-                addItemTmpl,
-                editItemsTmpl,
-                deleteItemsTmpl
-            ];
         },
 
         events: {
             'click .tab': 'changeTab',
             'click select, input, textarea': 'verify',
-            'keypress select, input, textarea': 'verify',
+            'onkeypress select, input, textarea': 'verify',
             'click .submit-button': 'submitItem',
-            'click .delete-button': 'deleteItem'
+            'click .delete-button': 'deleteItem',
+            'click .edit-button': 'editItem'
         },
 
         render: function () {
@@ -53,10 +46,12 @@ define([
             tab.addClass('active');
 
             var index = tab.attr('id').charAt(4);
-            if (index == 2)
-                this.$('.items-body').html(deleteItemsTmpl(this.inventory));
-            else
-                this.$('.items-body').html(this.myTmpls[index]);
+            if (index == 0)
+                this.$('.items-body').html(editableItemTmpl({
+                    submitText: "Add New Item"
+                }));
+            else if (index == 1)
+                this.$('.items-body').html(editDeleteItemsTmpl(this.inventory));
 
             //if (index == 1)
             //    this.mailTest();
@@ -101,11 +96,11 @@ define([
         },
 
         updateImages: function (formData) { //trying to have the images update automatically
-            this.$('.items-body').html(addItemTmpl({
-                "img-url-1": formData[7],
-                "img-url-2":formData[8],
-                "img-url-3": formData[9],
-                "img-url-4": formData[10]
+            this.$('.items-body').html(editableItemTmpl({
+                "imgUrl1": formData[7],
+                "imgUrl2":formData[8],
+                "imgUrl3": formData[9],
+                "imgUrl4": formData[10]
             }));
         },
 
@@ -115,7 +110,7 @@ define([
                 "name": formData[0],
                 "desc": formData[1],
                 "cat": [formData[2], formData[3], formData[4]],
-                "price": parseInt(formData[6], 10), //what about price? hmm..
+                "price": parseInt(formData[6], 10), //what about cost? hmm...
                 "images": [formData[7], formData[8], formData[9], formData[10]]
             };
 
@@ -136,10 +131,52 @@ define([
             var that = this;
             var response = $.post("/deleteItem", JSON.stringify(item.attr('id')), function (response) {
                 if (response.status === "OK") {
-                    item.find('button').attr('disabled', true);
+                    item.find('button').attr('disabled', true); //disable all controls: the item is gone
                 }
                 else {
                     window.alert("Error deleting item.\nServer responded: " + response.status+": "+response.msg);
+                }
+            });
+        },
+
+        editItem: function (e) {
+            var that = this;
+            var id = this.$(e.target).closest('tr').attr('id');
+            $.get('/getItem/' + id, function (data) {
+                if (data.status === "success") {
+                    var obj = {
+                        submitText: "Submit Changes",
+                        name: data.item.name,
+                        price: data.item.price,
+                        desc: data.item.desc,
+                        imgUrl1: data.images[0], //why is data.images undefined? Dallin!
+                        imgUrl2: data.images[1],
+                        imgUrl3: data.images[2],
+                        imgUrl4: data.images[3]
+                    }
+                    that.$('.items-body').html(editableItemTmpl(obj));
+                    that.verify(null);
+                }
+            });
+        },
+
+        submitEditedItem: function (e) {
+            var formData = this.getFormData();
+            var itemData = {
+                "name": formData[0],
+                "desc": formData[1],
+                "cat": [formData[2], formData[3], formData[4]],
+                "price": parseInt(formData[6], 10), //what about cost? hmm...
+                "images": [formData[7], formData[8], formData[9], formData[10]]
+            };
+
+            var that = this;
+            var response = $.post("/changeItem", JSON.stringify(itemData), function (response) {
+                if (response.status === "OK") {
+                    that.$('.items-body').html(editDeleteItemsTmpl); //reset
+                }
+                else {
+                    window.alert("Error submitting edited item. Invalid or missing data?.\nServer responded: " + response.status+": "+response.msg);
                 }
             });
         },

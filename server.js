@@ -70,6 +70,7 @@ app.get('/sales/year/:yearID/month/:monthID', adminServices.getSalesByYearMonth)
 app.get('/promocodes', adminServices.getPromoCodes);
 app.get('/inventory', adminServices.getInventory);
 app.post('/addItem', itemServices.addItem);
+app.post('/changeItem', itemServices.changeItem);
 app.post('/deleteItem', itemServices.deleteItem);
 app.post('/editInventory', adminServices.editInventory);
 app.get('/itemList', itemServices.chartItems);
