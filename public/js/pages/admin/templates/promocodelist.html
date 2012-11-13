@@ -1,3 +1,17 @@
-<div class="promocode-list-module">
-    <img src="http://i86.servimg.com/u/f86/12/56/75/99/lolcat11.jpg">
+<div class="outer-area">
+	<button>Add New</button>
 </div>
+<div class="code-list">
+	<table>
+	{{#each this}}
+			<tr class="row">
+				<td><span class="product-detail-field">{{product-detail}}</span></td>
+				<td><span class="code-field">{{code}}</span></td>
+				<td><span class="percent-field"> {{percent}}% </span></td>
+				<td><span class="amount-field">{{amount}}</span></td>
+				<td><button>x</button></td>
+			</tr>
+	{{/each}}
+	</table>
+</div>
+

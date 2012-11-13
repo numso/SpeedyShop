@@ -301,19 +301,19 @@ require([
             isAnimating = true;
             animCount = 2;
 
-            if ($('.promo-code-view')[0] !== curMid[0]) {
-                rotateView($('.promo-code-view'), curMid, $('.mid-panel'), function () {
-                    curMid = $('.promo-code-view');
+            if ($('.promo-code-list-view')[0] !== curMid[0]) {
+                rotateView($('.promo-code-list-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.promo-code-list-view');
                     decrementAnimCount(cb);
                 });
             } else {
                 decrementAnimCount(cb);
             }
 
-            if ($('.promo-code-list-view')[0] !== curRight[0]) {
+            if ($('.promo-code-view')[0] !== curRight[0]) {
                 window.setTimeout(function () {
-                    rotateView($('.promo-code-list-view'), curRight, $('.right-panel'), function () {
-                        curRight = $('.promo-code-list-view');
+                    rotateView($('.promo-code-view'), curRight, $('.right-panel'), function () {
+                        curRight = $('.promo-code-view');
                         decrementAnimCount(cb);
                     });
                 }, animTime);
@@ -565,13 +565,13 @@ require([
         className: "panel promo-code-view hidden",
         model: {}
     });
-    $(".mid-panel").append(promoCodeView.render().el);
+    $(".right-panel").append(promoCodeView.render().el);
 
     var promoCodeListView = new promoCodeListView({
         className: "panel promo-code-list-view hidden",
         model: {}
     });
-    $(".right-panel").append(promoCodeListView.render().el);
+    $(".mid-panel").append(promoCodeListView.render().el);
 
     var inventoryView = new InventoryView({
         className: "panel inventory-view hidden",
