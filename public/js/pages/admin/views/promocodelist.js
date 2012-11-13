@@ -13,6 +13,7 @@ define([
         },
 
         events: {
+            "click #add-new-btn": "addNew",
         },
         codeList: undefined, 
 
@@ -26,14 +27,9 @@ define([
             return this;
         },
 
-        // loadPromoCodes: function () {
-        //     // get the promocode items from the server
-        //     var that = this;
-        //     $.get('/promocodes', function (items) {
-        //         that.codeList = JSON.parse(items);
-        //     });
-        //     return this;
-        // },
+        addNew: function () {
+            
+        },
 
         gotPromoCodes: function(items){
             this.$('.promocode-list-module').append(promocodelistTmpl(this.items));

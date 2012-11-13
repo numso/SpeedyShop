@@ -12,13 +12,26 @@ define([
         initialize: function () {
             
         },
-
+        
         events: {
+            "click #now-btn": "setNow",
+            "clicl #never-btn": "setNever",
         },
 
         render: function () {
             this.$el.html(promocodeTmpl());
             return this;
+        },
+
+        setNow: function(){
+            // if now is checked
+            this.$('#start-date-txt').attr("disabled"); //disable start date textbox
+        },
+
+        setNever: function(){
+            // if never is checked
+            this.$('#end-date-txt').attr("disabled"); //disable end date textbox
         }
+
     });
 });
