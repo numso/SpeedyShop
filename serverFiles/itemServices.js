@@ -103,37 +103,44 @@ module.exports = function () {
             });
         },
 
+        deleteItem: function (request, response, next) {
+            var remainingItems = [];
+            for (var j = 0; j < items.length; ++j)
+                if (remainingItems[i].id == request)
+                    console.log("server deleting item " + j);
+                    //remainingItems.push()
+
+            response.send({
+                status: "OK"
+            });
+        },
+
         getItems: function (request, response, next) {
             var category = request.params.catID || "All",
                 myObj = [];
 
             if (category === "Hot Items") { //get top 15 most viewed items
                 items.sort(function (a, b) {
-                    if (a.popularity === b.popularity) {
+                    if (a.popularity === b.popularity)
                         return 0;
-                    } else if (a.popularity > b.popularity) {
+                    else if (a.popularity > b.popularity)
                         return -1;
-                    } else {
+                    else
                         return 1;
-                    }
                 });
 
-                for (var i = 0; i < 15; ++i) {
-                    if (items[i].popularity !== 0) {
+                for (var i = 0; i < 15; ++i)
+                    if (items[i].popularity !== 0)
                         myObj.push(items[i]);
-                    }
-                }
+
             } else if (category !== "All") {
-                for (var i = 0; i < items.length; ++i) {
-                    for (var j = 0; j < items[i].cat.length; ++j) {
-                        if (items[i].cat[j] === category) {
+                for (var i = 0; i < items.length; ++i)
+                    for (var j = 0; j < items[i].cat.length; ++j)
+                        if (items[i].cat[j] === category)
                             myObj.push(items[i]);
-                        }
-                    }
-                }
-            } else {
-                myObj = items;
             }
+            else
+                myObj = items;
 
             response.send(myObj);
         },
@@ -166,12 +173,12 @@ module.exports = function () {
         },
 
         chartItems: function (request, response, next) {
-            var itemList = fs.readFileSync('serverData/items.JSON');
-            response.send(itemList); 
+            var itemList = fs.readFileSync('serverData/items.json');
+            response.send(itemList);
         },
 
         chartSales: function (request, response, next) {
-            var salesList = fs.readFileSync('serverData/analytics.JSON');
+            var salesList = fs.readFileSync('serverData/analytics.json');
             response.send(salesList);
         }
 
