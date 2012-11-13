@@ -24,7 +24,22 @@ define([
 
         render: function () {
             this.$el.html(cartTmpl());
+            this.addDroppable();
             return this;
+        },
+
+        addDroppable: function () {
+            var that = this;
+            this.$('.sc-area').droppable({
+                accept: '.clickable-item',
+                activeClass: 'active-cart',
+                hoverClass: 'hover-cart',
+                tolerance: 'touch',
+                drop: function (e, ui) {
+                    var id = parseInt(ui.helper.attr('id'), 10);
+                    that.addItem(id);
+                }
+            });
         },
 
         getCurrentQuantity: function (item) {
@@ -96,7 +111,8 @@ define([
 
             this.$el.html(cartTmpl()); //reset cart
             for (var i = 0; i < this.cart.length; ++i) {
-                $('.sc-area').append(scItemTmpl(this.cart[i])); //show item
+                this.$('.sc-area').append(scItemTmpl(this.cart[i])); //show item
+                this.addDroppable();
             }
             this.recalculateTotal();
         },

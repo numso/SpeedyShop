@@ -6,14 +6,17 @@ require.config({
         'underscore': 'lib/underscore',
         'backbone': 'lib/backbone',
         'tmpl': 'lib/tmpl',
-        'jquery.drag': 'lib/jquery.drag',
-        'jquery.drop': 'lib/jquery.drop'
+        'jquery-ui': 'lib/jquery-ui'
     },
 
     shim: {
         'jquery': {
             deps: [],
             exports: '$'
+        },
+
+        'jquery-ui': {
+            deps: ['jquery']
         },
 
         'backbone': {

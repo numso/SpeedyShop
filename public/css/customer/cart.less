@@ -14,6 +14,21 @@
         border: 1px solid #aaa;
         overflow: scroll;
 
+        &.active-cart {
+            animation: myfirst 1s linear infinite alternate;
+            -moz-animation: myfirst 1s linear infinite alternate;
+            -webkit-animation: myfirst 1s linear infinite alternate;
+            -o-animation: myfirst 1s linear infinite alternate;
+        }
+
+        &.hover-cart {
+            animation: none;
+            -moz-animation: none;
+            -webkit-animation: none;
+            -o-animation: none;
+            background-color: #bbb;
+        }
+
         .sc-item {
             clear: both;
             padding: 5px 0;
@@ -57,4 +72,26 @@
         width: 100%;
         height: 22px;
     }
+}
+
+
+
+@keyframes myfirst {
+    from {background: #eee;}
+    to {background: #ccc;}
+}
+
+@-moz-keyframes myfirst {
+    from {background: #eee;}
+    to {background: #ccc;}
+}
+
+@-webkit-keyframes myfirst {
+    from {background: #eee;}
+    to {background: #ccc;}
+}
+
+@-o-keyframes myfirst {
+    from {background: #eee;}
+    to {background: #ccc;}
 }

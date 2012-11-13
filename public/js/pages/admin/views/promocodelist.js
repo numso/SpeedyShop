@@ -14,22 +14,27 @@ define([
 
         events: {
         },
+        codeList: undefined, 
 
         render: function () {
-            this.$el.html(promocodelistTmpl());
 
+            var that = this;
+            $.get('/promocodes', function (items) {
+                that.codeList = JSON.parse(items);
+                console.log(that.codeList);
+                that.$el.html(promocodelistTmpl());
+            });
             return this;
         },
 
-        loadPromoCodes: function () {
-            var that = this;
-
-            // get the promocode items from the server
-            $.get('/promocodes/', function (items) {
-                // display the promocode items in a list
-                that.gotPromoCodes(items);
-            });
-        },
+        // loadPromoCodes: function () {
+        //     // get the promocode items from the server
+        //     var that = this;
+        //     $.get('/promocodes', function (items) {
+        //         that.codeList = JSON.parse(items);
+        //     });
+        //     return this;
+        // },
 
         gotPromoCodes: function(items){
             this.$('.promocode-list-module').append(promocodelistTmpl(this.items));

@@ -58,7 +58,7 @@ module.exports = function () {
         },
 
         getPromoCodes: function (request, response, next) {
-            var codes = fs.readFileSync('../serverData/promoCodes.json');
+            var codes = fs.readFileSync('serverData/promoCodes.json');
             response.send(codes);
         }
     };
