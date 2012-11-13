@@ -10,7 +10,7 @@
 	<table>
 		<tr>
 			<td>Name: </td>
-			<td><input class="code-input" type="text"/></td>
+			<td><input class="code-input" type="search"/>	</td>
 		</tr>
 		<tr>
 			<td>Code: </td>
@@ -25,13 +25,11 @@
 			<td><input class="amount" type="number"></td>
 		</tr>
 	</table>
-
 	<hr/>
-
-	<div>Starts:<input type="checkbox" unchecked> Now</input></div>
-	<input class="input-date" type="date">
-	<div>Ends:<input type="checkbox" unchecked>Never</input></div>
-	<input class="input-date" type="date">
+	<div>Starts:<input id="now-btn" type="checkbox" unchecked> Now</input></div>
+	<input id="start-date-txt" class="input-date" type="date" enabled>
+	<div>Ends:<input id="never-btn" type="checkbox" unchecked>Never</input></div>
+	<input id="end-date-txt" class="input-date" type="date" enabled>
 	<div class="stackable-div" >
 		<input type="checkbox" unchecked>
 		<span>Stackable?</span>

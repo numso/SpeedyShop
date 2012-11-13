@@ -20,7 +20,7 @@ define([
         },
 
         editQuantity: function() {
-
+            $('.submitted-change').css('display', 'none');
             var itemsToChange = [];
             this.$('.inventory-wrapper > .item-box > .update-stock').each(function (index) {
 
@@ -45,9 +45,14 @@ define([
 
         },
 
-        lowInventory: function() {
-            console.log(this.available);
-            return this.available < 2;
+        checkLowInventory: function(){
+                $('.item-stock').each(function (index) {
+
+                var thisValue = parseInt($(this).html());
+                    if(thisValue < 5)
+                            $(this).parent().css('color', 'red');
+
+            });
         },
 
         commitChanges: function() {
@@ -56,6 +61,8 @@ define([
             $.post('/editInventory', JSON.stringify(this.curInventory), function (resp) {
                 console.log("Response: " + JSON.stringify(resp));
             });
+
+            $('.submitted-change').css('display', 'inline');
         },
 
         render: function () {
@@ -63,6 +70,7 @@ define([
             $.get('/inventory', function (data) {
                 that.curInventory = JSON.parse(data);
                 that.$el.html(inventoryTmpl(that.curInventory));
+                that.checkLowInventory();
             });
 
             return this;
