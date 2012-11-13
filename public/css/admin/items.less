@@ -108,17 +108,23 @@
     }
 
     .delete-items {
-        overflow: scroll;
+        overflow: auto;
         width: 100%;
         height: 100%;
 
         table {
-            tr {
-                border-bottom: 1px solid;
+
+            .id, .name, .popularity {
+                border-right: 1px dotted;
             }
 
             td {
                 text-align: center;
+
+            }
+
+            td, tr {
+                padding: 0px 15px;
             }
 
             button {

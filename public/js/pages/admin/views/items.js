@@ -31,7 +31,8 @@ define([
             'click .tab': 'changeTab',
             'click select, input, textarea': 'verify',
             'keypress select, input, textarea': 'verify',
-            'click .submit-button': 'submitItem'
+            'click .submit-button': 'submitItem',
+            'click .delete-button': 'deleteItem'
         },
 
         render: function () {
@@ -79,7 +80,6 @@ define([
         },
 
         verify: function (e) {
-
             if (this.currentTab.attr('id').charAt(4) == 0) {
                 var formData = this.getFormData();
 
@@ -124,6 +124,19 @@ define([
                 }
                 else {
                     window.alert("Error submitting item. Invalid or missing data?.\nServer responded: " + response.status+": "+response.msg);
+                }
+            });
+        },
+
+        deleteItem: function (e) {
+            var item = this.$(e.target).closest('tr');
+            var that = this;
+            var response = $.post("/deleteItem", JSON.stringify(item.attr('id')), function (response) {
+                if (response.status === "OK") {
+                    item.find('button').attr('disabled', true);
+                }
+                else {
+                    window.alert("Error deleting item.\nServer responded: " + response.status+": "+response.msg);
                 }
             });
         }
