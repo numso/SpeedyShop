@@ -11,7 +11,7 @@
     <ul>
     {{#each items}}
         <li>
-            <input type = 'checkbox'> Item Number: {{itemID}}
+            <input class = 'item-check' type = 'checkbox'> Item Number: {{itemID}}
             <div class = 'shipping-quantity'>Quantity: {{quantity}}</div>
         </li>
         <br />
@@ -24,4 +24,6 @@
     <input class = 'completed-btn' type = 'submit' value = 'Order Completed'>
 
 {{/if}}
+
+<span class = 'error-msg'>Oops! Not all of the checkboxes have been marked</span><span class = 'submitted-msg'>Successfully submitted!</span>
 </div>

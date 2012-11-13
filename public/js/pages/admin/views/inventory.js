@@ -62,7 +62,7 @@ define([
 
         commitChanges: function() {
             console.log('sending:');
-            $.post('/editInventory', JSON.stringify(this.curInventory), function (resp) {
+            $.post('/editInventory', JSON.parse(this.curInventory), function (resp) {
                 console.log("Response: " + JSON.stringify(resp)); 
             });
         },
