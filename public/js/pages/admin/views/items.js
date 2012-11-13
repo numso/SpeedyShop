@@ -17,6 +17,7 @@ define([
 
         myTmpls: undefined,
         currentTab: undefined,
+        inventory: undefined,
 
         initialize: function () {
             this.myTmpls = [
@@ -34,8 +35,13 @@ define([
         },
 
         render: function () {
+            var that = this;
             this.$el.html(itemsTmpl());
             this.$('#tab-0').trigger('click'); //fires a click event to open first tab
+            $.get('/inventory', function (data) {
+                that.inventory = JSON.parse(data);
+            });
+
             return this;
         },
 
@@ -44,7 +50,13 @@ define([
             if (this.currentTab)
                 this.currentTab.removeClass('active');
             tab.addClass('active');
-            this.$('.items-body').html(this.myTmpls[tab.attr('id').charAt(4)]);
+
+            var index = tab.attr('id').charAt(4);
+            if (index == 2)
+                this.$('.items-body').html(deleteItemsTmpl(this.inventory));
+            else
+                this.$('.items-body').html(this.myTmpls[index]);
+
             this.currentTab = tab;
             this.verify(undefined);
         },
@@ -104,13 +116,16 @@ define([
                 "images": [formData[7], formData[8], formData[9], formData[10]]
             };
 
-            console.log('sending: ' + JSON.stringify(itemData));
-            var resp = $.post("/addItem", JSON.stringify(itemData), function (resp) {
-                console.log("Response: " + JSON.stringify(resp)); //is this how I check the response? I'm confused...
+            var that = this;
+            var response = $.post("/addItem", JSON.stringify(itemData), function (response) {
+                if (response.status === "OK") {
+                    that.$('.items-body').html(addItemTmpl); //reset
+                    that.verify(null); //will disable submit button due to reset
+                }
+                else {
+                    window.alert("Error submitting item. Invalid or missing data?.\nServer responded: " + response.status+": "+response.msg);
+                }
             });
-
-            this.$('.items-body').html(addItemTmpl()); //reset
-            this.verify(null); //will disable submit button due to reset
         }
     });
 });
