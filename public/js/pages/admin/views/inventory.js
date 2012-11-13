@@ -64,7 +64,7 @@ define([
 
             $('.submitted-change').css('display', 'inline');
 
-            this.render();
+            this.checkLowInventory();
         },
 
         render: function () {
