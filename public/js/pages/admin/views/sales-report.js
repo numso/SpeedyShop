@@ -199,9 +199,11 @@ define([
                 byID[index].data.push(tempObj);
             }
             for (i = 0; i<byID.length;++i){
-                obj = this.chartObject.item[i];
+                // obj = this.chartObject.item[i];
+                // console.log(obj.chartCat);
                 // if (obj.chartCat){
-                //      obj.chartCat = byID[i].chartCat;
+                //     console.log(byID[i].chartCat);
+                //     obj.chartCat = byID[i].chartCat;
                 // }
                 
                 
