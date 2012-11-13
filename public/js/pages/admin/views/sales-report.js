@@ -161,8 +161,6 @@ define([
         */
 
         drawChart: function () {
-            // console.log(this.rawItemsData);
-            console.log(this.rawSalesData[1].items);
             this.initialize();
             this.$("#" + this.chartID).html(chartTmpl(this.chartObject));
         },
