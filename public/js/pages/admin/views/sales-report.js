@@ -32,13 +32,17 @@ define([
         },
 
         showChart: function (e) {
-            $("#" + this.chartID).show();
-            $("." + this.graphID + '-box').hide();
+            this.$('.show-graph').removeClass('selected');
+            this.$('.show-chart').addClass('selected');
+            this.$("#" + this.chartID).show();
+            this.$("." + this.graphID + '-box').hide();
         },
 
         showGraph: function (e) {
-            $("#" + this.chartID).hide();
-            $("." + this.graphID + '-box').show();
+            this.$('.show-chart').removeClass('selected');
+            this.$('.show-graph').addClass('selected');
+            this.$("#" + this.chartID).hide();
+            this.$("." + this.graphID + '-box').show();
         },
 
         prevSection: function (e) {
@@ -70,6 +74,9 @@ define([
         },
 
         showMonthView: function (e) {
+            this.$('.graph-year-view').removeClass('selected');
+            this.$('.graph-month-view').addClass('selected');
+
             var curDate = new Date();
             this.status = {
                 type: 'month',
@@ -80,6 +87,9 @@ define([
         },
 
         showYearView: function (e) {
+            this.$('.graph-month-view').removeClass('selected');
+            this.$('.graph-year-view').addClass('selected');
+
             var curDate = new Date();
             this.status = {
                 type: 'year',
@@ -87,11 +97,6 @@ define([
                 month: curDate.getMonth()
             };
             this.drawYearGraph();
-        },
-
-        changeProjected: function (e) {
-            var el = this.$('est-projection').closest();
-            consel.log(el);
         },
 
         render: function () {
@@ -102,52 +107,55 @@ define([
             return this;
         },
 
-        drawChart: function () {
-            $("#" + this.graphID).html('');
-            var year = this.status.year;
-            this.$('.graph-title').html('Sales Report for ' + year);
-            var that = this;
+        /*
+        Dallin we need a function for this from the server
+        I will try and do it myself but may need your help
+        
 
-            $.get('/sales/year/' + year, function (d) {
-                $('.sr-loader').hide();
-                if (d.length === 0) {
-                    $('#' + that.graphID).html('No Data Available for this time frame.');
-                    return;
+        Object {
+            item1: [ array of time variable (Year, Month)]
+            item2: [array of objects (One object for each time interval)
+                {Object with 2 items () 
+                    chartCat:
+                    ChartData:[ an array of objects with the same number of elements as are in 
+                                the 'item1' object.
+                        { Each object has the data for that time period (6 keys)
+                            profitP:
+                            profitA:
+                            dollarsP: 
+                            dollarsA: 
+                            itemsP: 
+                            itemsA:
+                            ///// P stands for Projected
+                            ///// A stands for Actual
+                         }
+                    ]
                 }
-                var labels = [],
-                    data = [[], []];
+            ]
+        }*/
 
-
-                for (var i = 0; i < d.length; ++i) {
-                    if (d[i] !== null) {
-                        labels.push(that.getMonthName(i).abbr);
-                        data[0].push(d[i].projected);
-                        data[1].push(d[i].actual);
-                    }
-                };
-            });
-
+        drawChart: function () {
             this.$("#" + this.chartID).html(chartTmpl({
-                months: ["January", "Febuary", "March", "April", "May", "June","July", "Febuary", "March", "April", "May", "June"],
+                months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
                 item: [
                     {
-                        chartCat: "home",
+                        chartCat: "Home",
                         chartData:[
                             {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
                             },
                             {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
                             },
                             {
                                 profitP: 1300,
@@ -180,577 +188,60 @@ define([
                                 dollarsA: 34000,
                                 itemsP: 35,
                                 itemsA: 36
+                            },
+                            {
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },
+                            {
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },{
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },{
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },{
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
+                            },{
+                                profitP: 1,
+                                profitA: 1,
+                                dollarsP: 1,
+                                dollarsA: 1,
+                                itemsP: 1,
+                                itemsA: 1
                             }
                         ]
-                    },
-                    {
-                        chartCat: "decor",
-                        chartData: [
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            }
-                        ]
-                    },
-                    {
-                        chartCat: 'lights',
-                        chartData: [
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            },
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            }
-                        ]
-                    },
-                    {
-                        chartCat: "rings",
-                        chartData: [
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            }
-                        ]
-                    },
-                    {
-                        chartCat: "sports stuff",
-                        chartData: [
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            },
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            }
-                        ]
-                    },
-                    {
-                        charCat: "cars",
-                        charData: [
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            }
-                        ]
-                    },
-                    {
-                        charCat: "cars",
-                        charData: [
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            },
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            }
-                        ]
-                    },
-                    {
-                        charCat: "cars",
-                        charData: [
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            }
-                        ]
-                    },
-                    {
-                        charCat: "cars",
-                        charData: [
-                            {
-                                profitP: 100,
-                                profitA: 200,
-                                dollarsP: 3000,
-                                dollarsA: 4000,
-                                itemsP: 5,
-                                itemsA: 6
-                            },
-                            {
-                                profitP: 700,
-                                profitA: 800,
-                                dollarsP: 9000,
-                                dollarsA: 10000,
-                                itemsP: 11,
-                                itemsA: 12
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            }
-                        ]}]
+                    }
+                ]
             }));
+        },
+
+        changeProjected: function (e) {
+            var el = this.$('est-projection').closest();
+            consel.log(el);
         },
 
         gotFocus: function () {
@@ -759,19 +250,22 @@ define([
         },
 
         drawYearGraph: function () {
-            $("#" + this.graphID).html('');
-            var year = this.status.year;
-            this.$('.graph-title').html('Sales Report for ' + year);
-            var that = this;
+            var that = this,
+                year = this.status.year;
 
-            $('.sr-loader').show();
+            this.$("#" + this.graphID).html('');
+            this.$("#" + this.graphID).hide();
+            this.$('.sr-loader').show();
+            this.$('.graph-title').html('Sales Report for ' + year);
+
             $.get('/sales/year/' + year, function (d) {
-                $('.sr-loader').hide();
+                that.$('.sr-loader').hide();
+                that.$("#" + that.graphID).show();
                 if (d.length === 0) {
-                    $('#' + that.graphID).html('No Data Available for this time frame.');
+                    that.$('#' + that.graphID).html('No Data Available for this time frame.');
                     return;
                 }
-                var r = Raphael(that.graphID);
+
                 var labels = [],
                     labelsLong = [[], []],
                     data = [[], []];
@@ -786,35 +280,28 @@ define([
                     }
                 }
 
-                r.raphalytics(data, labels, labelsLong, {
-                    'width': 800,
-                    'height': 200,
-                    'color': ['#f00', '#0f0'],
-                    'y_labels_number': 10,
-                    'y_labels_position': 'outside',
-                    'y_label_0': true,
-                    'fill': true,
-                    'gridtype': 'full_grid'
-                });
+                that.makeGraph(data, labels, labelsLong);
             });
         },
 
         drawMonthGraph: function () {
-            $("#" + this.graphID).html('');
-            var year = this.status.year,
+            var that = this,
+                year = this.status.year,
                 month = this.status.month;
+
+            this.$("#" + this.graphID).html('');
+            this.$("#" + this.graphID).hide();
+            this.$('.sr-loader').show();
             this.$('.graph-title').html('Sales Report for ' + this.getMonthName(month).full + ' ' + year);
 
-            var that = this;
-
-            $('.sr-loader').show();
             $.get('/sales/year/' + year + '/month/' + month, function (d) {
-                $('.sr-loader').hide();
+                that.$('.sr-loader').hide();
+                that.$("#" + that.graphID).show();
                 if (d.length === 0) {
                     $('#' + that.graphID).html('No Data Available for this time frame.');
                     return;
                 }
-                var r = Raphael(that.graphID);
+
                 var labels = [],
                     labelsLong = [[], []],
                     data = [[], []];
@@ -829,16 +316,21 @@ define([
                     }
                 }
 
-                r.raphalytics(data, labels, labelsLong, {
-                    'width': 800,
-                    'height': 200,
-                    'color': ['#f00', '#0f0'],
-                    'y_labels_number': 10,
-                    'y_labels_position': 'outside',
-                    'y_label_0': true,
-                    'fill': true,
-                    'gridtype': 'full_grid'
-                });
+                that.makeGraph(data, labels, labelsLong);
+            });
+        },
+
+        makeGraph: function (data, labels, labelsLong) {
+            var r = Raphael(this.graphID);
+            r.raphalytics(data, labels, labelsLong, {
+                'width': 800,
+                'height': 200,
+                'color': ['#f00', '#0f0'],
+                'y_labels_number': 10,
+                'y_labels_position': 'outside',
+                'y_label_0': true,
+                'fill': true,
+                'gridtype': 'full_grid'
             });
         },
 

@@ -1,9 +1,12 @@
-{{#each this}}
-test
+<div class="code-list">
+	<table>
+	{{#each this}}
+			<tr class="row">
+				<td><span class="code-title">{{product-detail}}</span></td>
+				<td><span class="percent-off"> {{percent}}% </span></td>
+				<td><span class="amount">Amount: {{amount}}</span></td>
+			</tr>
+	{{/each}}
+	</table>
+</div>
 
-<!--     <div>
-        <div>
-            <div>{{Amount}}</div>
-        </div>
-    </div> -->
-{{/each}}

@@ -1,0 +1,48 @@
+<div class="add-item tab-page">
+    <div class="left-pane">
+        <div class="name">
+            <label>Name: </label><input class='item-name' type='text' placeholder='Item name'>
+        </div>
+        <div class="description">
+            <textarea placeholder="Description" maxlength="160"></textarea>
+        </div>
+        <div class="categories">
+            <label>Category: <label>
+            <select class="main-cat">
+                <option value="Jewelry">Jewelry</option>
+            </select>
+            <select class="secondary-cat">
+                <option value="Other">Other</option>
+            </select>
+            <select class="type-cat">
+                <option value="Subcat">Subcat</option>
+            </select>
+        </div>
+        <div class="cost">
+            <label>Cost: $</label>
+            <input class='item-cost' type='text' placeholder='Item cost'>
+        </div>
+        <div class="price">
+            <label>Price: $</label>
+            <input class='item-price' type='text' placeholder='Sale price'>
+        </div>
+        <div class="add">
+            <button class="submit-button">Add New Item</button>
+        </div>
+    </div>
+
+    <div class="right-pane">
+        <div class="images-URLs">
+            <input class="img-url-1" type='text' placeholder='Image URL 1'>
+            <input class="img-url-2" type='text' placeholder='Image URL 2'>
+            <input class="img-url-3" type='text' placeholder='Image URL 3'>
+            <input class="img-url-4" type='text' placeholder='Image URL 4'>
+        </div>
+        <div class="images">
+            <img src="{{#if img-url-1}}img-url-1{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
+            <img src="{{#if img-url-1}}img-url-1{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
+            <img src="{{#if img-url-1}}img-url-1{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
+            <img src="{{#if img-url-1}}img-url-1{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
+        </div>
+    </div>
+</div>

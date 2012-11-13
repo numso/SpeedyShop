@@ -9,7 +9,6 @@ module.exports = function () {
     return {
         search: function (request, response, next) {
             var data = '';
-
             request.on('data', function (chunk) {
                 data += chunk;
             });
@@ -24,8 +23,7 @@ module.exports = function () {
                     }
                 }
 
-            response.writeHead(200, { "Content-Type": "application/json" });
-            response.end(JSON.stringify(itemsArr));
+                response.send(itemsArr);
             });
         },
 
@@ -35,11 +33,74 @@ module.exports = function () {
             for (var i = 0; i < items.length; ++i) {
                 if (items[i].id == id) {
                     ++items[i].popularity;
+                    // uncomment this for persistence
+                    // fs.writeFile('serverData/items.json', JSON.stringify(items));
                     break;
                 }
             }
 
             response.send("OK");
+        },
+
+        addItem: function (request, response, next) {
+            var data = '';
+            request.on('data', function (d) {
+                data += d;
+            });
+
+            request.on('end', function () {
+                data = JSON.parse(data);
+
+                if (!data.name || !data.desc || !data.price) {
+                    response.send({
+                        status: "err",
+                        msg: "Missing data"
+                    });
+                    return;
+                }
+
+                if (!data.cat || !data.cat.length) {
+                    response.send({
+                        status: "err",
+                        msg: "Missing data"
+                    });
+                    return;
+                }
+
+                if (!data.images || !data.images.length) {
+                    response.send({
+                        status: "err",
+                        msg: "Missing data"
+                    });
+                    return;
+                }
+
+                var newId = 0;
+                for (var i = 0; i < items.length; ++i) {
+                    if (items[i].id >= newId) {
+                        newId = items[i].id + 1;
+                    }
+                }
+
+                var myNewItem = {
+                    name: data.name,
+                    cat: data.cat,
+                    price: data.price,
+                    rating: Math.floor(Math.random() * 4) + 1,
+                    desc: data.desc,
+                    images: data.images,
+                    id: newId,
+                    availability: 0,
+                    popularity: 0
+                };
+
+                items.push(myNewItem);
+                fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+                response.send({
+                    status: "OK",
+                    id: newId
+                });
+            });
         },
 
         getItems: function (request, response, next) {
@@ -74,13 +135,11 @@ module.exports = function () {
                 myObj = items;
             }
 
-            response.writeHead(200, { "Content-Type": "application/json" });
-            response.end(JSON.stringify(myObj));
+            response.send(myObj);
         },
 
         getCategories: function (request, response, next) {
-            response.writeHead(200, { "Content-Type": "application/json" });
-            response.end(JSON.stringify(categories));
+            response.send(categories);
         },
 
         getItem: function (request, response, next) {

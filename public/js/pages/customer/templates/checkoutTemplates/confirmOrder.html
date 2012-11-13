@@ -1,3 +1,63 @@
 <div class="confirm-order-page">
-    lkhlkugkufv
+    <div class="order-info">
+        <table>
+            <th>Quantity</th>
+            <th>Name</th>
+            <th>Promo Discount</th>
+            <th>Final Price</th>
+
+            {{#each order}}
+                <tr>
+                    <td class="quantity">{{itemQuantity}}</td>
+                    <td class="name">{{itemName}}</td>
+                    <td class="discount">-${{promoDiscount}}</td>
+                    <td class="price">${{finalPrice}}</td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+
+    <div class="totals-wrapper">
+        <div class="totals">
+            <div class="total">
+                <label>Discounts: </label>
+                <div class="values">-${{totalDiscounts}}</div>
+            </div>
+            <div class="total">
+                <label>Total: </label>
+                <div class="values">${{total}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="addresses">
+        {{#each addresses}}
+            <div class="address-wrapper">
+                <span class='address'>
+                    <div class="title">
+                        {{#if shipping-address}}
+                            Shipping Address
+                        {{else}}
+                            Billing Address
+                        {{/if}}
+                    </div>
+                    <div>{{firstName}}</div>
+                    <div>{{street1}}</div>
+                    <div>{{street2}}</div>
+                    <div class="city">{{city}},</div>
+                    <div class="state">{{state}}</div>
+                    <div class="zip">{{zip}}</div>
+                </span>
+            </div>
+        {{/each}}
+    </div>
+    <div class="payment-info">
+        {{#with card}}
+            <div class="title">Payment Information</div>
+            <div>{{name}}</div>
+            <div>{{number}}</div>
+            <div class="expire">{{MM}}/{{YYYY}}</div>
+            <div class="CVC">CVC: {{CVC}}</div>
+        {{/with}}
+    </div>
 </div>

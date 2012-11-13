@@ -1,29 +1,42 @@
 <div class="promocode-module">
 	<div class="promocode-title">Promo Codes</div>
-		<div class="product-label-div"> Product: 
-			<select class="combo-box">
-				<option> All </option>
-				<option> Category </option>
-				<option> Item </option>
-			</select> 
-			<input type="text">
-		</div>
-		<div class="code-label-div"> Code: <input type="text"></div>
-		<div class="amount-label-div"> 
-			Amount: <input type="text">
-			<select class="amount-combo-box">
-				<option>%</option>
-			</select>
-		</div>
-		<div class="start-label-div">
-			Start: <input type="date">
-			<input type="checkbox" unchecked>Now</input>
-		</div>
-		<div class="end-label-div"> 
-			End: <input type="date">
-			<input type="checkbox" unchecked>Never</input>
-		</div>
-		<div class="stackable-label-div">
-			<input type="checkbox" unchecked>Stackable?
-		</div>
+	<div class="product-label-div"><span class = "promo-text">Product:</span>
+		<select class="combo-box">
+			<option>All</option>
+			<option>Category</option>
+			<option>Item</option>
+		</select>
+	</div>
+	<table>
+		<tr>
+			<td>Name: </td>
+			<td><input class="code-input" type="text"/></td>
+		</tr>
+		<tr>
+			<td>Code: </td>
+			<td><input class="code-input" type="text"/></td>
+		</tr>
+		<tr>
+			<td><span>Amount:</span></td>
+			<td><input class="amount" type="number"></td>
+		</tr>
+		<tr>
+			<td><span>Off:</span></td>
+			<td><input class="amount" type="number"></td>
+		</tr>
+	</table>
+
+	<hr/>
+
+	<div>Starts:<input type="checkbox" unchecked> Now</input></div>
+	<input class="input-date" type="date">
+	<div>Ends:<input type="checkbox" unchecked>Never</input></div>
+	<input class="input-date" type="date">
+	<hr/>
+	<div class="stackable-div" >
+		<input type="checkbox" unchecked>
+		<span>Stackable?</span>
+	</div>
+	<hr/>
 </div>
+<button class="save-button">Save</button>

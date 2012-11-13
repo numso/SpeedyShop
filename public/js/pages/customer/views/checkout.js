@@ -1,4 +1,5 @@
 /*global define */
+/*global define */
 
 define([
     'backbone',
@@ -47,14 +48,7 @@ define([
         events: {
             'click #checkout-next-step': 'showNext',
             'click #checkout-prev-step': 'showPrev',
-            //'focus input': 'clearExplanatoryText',
-            //'blur input': 'restoreExplanatoryText',
             'click .same-question': 'addressesSame'
-        },
-
-        assembleOrder: function () {
-            //this.$('.checkout-title').html(this.myTmpls[this.index].name);
-
         },
 
         render: function () {
@@ -78,25 +72,15 @@ define([
         },
 
         showNext: function (e) {
-
             this.saveOffPageData();
-
-            ++this.index;
-            if (this.index > this.myTmpls.length - 1) {
-                this.index = this.myTmpls.length - 1;
+            this.index = Math.min(this.myTmpls.length - 1, this.index + 1);
+            if (this.index == this.myTmpls.length - 1)
                 this.completeTransaction();
-            } else {
-                this.updateScreen();
-            }
+            this.updateScreen();
         },
 
         showPrev: function (e) {
-
-            --this.index;
-            if (this.index < 0) {
-                this.index = 0;
-            }
-
+            this.index = Math.max(0, this.index - 1);
             this.updateScreen();
             this.restorePageData();
         },
@@ -124,20 +108,6 @@ define([
             }));
         },
 
-        /*
-        clearExplanatoryText: function (e) {
-            var target = $(e.target);
-            explanatoryText = target.attr("value");
-            if (explanatoryText.charAt(0) == '(')
-                target.attr("value", "");
-        },
-
-        restoreExplanatoryText: function (e) {
-            var target = $(e.target);
-            if (explanatoryText && !target.attr("value"))
-                target.attr("value", explanatoryText);
-        },*/
-
         addressesSame: function (e) {
             var billing = $('.billing-section');
             var shipping = $('.shipping-section');
@@ -154,40 +124,57 @@ define([
             }
         },
 
-        completeTransaction: function () {
-            for (var j = 0; j < this.orderData.length; j++) {
-                var data = this.orderData[j].data;
-                for (var k = 0; k < data.length; k++)
-                    console.log(j+", "+k+", "+$(data[k]).val()+",   "+$(data[k]).attr("class"));
-
-/*
-0, 0, 1,        item-quantity
-0, 1, Promo1,   promo-code-text
-0, 2, 2,        item-quantity
-0, 3, Promo2,   promo-code-text
-0, 4, GenPromo, general-promo-text
-1, 0, First,    firstName
-1, 1, Last,     lastName
-1, 2, Address1, street
-1, 3, Add2,     PO-box
-1, 4, C,        city
-1, 5, S,        state
-1, 6, Z,        zip
-1, 7, on,       sameCheckbox
-1, 8, First2,   firstName
-1, 9, L2,       lastName
-1, 10, Address2, street
-1, 11, Add22,   PO-box
-1, 12, C2,      city
-1, 13, S2,      state
-1, 14, Z2,      zip
-2, 0, NameOnCard,
-2, 1, CardNum,
-2, 2, MM,
-2, 3, YYYY,
-2, 4, CVC,       */
-
+        collectCartInformation: function () {
+            var finalCart = [];
+            for (var j = 0; j < this.cartData.cart.length; ++j) {
+                finalCart.push({
+                    "itemQuantity": this.cartData.cart[j].quantity,
+                    "itemName": this.cartData.cart[j].name,
+                    "promoDiscount": "0.00", //Mauriel, apply discount here
+                    "finalPrice": this.cartData.cart[j].price - 0 //Mauriel, apply discount here
+                });
             }
+            return finalCart;
+        },
+
+        completeTransaction: function () {
+            //hardcoded for now for development purposes
+            this.$('.checkout-body').html(confirmOrderTmpl({
+                order: this.collectCartInformation(),
+                "totalDiscounts": "0.00", //Mauriel, apply discount here
+                "total": this.cartData.total, //Mauriel, apply discount here
+
+                "addresses": [
+                    {
+                        "shipping-address": true,
+                        "firstName": this.orderData[1][0],
+                        "lastName": this.orderData[1][1],
+                        "street1": this.orderData[1][2],
+                        "street2": this.orderData[1][3],
+                        "city": this.orderData[1][4],
+                        "state": this.orderData[1][5],
+                        "zip": this.orderData[1][6]
+                    },
+                    {
+                        "shipping-address": false,
+                        "firstName": this.orderData[1][8],
+                        "lastName": this.orderData[1][9],
+                        "street1": this.orderData[1][10],
+                        "street2": this.orderData[1][11],
+                        "city": this.orderData[1][12],
+                        "state": this.orderData[1][13],
+                        "zip": this.orderData[1][14]
+                    }
+                ],
+
+                "card": {
+                    "name": this.orderData[2][0],//"Jesse Victors",
+                    "number": this.orderData[2][1], //"*********1234",
+                    'MM': this.orderData[2][2], //"08",
+                    "YYYY": this.orderData[2][3], //"2013",
+                    "CVC": this.orderData[2][4] //"233"
+                }
+            }));
         },
 
         saveOffPageData: function () {
@@ -200,16 +187,11 @@ define([
             for (var j = 0; j < this.orderData.length; j++)
                 if (this.orderData[j].pageIndex == this.index)
                     savedLoc = j;
-            console.log("index = " + this.index + " " + savedLoc);
 
-            if (savedLoc) {
-                console.log("updated orderData with new page data");
+            if (savedLoc)
                 this.orderData[savedLoc] = pageData;
-            }
-            else {
-                console.log("pushed page data");
+            else
                 this.orderData.push(pageData);
-            }
         },
 
         restorePageData: function () {
@@ -219,8 +201,7 @@ define([
                     savedLoc = j;
 
             if (savedLoc)
-            {
-                console.log("trying to restore saved data to page");
+            { //restore data to page
                 var savedInputs = this.orderData[savedLoc].data;
                 var templateInputs = this.$('input');
                 for (var j = 0; j < savedInputs.length; ++j)

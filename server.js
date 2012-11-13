@@ -34,6 +34,7 @@ app.configure(function () {
 // REST Call Routing Registry
 
 // Menu Stuff
+app.get('/getCategories', itemServices.getCategories);
 app.get('/getCategories/', itemServices.getCategories);
 
 // Items Stuff
@@ -66,3 +67,6 @@ app.post('/signup', authServices.signup);
 app.get('/sales/year/:yearID', adminServices.getSalesByYear);
 app.get('/sales/year/:yearID/month/:monthID', adminServices.getSalesByYearMonth);
 app.get('/promocodes', adminServices.getPromoCodes);
+app.get('/inventory', adminServices.getInventory);
+app.post('/addItem', itemServices.addItem);
+app.post('/editInventory', adminServices.editInventory);
