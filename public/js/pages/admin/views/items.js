@@ -58,8 +58,8 @@ define([
             else
                 this.$('.items-body').html(this.myTmpls[index]);
 
-            if (index == 1)
-                this.mailTest();
+            //if (index == 1)
+            //    this.mailTest();
 
             this.currentTab = tab;
             this.verify(undefined);

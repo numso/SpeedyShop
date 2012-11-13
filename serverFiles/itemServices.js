@@ -104,11 +104,17 @@ module.exports = function () {
         },
 
         deleteItem: function (request, response, next) {
+            console.log("need to communication with the " + request); //remainingItems.push()
             var remainingItems = [];
-            for (var j = 0; j < items.length; ++j)
-                if (remainingItems[i].id == request)
+            for (var j = 0; j < items.length; ++j) {
+                if (items[j].id == request) { //ERROR: cannot read id of undefined? Why?
                     console.log("server deleting item " + j);
-                    //remainingItems.push()
+                    remainingItems.push(items[j]);
+                }
+            }
+
+            items = remainingItems;
+            fs.writeFileSync('serverData/items.json', JSON.stringify(items));
 
             response.send({
                 status: "OK"
