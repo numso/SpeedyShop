@@ -33,16 +33,16 @@
 
     <div class="right-pane">
         <div class="images-URLs">
-            <input class="img-url-1" type='text' placeholder='Image URL 1' value="{{imgUrl1}}">
-            <input class="img-url-2" type='text' placeholder='Image URL 2' value="{{imgUrl2}}">
-            <input class="img-url-3" type='text' placeholder='Image URL 3' value="{{imgUrl3}}">
-            <input class="img-url-4" type='text' placeholder='Image URL 4' value="{{imgUrl4}}">
+            <input id="1-img-url" type='text' placeholder='Image URL 1' value="{{imgUrl1}}">
+            <input id="2-img-url" type='text' placeholder='Image URL 2' value="{{imgUrl2}}">
+            <input id="3-img-url" type='text' placeholder='Image URL 3' value="{{imgUrl3}}">
+            <input id="4-img-url" type='text' placeholder='Image URL 4' value="{{imgUrl4}}">
         </div>
         <div class="images">
-            <img src="{{#if imgUrl1}}img-url-1{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
-            <img src="{{#if imgUrl2}}img-url-1{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
-            <img src="{{#if imgUrl3}}img-url-1{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
-            <img src="{{#if imgUrl4}}img-url-1{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
+            <img class="1-img-url" src="{{#if imgUrl1}}{{imgUrl1}}{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
+            <img class="2-img-url" src="{{#if imgUrl2}}{{imgUrl2}}{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
+            <img class="3-img-url" src="{{#if imgUrl3}}{{imgUrl3}}{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
+            <img class="4-img-url" src="{{#if imgUrl4}}{{imgUrl4}}{{else}}//www.bmotorsports.com/shop/images/product-unavailable.jpg{{/if}}">
         </div>
     </div>
 </div>

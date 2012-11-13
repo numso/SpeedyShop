@@ -25,7 +25,13 @@ define([
             'onkeypress select, input, textarea': 'verify',
             'click .submit-button': 'submitItem',
             'click .delete-button': 'deleteItem',
-            'click .edit-button': 'editItem'
+            'click .edit-button': 'editItem',
+            'blur .images-URLs input': 'updateImage'
+        },
+
+        updateImage: function (e) {
+            var el = $(e.target).closest('input');
+            this.$("." + el.attr('id')).attr('src', el.val());
         },
 
         render: function () {
@@ -70,10 +76,10 @@ define([
                 page.find('.type-cat').val(),
                 page.find('.item-cost').val(),
                 page.find('.item-price').val(),
-                page.find('.img-url-1').val(),
-                page.find('.img-url-2').val(),
-                page.find('.img-url-3').val(),
-                page.find('.img-url-4').val()
+                page.find('#1-img-url').val(),
+                page.find('#2-img-url').val(),
+                page.find('#3-img-url').val(),
+                page.find('#4-img-url').val()
             ];
         },
 
@@ -88,20 +94,10 @@ define([
 
                 if (allFilled) {
                     this.$('.submit-button').attr("disabled", false); //we're good
-                    //this.updateImages(formData); //has issues, so commenting out for now
                 } else {
                     this.$('.submit-button').attr("disabled", true); //we can't submit an item with any empty fields
                 }
             }
-        },
-
-        updateImages: function (formData) { //trying to have the images update automatically
-            this.$('.items-body').html(editableItemTmpl({
-                "imgUrl1": formData[7],
-                "imgUrl2":formData[8],
-                "imgUrl3": formData[9],
-                "imgUrl4": formData[10]
-            }));
         },
 
         submitItem: function (e) { //assemble item and submit to server
@@ -149,10 +145,10 @@ define([
                         name: data.item.name,
                         price: data.item.price,
                         desc: data.item.desc,
-                        imgUrl1: data.images[0], //why is data.images undefined? Dallin!
-                        imgUrl2: data.images[1],
-                        imgUrl3: data.images[2],
-                        imgUrl4: data.images[3]
+                        imgUrl1: data.item.images[0], //why is data.images undefined? Dallin!
+                        imgUrl2: data.item.images[1],
+                        imgUrl3: data.item.images[2],
+                        imgUrl4: data.item.images[3]
                     }
                     that.$('.items-body').html(editableItemTmpl(obj));
                     that.verify(null);
