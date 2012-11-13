@@ -3,11 +3,7 @@
 	<div class = 'item-box'>
 	<span class = 'inventory-text'>Item Name:</span><div class = 'item-name'>{{name}}</div><br />
 	<span class = 'inventory-text'>Item Number:</span><div class = 'item-id'>{{id}}</div><br />
-		{{#if lowInventory}}
-		<span class = 'inventory-text'>Item Stock:</span><div class = 'low-item-stock'>{{available}}</div><br />
-		{{else}}
-		<span class = 'inventory-text'>Item Stock:</span><div class = 'item-stock'>{{available}}</div> <input class = 'update-stock' type = 'text' size = '5'><br />
-		{{/if}}
+	<span class = 'inventory-text'>Item Stock:</span><div class = 'item-stock'>{{available}}</div> <input class = 'update-stock' type = 'text' size = '5'><br />
 	<hr>
 	</div>
 	{{/each}}

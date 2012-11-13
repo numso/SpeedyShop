@@ -45,9 +45,14 @@ define([
 
         },
 
-        lowInventory: function() {
-            console.log(this.available);
-            return this.available < 2;
+        checkLowInventory: function(){
+                $('.item-stock').each(function (index) {
+
+                var thisValue = parseInt($(this).html());
+                    if(thisValue < 5)
+                            $(this).parent().css('color', 'red');
+
+            });
         },
 
         commitChanges: function() {
@@ -65,6 +70,7 @@ define([
             $.get('/inventory', function (data) {
                 that.curInventory = JSON.parse(data);
                 that.$el.html(inventoryTmpl(that.curInventory));
+                that.checkLowInventory();
             });
 
             return this;
