@@ -1,4 +1,6 @@
+{{#if msg}}
 <div class="promocode-module">
+
 	<div class="promocode-title">Promo Codes</div>
 	<div class="product-label-div"><span class = "promo-text">Product:</span>
 		<select>
@@ -39,3 +41,48 @@
 <div class="outer-area">
 	<button id="save-button">Save</button>
 </div>
+{{else}}
+<div class="promocode-module">
+
+	<div class="promocode-title">Promo Codes</div>
+	<div class="product-label-div"><span class = "promo-text">Product:</span>
+		<select>
+			<option>All</option>
+			<option>Category</option>
+			<option>Item</option>
+		</select>
+	</div>
+	<table>
+		<tr>
+			<td>Name: </td>
+			<td><input class="code-input" type="search" value = "{{product-detail}}"/>	</td>
+		</tr>
+		<tr>
+			<td>Code: </td>
+			<td><input class="code-input" type="text" value = "{{code}}"/></td>
+		</tr>
+		<tr>
+			<td><span>Amount:</span></td>
+			<td><input class="amount" type="number" value = "{{amount}}"></td>
+		</tr>
+		<tr>
+			<td><span>Off:</span></td>
+			<td><input class="amount" type="number" value = "{{percent}}"></td>
+		</tr>
+	</table>
+	<hr/>
+	<div>Starts:<input id="now-btn" type="checkbox" unchecked> Now</input></div>
+	<input id="start-date-txt" class="input-date" type="date" enabled value = "{{start}}">
+	<div>Ends:<input id="never-btn" type="checkbox" unchecked>Never</input></div>
+	<input id="end-date-txt" class="input-date" type="date" enabled>
+	<div class="stackable-div" >
+		<input type="checkbox" unchecked>
+		<span>Stackable?</span>
+	</div>
+</div>
+<hr/>
+<div class="outer-area">
+	<button id="save-button">Save</button>
+</div>
+{{/if}}
+
