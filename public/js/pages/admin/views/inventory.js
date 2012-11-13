@@ -20,7 +20,7 @@ define([
         },
 
         editQuantity: function() {
-
+            $('.submitted-change').css('display', 'none');
             var itemsToChange = [];
             this.$('.inventory-wrapper > .item-box > .update-stock').each(function (index) {
 
@@ -56,6 +56,8 @@ define([
             $.post('/editInventory', JSON.stringify(this.curInventory), function (resp) {
                 console.log("Response: " + JSON.stringify(resp));
             });
+
+            $('.submitted-change').css('display', 'inline');
         },
 
         render: function () {
