@@ -14,7 +14,7 @@ define([
 
         events: {
 
-            'click .completed-btn': 'updateOrder'
+            'click .completed-btn': 'updateOrders'
         },
 
         render: function () {
@@ -28,10 +28,35 @@ define([
             this.$el.html(shippingTmpl(data));
         },
 
-        updateOrder: function(e){
-            this.pickedOrder.orderStatus = "Completed";
-            console.log(this.pickedOrder.orderStatus);
-            
+        updateOrders: function(){
+            if(this.isValid())
+                {       
+                    this.pickedOrder.orderStatus = "Completed";
+                    console.log(JSON.stringify(this.pickedOrder));
+                    $.post('/updateThisOrder', JSON.stringify(this.pickedOrder), function (resp) {
+                        console.log("Response: " + JSON.stringify(resp));
+                    });
+                    $('.error-msg').css('display', 'none');
+                    $('.submitted-msg').css('display', 'inline');
+                }
+            else
+            {
+                console.log("im in here!");
+                $('.error-msg').css('display', 'inline');
+                $('.submitted-msg').css('display', 'none');
+            }
+
+
+        },
+        
+        isValid: function(){
+            flag = true;
+            $('.item-check').each(function (index){
+                var thisValue = $(this).is(':checked');
+                if(!thisValue)
+                    flag = false;
+           }); 
+            return flag;
         }
     });
 });

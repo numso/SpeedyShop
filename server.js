@@ -53,8 +53,9 @@ app.post('/filters', filterServices.getFilters);
 app.get('/reviews/:id', reviewServices.getReviews);
 app.post("/createReview/:objID", reviewServices.createReview);
 
-// Shipping Stuff
+// Employee Stuff
 app.get('/orders', employeeServices.getOrders);
+app.post('/updateThisOrder', employeeServices.updateThisOrder);
 
 // Authentication Stuff
 app.post('/login', authServices.login);

@@ -20,35 +20,25 @@ define([
         },
 
         editQuantity: function() {
-            
+
             var itemsToChange = [];
-            $('.inventory-wrapper > .item-box > .update-stock').each(function (index){
-                
+            this.$('.inventory-wrapper > .item-box > .update-stock').each(function (index) {
+
                 var thisValue = $(this).val();
-
-                if(thisValue > 0 && !isNaN(thisValue))
-                    {
-
-                        var thisItem = {
-                            index : index,
-                            newValue : thisValue
-                        }
-
-                        itemsToChange.push(thisItem);
+                if (thisValue > 0 && !isNaN(thisValue)) {
+                    var thisItem = {
+                        index : index,
+                        newValue : thisValue
                     }
-           }); 
 
-           for(var x = 0; x < itemsToChange.length; ++x)
-               {
-                    for(var n = 0; n < this.curInventory.length; ++n)
-                       {
-                            if( itemsToChange[x].index == this.curInventory[n].id)
-                                {
+                    itemsToChange.push(thisItem);
+                }
+           });
 
-                                    this.curInventory[n].available = itemsToChange[x].newValue;
-                                }
-                       }
-               }
+           for (var x = 0; x < itemsToChange.length; ++x)
+                for (var n = 0; n < this.curInventory.length; ++n)
+                        if (itemsToChange[x].index == this.curInventory[n].id)
+                            this.curInventory[n].available = itemsToChange[x].newValue;
 
             this.$el.html(inventoryTmpl(this.curInventory));
             console.log(this.curInventory);
@@ -62,12 +52,13 @@ define([
 
         commitChanges: function() {
             console.log('sending:');
+
             $.post('/editInventory', JSON.stringify(this.curInventory), function (resp) {
-                console.log("Response: " + JSON.stringify(resp)); 
+                console.log("Response: " + JSON.stringify(resp));
             });
         },
 
-        render: function () {     
+        render: function () {
             var that = this;
             $.get('/inventory', function (data) {
                 that.curInventory = JSON.parse(data);
@@ -75,7 +66,6 @@ define([
             });
 
             return this;
-            }
-
+        }
     });
 });
