@@ -70,3 +70,5 @@ app.get('/promocodes', adminServices.getPromoCodes);
 app.get('/inventory', adminServices.getInventory);
 app.post('/addItem', itemServices.addItem);
 app.post('/editInventory', adminServices.editInventory);
+app.get('/itemList', itemServices.chartItems);
+app.get('/analytics', itemServices.chartSales);

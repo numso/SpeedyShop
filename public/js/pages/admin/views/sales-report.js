@@ -17,8 +17,24 @@ define([
         graphID: 'sales-graph',
         chartID: 'sales-chart',
         status: {},
-
-        initialize: function () {
+        rawItemsData: undefined,
+        rawSalesData: undefined,
+        itemData:{
+                profitP: 1,
+                profitA: 1,
+                dollarsP: 1,
+                dollarsA: 1,
+                itemsP: 1,
+                itemsA: 1
+            },
+        chartObject:{
+            months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
+            item: [
+                {
+                    chartCat: "Home",
+                    chartData:[]
+                }
+            ]
         },
 
         events: {
@@ -28,7 +44,7 @@ define([
             'click .graph-year-view': 'showYearView',
             'click .graph-prev': 'prevSection',
             'click .graph-next': 'nextSection',
-            'click .projected-sale': 'changeProjected'
+            'click .projected-sale': 'changeProjected',
         },
 
         showChart: function (e) {
@@ -104,13 +120,22 @@ define([
                 graphID: this.graphID,
                 chartID: this.chartID
             }));
+
+            var that = this;
+            $.get('/itemList', function(data){
+                 that.rawItemsData = JSON.parse(data);
+            });
+
+            $.get('/analytics', function(data){
+                that.rawSalesData = JSON.parse(data);
+            });
+
             return this;
         },
 
         /*
         Dallin we need a function for this from the server
         I will try and do it myself but may need your help
-        
 
         Object {
             item1: [ array of time variable (Year, Month)]
@@ -132,111 +157,25 @@ define([
                     ]
                 }
             ]
-        }*/
+        }
+        */
 
         drawChart: function () {
-            this.$("#" + this.chartID).html(chartTmpl({
-                months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
-                item: [
-                    {
-                        chartCat: "Home",
-                        chartData:[
-                            {
-                                profitP: 1,
-                                profitA: 1,
-                                dollarsP: 1,
-                                dollarsA: 1,
-                                itemsP: 1,
-                                itemsA: 1
-                            },
-                            {
-                                profitP: 1,
-                                profitA: 1,
-                                dollarsP: 1,
-                                dollarsA: 1,
-                                itemsP: 1,
-                                itemsA: 1
-                            },
-                            {
-                                profitP: 1300,
-                                profitA: 1400,
-                                dollarsP: 15000,
-                                dollarsA: 16000,
-                                itemsP: 17,
-                                itemsA: 18
-                            },
-                            {
-                                profitP: 1900,
-                                profitA: 2000,
-                                dollarsP: 21000,
-                                dollarsA: 22000,
-                                itemsP: 23,
-                                itemsA: 24
-                            },
-                            {
-                                profitP: 2500,
-                                profitA: 2600,
-                                dollarsP: 27000,
-                                dollarsA: 28000,
-                                itemsP: 29,
-                                itemsA: 30
-                            },
-                            {
-                                profitP: 3100,
-                                profitA: 3200,
-                                dollarsP: 33000,
-                                dollarsA: 34000,
-                                itemsP: 35,
-                                itemsA: 36
-                            },
-                            {
-                                profitP: 1,
-                                profitA: 1,
-                                dollarsP: 1,
-                                dollarsA: 1,
-                                itemsP: 1,
-                                itemsA: 1
-                            },
-                            {
-                                profitP: 1,
-                                profitA: 1,
-                                dollarsP: 1,
-                                dollarsA: 1,
-                                itemsP: 1,
-                                itemsA: 1
-                            },{
-                                profitP: 1,
-                                profitA: 1,
-                                dollarsP: 1,
-                                dollarsA: 1,
-                                itemsP: 1,
-                                itemsA: 1
-                            },{
-                                profitP: 1,
-                                profitA: 1,
-                                dollarsP: 1,
-                                dollarsA: 1,
-                                itemsP: 1,
-                                itemsA: 1
-                            },{
-                                profitP: 1,
-                                profitA: 1,
-                                dollarsP: 1,
-                                dollarsA: 1,
-                                itemsP: 1,
-                                itemsA: 1
-                            },{
-                                profitP: 1,
-                                profitA: 1,
-                                dollarsP: 1,
-                                dollarsA: 1,
-                                itemsP: 1,
-                                itemsA: 1
-                            }
-                        ]
-                    }
-                ]
-            }));
+            // console.log(this.rawItemsData);
+            console.log(this.rawSalesData[1].items);
+            this.initialize();
+            this.$("#" + this.chartID).html(chartTmpl(this.chartObject));
+        },
+
+        initialize: function () {
+            for(var i = 0; i<12;++i){
+                this.chartObject.item[0].chartData[i] = this.itemData;
+            }
+        },
+
+        createChartItem: function () {
+
+
         },
 
         changeProjected: function (e) {
@@ -315,7 +254,6 @@ define([
                         data[1].push(d[i].actual);
                     }
                 }
-
                 that.makeGraph(data, labels, labelsLong);
             });
         },
