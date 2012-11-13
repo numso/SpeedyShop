@@ -163,6 +163,17 @@ module.exports = function () {
                 status: "error",
                 code: "not found"
             });
+        },
+
+        chartItems: function (request, response, next) {
+            var itemList = fs.readFileSync('serverData/items.JSON');
+            response.send(itemList); 
+        },
+
+        chartSales: function (request, response, next) {
+            var salesList = fs.readFileSync('serverData/analytics.JSON');
+            response.send(salesList);
         }
+
     };
 };
