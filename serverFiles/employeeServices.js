@@ -50,18 +50,23 @@ module.exports = function () {
             });
 
             request.on('end', function () {
-                console.log("server got new order!");
+                orderData = JSON.parse(orderData);
+
                 var orderObj = {
                     orderStatus: "Completed",
                     orderNum: orders[orders.length - 1].orderNum + 1,
                     estimatedWeight: Math.floor(Math.random() * 100 + 1) / 10,
-                    addresses: orderData.addresses, //new
-                    items: orderData.items
+                    items: orderData.items,
+                    address: orderData.address,
+                    notes: orderData.notes
                 }
-                console.log("Server adding in order!");
+
                 orders.push(orderObj);
-                fs.writeFileSync('serverData/order.json', JSON.stringify(orders));
-                response.send(orders);
+                fs.writeFileSync('serverData/orders.json', JSON.stringify(orders));
+
+                response.send({
+                    status: "OK"
+                });
             });
         }
     };
