@@ -1,0 +1,562 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'qrcode' ]
+info using npm@1.1.12
+info using node@v0.6.14
+verbose config file /Users/dallin/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose caching /Users/dallin/code/speedyshop/package.json
+verbose loadDefaults SpeedyShop@0.0.1
+verbose caching /Users/dallin/code/speedyshop/node_modules/express/package.json
+verbose caching /Users/dallin/code/speedyshop/node_modules/nodemailer/package.json
+verbose has bindings.gyp [ undefined,
+verbose has bindings.gyp   { file: '/Users/dallin/code/speedyshop/node_modules/bcrypt/package.json',
+verbose has bindings.gyp     gypfile: true,
+verbose has bindings.gyp     contributors: false,
+verbose has bindings.gyp     serverjs: false,
+verbose has bindings.gyp     wscript: true } ]
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/Users/dallin/code/speedyshop/node_modules/bcrypt/package.json',
+verbose has wscript     gypfile: true,
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     wscript: true } ]
+verbose caching /Users/dallin/code/speedyshop/node_modules/bcrypt/package.json
+verbose from cache /Users/dallin/code/speedyshop/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'qrcode', null ]
+silly cache add: name, spec, args [ undefined, 'qrcode', [ 'qrcode', null ] ]
+verbose parsed url { pathname: 'qrcode', path: 'qrcode', href: 'qrcode' }
+verbose addNamed [ 'qrcode', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'qrcode', '', false ]
+verbose raw, before any munging qrcode
+verbose url resolving [ 'https://registry.npmjs.org/', './qrcode' ]
+verbose url resolved https://registry.npmjs.org/qrcode
+http GET https://registry.npmjs.org/qrcode
+http 200 https://registry.npmjs.org/qrcode
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"87X3NBLHWUC9AMJZWGRGTQ1J6"',
+silly get cb     date: 'Tue, 13 Nov 2012 23:59:20 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '18944' } ]
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/.npm/qrcode'
+verbose mkdir done: /Users/dallin/.npm/qrcode 755
+silly name, range, hasData 2 [ 'qrcode', '', true ]
+silly versions [ 'qrcode',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.1.0',
+silly versions     '0.1.1',
+silly versions     '0.2.2',
+silly versions     '0.2.3',
+silly versions     '0.2.4' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.24-darwin-x64-11.4.0',
+verbose bin dist   { shasum: 'e06026769f801c031c639e998f5b24e904275b5b',
+verbose bin dist     tarball: 'http://registry.npmjs.org/qrcode/-/qrcode-0.2.4.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/qrcode/-/qrcode-0.2.4.tgz',
+verbose addRemoteTarball   'e06026769f801c031c639e998f5b24e904275b5b' ]
+verbose mkdir (expected) error ENOENT, stat '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747'
+verbose mkdir (expected) error ENOENT, stat '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131'
+verbose mkdir done: /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131 755
+verbose fetch to /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/tmp.tgz
+http GET https://registry.npmjs.org/qrcode/-/qrcode-0.2.4.tgz
+http 200 https://registry.npmjs.org/qrcode/-/qrcode-0.2.4.tgz
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 16434
+info shasum e06026769f801c031c639e998f5b24e904275b5b
+info shasum /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/tmp.tgz
+verbose mkdir (expected) error ENOENT, stat '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package'
+verbose mkdir done: /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose gunzed /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package
+verbose caching /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package/package.json
+verbose loadDefaults qrcode@0.2.4
+verbose tarball contents [ 'package', 'tmp.tgz' ]
+verbose from cache /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package/package.json
+verbose pack /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package
+verbose pack /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package /Users/dallin/.npm/qrcode/0.2.4/package.tgz
+silly makeList /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package
+silly dir, dirLen [ '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package',
+silly dir, dirLen   106 ]
+verbose tarball /Users/dallin/.npm/qrcode/0.2.4/package.tgz
+verbose parent /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851185747-0.64069171436131/package
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/.npm/qrcode/0.2.4/package'
+verbose mkdir done: /Users/dallin/.npm/qrcode/0.2.4/package 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/dallin/.npm/qrcode/0.2.4/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose gunzed /Users/dallin/.npm/qrcode/0.2.4/package
+verbose caching /Users/dallin/.npm/qrcode/0.2.4/package/package.json
+verbose loadDefaults qrcode@0.2.4
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 3606
+info shasum 634814185de6975d199c5b02284702afa041a904
+info shasum /Users/dallin/.npm/qrcode/0.2.4/package.tgz
+verbose from cache /Users/dallin/.npm/qrcode/0.2.4/package/package.json
+verbose chmod /Users/dallin/.npm/qrcode/0.2.4/package.tgz 644
+verbose chown [ '/Users/dallin/.npm/qrcode/0.2.4/package.tgz', 501, 20 ]
+silly resolved [ { name: 'qrcode',
+silly resolved     description: 'QRCode / 2d Barcode api with both server side and client side support using canvas',
+silly resolved     version: '0.2.4',
+silly resolved     author: { name: 'Ryan Day', email: 'soldair@gmail.com' },
+silly resolved     keywords: [ 'canvas', 'qrcode', 'barcode' ],
+silly resolved     main: './qrcode.js',
+silly resolved     homepage: 'http://github.com/soldair/node-qrcode',
+silly resolved     scripts: 
+silly resolved      { pretest: 'node build.js',
+silly resolved        prepublish: 'node build.js',
+silly resolved        test: 'tap test/url.js' },
+silly resolved     bin: { qrcode: './bin/qrcode' },
+silly resolved     dependencies: { canvas: '>= 0.4.3', colors: '*' },
+silly resolved     devDependencies: 
+silly resolved      { express: '2.5.x',
+silly resolved        browserify: '1.9.x',
+silly resolved        'uglify-js': '1.2.x',
+silly resolved        canvasutil: '*',
+silly resolved        tap: '*' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/soldair/node-qrcode.git' },
+silly resolved     engines: { node: '>=0.2.3' },
+silly resolved     _id: 'qrcode@0.2.4',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.12',
+silly resolved     _nodeVersion: 'v0.6.14',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '634814185de6975d199c5b02284702afa041a904' },
+silly resolved     _from: 'qrcode' } ]
+info into /Users/dallin/code/speedyshop qrcode@0.2.4
+info installOne qrcode@0.2.4
+verbose from cache /Users/dallin/.npm/qrcode/0.2.4/package/package.json
+info unbuild /Users/dallin/code/speedyshop/node_modules/qrcode
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/code/speedyshop/node_modules/qrcode'
+verbose mkdir done: /Users/dallin/code/speedyshop/node_modules/qrcode 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/dallin/code/speedyshop/node_modules/qrcode
+silly gunzTarPerm modes [ '755', '644' ]
+verbose gunzed /Users/dallin/code/speedyshop/node_modules/qrcode
+verbose caching /Users/dallin/code/speedyshop/node_modules/qrcode/package.json
+verbose loadDefaults qrcode@0.2.4
+info preinstall qrcode@0.2.4
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'canvas@>= 0.4.3', null ]
+silly cache add: name, spec, args [ undefined, 'canvas@>= 0.4.3', [ 'canvas@>= 0.4.3', null ] ]
+verbose parsed url { pathname: 'canvas@', path: 'canvas@', href: 'canvas@' }
+silly cache add: name, spec, args [ 'canvas', '>= 0.4.3', [ 'canvas', '>= 0.4.3' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'canvas', '>= 0.4.3' ]
+verbose addNamed [ null, '>=0.4.3' ]
+silly name, range, hasData [ 'canvas', '>=0.4.3', false ]
+verbose raw, before any munging canvas
+verbose url resolving [ 'https://registry.npmjs.org/', './canvas' ]
+verbose url resolved https://registry.npmjs.org/canvas
+http GET https://registry.npmjs.org/canvas
+verbose cache add [ 'colors@*', null ]
+silly cache add: name, spec, args [ undefined, 'colors@*', [ 'colors@*', null ] ]
+verbose parsed url { pathname: 'colors@*', path: 'colors@*', href: 'colors@*' }
+silly cache add: name, spec, args [ 'colors', '*', [ 'colors', '*' ] ]
+verbose parsed url { pathname: '*', path: '*', href: '*' }
+verbose addNamed [ 'colors', '*' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'colors', '', false ]
+verbose raw, before any munging colors
+verbose url resolving [ 'https://registry.npmjs.org/', './colors' ]
+verbose url resolved https://registry.npmjs.org/colors
+http GET https://registry.npmjs.org/colors
+http 200 https://registry.npmjs.org/colors
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"1K6WW6RVIO8OOUJFDXZ68Z25Z"',
+silly get cb     date: 'Tue, 13 Nov 2012 23:59:24 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '3832' } ]
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/.npm/colors'
+verbose mkdir done: /Users/dallin/.npm/colors 755
+silly name, range, hasData 2 [ 'colors', '', true ]
+silly versions [ 'colors', [ '0.3.0', '0.5.0', '0.5.1', '0.6.0', '0.6.0-1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.24-darwin-x64-11.4.0',
+verbose bin dist   { shasum: '6dbb68ceb8bc60f2b313dcc5ce1599f06d19e67a',
+verbose bin dist     tarball: 'http://registry.npmjs.org/colors/-/colors-0.6.0-1.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/colors/-/colors-0.6.0-1.tgz',
+verbose addRemoteTarball   '6dbb68ceb8bc60f2b313dcc5ce1599f06d19e67a' ]
+verbose mkdir (expected) error ENOENT, stat '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399'
+verbose mkdir done: /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399 755
+verbose fetch to /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/tmp.tgz
+http GET https://registry.npmjs.org/colors/-/colors-0.6.0-1.tgz
+http 200 https://registry.npmjs.org/colors/-/colors-0.6.0-1.tgz
+silly updated sha bytes 10240
+info shasum 6dbb68ceb8bc60f2b313dcc5ce1599f06d19e67a
+info shasum /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/tmp.tgz
+verbose mkdir (expected) error ENOENT, stat '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package'
+verbose mkdir done: /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose gunzed /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package
+verbose caching /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package/package.json
+verbose loadDefaults colors@0.6.0-1
+verbose tarball contents [ 'package', 'tmp.tgz' ]
+verbose from cache /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package/package.json
+verbose pack /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package
+verbose pack /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package /Users/dallin/.npm/colors/0.6.0-1/package.tgz
+silly makeList /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package
+silly dir, dirLen [ '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package',
+silly dir, dirLen   108 ]
+verbose tarball /Users/dallin/.npm/colors/0.6.0-1/package.tgz
+verbose parent /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851189828-0.8723578646313399/package
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/.npm/colors/0.6.0-1/package'
+verbose mkdir done: /Users/dallin/.npm/colors/0.6.0-1/package 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/dallin/.npm/colors/0.6.0-1/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose gunzed /Users/dallin/.npm/colors/0.6.0-1/package
+verbose caching /Users/dallin/.npm/colors/0.6.0-1/package/package.json
+verbose loadDefaults colors@0.6.0-1
+silly updated sha bytes 5376
+info shasum 90eed55eb9b8d279846013bfc762fc487ffbd818
+info shasum /Users/dallin/.npm/colors/0.6.0-1/package.tgz
+verbose from cache /Users/dallin/.npm/colors/0.6.0-1/package/package.json
+verbose chmod /Users/dallin/.npm/colors/0.6.0-1/package.tgz 644
+verbose chown [ '/Users/dallin/.npm/colors/0.6.0-1/package.tgz', 501, 20 ]
+http 200 https://registry.npmjs.org/canvas
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"88LB0OT2B2EXB1ZTGCNMPOBJY"',
+silly get cb     date: 'Tue, 13 Nov 2012 23:59:24 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '107096' } ]
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/.npm/canvas'
+verbose mkdir done: /Users/dallin/.npm/canvas 755
+silly name, range, hasData 2 [ 'canvas', '>=0.4.3', true ]
+silly versions [ 'canvas',
+silly versions   [ '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '0.0.6',
+silly versions     '0.0.7',
+silly versions     '0.0.8',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.3.3',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.4.2',
+silly versions     '0.4.3',
+silly versions     '0.8.1',
+silly versions     '0.8.2',
+silly versions     '0.8.3',
+silly versions     '0.9.0',
+silly versions     '0.10.0',
+silly versions     '0.10.1',
+silly versions     '0.10.2',
+silly versions     '0.10.3',
+silly versions     '0.11.0',
+silly versions     '0.11.1',
+silly versions     '0.11.2',
+silly versions     '0.11.3',
+silly versions     '0.12.0',
+silly versions     '0.12.1',
+silly versions     '0.13.0',
+silly versions     '0.13.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.24-darwin-x64-11.4.0',
+verbose bin dist   { shasum: '97d62dd8f18aa5e8c79496660625434e6785fcff',
+verbose bin dist     tarball: 'http://registry.npmjs.org/canvas/-/canvas-0.13.1.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/canvas/-/canvas-0.13.1.tgz',
+verbose addRemoteTarball   '97d62dd8f18aa5e8c79496660625434e6785fcff' ]
+verbose mkdir (expected) error ENOENT, stat '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384'
+verbose mkdir done: /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384 755
+verbose fetch to /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/tmp.tgz
+http GET https://registry.npmjs.org/canvas/-/canvas-0.13.1.tgz
+http 200 https://registry.npmjs.org/canvas/-/canvas-0.13.1.tgz
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 28146
+info shasum 97d62dd8f18aa5e8c79496660625434e6785fcff
+info shasum /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/tmp.tgz
+verbose mkdir (expected) error ENOENT, stat '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package'
+verbose mkdir done: /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose gunzed /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package
+verbose has bindings.gyp [ undefined,
+verbose has bindings.gyp   { file: '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package/package.json',
+verbose has bindings.gyp     gypfile: true,
+verbose has bindings.gyp     wscript: false,
+verbose has bindings.gyp     contributors: false,
+verbose has bindings.gyp     serverjs: false } ]
+verbose caching /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package/package.json
+verbose loadDefaults canvas@0.13.1
+verbose tarball contents [ 'package', 'tmp.tgz' ]
+verbose from cache /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package/package.json
+verbose pack /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package
+verbose pack /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package /Users/dallin/.npm/canvas/0.13.1/package.tgz
+silly makeList /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package
+silly dir, dirLen [ '/var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package',
+silly dir, dirLen   107 ]
+verbose tarball /Users/dallin/.npm/canvas/0.13.1/package.tgz
+verbose parent /var/folders/l9/3zlh8m0x291flyk2lymfym4h0000gn/T/npm-1352851185747/1352851190376-0.777995676966384/package
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/.npm/canvas/0.13.1/package'
+verbose mkdir done: /Users/dallin/.npm/canvas/0.13.1/package 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/dallin/.npm/canvas/0.13.1/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose gunzed /Users/dallin/.npm/canvas/0.13.1/package
+verbose has bindings.gyp [ undefined,
+verbose has bindings.gyp   { file: '/Users/dallin/.npm/canvas/0.13.1/package/package.json',
+verbose has bindings.gyp     wscript: false,
+verbose has bindings.gyp     gypfile: true,
+verbose has bindings.gyp     contributors: false,
+verbose has bindings.gyp     serverjs: false } ]
+verbose caching /Users/dallin/.npm/canvas/0.13.1/package/package.json
+verbose loadDefaults canvas@0.13.1
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 28215
+info shasum 72622ee4e4f5bf419537bbac791e8e5391ca468d
+info shasum /Users/dallin/.npm/canvas/0.13.1/package.tgz
+verbose from cache /Users/dallin/.npm/canvas/0.13.1/package/package.json
+verbose chmod /Users/dallin/.npm/canvas/0.13.1/package.tgz 644
+verbose chown [ '/Users/dallin/.npm/canvas/0.13.1/package.tgz', 501, 20 ]
+silly resolved [ { name: 'colors',
+silly resolved     description: 'get colors in your node.js console like what',
+silly resolved     version: '0.6.0-1',
+silly resolved     author: { name: 'Marak Squires' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/Marak/colors.js.git' },
+silly resolved     engines: { node: '>=0.1.90' },
+silly resolved     main: 'colors',
+silly resolved     _id: 'colors@0.6.0-1',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.12',
+silly resolved     _nodeVersion: 'v0.6.14',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '90eed55eb9b8d279846013bfc762fc487ffbd818' },
+silly resolved     _from: 'colors@*',
+silly resolved     scripts: {} },
+silly resolved   { name: 'canvas',
+silly resolved     description: 'Canvas graphics API backed by Cairo',
+silly resolved     version: '0.13.1',
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@learnboost.com' },
+silly resolved     keywords: 
+silly resolved      [ 'canvas',
+silly resolved        'graphic',
+silly resolved        'graphics',
+silly resolved        'pixman',
+silly resolved        'cairo',
+silly resolved        'image',
+silly resolved        'images',
+silly resolved        'pdf' ],
+silly resolved     homepage: 'https://github.com/learnboost/node-canvas',
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/learnboost/node-canvas.git' },
+silly resolved     scripts: { test: 'make test', install: 'node-gyp rebuild' },
+silly resolved     devDependencies: 
+silly resolved      { express: '>= 2.3.7 && < 3.0.0',
+silly resolved        jade: '0.11.0',
+silly resolved        mocha: '*',
+silly resolved        should: '*' },
+silly resolved     engines: { node: '>= 0.4.0' },
+silly resolved     main: './lib/canvas.js',
+silly resolved     _id: 'canvas@0.13.1',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.12',
+silly resolved     _nodeVersion: 'v0.6.14',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '72622ee4e4f5bf419537bbac791e8e5391ca468d' },
+silly resolved     _from: 'canvas@>= 0.4.3' } ]
+info into /Users/dallin/code/speedyshop/node_modules/qrcode colors@0.6.0-1
+info into /Users/dallin/code/speedyshop/node_modules/qrcode canvas@0.13.1
+info installOne colors@0.6.0-1
+info installOne canvas@0.13.1
+verbose from cache /Users/dallin/.npm/colors/0.6.0-1/package/package.json
+info unbuild /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors
+verbose from cache /Users/dallin/.npm/canvas/0.13.1/package/package.json
+info unbuild /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/code/speedyshop/node_modules/qrcode/node_modules'
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors'
+verbose mkdir (expected) error ENOENT, stat '/Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas'
+verbose mkdir done: /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors 755
+verbose mkdir done: /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors
+silly gunzTarPerm modes [ '755', '644' ]
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas
+silly gunzTarPerm modes [ '755', '644' ]
+verbose gunzed /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors
+verbose caching /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors/package.json
+verbose loadDefaults colors@0.6.0-1
+info preinstall colors@0.6.0-1
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors
+info build /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/colors/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/Users/dallin/code/speedyshop/node_modules/qrcode/node_modules' ]
+info linkStuff colors@0.6.0-1
+verbose linkBins colors@0.6.0-1
+verbose linkMans colors@0.6.0-1
+verbose rebuildBundles colors@0.6.0-1
+info install colors@0.6.0-1
+info postinstall colors@0.6.0-1
+verbose gunzed /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas
+verbose has bindings.gyp [ undefined,
+verbose has bindings.gyp   { file: '/Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas/package.json',
+verbose has bindings.gyp     wscript: false,
+verbose has bindings.gyp     gypfile: true,
+verbose has bindings.gyp     contributors: false,
+verbose has bindings.gyp     serverjs: false } ]
+verbose caching /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas/package.json
+verbose loadDefaults canvas@0.13.1
+info preinstall canvas@0.13.1
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas
+info build /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/Users/dallin/code/speedyshop/node_modules/qrcode/node_modules' ]
+info linkStuff canvas@0.13.1
+verbose linkBins canvas@0.13.1
+verbose linkMans canvas@0.13.1
+verbose rebuildBundles canvas@0.13.1
+info install canvas@0.13.1
+verbose unsafe-perm in lifecycle true
+silly exec sh "-c" "node-gyp rebuild"
+silly spawning [ 'sh',
+silly spawning   [ '-c', 'node-gyp rebuild' ],
+silly spawning   '/Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas' ]
+info canvas@0.13.1 Failed to exec install script
+info unbuild /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/node_modules/canvas/package.json
+info preuninstall canvas@0.13.1
+info uninstall canvas@0.13.1
+verbose unbuild canvas@0.13.1 [ false,
+verbose unbuild canvas@0.13.1   '/Users/dallin/code/speedyshop/node_modules',
+verbose unbuild canvas@0.13.1   '/Users/dallin/code/speedyshop/node_modules/qrcode/node_modules' ]
+info postuninstall canvas@0.13.1
+verbose about to build /Users/dallin/code/speedyshop/node_modules/qrcode
+info unbuild /Users/dallin/code/speedyshop/node_modules/qrcode
+verbose from cache /Users/dallin/code/speedyshop/node_modules/qrcode/package.json
+info preuninstall qrcode@0.2.4
+info uninstall qrcode@0.2.4
+verbose unbuild qrcode@0.2.4 [ true,
+verbose unbuild qrcode@0.2.4   '/Users/dallin/code/speedyshop/node_modules',
+verbose unbuild qrcode@0.2.4   '/Users/dallin/code/speedyshop/node_modules' ]
+verbose binRoot [ '/Users/dallin/code/speedyshop/node_modules/.bin',
+verbose binRoot   { qrcode: './bin/qrcode' } ]
+info postuninstall qrcode@0.2.4
+ERR! canvas@0.13.1 install: `node-gyp rebuild`
+ERR! `sh "-c" "node-gyp rebuild"` failed with 1
+ERR! 
+ERR! Failed at the canvas@0.13.1 install script.
+ERR! This is most likely a problem with the canvas package,
+ERR! not with npm itself.
+ERR! Tell the author that this fails on your system:
+ERR!     node-gyp rebuild
+ERR! You can get their info via:
+ERR!     npm owner ls canvas
+ERR! There is likely additional logging output above.
+ERR! 
+ERR! System Darwin 11.4.0
+ERR! command "node" "/usr/local/bin/npm" "install" "qrcode"
+ERR! cwd /Users/dallin/code/speedyshop
+ERR! node -v v0.6.14
+ERR! npm -v 1.1.12
+ERR! code ELIFECYCLE
+ERR! message canvas@0.13.1 install: `node-gyp rebuild`
+ERR! message `sh "-c" "node-gyp rebuild"` failed with 1
+ERR! errno {}
+verbose exit [ 1, true ]
