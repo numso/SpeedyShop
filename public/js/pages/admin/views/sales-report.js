@@ -18,6 +18,9 @@ define([
         chartID: 'sales-chart',
         status: {},
 
+        rawItemsData: undefined,
+        rawSalesData: undefined,
+
         events: {
             'click .show-chart': 'showChart',
             'click .show-graph': 'showGraph',
@@ -108,7 +111,7 @@ define([
         drawChart: function () {
             this.updateChartItem();
             // console.log(this.chartObject);
-            
+
             var that = this;
             $.get('/tempSalesChartCall', function(data){
                 var months = [];
@@ -143,7 +146,7 @@ define([
         },
 
         updateChartItem: function () {
-            
+
             console.log(this.$('#' + this.chartID));
 
         },
