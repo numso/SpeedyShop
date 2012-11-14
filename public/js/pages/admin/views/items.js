@@ -22,8 +22,9 @@ define([
         events: {
             'click .tab': 'changeTab',
             'click select, input, textarea': 'verify',
-            'onkeypress select, input, textarea': 'verify',
-            'click .submit-button': 'submitItem',
+            'keydown select, input, textarea': 'verify',
+            'click .submit-add': 'submitItem',
+            'click .submit-edit': 'submitEditedItem',
             'click .delete-button': 'deleteItem',
             'click .edit-button': 'editItem',
             'blur .images-URLs input': 'updateImage'
@@ -50,20 +51,26 @@ define([
             if (this.currentTab)
                 this.currentTab.removeClass('active');
             tab.addClass('active');
+            this.currentTab = tab;
 
             var index = tab.attr('id').charAt(4);
             if (index == 0)
-                this.$('.items-body').html(editableItemTmpl({
-                    submitText: "Add New Item"
-                }));
+                this.showAddNewItemTemplate();
             else if (index == 1)
                 this.$('.items-body').html(editDeleteItemsTmpl(this.inventory));
 
             //if (index == 1)
             //    this.mailTest();
 
-            this.currentTab = tab;
             this.verify(undefined);
+        },
+
+        showAddNewItemTemplate: function () {
+            this.$('.items-body').html(editableItemTmpl({
+                type: "add",
+                submitText: "Add New Item"
+            }));
+            this.verify(null); //will disable submit button due to reset
         },
 
         getFormData: function () {
@@ -101,6 +108,7 @@ define([
         },
 
         submitItem: function (e) { //assemble item and submit to server
+            console.log("creating new item");
             var formData = this.getFormData();
             var itemData = {
                 "name": formData[0],
@@ -113,8 +121,7 @@ define([
             var that = this;
             var response = $.post("/addItem", JSON.stringify(itemData), function (response) {
                 if (response.status === "OK") {
-                    that.$('.items-body').html(addItemTmpl); //reset
-                    that.verify(null); //will disable submit button due to reset
+                    that.showAddNewItemTemplate();
                 }
                 else {
                     window.alert("Error submitting item. Invalid or missing data?.\nServer responded: " + response.status+": "+response.msg);
@@ -124,13 +131,18 @@ define([
 
         deleteItem: function (e) {
             var item = this.$(e.target).closest('tr');
+            var itemID = item.attr('id');
             var that = this;
-            var response = $.post("/deleteItem", JSON.stringify(item.attr('id')), function (response) {
+            console.log("client wanting to delete existing item "+itemID);
+            var response = $.post("/deleteItem/"+itemID, {}, function (response) {
                 if (response.status === "OK") {
-                    item.find('button').attr('disabled', true); //disable all controls: the item is gone
+                    $.get('/inventory', function (data) {
+                        that.inventory = JSON.parse(data); //refresh inventory
+                        item.find('button').attr('disabled', true); //disable all controls: the item is gone
+                    });
                 }
                 else {
-                    window.alert("Error deleting item.\nServer responded: " + response.status+": "+response.msg);
+                    window.alert("Error deleting item.\nServer responded: " + response.status);
                 }
             });
         },
@@ -140,8 +152,11 @@ define([
             var id = this.$(e.target).closest('tr').attr('id');
             $.get('/getItem/' + id, function (data) {
                 if (data.status === "success") {
+                    console.log("id: "+id);
                     var obj = {
                         submitText: "Submit Changes",
+                        type: "edit", //so event can be triggered from it
+                        id: id,
                         name: data.item.name,
                         price: data.item.price,
                         desc: data.item.desc,
@@ -150,7 +165,7 @@ define([
                         imgUrl3: data.item.images[2],
                         imgUrl4: data.item.images[3]
                     }
-                    that.$('.items-body').html(editableItemTmpl(obj));
+                    that.$('.items-body').html(editableItemTmpl(obj)); //fill out fields
                     that.verify(null);
                 }
             });
@@ -159,17 +174,23 @@ define([
         submitEditedItem: function (e) {
             var formData = this.getFormData();
             var itemData = {
-                "name": formData[0],
-                "desc": formData[1],
-                "cat": [formData[2], formData[3], formData[4]],
-                "price": parseInt(formData[6], 10), //what about cost? hmm...
-                "images": [formData[7], formData[8], formData[9], formData[10]]
+                id: this.$('.item-name').attr('id'),
+                name: formData[0],
+                desc: formData[1],
+                cat: [formData[2], formData[3], formData[4]],
+                cost: parseInt(formData[5], 10),
+                price: parseInt(formData[6], 10),
+                images: [formData[7], formData[8], formData[9], formData[10]]
             };
 
             var that = this;
             var response = $.post("/changeItem", JSON.stringify(itemData), function (response) {
                 if (response.status === "OK") {
-                    that.$('.items-body').html(editDeleteItemsTmpl); //reset
+                    $.get('/inventory', function (data) {
+                        that.inventory = JSON.parse(data); //refresh inventory
+                        that.$('.items-body').html(editDeleteItemsTmpl(that.inventory)); //reset
+                        that.verify(null);
+                    });
                 }
                 else {
                     window.alert("Error submitting edited item. Invalid or missing data?.\nServer responded: " + response.status+": "+response.msg);
