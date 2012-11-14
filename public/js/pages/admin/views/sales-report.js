@@ -123,19 +123,15 @@ define([
                     data: data
                 };
 
-                console.log(obj.data);
-// SOMETHING WRONG WITH THESE FOR LOOPS
                 for (var i = 0; i < obj.data.length; ++i){
-                    console.log('First For Loop i = ' + i);
+                    if (!(i % 2)) { obj.data[i].odd = true; }
+                    else { obj.data[i].odd = undefined; }
                     for (var j = 0; j < 12; ++j){
-                        console.log('Second Foor Loop i = ' + i + " j = " + j);
                         if (obj.data[i].data[j]){
                             if (obj.data[i].data[j].projectedQuantity < obj.data[i].data[j].actualQuantity){
                                 obj.data[i].data[j].goalMet = true;
-                                console.log("if true");
                             } else {
                                 obj.data[i].data[j].goalMet = undefined;
-                                console.log("ELSE");
                             }
                         }
                     }

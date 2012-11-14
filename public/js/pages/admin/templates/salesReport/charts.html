@@ -5,7 +5,7 @@
             <th>{{this}}</th>
         {{/each}}
             {{#each data}}
-                <tr>
+                <tr class = "{{#if odd}}odd{{else}}even{{/if}}">
                     <td><h4 class="cat">{{cat}}</h4> </td>
                     {{#each data}}
                         <td>
