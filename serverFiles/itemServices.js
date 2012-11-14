@@ -184,7 +184,7 @@ module.exports = function () {
         },
 
         chartSales: function (request, response, next) {
-            var salesList = fs.readFileSync('serverData/analytics.json');
+            var salesList = fs.readFileSync('serverData/test.json');
             response.send(salesList);
         }
 

@@ -73,4 +73,4 @@ app.post('/addItem', itemServices.addItem);
 app.post('/deleteItem', itemServices.deleteItem);
 app.post('/editInventory', adminServices.editInventory);
 app.get('/itemList', itemServices.chartItems);
-app.get('/analytics', itemServices.chartSales);
+app.get('/test', itemServices.chartSales);

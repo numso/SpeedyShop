@@ -21,7 +21,7 @@ define([
             var that = this;
             $.get('/promocodes', function (items) {
                 that.codeList = JSON.parse(items);
-                console.log(that.codeList);
+                // console.log(that.codeList);
                 that.$el.html(promocodelistTmpl(that.codeList));
             });
             return this;

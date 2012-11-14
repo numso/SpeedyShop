@@ -4,10 +4,11 @@
         {{#each months}}
             <th>{{this}}</th>
         {{/each}}
-            <tr>
-                {{#each item}}
-                    <td><h4 class="cat">{{chartCat}}</h4> </td>
+            {{#each item}}
                     {{#each chartData}}
+                <tr>
+                    <td><h4 class="cat">{{chartCat}}</h4> </td>
+                    {{#each this}}
                     <td>
                         <div class="cell">
                             <div class="bottom">
@@ -26,6 +27,7 @@
                     </td>
                 {{/each}}
             </tr>
+                {{/each}}
         {{/each}}
     </table>
 </div>
