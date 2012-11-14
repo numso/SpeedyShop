@@ -17,25 +17,6 @@ define([
         graphID: 'sales-graph',
         chartID: 'sales-chart',
         status: {},
-        rawItemsData: undefined,
-        rawSalesData: undefined,
-        itemData:{
-                profitP: 1,
-                profitA: 1,
-                dollarsP: 1,
-                dollarsA: 1,
-                itemsP: 1,
-                itemsA: 1
-            },
-        chartObject:{
-            months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
-            item: [
-                {
-                    chartCat: "Home",
-                    chartData:[] // for each month
-                }
-            ]
-        },
 
         events: {
             'click .show-chart': 'showChart',
@@ -121,118 +102,15 @@ define([
                 chartID: this.chartID
             }));
 
-            var that = this;
-            $.get('/itemList', function(data){
-                 that.rawItemsData = JSON.parse(data);
-            });
-
-            $.get('/analytics', function(data){
-                that.rawSalesData = JSON.parse(data);
-            });
-
             return this;
         },
 
-        /*
-        Dallin we need a function for this from the server
-        I will try and do it myself but may need your help
-
-        Object {
-            item1: [ array of time variable (Year, Month)]
-            item2: [array of objects (One object for each time interval)
-                {Object with 2 items ()
-                    chartCat:
-                    ChartData:[ an array of objects with the same number of elements as are in
-                                the 'item1' object.
-                        { Each object has the data for that time period (6 keys)
-                            profitP:
-                            profitA:
-                            dollarsP:
-                            dollarsA:
-                            itemsP:
-                            itemsA:
-                            ///// P stands for Projected
-                            ///// A stands for Actual
-                         }
-                    ]
-                }
-            ]
-        }
-        */
-
         drawChart: function () {
-            this.rawItemsData
-            this.initialize();
-            this.updateChartItem();
-            this.$("#" + this.chartID).html(chartTmpl(this.chartObject));
-        },
-
-        initialize: function () {
-            for(var i = 0; i<12;++i){
-                this.chartObject.item[0].chartData[i] = this.itemData;
-            }
-        },
-
-        updateChartItem: function () {
-            /*var byID = [];
-            for (var i = 0; i < this.rawItemsData.length; ++i){
-                var index = this.rawItemsData[i].id;
-                byID[index] = {
-                    id: this.rawItemsData[i].id,
-                    price: this.rawItemsData[i].price,
-                    // GENERATIONG COST BY MYSELF, UPDATE HERE IF WE CHANGE ITEMS JSON TO HAVE COST
-                    cost: this.rawItemsData[i].price*0.5,
-                    name:this.rawItemsData[i].name,
-                    chartCat: this.rawItemsData[i].cat[0],
-                    chartData:[]
-                };
-            }
-            // console.log(byID);
-            for (i = 0; i < this.rawSalesData.length; ++i){
-                var obj = this.rawSalesData;
-                var index = obj[i].items[0].id;
-                var proj = obj[i].items[0].projected;
-                var act = obj[i].items[0].actual;
-                var itemCost = byID[i].cost;
-                var itemPrice = byID[i].price;
-                var tempObj = {
-                    timestamp: obj[i].timestamp,
-                    project: proj,
-                    actual: act,
-                    profitP: (itemPrice-itemCost)*proj,
-                    profitA: (itemPrice-itemCost)*act,
-                    dollarsP: (itemPrice)*proj,
-                    dollarsA: (itemPrice)*act,
-                    itemsP: proj,
-                    itemsA: act
-                };
-                byID[index].chartData.push(tempObj);
-            }
-            this.chartObject.months = ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
-            for (i = 0; i < byID.length; ++i){
-                //if (!this.chartObject){
-                    this.chartObject[i] = {
-                    item: [
-                        {
-                            chartCat:byID[i].chartCat,
-                            chartData: [ function(){
-                                    var tempObj = []
-                                    for (var j = 0; j < this.byID[i].chartData.length; ++j){
-                                        tempObj[j].push(this.byID[i].chartData[j]);
-                                    }
-                                    return tempObj;
-                                }
-                            ]
-                        }
-                    ]
-                }
-                console.log(this.chartObject);
-            }*/
         },
 
         changeProjected: function (e) {
             var el = this.$('est-projection').closest();
-            consel.log(el);
+            console.log(el);
         },
 
         gotFocus: function () {

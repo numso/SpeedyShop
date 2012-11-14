@@ -25,7 +25,7 @@ define([
             }));
 
             var that = this;
-            $.get('/giveMeTheItems', function (data) {
+            $.get('/getItems', function (data) {
                 that.curInventory = data;
             });
             return this;
@@ -36,11 +36,14 @@ define([
         },
 
         showLabel: function () {
+            var o = this.pickedOrder;
+            var oa = o.address;
+
             var data = {
-                name: 'bubba',
-                address: '575n 590w, Logan, UT, 84321',
-                'order#': this.pickedOrder.orderNum,
-                weight: this.pickedOrder.estimatedWeight
+                name: oa.firstName + " " + oa.lastName,
+                address: oa.street1 + oa.street2 + ", " + oa.city + ", " + oa.state  + ", " + oa.zip,
+                'order#': o.orderNum,
+                weight: o.estimatedWeight
             };
 
             this.$('.ship-lbl-name').find('span').html(data.name);
@@ -61,10 +64,9 @@ define([
             this.showLabel();
         },
 
-        updateOrders: function(){
+        updateOrders: function () {
             console.log(this.curInventory);
-            if(this.isValid())
-                {
+            if(this.isValid()) {
                     this.pickedOrder.orderStatus = "Completed";
 
                     console.log(this.pickedOrder);
@@ -72,7 +74,7 @@ define([
                     for(var x = 0; x < this.pickedOrder.items.length; ++x)
                         for(var n = 0; n < this.curInventory.length; ++n)
                             if(this.pickedOrder.items[x].itemID == this.curInventory[n].id)
-                            { 
+                            {
                                 console.log(this.curInventory[n].available);
                                 this.curInventory[n].available -= this.pickedOrder.items[x].quantity
                                 console.log(this.curInventory[n].available);
@@ -84,23 +86,19 @@ define([
                     $.post('/updateThisOrder', JSON.stringify(this.pickedOrder), function (resp) {
                         console.log("Response: " + JSON.stringify(resp));
                     });
-                    
-                    $('.error-msg').css('display', 'none');
-                    $('.submitted-msg').css('display', 'inline');
-                }
-            else
-            {
+
+                    this.$('.error-msg').css('display', 'none');
+                    this.$('.submitted-msg').css('display', 'inline');
+            } else {
                 console.log("im in here!");
-                $('.error-msg').css('display', 'inline');
-                $('.submitted-msg').css('display', 'none');
+                this.$('.error-msg').css('display', 'inline');
+                this.$('.submitted-msg').css('display', 'none');
             }
-
-
         },
 
-        isValid: function(){
+        isValid: function () {
             flag = true;
-            $('.item-check').each(function (index){
+            this.$('.item-check').each(function (index){
                 var thisValue = $(this).is(':checked');
                 if(!thisValue)
                     flag = false;

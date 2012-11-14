@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function (app) {
 
     var CUSTOMER_TYPE = 1,
         EMPLOYEE_TYPE = 2,
