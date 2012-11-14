@@ -41,8 +41,6 @@ define([
                             this.curInventory[n].available = itemsToChange[x].newValue;
 
             this.$el.html(inventoryTmpl(this.curInventory));
-            //console.log(this.curInventory);
-
         },
 
         checkLowInventory: function(){
@@ -69,8 +67,8 @@ define([
 
         render: function () {
             var that = this;
-            $.get('/inventory', function (data) {
-                that.curInventory = JSON.parse(data);
+            $.get('/getItems', function (data) {
+                that.curInventory = data;
                 that.$el.html(inventoryTmpl(that.curInventory));
                 that.checkLowInventory();
             });

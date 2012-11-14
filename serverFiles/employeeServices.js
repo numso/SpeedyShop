@@ -1,22 +1,19 @@
 /*jshint node:true*/
 
-module.exports = function () {
+module.exports = function (app) {
 
-    var fs = require('fs'),
-        orders = JSON.parse(fs.readFileSync('serverData/orders.json')),
-        giveMeTheItems = JSON.parse(fs.readFileSync('serverData/items.json'));
+    var fs = require('fs');
 
     return {
         getOrders: function (request, response, next) {
+            var orders = app.shopData.orders;
             response.send(orders);
         },
 
-        getItems: function(request, response, next) {
-            response.send(giveMeTheItems);
-        },
-
         updateThisOrder: function(request, response, next) {
-             var input = '';
+            var orders = app.shopData.orders;
+
+            var input = '';
             request.on('data', function (chunk) {
                 input += chunk;
             });
@@ -25,8 +22,8 @@ module.exports = function () {
                 input = JSON.parse(input);
 
                 for (var n = 0; n < orders.length; ++n)
-                	if (orders[n].orderNum == input.orderNum)
-                		orders[n].orderStatus = input.orderStatus;
+                    if (orders[n].orderNum == input.orderNum)
+                        orders[n].orderStatus = input.orderStatus;
 
                 fs.writeFileSync('serverData/orders.json', JSON.stringify(orders));
             });
@@ -44,6 +41,8 @@ module.exports = function () {
         },
 
         submitOrder: function(request, response, next) {
+            var orders = app.shopData.orders;
+
             var orderData = '';
             request.on('data', function (chunk) {
                 orderData += chunk;

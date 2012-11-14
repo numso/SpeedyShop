@@ -17,13 +17,7 @@ define([
 
         render: function () {
             this.$el.html(footerTmpl());
-
-
-
-
             return this;
         }
-
-
     });
 });

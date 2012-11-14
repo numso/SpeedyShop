@@ -17,8 +17,11 @@ define([
         graphID: 'sales-graph',
         chartID: 'sales-chart',
         status: {},
+<<<<<<< HEAD
         rawItemsData: undefined,
         rawSalesData: undefined,
+=======
+>>>>>>> 56db3e019c6f19bc87a924019712932fd8337d35
 
         events: {
             'click .show-chart': 'showChart',
@@ -104,20 +107,8 @@ define([
                 chartID: this.chartID
             }));
 
-            var that = this;
-            $.get('/itemList', function(data){
-                 that.rawItemsData = JSON.parse(data);
-            });
-
-            $.get('/test', function(data){
-                that.rawSalesData = JSON.parse(data);
-            });
-
             return this;
         },
-
-
-
 
         drawChart: function () {
             this.updateChartItem();

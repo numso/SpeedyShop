@@ -102,6 +102,40 @@ define([
                 that.renderHtml(that.curReviews);
             });
             that.renderHtml(that.curReviews);
+
+            this.avgReviews();
+        },
+
+        avgReviews: function () {
+            var that = this;
+            $.get('/getItems', function (data) {
+
+            for(var n = 0; n < data.length; ++n)
+                if(data[n].id == that.itemID)
+                    data[n].rating = that.computeRating();
+
+            $.post('/editInventory', JSON.stringify(data), function (resp) {
+                console.log("Response: " + JSON.stringify(resp));
+            });
+                
+            });
+
+        },
+
+        computeRating: function() {
+            var sum = 0;
+            sum += this.curReviews[0].reviews.length * 1;
+            sum += this.curReviews[1].reviews.length * 2;
+            sum += this.curReviews[2].reviews.length * 3;
+            sum += this.curReviews[3].reviews.length * 4;
+            sum += this.curReviews[4].reviews.length * 5;
+
+            var den = this.curReviews[0].reviews.length + this.curReviews[1].reviews.length + this.curReviews[2].reviews.length + this.curReviews[3].reviews.length + this.curReviews[4].reviews.length;
+
+            var average = sum / den;
+
+            return parseInt(average);
+
         },
 
         cancelReview: function (e) {
@@ -141,6 +175,7 @@ define([
 
                 return;
             }
+
         }
     });
 });

@@ -1,12 +1,12 @@
 /*jshint node: true*/
 
-module.exports = function () {
+module.exports = function (app) {
 
-    var fs = require('fs'),
-        filters = JSON.parse(fs.readFileSync('serverData/filter.json'));
+    var fs = require('fs');
 
     return {
         getFilters: function (request, response, next) {
+            var filters = app.shopData.filter;
 
             var data = '';
             request.on('data', function (chunk) {

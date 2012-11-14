@@ -5,21 +5,38 @@ var PORT = process.env.PORT || process.argv[2] || 80,
     ENV = process.argv[3] || 'dev';
 
 var express = require('express'),
+    fs = require('fs'),
     app = express();
 
 app.listen(PORT, HOST);
 console.log('Server running on port:' + PORT);
 
-var itemServices = require('./serverFiles/itemServices')(),
-    filterServices = require('./serverFiles/filterServices')(),
-    reviewServices = require('./serverFiles/reviewServices')(),
-    employeeServices = require('./serverFiles/employeeServices')(),
-    adminServices = require('./serverFiles/adminServices')();
+(function () {
+    app.shopData = {};
+    app.shopData.analytics = JSON.parse(fs.readFileSync('serverData/analytics.json'));
+    app.shopData.cat = JSON.parse(fs.readFileSync('serverData/cat.json'));
+    app.shopData.filter = JSON.parse(fs.readFileSync('serverData/filter.json'));
+    app.shopData.items = JSON.parse(fs.readFileSync('serverData/items.json'));
+    app.shopData.orders = JSON.parse(fs.readFileSync('serverData/orders.json'));
+    app.shopData.promoCodes = JSON.parse(fs.readFileSync('serverData/promoCodes.json'));
+    app.shopData.reviews = JSON.parse(fs.readFileSync('serverData/reviews.json'));
+
+    app.shopData.test = JSON.parse(fs.readFileSync('serverData/test.json'));
+
+    app.shopData.users = JSON.parse(fs.readFileSync('serverData/users.json'));
+    app.shopData.usersWin = JSON.parse(fs.readFileSync('serverData/usersWin.json'));
+}());
+
+var itemServices = require('./serverFiles/itemServices')(app),
+    filterServices = require('./serverFiles/filterServices')(app),
+    reviewServices = require('./serverFiles/reviewServices')(app),
+    employeeServices = require('./serverFiles/employeeServices')(app),
+    adminServices = require('./serverFiles/adminServices')(app);
 
 if (ENV === 'prod') {
-    var authServices = require('./serverFiles/authServices')();
+    var authServices = require('./serverFiles/authServices')(app);
 } else {
-    var authServices = require('./serverFiles/authServicesDEV')();
+    var authServices = require('./serverFiles/authServicesDEV')(app);
 }
 
 app.configure(function () {
@@ -35,7 +52,6 @@ app.configure(function () {
 
 // Menu Stuff
 app.get('/getCategories', itemServices.getCategories);
-app.get('/getCategories/', itemServices.getCategories);
 
 // Items Stuff
 app.get('/getItems', itemServices.getItems);
@@ -55,7 +71,6 @@ app.post("/createReview/:objID", reviewServices.createReview);
 
 // Employee Stuff
 app.get('/orders', employeeServices.getOrders);
-app.get('/giveMeTheItems', employeeServices.getItems);
 app.post('/updateThisOrder', employeeServices.updateThisOrder);
 app.post('/updateItemsAfterOrder', employeeServices.updateQuantity);
 app.post('/submitOrder', employeeServices.submitOrder);
@@ -71,14 +86,18 @@ app.post('/signup', authServices.signup);
 app.get('/sales/year/:yearID', adminServices.getSalesByYear);
 app.get('/sales/year/:yearID/month/:monthID', adminServices.getSalesByYearMonth);
 app.get('/promocodes', adminServices.getPromoCodes);
-app.get('/inventory', adminServices.getInventory);
 app.post('/addItem', itemServices.addItem);
 app.post('/changeItem', itemServices.changeItem);
 app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/editInventory', adminServices.editInventory);
+<<<<<<< HEAD
 app.get('/itemList', itemServices.chartItems);
 app.get('/analytics', itemServices.chartSales);
 app.get('/test', itemServices.chartSales);
+=======
+>>>>>>> 56db3e019c6f19bc87a924019712932fd8337d35
 
 
 app.get('/tempSalesChartCall', adminServices.tempChartCall);
+
+
