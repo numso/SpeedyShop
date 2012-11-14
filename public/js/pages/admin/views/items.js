@@ -39,8 +39,8 @@ define([
             var that = this;
             this.$el.html(itemsTmpl());
             this.$('#tab-0').trigger('click'); //fires a click event to open first tab
-            $.get('/inventory', function (data) {
-                that.inventory = JSON.parse(data);
+            $.get('/getItems', function (data) {
+                that.inventory = data;
             });
 
             return this;
@@ -134,8 +134,8 @@ define([
             var that = this;
             var response = $.post("/deleteItem/"+itemID, {}, function (response) {
                 if (response.status === "OK") {
-                    $.get('/inventory', function (data) {
-                        that.inventory = JSON.parse(data); //refresh inventory
+                    $.get('/getItems', function (data) {
+                        that.inventory = data; //refresh inventory
                         item.find('button').attr('disabled', true); //disable all controls: the item is gone
                     });
                 }
@@ -183,8 +183,8 @@ define([
             var that = this;
             var response = $.post("/changeItem", JSON.stringify(itemData), function (response) {
                 if (response.status === "OK") {
-                    $.get('/inventory', function (data) {
-                        that.inventory = JSON.parse(data); //refresh inventory
+                    $.get('/getItems', function (data) {
+                        that.inventory = data; //refresh inventory
                         that.$('.items-body').html(editDeleteItemsTmpl(that.inventory)); //reset
                         that.verify(null);
                     });

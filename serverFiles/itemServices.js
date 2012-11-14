@@ -1,13 +1,13 @@
 /*jshint node:true*/
 
-module.exports = function () {
+module.exports = function (app) {
 
-    var fs = require('fs'),
-        items = JSON.parse(fs.readFileSync("serverData/items.json")),
-        categories = JSON.parse(fs.readFileSync("serverData/cat.json"));
+    var fs = require('fs');
 
     return {
         search: function (request, response, next) {
+            var items = app.shopData.items;
+
             var data = '';
             request.on('data', function (chunk) {
                 data += chunk;
@@ -28,6 +28,8 @@ module.exports = function () {
         },
 
         incrementPopularity: function (request, response, next) {
+            var items = app.shopData.items;
+
             var id = parseInt(request.params.itemNumber, 10);
 
             for (var i = 0; i < items.length; ++i) {
@@ -42,6 +44,8 @@ module.exports = function () {
         },
 
         addItem: function (request, response, next) {
+            var items = app.shopData.items;
+
             var data = '';
             request.on('data', function (d) {
                 data += d;
@@ -103,6 +107,8 @@ module.exports = function () {
         },
 
         deleteItem: function (request, response, next) {
+            var items = app.shopData.items;
+
             for (var j = 0; j < items.length; ++j) {
                 if (items[j].id == request.params.itemID) {
                     items.splice(j, 1);
@@ -120,6 +126,8 @@ module.exports = function () {
         },
 
         changeItem: function (request, response, next) {
+            var items = app.shopData.items;
+
             var itemData = '';
             request.on('data', function (d) {
                 itemData += d;
@@ -151,6 +159,8 @@ module.exports = function () {
         },
 
         getItems: function (request, response, next) {
+            var items = app.shopData.items;
+
             var category = request.params.catID || "All",
                 myObj = [];
 
@@ -181,10 +191,13 @@ module.exports = function () {
         },
 
         getCategories: function (request, response, next) {
+            var categories = app.shopData.cat;
             response.send(categories);
         },
 
         getItem: function (request, response, next) {
+            var items = app.shopData.items;
+
             var id = request.params.id;
 
             for (var i = 0; i < items.length; ++i) {
@@ -207,17 +220,6 @@ module.exports = function () {
                 status: "error",
                 code: "not found"
             });
-        },
-
-        chartItems: function (request, response, next) {
-            var itemList = fs.readFileSync('serverData/items.json');
-            response.send(itemList);
-        },
-
-        chartSales: function (request, response, next) {
-            var salesList = fs.readFileSync('serverData/test.json');
-            response.send(salesList);
         }
-
     };
 };

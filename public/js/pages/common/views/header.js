@@ -18,7 +18,7 @@ define([
         render: function () {
             var that = this;
 
-            $.get('/getCategories/', function (data) {
+            $.get('/getCategories', function (data) {
                 that.$el.html(headerTmpl());
                 that.$('.main-menu').html(mainMenuTmpl(data));
                 that.categories = data;

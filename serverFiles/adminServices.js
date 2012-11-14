@@ -1,12 +1,11 @@
-module.exports = function () {
+module.exports = function (app) {
 
-
-    var fs = require('fs'),
-        sales = JSON.parse(fs.readFileSync('serverData/test.json'));
+    var fs = require('fs');
 
     return {
         getSalesByYear: function (request, response, next) {
             var year = request.params.yearID,
+                sales = app.shopData.test,
                 newArr = [];
 
             for (var i = 0; i < sales.length; ++i) {
@@ -37,6 +36,7 @@ module.exports = function () {
         getSalesByYearMonth: function (request, response, next) {
             var year = request.params.yearID,
                 month = request.params.monthID,
+                sales = app.shopData.test,
                 newArr = [];
 
             for (var i = 0; i < sales.length; ++i) {
@@ -61,6 +61,7 @@ module.exports = function () {
 
         tempChartCall: function (request, response, next) {
             var year = 2012,
+                sales = app.shopData.test,
                 newArr = [];
 
             for (var i = 0; i < sales.length; ++i) {
@@ -91,7 +92,7 @@ module.exports = function () {
 
             var returnVal = [];
 
-            var cats = JSON.parse(fs.readFileSync('serverData/cat.json'));
+            var cats = app.shopData.cat;
             for (var j = 0; j < cats.length; ++j) {
                 if (cats[j].title !== "Hot Items") {
                     returnVal.push({
@@ -105,13 +106,8 @@ module.exports = function () {
 
         getPromoCodes: function (request, response, next) {
 
-            var codes = fs.readFileSync('serverData/promoCodes.json');
+            var codes = JSON.stringify(app.shopData.promoCodes);
             response.send(codes);
-        },
-
-        getInventory: function(request, response, next) {
-            var inventory = fs.readFileSync('serverData/items.json');
-            response.send(inventory);
         },
 
         editInventory: function(request, response, next) {

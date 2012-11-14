@@ -17,25 +17,6 @@ define([
         graphID: 'sales-graph',
         chartID: 'sales-chart',
         status: {},
-        rawItemsData: undefined,
-        rawSalesData: undefined,
-        itemData:{
-                profitP: 0,
-                profitA: 0,
-                dollarsP: 0,
-                dollarsA: 0,
-                itemsP: 0,
-                itemsA: 0
-            },
-        chartObject:{
-            months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
-            item: [
-                {
-                    chartCat: [],
-                    chartData:[] // one object for each month
-                }
-            ]
-        },
 
         events: {
             'click .show-chart': 'showChart',
@@ -121,93 +102,15 @@ define([
                 chartID: this.chartID
             }));
 
-            var that = this;
-            $.get('/itemList', function(data){
-                 that.rawItemsData = JSON.parse(data);
-            });
-
-            $.get('/test', function(data){
-                that.rawSalesData = JSON.parse(data);
-            });
-
             return this;
         },
 
-
-
-
         drawChart: function () {
-            //this.rawItemsData
-            //this.initialize();
-            this.updateChartItem();
-            console.log(this.chartObject);
-            this.$("#" + this.chartID).html(chartTmpl(this.chartObject));
-        },
-
-        /*
-        Dallin we need a function for this from the server
-        I will try and do it myself but may need your help
-
-        Object {
-            item1: [ array of time variable (Year, Month)]
-            item2: [array of objects (One object for each time interval)
-                {Object with 2 items ()
-                    chartCat:
-                    ChartData:[][ 
-                                { (Jan)
-                                    profitA:
-                                    profitP:
-                                    salesA:
-                                    salesP:
-                                    itemsA:
-                                    itemsP:
-                                },
-                                { (Feb)
-                                    profitA:
-                                    profitP:
-                                    salesA:
-                                    salesP:
-                                    itemsA:
-                                    itemsP:
-                                },{...},{...},{...},{...},{...},{...},{...},{...},{...}
-                    ChartData:[ an array of objects with the same number of elements as are in
-                                the 'item1' object.
-                        { Each object has the data for that time period (6 keys)
-                            profitP:
-                            profitA:
-                            dollarsP:
-                            dollarsA:
-                            itemsP:
-                            itemsA:
-                            ///// P stands for Projected
-                            ///// A stands for Actual
-                         }
-                    ]
-                }
-            ]
-        }
-        */
-
-        updateChartItem: function () {
-            var itemsById = [];
-            var obj = this.rawItemsData;
-            console.log(obj.length);
-            for (var i = 0; i < obj.length; ++i){
-                var index = obj[i].id;
-                itemsById[index] = {
-                    id: obj[i].id,
-                    price: obj[i].price,
-                    //THIS NEEDS TO BE REVISITED WHEN WE GET THE COST ENTERED INTO THE ITEMS.JSON
-                    profit: obj[i].price/2,
-                    name:obj[i].name,
-                    chartCat:obj[i].cat[0],
-                    chartData: []
-
         },
 
         changeProjected: function (e) {
             var el = this.$('est-projection').closest();
-            consel.log(el);
+            console.log(el);
         },
 
         gotFocus: function () {

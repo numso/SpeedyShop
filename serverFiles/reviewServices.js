@@ -1,12 +1,13 @@
 /*jshint node:true*/
 
-module.exports = function () {
+module.exports = function (app) {
 
-    var fs = require('fs'),
-        reviews = JSON.parse(fs.readFileSync('serverData/reviews.json'));
+    var fs = require('fs');
 
     return {
         getReviews: function (request, response, next) {
+            var reviews = app.shopData.reviews;
+
             var id = request.params.id,
                 found = false,
                 arr = [];
@@ -22,6 +23,8 @@ module.exports = function () {
         },
 
         createReview: function (request, response, next){
+            var reviews = app.shopData.reviews;
+
             var id = request.params.objID;
 
             var data = '';
