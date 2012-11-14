@@ -73,10 +73,13 @@ define([
 
         showNext: function (e) {
             this.saveOffPageData();
-            this.index = Math.min(this.myTmpls.length - 1, this.index + 1);
             if (this.index == this.myTmpls.length - 1)
-                this.completeTransaction();
-            this.updateScreen();
+                this.completeTransaction(); //they clicked Next on the last page
+            else
+            {
+                this.index = Math.min(this.myTmpls.length - 1, this.index + 1);
+                this.updateScreen();
+            }
         },
 
         showPrev: function (e) {
@@ -93,22 +96,24 @@ define([
 
             // update buttons
             this.$('#checkout-prev-step').hide();
-            if (this.index > 0) {
+            if (this.index > 0)
                 this.$('#checkout-prev-step').show();
-            }
 
             this.$('#checkout-next-step').text('Next>');
-            if (this.index >= this.myTmpls.length - 1) {
+            if (this.index >= this.myTmpls.length - 1)
                 this.$('#checkout-next-step').text('Done');
-            }
-
-            //TODO: NAVIGATION HAS BUGS, CONFIRM ORDER IS NOT DISPLAYED. WILL FIX SOON. -Jesse V.
 
             // update body
-            this.$('.checkout-body').html(this.myTmpls[this.index].tmpl({
-                cart: this.cartData.cart,
-                total: this.cartData.total
-            }));
+            if (this.index == 0) {
+                this.$('.checkout-body').html(this.myTmpls[this.index].tmpl({
+                    cart: this.cartData.cart,
+                    total: this.cartData.total,
+                }));
+            }
+            else if (this.index == 3)
+                this.$('.checkout-body').html(this.myTmpls[this.index].tmpl(this.assembleOrder()));
+            else
+                 this.$('.checkout-body').html(this.myTmpls[this.index].tmpl);
         },
 
         addressesSame: function (e) {
