@@ -90,12 +90,7 @@ app.post('/addItem', itemServices.addItem);
 app.post('/changeItem', itemServices.changeItem);
 app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/editInventory', adminServices.editInventory);
-<<<<<<< HEAD
-app.get('/itemList', itemServices.chartItems);
-app.get('/analytics', itemServices.chartSales);
-app.get('/test', itemServices.chartSales);
-=======
->>>>>>> 56db3e019c6f19bc87a924019712932fd8337d35
+
 
 
 app.get('/tempSalesChartCall', adminServices.tempChartCall);
