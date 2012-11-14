@@ -19,23 +19,6 @@ define([
         status: {},
         rawItemsData: undefined,
         rawSalesData: undefined,
-        itemData:{
-                profitP: 0,
-                profitA: 0,
-                dollarsP: 0,
-                dollarsA: 0,
-                itemsP: 0,
-                itemsA: 0
-            },
-        chartObject:{
-            months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
-            item: [
-                {
-                    chartCat: [],
-                    chartData:[] // one object for each month
-                }
-            ]
-        },
 
         events: {
             'click .show-chart': 'showChart',
@@ -137,77 +120,47 @@ define([
 
 
         drawChart: function () {
-            //this.rawItemsData
-            //this.initialize();
             this.updateChartItem();
-            console.log(this.chartObject);
-            this.$("#" + this.chartID).html(chartTmpl(this.chartObject));
+            // console.log(this.chartObject);
+            
+            var that = this;
+            $.get('/tempSalesChartCall', function(data){
+                var months = [];
+                for (var i = 0; i < 12; ++i){
+                    months[i] = that.getMonthName(i).full;
+                }
+                var obj = {
+                    months: months,
+                    data: data
+                };
+
+                console.log(obj.data.length);
+// SOMETHING WRONG WITH THESE FOR STATEMENTS
+                // for (var i = 0; i < obj.data.length; ++i){
+                //     console.log('THIS IS HERE' + obj.data[i].data.length);
+                //     for (var j = 0; j < obj.data[i].data.length; ++i){
+                //         console.log('THIS IS HERE' + obj.data[i].data[j]);
+                //         if (obj.data[i].data[j].projectedQuantity < obj.data[i].data[j].actualQuantity){
+                //             obj.data[i].data[j].goalMet = true;
+                //         } else {
+                //             obj.data[i].data[j].goalMet = undefined;
+                //         }
+                //     }
+                // }
+
+                that.$("#" + that.chartID).html(chartTmpl(obj));
+            });
         },
 
-        /*
-        Dallin we need a function for this from the server
-        I will try and do it myself but may need your help
-
-        Object {
-            item1: [ array of time variable (Year, Month)]
-            item2: [array of objects (One object for each time interval)
-                {Object with 2 items ()
-                    chartCat:
-                    ChartData:[][ 
-                                { (Jan)
-                                    profitA:
-                                    profitP:
-                                    salesA:
-                                    salesP:
-                                    itemsA:
-                                    itemsP:
-                                },
-                                { (Feb)
-                                    profitA:
-                                    profitP:
-                                    salesA:
-                                    salesP:
-                                    itemsA:
-                                    itemsP:
-                                },{...},{...},{...},{...},{...},{...},{...},{...},{...}
-                    ChartData:[ an array of objects with the same number of elements as are in
-                                the 'item1' object.
-                        { Each object has the data for that time period (6 keys)
-                            profitP:
-                            profitA:
-                            dollarsP:
-                            dollarsA:
-                            itemsP:
-                            itemsA:
-                            ///// P stands for Projected
-                            ///// A stands for Actual
-                         }
-                    ]
-                }
-            ]
-        }
-        */
-
         updateChartItem: function () {
-            var itemsById = [];
-            var obj = this.rawItemsData;
-            console.log(obj.length);
-            for (var i = 0; i < obj.length; ++i){
-                var index = obj[i].id;
-                itemsById[index] = {
-                    id: obj[i].id,
-                    price: obj[i].price,
-                    //THIS NEEDS TO BE REVISITED WHEN WE GET THE COST ENTERED INTO THE ITEMS.JSON
-                    profit: obj[i].price/2,
-                    name:obj[i].name,
-                    chartCat:obj[i].cat[0],
-                    chartData: []
+            
+            console.log(this.$('#' + this.chartID));
 
         },
 
         changeProjected: function (e) {
             var el = this.$('est-projection').closest();
-            consel.log(el);
+            console.log(el);
         },
 
         gotFocus: function () {

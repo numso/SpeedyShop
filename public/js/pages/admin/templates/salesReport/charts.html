@@ -4,30 +4,28 @@
         {{#each months}}
             <th>{{this}}</th>
         {{/each}}
-            {{#each item}}
-                    {{#each chartData}}
+            {{#each data}}
                 <tr>
-                    <td><h4 class="cat">{{chartCat}}</h4> </td>
-                    {{#each this}}
-                    <td>
-                        <div class="cell">
-                            <div class="bottom">
-                                <input type="text" class="left" placeholder="{{itemsP}}"></input>
-                                <span class="right">{{itemsA}}</span>
+                    <td><h4 class="cat">{{cat}}</h4> </td>
+                    {{#each data}}
+                        <td>
+                            <div class="cell">
+                                <div class="bottom">
+                                    <input type="text" class="left" placeholder="{{projectedQuantity}}"></input>
+                                    <span class="right {{#if goalMet}}green{{else}}red{{/if}}">{{projectedQuantity}}</span>
+                                </div>
+                                <div class="middle">
+                                    <input type="text" class="left" placeholder="${{projectedGross}}"></input>
+                                    <span class="right {{#if goalMet}}green{{else}}red{{/if}}">${{actualGross}}</span>
+                                </div>
+                                <div class="top">
+                                    <input type="text" class="left" placeholder="${{projectedNet}}"></input>
+                                    <span class="right {{#if goalMet}}green{{else}}red{{/if}}">${{actualGross}}</span>
+                                </div>
                             </div>
-                            <div class="middle">
-                                <input type="text" class="left" placeholder="${{dollarsP}}"></input>
-                                <span class="right">${{dollarsA}}</span>
-                            </div>
-                            <div class="top">
-                                <input type="text" class="left" placeholder="${{profitP}}"></input>
-                                <span class="right">${{profitA}}</span>
-                            </div>
-                        </div>
-                    </td>
-                {{/each}}
-            </tr>
-                {{/each}}
+                        </td>
+                    {{/each}}
+                </tr>
         {{/each}}
     </table>
 </div>
