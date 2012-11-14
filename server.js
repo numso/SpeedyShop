@@ -78,3 +78,6 @@ app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/editInventory', adminServices.editInventory);
 app.get('/itemList', itemServices.chartItems);
 app.get('/analytics', itemServices.chartSales);
+
+
+app.get('/tempSalesChartCall', adminServices.tempChartCall);
