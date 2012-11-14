@@ -123,19 +123,23 @@ define([
                     data: data
                 };
 
-                console.log(obj.data.length);
-// SOMETHING WRONG WITH THESE FOR STATEMENTS
-                // for (var i = 0; i < obj.data.length; ++i){
-                //     console.log('THIS IS HERE' + obj.data[i].data.length);
-                //     for (var j = 0; j < obj.data[i].data.length; ++i){
-                //         console.log('THIS IS HERE' + obj.data[i].data[j]);
-                //         if (obj.data[i].data[j].projectedQuantity < obj.data[i].data[j].actualQuantity){
-                //             obj.data[i].data[j].goalMet = true;
-                //         } else {
-                //             obj.data[i].data[j].goalMet = undefined;
-                //         }
-                //     }
-                // }
+                console.log(obj.data);
+// SOMETHING WRONG WITH THESE FOR LOOPS
+                for (var i = 0; i < obj.data.length; ++i){
+                    console.log('First For Loop i = ' + i);
+                    for (var j = 0; j < 12; ++j){
+                        console.log('Second Foor Loop i = ' + i + " j = " + j);
+                        if (obj.data[i].data[j]){
+                            if (obj.data[i].data[j].projectedQuantity < obj.data[i].data[j].actualQuantity){
+                                obj.data[i].data[j].goalMet = true;
+                                console.log("if true");
+                            } else {
+                                obj.data[i].data[j].goalMet = undefined;
+                                console.log("ELSE");
+                            }
+                        }
+                    }
+                }
 
                 that.$("#" + that.chartID).html(chartTmpl(obj));
             });
