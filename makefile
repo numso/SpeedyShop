@@ -12,5 +12,5 @@ commit:
 	git commit
 
 update:
-	git push
 	git pull
+	git push
