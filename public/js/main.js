@@ -462,6 +462,10 @@ require([
         breadcrumbsView.animateBreadcrumbs(curStep);
     };
 
+    var showPromo = function (data){
+        promoCodeView.showThisPromo(data);
+    }
+
     var sendFiltersToItemView = function (filters) {
         itemsView.updateFilteredItems(filters);
     };
@@ -569,7 +573,9 @@ require([
 
     var promoCodeListView = new promoCodeListView({
         className: "panel promo-code-list-view hidden",
-        model: {}
+        model: {
+            showPromo : showPromo
+        }
     });
     $(".mid-panel").append(promoCodeListView.render().el);
 

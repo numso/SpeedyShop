@@ -41,7 +41,7 @@ define([
                             this.curInventory[n].available = itemsToChange[x].newValue;
 
             this.$el.html(inventoryTmpl(this.curInventory));
-            console.log(this.curInventory);
+            //console.log(this.curInventory);
 
         },
 
@@ -63,6 +63,8 @@ define([
             });
 
             $('.submitted-change').css('display', 'inline');
+
+            this.checkLowInventory();
         },
 
         render: function () {

@@ -151,7 +151,7 @@ define([
         Object {
             item1: [ array of time variable (Year, Month)]
             item2: [array of objects (One object for each time interval)
-                {Object with 2 items () 
+                {Object with 2 items ()
                     chartCat:
                     ChartData:[][ 
                                 { (Jan)
@@ -170,6 +170,18 @@ define([
                                     itemsA:
                                     itemsP:
                                 },{...},{...},{...},{...},{...},{...},{...},{...},{...}
+                    ChartData:[ an array of objects with the same number of elements as are in
+                                the 'item1' object.
+                        { Each object has the data for that time period (6 keys)
+                            profitP:
+                            profitA:
+                            dollarsP:
+                            dollarsA:
+                            itemsP:
+                            itemsA:
+                            ///// P stands for Projected
+                            ///// A stands for Actual
+                         }
                     ]
                 }
             ]
@@ -190,104 +202,7 @@ define([
                     name:obj[i].name,
                     chartCat:obj[i].cat[0],
                     chartData: []
-                };
-            }
 
-            var that = this;
-            var createObjects = function () {
-                var arr = [];
-                for (var h = 0; h < 8; ++h){
-                    arr[h] = [];
-                    for (var i = 0; i < 12; ++i){
-                        arr[h][i] = that.itemData;
-                    }
-                }
-                return arr;
-            };
-
-            var catType = ["Home", "Electronics", "Clothing", "Jewelry", "Books", "Automobiles","Toys", "Sports"];
-
-            this.chartObject = {
-                months: ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"],
-                item: [
-                    {
-                        chartCat: catType,
-                        chartData: createObjects()
-                    }
-                ]
-            };
-
-            for (i = 0; i < this.rawSalesData.length; ++i){
-                var obj = this.rawSalesData[i];
-                for (var j = 0; j < this.rawSalesData[i].items.length; ++j){
-                    var index = obj.items[j].id;
-                    var itemProfit = itemsById[index].price/2;//////////Update Here TOOO
-                    var itemPrice = itemsById[index].price;
-                    var proj = obj.items[j].projected;
-                    var act = obj.items[j].actual;
-                    var cat = itemsById[index].chartCat;
-                    var d = new Date (obj.timestamp);
-                    var myMonth = d.getMonth();
-
-                    //THIS SHOULD WORK TO UPDATE THE CHARTOBJECT ITEM THAT IS USED IN HANDLEBARS
-                    // var tName = this.chartObject.item[0].chartData[myMonth][cat];
-                    // tName.profitP += (itempProfet * proj);
-                    // tName.profitA += (itempProfet * act);
-                    // tName.dollarsP += (itempPrice * proj);
-                    // tName.dollarsA += (itempPrice * act);
-                    // tName.itemsP += (proj);
-                    // tName.itemsA += (act);
-
-                    
-                }
-
-                    // console.log(this.chartObject.item[0].chartData[myMonth][cat]);
-            }
-                    // console.log (obj.timestamp);
-
-
-            //NOT WORKING STUPID THING
-        //     for (i = 0; i < this.rawSalesData.length; ++i){
-        //         var obj = this.rawSalesData;
-        //         var index = obj[i].items[0].id;
-        //         var proj = obj[i].items[0].projected;
-        //         var act = obj[i].items[0].actual;
-        //         var itemCost = 5;//////////////NEED TO UPDATE HERE TOO
-        //         var itemPrice = byID[index].price;
-        //         var tempObj = {
-        //             timestamp: obj[i].timestamp,
-        //             project: proj,
-        //             actual: act,
-        //             profitP: (itemPrice-itemCost)*proj,
-        //             profitA: (itemPrice-itemCost)*act,
-        //             dollarsP: (itemPrice)*proj,
-        //             dollarsA: (itemPrice)*act,
-        //             itemsP: proj,
-        //             itemsA: act
-        //         };
-        //         byID[index].chartData.push(tempObj);
-        //     }
-        //     this.chartObject.months = ["January", "Febuary", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
-        //     var tempFunc = function () {
-        //         var tempObj = []
-        //         for (var j = 0; j < byID[i].chartData.length; ++j){
-        //             tempObj[j] = (byID[i].chartData[j]);
-        //         }
-        //         return tempObj;
-        //     };
-
-        //     for (i = 0; i < byID.length; ++i){
-        //         //if (!this.chartObject){
-        //             this.chartObject[i] = {
-        //             item: [
-        //                 {
-        //                     chartCat:byID[i].chartCat,
-        //                     chartData: [tempFunc()]
-        //                 }
-        //             ]
-        //         }
-        //     }
-        //         // console.log(this.chartObject);
         },
 
         changeProjected: function (e) {

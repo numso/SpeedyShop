@@ -55,7 +55,10 @@ app.post("/createReview/:objID", reviewServices.createReview);
 
 // Employee Stuff
 app.get('/orders', employeeServices.getOrders);
+app.get('/giveMeTheItems', employeeServices.getItems);
 app.post('/updateThisOrder', employeeServices.updateThisOrder);
+app.post('/updateItemsAfterOrder', employeeServices.updateQuantity);
+app.post('/submitOrder', employeeServices.submitOrder);
 
 // Authentication Stuff
 app.post('/login', authServices.login);
@@ -70,7 +73,15 @@ app.get('/sales/year/:yearID/month/:monthID', adminServices.getSalesByYearMonth)
 app.get('/promocodes', adminServices.getPromoCodes);
 app.get('/inventory', adminServices.getInventory);
 app.post('/addItem', itemServices.addItem);
-app.post('/deleteItem', itemServices.deleteItem);
+app.post('/changeItem', itemServices.changeItem);
+app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/editInventory', adminServices.editInventory);
 app.get('/itemList', itemServices.chartItems);
+<<<<<<< HEAD
 app.get('/test', itemServices.chartSales);
+=======
+app.get('/analytics', itemServices.chartSales);
+
+
+app.get('/tempSalesChartCall', adminServices.tempChartCall);
+>>>>>>> 10dd0646e803338ab433dfba8119f2d7d22a9ffd

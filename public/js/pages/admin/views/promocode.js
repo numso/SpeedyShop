@@ -19,7 +19,9 @@ define([
         },
 
         render: function () {
-            this.$el.html(promocodeTmpl());
+            this.$el.html(promocodeTmpl({
+                msg: "Click on an order to load it."
+            }));
             return this;
         },
 
@@ -31,6 +33,12 @@ define([
         setNever: function(){
             // if never is checked
             this.$('#end-date-txt').attr("disabled"); //disable end date textbox
+        },
+
+        showThisPromo: function(data){
+            console.log(data);
+            this.$el.html(promocodeTmpl(data));
+
         }
 
     });

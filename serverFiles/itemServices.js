@@ -33,8 +33,7 @@ module.exports = function () {
             for (var i = 0; i < items.length; ++i) {
                 if (items[i].id == id) {
                     ++items[i].popularity;
-                    // uncomment this for persistence
-                    // fs.writeFile('serverData/items.json', JSON.stringify(items));
+                    fs.writeFile('serverData/items.json', JSON.stringify(items));
                     break;
                 }
             }
@@ -104,20 +103,50 @@ module.exports = function () {
         },
 
         deleteItem: function (request, response, next) {
-            console.log("need to communication with the " + request); //remainingItems.push()
-            var remainingItems = [];
             for (var j = 0; j < items.length; ++j) {
-                if (items[j].id == request) { //ERROR: cannot read id of undefined? Why?
-                    console.log("server deleting item " + j);
-                    remainingItems.push(items[j]);
+                if (items[j].id == request.params.itemID) {
+                    items.splice(j, 1);
+                    fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+                    response.send({
+                        status: "OK"
+                    });
+                    return;
                 }
             }
 
-            items = remainingItems;
-            fs.writeFileSync('serverData/items.json', JSON.stringify(items));
-
             response.send({
-                status: "OK"
+                status: "Not found"
+            });
+        },
+
+        changeItem: function (request, response, next) {
+            var itemData = '';
+            request.on('data', function (d) {
+                itemData += d;
+            });
+
+            request.on('end', function () {
+                itemData = JSON.parse(itemData);
+
+                for (var j = 0; j < items.length; ++j) {
+                    if (items[j].id == itemData.id) {
+                        items[j].name = itemData.name;
+                        items[j].desc = itemData.desc;
+                        items[j].cat = itemData.cat;
+                        items[j].price = itemData.price;
+                        items[j].images = itemData.images;
+
+                        fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+                        response.send({
+                            status: "OK"
+                        });
+                        return;
+                    }
+                }
+
+                response.send({
+                    status: "Item not found"
+                });
             });
         },
 
@@ -163,9 +192,11 @@ module.exports = function () {
                     response.send({
                         status: "success",
                         item: {
-                            imgURL: items[i].images[0],
                             name: items[i].name,
-                            price: items[i].price
+                            price: items[i].price,
+                            desc: items[i].desc,
+                            imgURL: items[i].images[0],
+                            images: items[i].images
                         }
                     });
                     return;

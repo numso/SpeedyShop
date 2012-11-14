@@ -3,36 +3,36 @@
 define([
     'backbone',
     'tmpl!pages/admin/templates/items',
-    'tmpl!pages/admin/templates/itemList/addItem',
-    'tmpl!pages/admin/templates/itemList/deleteItems',
-    'tmpl!pages/admin/templates/itemList/editItems'
+    'tmpl!pages/admin/templates/itemList/editableItem',
+    'tmpl!pages/admin/templates/itemList/editDeleteItems'
 ], function (
     Backbone,
     itemsTmpl,
-    addItemTmpl,
-    deleteItemsTmpl,
-    editItemsTmpl
+    editableItemTmpl,
+    editDeleteItemsTmpl
 ) {
     return Backbone.View.extend({
 
-        myTmpls: undefined,
         currentTab: undefined,
         inventory: undefined,
 
         initialize: function () {
-            this.myTmpls = [
-                addItemTmpl,
-                editItemsTmpl,
-                deleteItemsTmpl
-            ];
         },
 
         events: {
             'click .tab': 'changeTab',
             'click select, input, textarea': 'verify',
-            'keypress select, input, textarea': 'verify',
-            'click .submit-button': 'submitItem',
-            'click .delete-button': 'deleteItem'
+            'keydown select, input, textarea': 'verify',
+            'click .submit-add': 'submitItem',
+            'click .submit-edit': 'submitEditedItem',
+            'click .delete-button': 'deleteItem',
+            'click .edit-button': 'editItem',
+            'blur .images-URLs input': 'updateImage'
+        },
+
+        updateImage: function (e) {
+            var el = $(e.target).closest('input');
+            this.$("." + el.attr('id')).attr('src', el.val());
         },
 
         render: function () {
@@ -51,18 +51,26 @@ define([
             if (this.currentTab)
                 this.currentTab.removeClass('active');
             tab.addClass('active');
+            this.currentTab = tab;
 
             var index = tab.attr('id').charAt(4);
-            if (index == 2)
-                this.$('.items-body').html(deleteItemsTmpl(this.inventory));
-            else
-                this.$('.items-body').html(this.myTmpls[index]);
+            if (index == 0)
+                this.showAddNewItemTemplate();
+            else if (index == 1)
+                this.$('.items-body').html(editDeleteItemsTmpl(this.inventory));
 
             //if (index == 1)
             //    this.mailTest();
 
-            this.currentTab = tab;
             this.verify(undefined);
+        },
+
+        showAddNewItemTemplate: function () {
+            this.$('.items-body').html(editableItemTmpl({
+                type: "add",
+                submitText: "Add New Item"
+            }));
+            this.verify(null); //will disable submit button due to reset
         },
 
         getFormData: function () {
@@ -75,10 +83,10 @@ define([
                 page.find('.type-cat').val(),
                 page.find('.item-cost').val(),
                 page.find('.item-price').val(),
-                page.find('.img-url-1').val(),
-                page.find('.img-url-2').val(),
-                page.find('.img-url-3').val(),
-                page.find('.img-url-4').val()
+                page.find('#1-img-url').val(),
+                page.find('#2-img-url').val(),
+                page.find('#3-img-url').val(),
+                page.find('#4-img-url').val()
             ];
         },
 
@@ -93,20 +101,10 @@ define([
 
                 if (allFilled) {
                     this.$('.submit-button').attr("disabled", false); //we're good
-                    //this.updateImages(formData); //has issues, so commenting out for now
                 } else {
                     this.$('.submit-button').attr("disabled", true); //we can't submit an item with any empty fields
                 }
             }
-        },
-
-        updateImages: function (formData) { //trying to have the images update automatically
-            this.$('.items-body').html(addItemTmpl({
-                "img-url-1": formData[7],
-                "img-url-2":formData[8],
-                "img-url-3": formData[9],
-                "img-url-4": formData[10]
-            }));
         },
 
         submitItem: function (e) { //assemble item and submit to server
@@ -115,15 +113,14 @@ define([
                 "name": formData[0],
                 "desc": formData[1],
                 "cat": [formData[2], formData[3], formData[4]],
-                "price": parseInt(formData[6], 10), //what about price? hmm..
+                "price": parseInt(formData[6], 10), //what about cost? hmm...
                 "images": [formData[7], formData[8], formData[9], formData[10]]
             };
 
             var that = this;
             var response = $.post("/addItem", JSON.stringify(itemData), function (response) {
                 if (response.status === "OK") {
-                    that.$('.items-body').html(addItemTmpl); //reset
-                    that.verify(null); //will disable submit button due to reset
+                    that.showAddNewItemTemplate();
                 }
                 else {
                     window.alert("Error submitting item. Invalid or missing data?.\nServer responded: " + response.status+": "+response.msg);
@@ -133,13 +130,67 @@ define([
 
         deleteItem: function (e) {
             var item = this.$(e.target).closest('tr');
+            var itemID = item.attr('id');
             var that = this;
-            var response = $.post("/deleteItem", JSON.stringify(item.attr('id')), function (response) {
+            var response = $.post("/deleteItem/"+itemID, {}, function (response) {
                 if (response.status === "OK") {
-                    item.find('button').attr('disabled', true);
+                    $.get('/inventory', function (data) {
+                        that.inventory = JSON.parse(data); //refresh inventory
+                        item.find('button').attr('disabled', true); //disable all controls: the item is gone
+                    });
                 }
                 else {
-                    window.alert("Error deleting item.\nServer responded: " + response.status+": "+response.msg);
+                    window.alert("Error deleting item.\nServer responded: " + response.status);
+                }
+            });
+        },
+
+        editItem: function (e) {
+            var that = this;
+            var id = this.$(e.target).closest('tr').attr('id');
+            $.get('/getItem/' + id, function (data) {
+                if (data.status === "success") {
+                    var obj = {
+                        submitText: "Submit Changes",
+                        type: "edit", //so event can be triggered from it
+                        id: id,
+                        name: data.item.name,
+                        price: data.item.price,
+                        desc: data.item.desc,
+                        imgUrl1: data.item.images[0], //why is data.images undefined? Dallin!
+                        imgUrl2: data.item.images[1],
+                        imgUrl3: data.item.images[2],
+                        imgUrl4: data.item.images[3]
+                    }
+                    that.$('.items-body').html(editableItemTmpl(obj)); //fill out fields
+                    that.verify(null);
+                }
+            });
+        },
+
+        submitEditedItem: function (e) {
+            var formData = this.getFormData();
+            var itemData = {
+                id: this.$('.item-name').attr('id'),
+                name: formData[0],
+                desc: formData[1],
+                cat: [formData[2], formData[3], formData[4]],
+                cost: parseInt(formData[5], 10),
+                price: parseInt(formData[6], 10),
+                images: [formData[7], formData[8], formData[9], formData[10]]
+            };
+
+            var that = this;
+            var response = $.post("/changeItem", JSON.stringify(itemData), function (response) {
+                if (response.status === "OK") {
+                    $.get('/inventory', function (data) {
+                        that.inventory = JSON.parse(data); //refresh inventory
+                        that.$('.items-body').html(editDeleteItemsTmpl(that.inventory)); //reset
+                        that.verify(null);
+                    });
+                }
+                else {
+                    window.alert("Error submitting edited item. Invalid or missing data?.\nServer responded: " + response.status+": "+response.msg);
                 }
             });
         },
