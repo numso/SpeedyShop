@@ -55,7 +55,9 @@ app.post("/createReview/:objID", reviewServices.createReview);
 
 // Employee Stuff
 app.get('/orders', employeeServices.getOrders);
+app.get('/giveMeTheItems', employeeServices.getItems);
 app.post('/updateThisOrder', employeeServices.updateThisOrder);
+app.post('/updateItemsAfterOrder', employeeServices.updateQuantity);
 
 // Authentication Stuff
 app.post('/login', authServices.login);
