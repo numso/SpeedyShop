@@ -33,8 +33,7 @@ module.exports = function () {
             for (var i = 0; i < items.length; ++i) {
                 if (items[i].id == id) {
                     ++items[i].popularity;
-                    // uncomment this for persistence
-                    // fs.writeFile('serverData/items.json', JSON.stringify(items));
+                    fs.writeFile('serverData/items.json', JSON.stringify(items));
                     break;
                 }
             }
@@ -103,27 +102,51 @@ module.exports = function () {
             });
         },
 
-        deleteItem: function (request, response, next) { //Dallin I need help with this
-            console.log("need to communication with the " + request); //remainingItems.push()
+        deleteItem: function (request, response, next) {
             for (var j = 0; j < items.length; ++j) {
-                console.log(items[j]);
-                if (items[j].id == request) { //ERROR: cannot read id of undefined? Why?
-                    console.log("server deleting item " + j);
+                if (items[j].id == request.params.itemID) {
                     items.splice(j, 1);
+                    fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+                    response.send({
+                        status: "OK"
+                    });
+                    return;
                 }
             }
 
-            //fs.writeFileSync('serverData/items.json', JSON.stringify(items));
-
             response.send({
-                status: "OK"
+                status: "Not found"
             });
         },
 
-        changeItem: function (request, response, next) { //Dallin I need help with this
+        changeItem: function (request, response, next) {
+            var itemData = '';
+            request.on('data', function (d) {
+                itemData += d;
+            });
 
-            response.send({
-                status: "OK"
+            request.on('end', function () {
+                itemData = JSON.parse(itemData);
+
+                for (var j = 0; j < items.length; j++) {
+                    if (items[j].id == itemData.id) {
+                        items[j].name = itemData.name;
+                        items[j].desc = itemData.desc;
+                        items[j].cat = itemData.cat;
+                        items[j].price = itemData.price;
+                        items[j].images = itemData.images;
+
+                        fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+                        response.send({
+                            status: "OK"
+                        });
+                        return;
+                    }
+                }
+
+                response.send({
+                    status: "Item not found"
+                });
             });
         },
 
