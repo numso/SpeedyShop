@@ -230,13 +230,13 @@ define([
                     var myMonth = d.getMonth();
 
                     //THIS SHOULD WORK TO UPDATE THE CHARTOBJECT ITEM THAT IS USED IN HANDLEBARS
-                    var tName = this.chartObject.item[0].chartData[myMonth][cat];
-                    tName.profitP += (itempProfet * proj);
-                    tName.profitA += (itempProfet * act);
-                    tName.dollarsP += (itempPrice * proj);
-                    tName.dollarsA += (itempPrice * act);
-                    tName.itemsP += (proj);
-                    tName.itemsA += (act);
+                    // var tName = this.chartObject.item[0].chartData[myMonth][cat];
+                    // tName.profitP += (itempProfet * proj);
+                    // tName.profitA += (itempProfet * act);
+                    // tName.dollarsP += (itempPrice * proj);
+                    // tName.dollarsA += (itempPrice * act);
+                    // tName.itemsP += (proj);
+                    // tName.itemsA += (act);
 
                     
                 }

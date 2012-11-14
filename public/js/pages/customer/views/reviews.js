@@ -104,10 +104,6 @@ define([
             that.renderHtml(that.curReviews);
         },
 
-        updateStars: function () {
-            
-        }
-
         cancelReview: function (e) {
             this.updateReview();
             this.renderHtml(this.curReviews);
