@@ -101,9 +101,7 @@ define([
         removeItem: function (e) {
             var itemID = this.$(e.target).closest('.sc-item').attr('id');
             for (var i = 0; i < this.cart.length; ++i) {
-                console.log(i+": '"+itemID+"'' ?= '"+this.cart[i].id+"'");
                 if (this.cart[i].id == itemID) {
-                    console.log("   found");
                     this.cart.splice(i, 1); //remove object at index i
                     break;
                 }
@@ -149,7 +147,6 @@ define([
             var total = 0;
             var items = this.$('.sc-item');
             for (var i = 0; i < items.length; ++i) {
-                console.log("totaling item #"+i);
                 var qty = this.getCurrentQuantity(this.$(items[i]));
                 var price = parseFloat(this.$(items[i]).find('.sc-price').find('span').html(), 10);
                 total += qty * price;

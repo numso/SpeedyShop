@@ -108,7 +108,6 @@ define([
         },
 
         submitItem: function (e) { //assemble item and submit to server
-            console.log("creating new item");
             var formData = this.getFormData();
             var itemData = {
                 "name": formData[0],
@@ -133,7 +132,6 @@ define([
             var item = this.$(e.target).closest('tr');
             var itemID = item.attr('id');
             var that = this;
-            console.log("client wanting to delete existing item "+itemID);
             var response = $.post("/deleteItem/"+itemID, {}, function (response) {
                 if (response.status === "OK") {
                     $.get('/inventory', function (data) {
@@ -152,7 +150,6 @@ define([
             var id = this.$(e.target).closest('tr').attr('id');
             $.get('/getItem/' + id, function (data) {
                 if (data.status === "success") {
-                    console.log("id: "+id);
                     var obj = {
                         submitText: "Submit Changes",
                         type: "edit", //so event can be triggered from it

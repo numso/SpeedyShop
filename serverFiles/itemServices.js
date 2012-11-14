@@ -128,7 +128,7 @@ module.exports = function () {
             request.on('end', function () {
                 itemData = JSON.parse(itemData);
 
-                for (var j = 0; j < items.length; j++) {
+                for (var j = 0; j < items.length; ++j) {
                     if (items[j].id == itemData.id) {
                         items[j].name = itemData.name;
                         items[j].desc = itemData.desc;

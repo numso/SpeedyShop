@@ -21,7 +21,6 @@ define([
         index: 0,
         cartData: undefined,
         explanatoryText: undefined,
-
         orderData: [],
 
         initialize: function () {
@@ -49,6 +48,7 @@ define([
             'click #checkout-next-step': 'showNext',
             'click #checkout-prev-step': 'showPrev',
             'click .same-question': 'addressesSame'
+           // 'click input': 'verifyFields'
         },
 
         render: function () {
@@ -76,13 +76,15 @@ define([
             this.index = Math.min(this.myTmpls.length - 1, this.index + 1);
             if (this.index == this.myTmpls.length - 1)
                 this.completeTransaction();
-            this.updateScreen();
+            else
+                this.updateScreen();
         },
 
         showPrev: function (e) {
             this.index = Math.max(0, this.index - 1);
             this.updateScreen();
             this.restorePageData();
+            this.$('#checkout-next-step').attr('disabled', false);
         },
 
         updateScreen: function () {
@@ -109,17 +111,17 @@ define([
         },
 
         addressesSame: function (e) {
-            var billing = $('.billing-section');
-            var shipping = $('.shipping-section');
+            var billing = this.$('.billing-section');
+            var shipping = this.$('.shipping-section');
 
-            var inputs = ['.firstName', '.firstName', '.street', '.PO-box', '.city', '.state', '.zip'];
+            var inputs = ['.firstName', '.lastName', '.street', '.PO-box', '.city', '.state', '.zip'];
 
             for (var j = 0; j < inputs.length; ++j)
                 shipping.find(inputs[j]).attr('value', billing.find(inputs[j]).attr('value'));
 
-            var source = $(e.target);
+            var source = this.$(e.target);
             if (!source.hasClass('sameCheckbox')) {
-                var checkbox = $('#sameCheckbox');
+                var checkbox = this.$('#sameCheckbox');
                 checkbox.attr('checked', !checkbox.attr('checked'));
             }
         },
@@ -128,53 +130,83 @@ define([
             var finalCart = [];
             for (var j = 0; j < this.cartData.cart.length; ++j) {
                 finalCart.push({
-                    "itemQuantity": this.cartData.cart[j].quantity,
-                    "itemName": this.cartData.cart[j].name,
-                    "promoDiscount": "0.00", //Mauriel, apply discount here
-                    "finalPrice": this.cartData.cart[j].price - 0 //Mauriel, apply discount here
+                    itemQuantity: this.cartData.cart[j].quantity,
+                    itemName: this.cartData.cart[j].name,
+                    itemID: this.cartData.cart[j].id,
+                    promoDiscount: "0.00", //Mauriel, apply discount here
+                    finalPrice: this.cartData.cart[j].price - 0 //Mauriel, apply discount here
                 });
             }
             return finalCart;
         },
 
-        completeTransaction: function () {
-            //hardcoded for now for development purposes
-            this.$('.checkout-body').html(confirmOrderTmpl({
+        assembleOrder: function () {
+            return {
                 order: this.collectCartInformation(),
-                "totalDiscounts": "0.00", //Mauriel, apply discount here
-                "total": this.cartData.total, //Mauriel, apply discount here
+                totalDiscounts: "0.00", //Mauriel, apply discount here
+                total: this.cartData.total, //Mauriel, apply discount here
 
-                "addresses": [
+                addresses: [
                     {
                         "shipping-address": true,
-                        "firstName": this.orderData[1][0],
-                        "lastName": this.orderData[1][1],
-                        "street1": this.orderData[1][2],
-                        "street2": this.orderData[1][3],
-                        "city": this.orderData[1][4],
-                        "state": this.orderData[1][5],
-                        "zip": this.orderData[1][6]
+                        firstName: this.orderData[1][0],
+                        lastName: this.orderData[1][1],
+                        street1: this.orderData[1][2],
+                        street2: this.orderData[1][3],
+                        city: this.orderData[1][4],
+                        state: this.orderData[1][5],
+                        zip: this.orderData[1][6]
                     },
                     {
                         "shipping-address": false,
-                        "firstName": this.orderData[1][8],
-                        "lastName": this.orderData[1][9],
-                        "street1": this.orderData[1][10],
-                        "street2": this.orderData[1][11],
-                        "city": this.orderData[1][12],
-                        "state": this.orderData[1][13],
-                        "zip": this.orderData[1][14]
+                        firstName: this.orderData[1][8],
+                        lastName: this.orderData[1][9],
+                        street1: this.orderData[1][10],
+                        street2: this.orderData[1][11],
+                        city: this.orderData[1][12],
+                        state: this.orderData[1][13],
+                        zip: this.orderData[1][14]
                     }
                 ],
 
-                "card": {
-                    "name": this.orderData[2][0],//"Jesse Victors",
-                    "number": this.orderData[2][1], //"*********1234",
-                    'MM': this.orderData[2][2], //"08",
-                    "YYYY": this.orderData[2][3], //"2013",
-                    "CVC": this.orderData[2][4] //"233"
+                card: {
+                    name: this.orderData[2][0],
+                    number: this.orderData[2][1],
+                    MM: this.orderData[2][2],
+                    YYYY: this.orderData[2][3],
+                    CVC: this.orderData[2][4]
                 }
-            }));
+            };
+        },
+
+        completeTransaction: function () {
+            console.log("client submitting new order!");
+            var assembledOrder = this.assembleOrder();
+
+            var orderToServer = {
+                addresses: assembledOrder.order.addresses,
+                items: [] //will populate in loop below
+            };
+
+            for (var j = 0; j < assembledOrder.order.length; ++j) {
+                orderToServer.items.push({ //matches the format in the orders.json
+                    itemID: assembledOrder.order.itemID,
+                    quantity: assembledOrder.order.itemQuantity
+                });
+            }
+
+            console.log("client assembled order, sending...");
+
+            //send order to server
+            var that = this;
+            var response = $.post("/submitOrder", JSON.stringify(orderToServer), function (response) {
+                if (response.status === "OK") {
+                    window.alert("Order successfully submitted!\nThank your for shopping with SpeedyShop. :)");
+                }
+                else {
+                    window.alert("Error submitting order!\nServer responded: " + response.status);
+                }
+            });
         },
 
         saveOffPageData: function () {
@@ -184,7 +216,7 @@ define([
                 };
 
             var savedLoc = undefined;
-            for (var j = 0; j < this.orderData.length; j++)
+            for (var j = 0; j < this.orderData.length; ++j)
                 if (this.orderData[j].pageIndex == this.index)
                     savedLoc = j;
 
@@ -196,7 +228,7 @@ define([
 
         restorePageData: function () {
             var savedLoc = undefined;
-            for (var j = 0; j < this.orderData.length; j++)
+            for (var j = 0; j < this.orderData.length; ++j)
                 if (this.orderData[j].pageIndex == this.index)
                     savedLoc = j;
 
@@ -205,7 +237,25 @@ define([
                 var savedInputs = this.orderData[savedLoc].data;
                 var templateInputs = this.$('input');
                 for (var j = 0; j < savedInputs.length; ++j)
-                    $(templateInputs[j]).val($(savedInputs[j]).val());
+                    this.$(templateInputs[j]).val(this.$(savedInputs[j]).val());
+            }
+        },
+
+        verifyFields: function (e) {
+            var inputs = this.$('input textarea');
+
+            var allFilled = true;
+            for (var j = 0; j < inputs.length; ++j) {
+                console.log(inputs[j].val());
+                if (!inputs[j].val())
+                    allFilled = false;
+            }
+
+
+            if (allFilled) {
+                this.$('#checkout-next-step').attr('disabled', false); //we're good
+            } else {
+                this.$('#checkout-next-step').attr('disabled', true); //need to fill out more fields
             }
         }
     });

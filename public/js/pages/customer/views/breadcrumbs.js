@@ -21,8 +21,7 @@ define([
                 "Confirm Cart",
                 "Billing/Shipping",
                 "Payment",
-                "Confirm Order",
-                "Order Submitted"
+                "Confirm Order"
             ];
 
             for (var i = 0; i < arr.length; ++i) {
