@@ -1,29 +1,44 @@
 <div class = "emp-shipping-body">
     {{#if msg}}
         <div class = 'default-shipping-msg'> {{msg}} </div>
-{{else}}
+    {{else}}
 
-    <div class = 'shipping-order-status'>Order Status: {{orderStatus}}</div>
-    <br />
-    <div class = 'shipping-order-num'>Order Number: {{orderNum}}</div>
-    <br />
+        <div class="top-section">
+            <div class="shipping-info-box">
+                <div class = 'shipping-order-status'>Order Status: {{orderStatus}}</div>
+                <br />
+                <div class = 'shipping-order-num'>Order Number: {{orderNum}}</div>
+                <br />
+                <ul>
+                    {{#each items}}
+                        <li>
+                            <input class = 'item-check' type = 'checkbox'> Item Number: {{itemID}}
+                            <div class = 'shipping-quantity'>Quantity: {{quantity}}</div>
+                        </li>
+                        <br />
+                    {{/each}}
+                </ul>
+                <div class = 'shipping-weight'>Package Weight: {{estimatedWeight}} lbs </div>
+                <br />
+            </div>
 
-    <ul>
-    {{#each items}}
-        <li>
-            <input class = 'item-check' type = 'checkbox'> Item Number: {{itemID}}
-            <div class = 'shipping-quantity'>Quantity: {{quantity}}</div>
-        </li>
-        <br />
-    {{/each}}
-    </ul>
-    <div class = 'shipping-weight'>Package Weight: {{estimatedWeight}} lbs </div>
-    <br />
-    <hr>
+            <div class="shipping-label">
+                <canvas id="shipping-qr"></canvas>
+                <div class="ship-lbl-info">
+                    <div class="ship-lbl-name">Name: <span></span></div>
+                    <div class="ship-lbl-addr">Address: <span></span></div>
+                    <div class="ship-lbl-order-num">Order#: <span></span></div>
+                    <div class="ship-lbl-weight">Weight: <span></span></div>
+                </div>
+            </div>
+        </div>
 
-    <input class = 'completed-btn' type = 'submit' value = 'Order Completed'>
+        <hr>
 
-{{/if}}
+        <input class = 'completed-btn' type = 'submit' value = 'Order Completed'>
+        <input class="btn print-shipping-label" type='submit' value='Print Shipping Label'>
 
-<span class = 'error-msg'>Oops! Not all of the checkboxes have been marked</span><span class = 'submitted-msg'>Successfully submitted!</span>
+    {{/if}}
+
+    <span class = 'error-msg'>Oops! Not all of the checkboxes have been marked</span><span class = 'submitted-msg'>Successfully submitted!</span>
 </div>
