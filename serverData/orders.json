@@ -9,8 +9,16 @@
                 "quantity": 2
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Completed",
@@ -30,8 +38,16 @@
                 "quantity": 1
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Completed",
@@ -43,8 +59,16 @@
                 "quantity": 1
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Completed",
@@ -56,8 +80,16 @@
                 "quantity": 2
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Completed",
@@ -69,8 +101,16 @@
                 "quantity": 2
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Completed",
@@ -82,8 +122,16 @@
                 "quantity": 2
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Completed",
@@ -103,8 +151,16 @@
                 "quantity": 1
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Processed",
@@ -116,8 +172,16 @@
                 "quantity": 1
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Completed",
@@ -129,20 +193,36 @@
                 "quantity": 2
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     },
     {
         "orderStatus": "Completed",
-        "orderNum": 1009,
-        "estimatedWeight": 5.5,
+        "orderNum": 1017,
+        "estimatedWeight": 0.8,
         "items": [
             {
-                "itemID": 1,
-                "quantity": 2
+                "itemID": 0,
+                "quantity": 1
             }
         ],
-        "address": [],
-        "notes": ""
+        "address": {
+            "firstName": "Jesse",
+            "lastName": "Victors",
+            "street1": "8307 Mountain View Tower",
+            "street2": "",
+            "city": "Logan",
+            "state": "UT",
+            "zip": "84321"
+        },
+        "notes": "derp"
     }
 ]

@@ -74,8 +74,8 @@ define([
         showNext: function (e) {
             this.saveOffPageData();
             this.index = Math.min(this.myTmpls.length - 1, this.index + 1);
-            //if (this.index == this.myTmpls.length - 1)
-            //    this.completeTransaction();
+            if (this.index == this.myTmpls.length - 1)
+                this.completeTransaction();
             this.updateScreen();
         },
 
@@ -149,7 +149,7 @@ define([
 
                 addresses: [
                     {
-                        "shipping-address": true,
+                        shippingAddress: true,
                         firstName: this.orderData[1].data[0],
                         lastName: this.orderData[1].data[1],
                         street1: this.orderData[1].data[2],
@@ -159,7 +159,7 @@ define([
                         zip: this.orderData[1].data[6]
                     },
                     {
-                        "shipping-address": false,
+                        shippingAddress: false,
                         firstName: this.orderData[1].data[8],
                         lastName: this.orderData[1].data[9],
                         street1: this.orderData[1].data[10],
@@ -195,7 +195,7 @@ define([
                 });
             }
 
-            orderToServer.address.splice(0, 1); //removes "shipping-address"
+            orderToServer.address.shippingAddress = undefined; //removes variable
 
             //send order to server
             var that = this;
