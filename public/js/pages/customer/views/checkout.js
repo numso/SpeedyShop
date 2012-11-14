@@ -74,10 +74,9 @@ define([
         showNext: function (e) {
             this.saveOffPageData();
             this.index = Math.min(this.myTmpls.length - 1, this.index + 1);
-            if (this.index == this.myTmpls.length - 1)
-                this.completeTransaction();
-            else
-                this.updateScreen();
+            //if (this.index == this.myTmpls.length - 1)
+            //    this.completeTransaction();
+            this.updateScreen();
         },
 
         showPrev: function (e) {
@@ -102,6 +101,8 @@ define([
             if (this.index >= this.myTmpls.length - 1) {
                 this.$('#checkout-next-step').text('Done');
             }
+
+            //TODO: NAVIGATION HAS BUGS, CONFIRM ORDER IS NOT DISPLAYED. WILL FIX SOON. -Jesse V.
 
             // update body
             this.$('.checkout-body').html(this.myTmpls[this.index].tmpl({
@@ -149,53 +150,52 @@ define([
                 addresses: [
                     {
                         "shipping-address": true,
-                        firstName: this.orderData[1][0],
-                        lastName: this.orderData[1][1],
-                        street1: this.orderData[1][2],
-                        street2: this.orderData[1][3],
-                        city: this.orderData[1][4],
-                        state: this.orderData[1][5],
-                        zip: this.orderData[1][6]
+                        firstName: this.orderData[1].data[0],
+                        lastName: this.orderData[1].data[1],
+                        street1: this.orderData[1].data[2],
+                        street2: this.orderData[1].data[3],
+                        city: this.orderData[1].data[4],
+                        state: this.orderData[1].data[5],
+                        zip: this.orderData[1].data[6]
                     },
                     {
                         "shipping-address": false,
-                        firstName: this.orderData[1][8],
-                        lastName: this.orderData[1][9],
-                        street1: this.orderData[1][10],
-                        street2: this.orderData[1][11],
-                        city: this.orderData[1][12],
-                        state: this.orderData[1][13],
-                        zip: this.orderData[1][14]
+                        firstName: this.orderData[1].data[8],
+                        lastName: this.orderData[1].data[9],
+                        street1: this.orderData[1].data[10],
+                        street2: this.orderData[1].data[11],
+                        city: this.orderData[1].data[12],
+                        state: this.orderData[1].data[13],
+                        zip: this.orderData[1].data[14]
                     }
                 ],
 
                 card: {
-                    name: this.orderData[2][0],
-                    number: this.orderData[2][1],
-                    MM: this.orderData[2][2],
-                    YYYY: this.orderData[2][3],
-                    CVC: this.orderData[2][4]
+                    name: this.orderData[2].data[0],
+                    number: this.orderData[2].data[1],
+                    MM: this.orderData[2].data[2],
+                    YYYY: this.orderData[2].data[3],
+                    CVC: this.orderData[2].data[4]
                 }
             };
         },
 
         completeTransaction: function () {
-            console.log("client submitting new order!");
             var assembledOrder = this.assembleOrder();
-
             var orderToServer = {
-                addresses: assembledOrder.order.addresses,
-                items: [] //will populate in loop below
+                address: assembledOrder.addresses[0],
+                items: [], //will populate in loop below
+                notes: "herp derp"
             };
 
             for (var j = 0; j < assembledOrder.order.length; ++j) {
                 orderToServer.items.push({ //matches the format in the orders.json
-                    itemID: assembledOrder.order.itemID,
-                    quantity: assembledOrder.order.itemQuantity
+                    itemID: assembledOrder.order[j].itemID,
+                    quantity: assembledOrder.order[j].itemQuantity
                 });
             }
 
-            console.log("client assembled order, sending...");
+            orderToServer.address.splice(0, 1); //removes "shipping-address"
 
             //send order to server
             var that = this;
@@ -212,8 +212,11 @@ define([
         saveOffPageData: function () {
             var pageData = {
                     pageIndex: this.index,
-                    data: this.$('input')
+                    data: []
                 };
+            var inputs = this.$('input');
+            for (var j = 0; j < inputs.length; ++j)
+                pageData.data.push($(inputs[j]).val());
 
             var savedLoc = undefined;
             for (var j = 0; j < this.orderData.length; ++j)
@@ -237,7 +240,7 @@ define([
                 var savedInputs = this.orderData[savedLoc].data;
                 var templateInputs = this.$('input');
                 for (var j = 0; j < savedInputs.length; ++j)
-                    this.$(templateInputs[j]).val(this.$(savedInputs[j]).val());
+                    $(templateInputs[j]).val(savedInputs[j]);
             }
         },
 

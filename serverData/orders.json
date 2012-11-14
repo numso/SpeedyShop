@@ -9,7 +9,8 @@
                 "quantity": 2
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Completed",
@@ -29,7 +30,8 @@
                 "quantity": 1
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Completed",
@@ -41,7 +43,8 @@
                 "quantity": 1
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Completed",
@@ -53,7 +56,8 @@
                 "quantity": 2
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Completed",
@@ -65,7 +69,8 @@
                 "quantity": 2
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Completed",
@@ -77,7 +82,8 @@
                 "quantity": 2
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Completed",
@@ -97,7 +103,8 @@
                 "quantity": 1
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Processed",
@@ -109,7 +116,8 @@
                 "quantity": 1
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Completed",
@@ -121,7 +129,8 @@
                 "quantity": 2
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     },
     {
         "orderStatus": "Completed",
@@ -133,6 +142,7 @@
                 "quantity": 2
             }
         ],
-        "addresses": []
+        "address": [],
+        "notes": ""
     }
 ]
