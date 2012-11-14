@@ -111,7 +111,7 @@ module.exports = function (app) {
         },
 
         editInventory: function(request, response, next) {
-             var input = '';
+            var input = '';
             request.on('data', function (chunk) {
                 input += chunk;
             });
