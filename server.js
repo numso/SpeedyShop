@@ -55,7 +55,9 @@ app.post("/createReview/:objID", reviewServices.createReview);
 
 // Employee Stuff
 app.get('/orders', employeeServices.getOrders);
+app.get('/giveMeTheItems', employeeServices.getItems);
 app.post('/updateThisOrder', employeeServices.updateThisOrder);
+app.post('/updateItemsAfterOrder', employeeServices.updateQuantity);
 
 // Authentication Stuff
 app.post('/login', authServices.login);
@@ -71,7 +73,7 @@ app.get('/promocodes', adminServices.getPromoCodes);
 app.get('/inventory', adminServices.getInventory);
 app.post('/addItem', itemServices.addItem);
 app.post('/changeItem', itemServices.changeItem);
-app.post('/deleteItem', itemServices.deleteItem);
+app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/editInventory', adminServices.editInventory);
 app.get('/itemList', itemServices.chartItems);
 app.get('/analytics', itemServices.chartSales);

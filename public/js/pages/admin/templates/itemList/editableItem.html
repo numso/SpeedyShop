@@ -1,7 +1,7 @@
 <div class="add-item tab-page">
     <div class="left-pane">
         <div class="name">
-            <label>Name: </label><input class='item-name' type='text' placeholder='Item name' value="{{name}}">
+            <label>Name: </label><input class='item-name' id="{{id}}" type='text' placeholder='Item name' value="{{name}}">
         </div>
         <div class="description">
             <textarea placeholder="Description" maxlength="160">{{desc}}</textarea>
@@ -27,7 +27,7 @@
             <input class='item-price' type='text' placeholder='Sale price' value="{{price}}">
         </div>
         <div class="add">
-            <button class="submit-button">{{submitText}}</button>
+            <button class="submit-{{type}}">{{submitText}}</button>
         </div>
     </div>
 
