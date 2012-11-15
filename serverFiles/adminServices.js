@@ -11,20 +11,37 @@ module.exports = function (app) {
             for (var i = 0; i < sales.length; ++i) {
                 var newDate = new Date(sales[i].timestamp);
                 if (newDate.getFullYear() == year) {
-                    var actual = 0,
-                        projected = 0;
+                    var quantityA = 0,
+                        quantityP = 0,
+                        grossA = 0,
+                        grossP = 0,
+                        netA = 0,
+                        netP = 0;
+
                     for (var j = 0; j < sales[i].items.length; ++j) {
-                        actual += sales[i].items[j].actual;
-                        projected += sales[i].items[j].projected;
+                        quantityA += sales[i].items[j].quantityA;
+                        quantityP += sales[i].items[j].quantityP;
+                        grossA += sales[i].items[j].grossA;
+                        grossP += sales[i].items[j].grossP;
+                        netA += sales[i].items[j].netA;
+                        netP += sales[i].items[j].netP;
                     }
 
                     if (newArr[newDate.getMonth()]) {
-                        newArr[newDate.getMonth()].actual += actual;
-                        newArr[newDate.getMonth()].projected += projected;
+                        newArr[newDate.getMonth()].quantityA += quantityA;
+                        newArr[newDate.getMonth()].quantityP += quantityP;
+                        newArr[newDate.getMonth()].grossA += grossA;
+                        newArr[newDate.getMonth()].grossP += grossP;
+                        newArr[newDate.getMonth()].netA += netA;
+                        newArr[newDate.getMonth()].netP += netP;
                     } else {
                         newArr[newDate.getMonth()] = {
-                            actual: actual,
-                            projected: projected
+                            quantityA: quantityA,
+                            quantityP: quantityP,
+                            grossP: grossP,
+                            grossA: grossA,
+                            netA: netA,
+                            netP: netP
                         };
                     }
                 }
@@ -42,66 +59,34 @@ module.exports = function (app) {
             for (var i = 0; i < sales.length; ++i) {
                 var newDate = new Date(sales[i].timestamp);
                 if (newDate.getMonth() == month && newDate.getFullYear() == year) {
-                    var actual = 0,
-                        projected = 0;
+                    var quantityA = 0,
+                        quantityP = 0,
+                        grossA = 0,
+                        grossP = 0,
+                        netA = 0,
+                        netP = 0;
+
                     for (var j = 0; j < sales[i].items.length; ++j) {
-                        actual += sales[i].items[j].actual;
-                        projected += sales[i].items[j].projected;
+                        quantityA += sales[i].items[j].quantityA;
+                        quantityP += sales[i].items[j].quantityP;
+                        grossA += sales[i].items[j].grossA;
+                        grossP += sales[i].items[j].grossP;
+                        netA += sales[i].items[j].netA;
+                        netP += sales[i].items[j].netP;
                     }
 
                     newArr[newDate.getDate()] = {
-                        actual: actual,
-                        projected: projected
+                        quantityA: quantityA,
+                        quantityP: quantityP,
+                        grossP: grossP,
+                        grossA: grossA,
+                        netA: netA,
+                        netP: netP
                     };
                 }
             }
 
             response.send(newArr);
-        },
-
-        tempChartCall: function (request, response, next) {
-            var year = 2012,
-                sales = app.shopData.analytics,
-                newArr = [];
-
-            for (var i = 0; i < sales.length; ++i) {
-                var newDate = new Date(sales[i].timestamp);
-                if (newDate.getFullYear() == year) {
-                    var actual = 0,
-                        projected = 0;
-                    for (var j = 0; j < sales[i].items.length; ++j) {
-                        actual += sales[i].items[j].actual;
-                        projected += sales[i].items[j].projected;
-                    }
-
-                    if (newArr[newDate.getMonth()]) {
-                        newArr[newDate.getMonth()].actual += actual;
-                        newArr[newDate.getMonth()].projected += projected;
-                    } else {
-                        newArr[newDate.getMonth()] = {
-                            actualGross: actual,
-                            projectedGross: projected,
-                            actualNet: actual,
-                            projectedNet: projected,
-                            actualQuantity: actual,
-                            projectedQuantity: projected
-                        };
-                    }
-                }
-            }
-
-            var returnVal = [];
-
-            var cats = app.shopData.cat;
-            for (var j = 0; j < cats.length; ++j) {
-                if (cats[j].title !== "Hot Items") {
-                    returnVal.push({
-                        cat: cats[j].title,
-                        data: newArr
-                    });
-                }
-            }
-            response.send(returnVal);
         },
 
         getPromoCodes: function (request, response, next) {

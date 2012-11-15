@@ -42,7 +42,6 @@ require([
     'pages/customer/views/items',
     'pages/customer/views/checkout',
     'pages/admin/views/sales-report',
-    //'pages/admin/views/marketing',
     'pages/admin/views/promocodelist',
     'pages/admin/views/promocode',
     'pages/admin/views/inventory',
@@ -66,7 +65,6 @@ require([
     ItemsView,
     CheckoutView,
     SalesReportView,
-    //MarketingView,
     promoCodeListView,
     promoCodeView,
     InventoryView,
@@ -125,7 +123,7 @@ require([
                 window.setTimeout(function () {
                     rotateView($('.sales-report-view'), curMid, $('.mid-panel'), function () {
                         curMid = $('.sales-report-view');
-                        salesReportView.gotFocus();
+                        salesReportView.loadScreen();
                         decrementAnimCount();
                     });
                 }, animTime);
@@ -249,7 +247,6 @@ require([
             if ($('.sales-report-view')[0] !== curMid[0]) {
                 rotateView($('.sales-report-view'), curMid, $('.mid-panel'), function () {
                     curMid = $('.sales-report-view');
-                    salesReportView.gotFocus();
                     decrementAnimCount(cb);
                 });
             } else {
@@ -268,33 +265,6 @@ require([
             }
         }
     };
-
-    //var adm_showMarketing = function (cb) {
-        // if (!isAnimating) {
-        //     isAnimating = true;
-        //     animCount = 2;
-
-        //     if ($('.marketing-view')[0] !== curMid[0]) {
-        //         rotateView($('.marketing-view'), curMid, $('.mid-panel'), function () {
-        //             curMid = $('.marketing-view');
-        //             decrementAnimCount(cb);
-        //         });
-        //     } else {
-        //         decrementAnimCount(cb);
-        //     }
-
-        //     if ($('.cart')[0] !== curRight[0]) {
-        //         window.setTimeout(function () {
-        //             rotateView($('.cart'), curRight, $('.right-panel'), function () {
-        //                 curRight = $('.cart');
-        //                 decrementAnimCount(cb);
-        //             });
-        //         }, animTime);
-        //     } else {
-        //         decrementAnimCount(cb);
-        //     }
-        // }
-    //};
 
     var adm_showPromoCode = function (cb) {
         if (!isAnimating) {

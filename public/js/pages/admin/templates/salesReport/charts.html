@@ -1,26 +1,26 @@
 <div class"chart">
     <table border="1">
             <th><h3>Category</h3></th>
-        {{#each months}}
-            <th>{{this}}</th>
-        {{/each}}
-            {{#each data}}
-                <tr class = "{{#if odd}}odd{{else}}even{{/if}}">
+            {{#each months}}
+                <th>{{this}}</th>
+            {{/each}}
+            {{#each items}}
+                <tr {{#if odd}}class="odd"{{/if}}>
                     <td><h4 class="cat">{{cat}}</h4> </td>
-                    {{#each data}}
+                    {{#each items}}
                         <td>
                             <div class="cell">
-                                <div class="bottom">
-                                    <input type="text" class="left" placeholder="{{projectedQuantity}}"></input>
-                                    <span class="right {{#if goalMet}}green{{else}}red{{/if}}">{{projectedQuantity}}</span>
+                                <div class="littl-cell">
+                                    <input type="text" class="left" value="{{quantityP}}">
+                                    <span class="right">{{quantityA}}</span>
                                 </div>
-                                <div class="middle">
-                                    <input type="text" class="left" placeholder="${{projectedGross}}"></input>
-                                    <span class="right {{#if goalMet}}green{{else}}red{{/if}}">${{actualGross}}</span>
+                                <div class="littl-cell">
+                                    <input type="text" class="left" value="{{grossP}}$">
+                                    <span class="right">{{grossA}}$</span>
                                 </div>
-                                <div class="top">
-                                    <input type="text" class="left" placeholder="${{projectedNet}}"></input>
-                                    <span class="right {{#if goalMet}}green{{else}}red{{/if}}">${{actualGross}}</span>
+                                <div class="littl-cell">
+                                    <input type="text" class="left" value="{{netP}}$">
+                                    <span class="right">{{netA}}$</span>
                                 </div>
                             </div>
                         </td>

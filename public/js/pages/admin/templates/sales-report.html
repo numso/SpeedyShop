@@ -6,20 +6,30 @@
         </div>
     </div>
     <div class="sr-panels">
-        <div class="{{graphID}}-box">
+        <div class="sales-graph-box">
             <div class="graph-title"></div>
             <img class='sr-loader' src="img/loading.gif">
-            <div id="{{graphID}}" style="width: 800px; height: 200px;"></div>
+            <div id="sales-graph" style="width: 800px; height: 200px;"></div>
+
+                <div class="sr-legend">
+                    <div class="sr-l-actual"><span style="background-color: #00f;"></span> Actual</div>
+                    <div class="sr-l-proj"><span style="background-color: #f00;"></span> Projected</div>
+                </div>
+
             <div class="sr-buttons-box">
                 <div class="sr-buttons-box-container">
                     <button class="graph-prev">&lt;--</button>
                     <button class="graph-month-view selected">Month</button>
                     <button class="graph-year-view">Year</button>
                     <button class="graph-next">--&gt;</button>
+
+                    <button class="graph-quantity selected">qty</button>
+                    <button class="graph-gross">gross</button>
+                    <button class="graph-net">net</button>
                 </div>
             </div>
         </div>
-        <div id="{{chartID}}" style='display: none;'>
+        <div id="sales-chart" style='display: none;'>
         </div>
     </div>
 </div>

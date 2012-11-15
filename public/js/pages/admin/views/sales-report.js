@@ -15,224 +15,297 @@ define([
 ) {
     return Backbone.View.extend({
         graphID: 'sales-graph',
-        chartID: 'sales-chart',
-        status: {},
-
-        rawItemsData: undefined,
-        rawSalesData: undefined,
+        status: undefined,
+        analyticsData: undefined,
 
         events: {
             'click .show-chart': 'showChart',
             'click .show-graph': 'showGraph',
+
             'click .graph-month-view': 'showMonthView',
             'click .graph-year-view': 'showYearView',
             'click .graph-prev': 'prevSection',
             'click .graph-next': 'nextSection',
-            'click .projected-sale': 'changeProjected',
+
+            'click .graph-quantity': 'drawQuantityGraph',
+            'click .graph-gross': 'drawGrossGraph',
+            'click .graph-net': 'drawNetGraph'
+
+//            'click .projected-sale': 'changeProjected'
+        },
+
+        render: function () {
+            this.$el.html(salesReportTmpl());
+            return this;
+        },
+
+        loadScreen: function () {
+            var that = this,
+                curDate = new Date();
+
+            this.$('.graph-year-view').removeClass('selected');
+            this.$('.graph-month-view').addClass('selected');
+            this.$('.graph-quantity').addClass('selected');
+            this.$('.graph-gross').removeClass('selected');
+            this.$('.graph-net').removeClass('selected');
+
+            this.status = {
+                type: 'month',
+                salesType: 'quantity',
+                year: curDate.getFullYear(),
+                month: curDate.getMonth()
+            };
+
+            this.loadData(function () {
+                that.drawGraph();
+            });
+
+            this.drawChart();
         },
 
         showChart: function (e) {
             this.$('.show-graph').removeClass('selected');
             this.$('.show-chart').addClass('selected');
-            this.$("#" + this.chartID).show();
+            this.$("#sales-chart").show();
             this.$("." + this.graphID + '-box').hide();
         },
 
         showGraph: function (e) {
             this.$('.show-chart').removeClass('selected');
             this.$('.show-graph').addClass('selected');
-            this.$("#" + this.chartID).hide();
+            this.$("#sales-chart").hide();
             this.$("." + this.graphID + '-box').show();
         },
 
+        drawQuantityGraph: function (e) {
+            this.$('.graph-quantity').addClass('selected');
+            this.$('.graph-gross').removeClass('selected');
+            this.$('.graph-net').removeClass('selected');
+
+            this.status.salesType = 'quantity';
+            this.drawGraph();
+        },
+
+        drawGrossGraph: function (e) {
+            this.$('.graph-quantity').removeClass('selected');
+            this.$('.graph-gross').addClass('selected');
+            this.$('.graph-net').removeClass('selected');
+
+            this.status.salesType = 'gross';
+            this.drawGraph();
+        },
+
+        drawNetGraph: function (e) {
+            this.$('.graph-quantity').removeClass('selected');
+            this.$('.graph-gross').removeClass('selected');
+            this.$('.graph-net').addClass('selected');
+
+            this.status.salesType = 'net';
+            this.drawGraph();
+        },
+
         prevSection: function (e) {
+            var that = this;
+
             if (this.status.type === 'month') {
                 --this.status.month;
                 if (this.status.month < 0) {
                     this.status.month = 11;
                     --this.status.year;
                 }
-                this.drawMonthGraph();
             } else {
                 --this.status.year;
-                this.drawYearGraph();
             }
+
+            this.loadData(function () {
+                that.drawGraph();
+            });
         },
 
         nextSection: function (e) {
+            var that = this;
+
             if (this.status.type === 'month') {
                 ++this.status.month;
                 if (this.status.month > 11) {
                     this.status.month = 0;
                     ++this.status.year;
                 }
-                this.drawMonthGraph();
             } else {
                 ++this.status.year;
-                this.drawYearGraph();
             }
+
+            this.loadData(function () {
+                that.drawGraph();
+            });
         },
 
         showMonthView: function (e) {
+            var that = this;
+
             this.$('.graph-year-view').removeClass('selected');
             this.$('.graph-month-view').addClass('selected');
 
             var curDate = new Date();
-            this.status = {
-                type: 'month',
-                year: curDate.getFullYear(),
-                month: curDate.getMonth()
-            };
-            this.drawMonthGraph();
+            this.status.type = 'month';
+            this.status.year = curDate.getFullYear();
+            this.status.month = curDate.getMonth();
+
+            this.loadData(function () {
+                that.drawGraph();
+            });
         },
 
         showYearView: function (e) {
+            var that = this;
+
             this.$('.graph-month-view').removeClass('selected');
             this.$('.graph-year-view').addClass('selected');
 
             var curDate = new Date();
-            this.status = {
-                type: 'year',
-                year: curDate.getFullYear(),
-                month: curDate.getMonth()
-            };
-            this.drawYearGraph();
+            this.status.type = 'year';
+            this.status.year = curDate.getFullYear();
+            this.status.month = curDate.getMonth();
+
+            this.loadData(function () {
+                that.drawGraph();
+            });
         },
 
-        render: function () {
-            this.$el.html(salesReportTmpl({
-                graphID: this.graphID,
-                chartID: this.chartID
-            }));
-
-            return this;
-        },
-
-        drawChart: function () {
-            this.updateChartItem();
-            // console.log(this.chartObject);
-
+        loadData: function (cb) {
             var that = this;
-            $.get('/tempSalesChartCall', function(data){
-                var months = [];
-                for (var i = 0; i < 12; ++i){
-                    months[i] = that.getMonthName(i).full;
-                }
-                var obj = {
-                    months: months,
-                    data: data
-                };
 
-                for (var i = 0; i < obj.data.length; ++i){
-                    if (!(i % 2)) { obj.data[i].odd = true; }
-                    else { obj.data[i].odd = undefined; }
-                    for (var j = 0; j < 12; ++j){
-                        if (obj.data[i].data[j]){
-                            if (obj.data[i].data[j].projectedQuantity < obj.data[i].data[j].actualQuantity){
-                                obj.data[i].data[j].goalMet = true;
-                            } else {
-                                obj.data[i].data[j].goalMet = undefined;
-                            }
-                        }
-                    }
-                }
+            var year = this.status.year,
+                month = this.status.month;
 
-                that.$("#" + that.chartID).html(chartTmpl(obj));
-            });
-        },
-
-        updateChartItem: function () {
-
-            console.log(this.$('#' + this.chartID));
-
-        },
-
-        changeProjected: function (e) {
-            var el = this.$('est-projection').closest();
-            console.log(el);
-        },
-
-        gotFocus: function () {
-            this.showMonthView();
-            this.drawChart();
-        },
-
-        drawYearGraph: function () {
-            var that = this,
-                year = this.status.year;
-
-            this.$("#" + this.graphID).html('');
-            this.$("#" + this.graphID).hide();
             this.$('.sr-loader').show();
-            this.$('.graph-title').html('Sales Report for ' + year);
+            this.$("#" + this.graphID).hide();
 
-            $.get('/sales/year/' + year, function (d) {
-                that.$('.sr-loader').hide();
-                that.$("#" + that.graphID).show();
-                if (d.length === 0) {
-                    that.$('#' + that.graphID).html('No Data Available for this time frame.');
-                    return;
-                }
-
-                var labels = [],
-                    labelsLong = [[], []],
-                    data = [[], []];
-
-                for (var i = 0; i < d.length; ++i) {
-                    if (d[i] !== null) {
-                        labels.push(that.getMonthName(i).abbr);
-                        labelsLong[0].push("Projected: " + d[i].projected + " for " + that.getMonthName(i).full + " " + year);
-                        data[0].push(d[i].projected);
-                        labelsLong[1].push("Actual: " + d[i].actual + " for " + that.getMonthName(i).full + " " + year);
-                        data[1].push(d[i].actual);
-                    }
-                }
-
-                that.makeGraph(data, labels, labelsLong);
-            });
+            if (this.status.type === "month") {
+                $.get('/sales/year/' + year + '/month/' + month, function (d) {
+                    that.analyticsData = d;
+                    that.$('.sr-loader').hide();
+                    that.$("#" + that.graphID).show();
+                    cb();
+                });
+            } else {
+                $.get('/sales/year/' + year, function (d) {
+                    that.analyticsData = d;
+                    that.$('.sr-loader').hide();
+                    that.$("#" + that.graphID).show();
+                    cb();
+                });
+            }
         },
 
-        drawMonthGraph: function () {
-            var that = this,
+        drawGraph: function () {
+            var type = this.status.type,
                 year = this.status.year,
                 month = this.status.month;
 
+            var labels = [],
+                labelsLong = [[], []],
+                data = [[], []];
+
+            var d = this.analyticsData;
+
             this.$("#" + this.graphID).html('');
-            this.$("#" + this.graphID).hide();
-            this.$('.sr-loader').show();
-            this.$('.graph-title').html('Sales Report for ' + this.getMonthName(month).full + ' ' + year);
 
-            $.get('/sales/year/' + year + '/month/' + month, function (d) {
-                that.$('.sr-loader').hide();
-                that.$("#" + that.graphID).show();
-                if (d.length === 0) {
-                    $('#' + that.graphID).html('No Data Available for this time frame.');
-                    return;
-                }
+            if (type === "month") {
+                this.$('.graph-title').html('Sales Report for ' + this.getMonthName(month).full + ' ' + year);
+            } else {
+                this.$('.graph-title').html('Sales Report for ' + year);
+            }
 
-                var labels = [],
-                    labelsLong = [[], []],
-                    data = [[], []];
+            if (d.length === 0) {
+                this.$('#' + this.graphID).html('No Data Available for this time frame.');
+                return;
+            }
 
+            if (type === "month") {
                 for (var i = 0; i < d.length; ++i) {
                     if (d[i] !== null) {
+                        var p = d[i][this.status.salesType + "P"];
+                        var a = d[i][this.status.salesType + "A"]
                         labels.push(i);
-                        labelsLong[0].push("Projected: " + d[i].projected + " for " + that.getMonthName(month).full + " " + i + " " + year);
-                        data[0].push(d[i].projected);
-                        labelsLong[1].push("Actual: " + d[i].actual + " for " + that.getMonthName(month).full + " " + i + " " + year);
-                        data[1].push(d[i].actual);
+                        labelsLong[0].push("Projected: " + p + " for " + this.getMonthName(month).full + " " + i + " " + year);
+                        labelsLong[1].push("Actual: " + a + " for " + this.getMonthName(month).full + " " + i + " " + year);
+                        data[0].push(p);
+                        data[1].push(a);
                     }
                 }
-                that.makeGraph(data, labels, labelsLong);
+            } else {
+                for (var i = 0; i < d.length; ++i) {
+                    if (d[i] !== null) {
+                        var p = d[i][this.status.salesType + "P"];
+                        var a = d[i][this.status.salesType + "A"]
+                        labels.push(this.getMonthName(i).abbr);
+                        labelsLong[0].push("Projected: " + p + " for " + this.getMonthName(i).full + " " + year);
+                        labelsLong[1].push("Actual: " + a + " for " + this.getMonthName(i).full + " " + year);
+                        data[0].push(p);
+                        data[1].push(a);
+                    }
+                }
+            }
+
+            this.makeGraph(data, labels, labelsLong);
+        },
+
+        drawChart: function () {
+            var that = this;
+            $.get('/getCategories', function (cats) {
+                $.get('/sales/year/2012', function (data){
+
+                    var months = [];
+                    for (var i = 0; i < 12; ++i){
+                        months[i] = that.getMonthName(i).full;
+                    }
+
+                    var items = [];
+                    for (var j = 0; j < cats.length; ++j) {
+                        if (cats[j].title !== "Hot Items") {
+                            items.push({
+                                cat: cats[j].title,
+                                items: data,
+                                odd: (j % 2 === 1)
+                            });
+                        }
+                    }
+
+                    var obj = {
+                        months: months,
+                        items: items
+                    };
+
+                    that.$("#sales-chart").html(chartTmpl(obj));
+
+                    var allCells = that.$('.littl-cell');
+                    for (var k = 0; k < allCells.length; ++k) {
+                        var cell = $(allCells[k]),
+                            p = parseInt(cell.find('input').val(), 10),
+                            a = parseInt(cell.find('span').text(), 10);
+
+                        if (a < p) {
+                            cell.css('background-color', '#f5a4a4');
+                        } else {
+                            cell.css('background-color', '#7c7ce9');
+                        }
+                    }
+                });
             });
         },
+
+        // changeProjected: function (e) {
+        //     var el = this.$('est-projection').closest();
+        //     console.log(el);
+        // },
 
         makeGraph: function (data, labels, labelsLong) {
             var r = Raphael(this.graphID);
             r.raphalytics(data, labels, labelsLong, {
                 'width': 800,
                 'height': 200,
-                'color': ['#f00', '#0f0'],
+                'color': ['#f00', '#00f'],
                 'y_labels_number': 10,
                 'y_labels_position': 'outside',
                 'y_label_0': true,

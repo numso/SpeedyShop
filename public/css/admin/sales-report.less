@@ -7,6 +7,9 @@
 
     .sr-header {
         height: 40px;
+        box-shadow: 0 0 20px 2px rgba(0, 0, 0, .5);
+        margin-bottom: 40px;
+        padding: 5px;
 
         .sr-nav-items {
             float: right;
@@ -28,6 +31,24 @@
             .show-graph {
                 left: -100px;
             }
+        }
+    }
+
+    #sales-graph {
+        margin: 0 auto;
+    }
+
+    .sr-legend {
+        position: absolute;
+        float: left;
+        margin-top: 20px;
+
+        span {
+            display: inline-block;
+            position: relative;
+            top: -3px;
+            width: 30px;
+            height: 5px;
         }
     }
 
@@ -53,16 +74,30 @@
             }
 
             .graph-prev {
-                left: -100px;
+                left: -125px;
             }
+
             .graph-month-view {
-                left: -25px;
+                left: -50px;
             }
-            .graph-year-view {
-                left: 25px;
-            }
+
             .graph-next {
-                left: 100px;
+                left: 75px;
+            }
+
+            .graph-quantity {
+                left: -75px;
+                top: 100px;
+            }
+
+            .graph-gross {
+                left: -25px;
+                top: 100px;
+            }
+
+            .graph-net {
+                left: 25px;
+                top: 100px;
             }
         }
     }
@@ -90,51 +125,43 @@
         margin-top:20px;
         width: 1600px;
 
-        div{
+        div {
             text-align: left;
         }
 
-        th{
+        th {
             width: 50px;
         }
 
-        input{
-            width:50px;
-        }
-
-        .odd {
-            background-color: rgba(153, 153, 153, 0.46);
-        }
-
-        .even {
+        tr {
             background-color:rgba(221, 221, 221, 0.21);
+
+            &.odd {
+                background-color: rgba(153, 153, 153, 0.46);
+            }
         }
 
-        .cat{
+        input {
+            width: 50px;
+        }
+
+        .cat {
             text-align: center;
         }
 
-        .cell{
-            margin:2px;
+        .cell {
+            margin: 2px;
         }
 
-        .left{
-            text-align:left;
+        .left {
+            text-align: left;
             color: gray;
             &:hover {
                 cursor: pointer;
             }
         }
 
-        .green{
-            color: green;
-        }
-
-        .red{
-            color:red;
-        }
-
-        .right{
+        .right {
             margin-left: 5%;
         }
     }
