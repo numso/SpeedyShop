@@ -12,7 +12,7 @@
 	<table>
 		<tr>
 			<td>Name: </td>
-			<td><input class="code-input" type="search"/>	</td>
+			<td><input class="name-input" type="search"/>	</td>
 		</tr>
 		<tr>
 			<td>Code: </td>
@@ -23,30 +23,30 @@
 			<td><input class="amount" type="number"></td>
 		</tr>
 		<tr>
-			<td><span>Off:</span></td>
-			<td><input class="amount" type="number"></td>
+			<td><span>Percent:</span></td>
+			<td><input class="percent" type="number"></td>
 		</tr>
 	</table>
 	<hr/>
-	<div>Starts:<input id="now-btn" type="checkbox" unchecked> Now</input></div>
+	<div>Starts:<input class="now-btn" type="checkbox" unchecked> Now</input></div>
 	<input id="start-date-txt" class="input-date" type="date" enabled>
-	<div>Ends:<input id="never-btn" type="checkbox" unchecked>Never</input></div>
+	<div>Ends:<input class="never-btn" type="checkbox" unchecked>Never</input></div>
 	<input id="end-date-txt" class="input-date" type="date" enabled>
 	<div class="stackable-div" >
-		<input type="checkbox" unchecked>
-		<span>Stackable?</span>
+		<input class = 'stack-check' type="checkbox" unchecked>
+		<span class = 'stack'>Stackable?</span>
 	</div>
 </div>
 <hr/>
 <div class="outer-area">
-	<button id="save-button">Save</button>
+	<button class ="save-btn">Save</button>
 </div>
 {{else}}
 <div class="promocode-module">
 
 	<div class="promocode-title">Promo Codes</div>
 	<div class="product-label-div"><span class = "promo-text">Product:</span>
-		<select>
+		<select class = 'cat-sel'>
 			<option>All</option>
 			<option>Category</option>
 			<option>Item</option>
@@ -55,7 +55,7 @@
 	<table>
 		<tr>
 			<td>Name: </td>
-			<td><input class="code-input" type="search" value = "{{product-detail}}"/>	</td>
+			<td><input class="name-input" type="search" value = "{{detail}}"/>	</td>
 		</tr>
 		<tr>
 			<td>Code: </td>
@@ -66,23 +66,42 @@
 			<td><input class="amount" type="number" value = "{{amount}}"></td>
 		</tr>
 		<tr>
-			<td><span>Off:</span></td>
-			<td><input class="amount" type="number" value = "{{percent}}"></td>
+			<td><span>Percent:</span></td>
+			<td><input class="percent" type="number" value = "{{percent}}"></td>
 		</tr>
 	</table>
 	<hr/>
-	<div>Starts:<input id="now-btn" type="checkbox" unchecked> Now</input></div>
-	<input id="start-date-txt" class="input-date" type="date" enabled value = "{{start}}">
-	<div>Ends:<input id="never-btn" type="checkbox" unchecked>Never</input></div>
-	<input id="end-date-txt" class="input-date" type="date" enabled>
+	{{#if now}}
+	<div>Starts:<input class="now-btn" type="checkbox" checked> Now</input></div>
+	<input class="start-date-txt" class="input-date" type="date"  value = "">
+	{{else}}
+	<div>Starts:<input class="now-btn" type="checkbox" unchecked> Now</input></div>
+	<input class="start-date-txt" class="input-date" type="date"  value = "{{start}}">
+	{{/if}}
+
+	{{#if neverend}}
+	<div>Ends:<input class="never-btn" type="checkbox" checked>Never</input></div>
+	<input class="end-date-txt" class="input-date" type="date" value = "">
+	{{else}}
+	<div>Ends:<input class="never-btn" type="checkbox" unchecked>Never</input></div>
+	<input class="end-date-txt" class="input-date" type="date" value = "{{end}}">
+	{{/if}}
+
 	<div class="stackable-div" >
-		<input type="checkbox" unchecked>
-		<span>Stackable?</span>
+
+		{{#if stackable}}
+		<input class = 'stack-check' type="checkbox" checked>
+		<span class = 'stack'>Stackable?</span>
+		{{else}}
+		<input class = 'stack-check' type="checkbox" unchecked>
+		<span class = 'stack'>Stackable?</span>
+		{{/if}}
+
 	</div>
 </div>
 <hr/>
 <div class="outer-area">
-	<button id="save-button">Save</button>
+	<button class="save-btn">Save</button>
 </div>
 {{/if}}
 

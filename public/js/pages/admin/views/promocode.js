@@ -9,13 +9,16 @@ define([
 ) {
     return Backbone.View.extend({
 
+        thisPromo: undefined,
+
         initialize: function () {
             
         },
         
         events: {
             "click #now-btn": "setNow",
-            "clicl #never-btn": "setNever",
+            "click #never-btn": "setNever",
+            'click .save-btn': 'savePromo'
         },
 
         render: function () {
@@ -36,8 +39,37 @@ define([
         },
 
         showThisPromo: function(data){
-            console.log(data);
+            this.thisPromo = data;
             this.$el.html(promocodeTmpl(data));
+
+        },
+
+        savePromo: function(){
+            var thisNow = false;
+            var thisNever = false;
+            var thisStack = false;
+
+            if(this.$('.now-btn').is(':checked'))
+                thisNow = true;
+            if(this.$('.never-btn').is(':checked'))
+                thisNever = true;
+            if(this.$('.stack-check').is(':checked'))
+                thisStack = true;
+
+            var newPromo = {
+            product: this.$('.cat-sel').val(),
+            detail : this.$('.name-input').val(),
+            code : this.$('.code-input').val(),
+            amount : this.$('.amount').val(),
+            percent : this.$('.percent').val(),
+            start : this.$('.start-date-txt').val(),
+            now : thisNow,
+            end : this.$('.end-date-txt').val(),
+            neverend : thisNever,
+            stackable : thisStack
+            }
+
+            this.model.addPromo(newPromo);
 
         }
 

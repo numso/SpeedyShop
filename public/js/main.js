@@ -434,7 +434,11 @@ require([
 
     var showPromo = function (data){
         promoCodeView.showThisPromo(data);
-    }
+    };
+
+    var addPromo = function (data){
+        promoCodeListView.addPromo(data);
+    };
 
     var sendFiltersToItemView = function (filters) {
         itemsView.updateFilteredItems(filters);
@@ -537,7 +541,9 @@ require([
 
     var promoCodeView = new promoCodeView({
         className: "panel promo-code-view hidden",
-        model: {}
+        model: {
+            addPromo: addPromo
+        }
     });
     $(".right-panel").append(promoCodeView.render().el);
 
