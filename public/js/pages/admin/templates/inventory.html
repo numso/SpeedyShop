@@ -1,12 +1,13 @@
 <div class = 'inventory-wrapper'>
-	{{#each this}}
-	<div class = 'item-box'>
-	<span class = 'inventory-text'>Item Name:</span><div class = 'item-name'>{{name}}</div><br />
-	<span class = 'inventory-text'>Item Number:</span><div class = 'item-id'>{{id}}</div><br />
-	<span class = 'inventory-text'>Item Stock:</span><div class = 'item-stock'>{{available}}</div> <input class = 'update-stock' type = 'text' size = '5'><br />
-	<hr>
-	</div>
-	{{/each}}
+    {{#each this}}
+        <div class = 'item-box'>
+            <span class = 'inventory-text'>Item Name:</span><div class = 'item-name'>{{name}}</div><br />
+            <span class = 'inventory-text'>Item Number:</span><div class = 'item-id'>{{id}}</div><br />
+            <span class = 'inventory-text'>Item Stock:</span><div class = 'item-stock'>{{available}}</div>
+            <input class = 'update-stock' type = 'text' size = '5'><br />
+            <hr>
+        </div>
+    {{/each}}
 </div>
-<button class = "update-items">Update Quantities</button><button class = 'commit-changes'>Commit Changes</button>
-<span class = 'submitted-change'>Successfully Updated Quantities</span>
+<button class="update-items">Update Quantities</button>
+<span class='submitted-change'>Successfully Updated Quantities</span>

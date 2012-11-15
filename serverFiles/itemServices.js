@@ -89,11 +89,11 @@ module.exports = function (app) {
                     name: data.name,
                     cat: data.cat,
                     price: data.price,
-                    rating: Math.floor(Math.random() * 4) + 1,
+                    rating: 5,
                     desc: data.desc,
                     images: data.images,
                     id: newId,
-                    availability: 0,
+                    availability: 10,
                     popularity: 0
                 };
 

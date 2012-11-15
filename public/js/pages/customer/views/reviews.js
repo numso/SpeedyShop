@@ -107,35 +107,25 @@ define([
         },
 
         avgReviews: function () {
-            var that = this;
-            $.get('/getItems', function (data) {
+            var myObj = {
+                rating: this.computeRating(),
+                id: this.itemID
+            };
 
-            for(var n = 0; n < data.length; ++n)
-                if(data[n].id == that.itemID)
-                    data[n].rating = that.computeRating();
-
-            $.post('/editInventory', JSON.stringify(data), function (resp) {
-                console.log("Response: " + JSON.stringify(resp));
-            });
-                
-            });
-
+            $.post('/changeRating', JSON.stringify(myObj));
         },
 
         computeRating: function() {
-            var sum = 0;
-            sum += this.curReviews[0].reviews.length * 1;
-            sum += this.curReviews[1].reviews.length * 2;
-            sum += this.curReviews[2].reviews.length * 3;
-            sum += this.curReviews[3].reviews.length * 4;
-            sum += this.curReviews[4].reviews.length * 5;
+            var sum = 0,
+                num = 0;
 
-            var den = this.curReviews[0].reviews.length + this.curReviews[1].reviews.length + this.curReviews[2].reviews.length + this.curReviews[3].reviews.length + this.curReviews[4].reviews.length;
+            for (var i = 0; i < 5; ++i) {
+                sum += this.curReviews[i].reviews.length * (i + 1);
+                num += this.curReviews[i].reviews.length;
+            }
 
             var average = sum / den;
-
-            return parseInt(average);
-
+            return parseInt(average, 10);
         },
 
         cancelReview: function (e) {
@@ -175,7 +165,6 @@ define([
 
                 return;
             }
-
         }
     });
 });

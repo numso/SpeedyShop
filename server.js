@@ -21,8 +21,6 @@ console.log('Server running on port:' + PORT);
     app.shopData.promoCodes = JSON.parse(fs.readFileSync('serverData/promoCodes.json'));
     app.shopData.reviews = JSON.parse(fs.readFileSync('serverData/reviews.json'));
 
-    app.shopData.test = JSON.parse(fs.readFileSync('serverData/test.json'));
-
     app.shopData.users = JSON.parse(fs.readFileSync('serverData/users.json'));
     app.shopData.usersWin = JSON.parse(fs.readFileSync('serverData/usersWin.json'));
 }());
@@ -85,11 +83,11 @@ app.post('/signup', authServices.signup);
 // Admin Stuff
 app.get('/sales/year/:yearID', adminServices.getSalesByYear);
 app.get('/sales/year/:yearID/month/:monthID', adminServices.getSalesByYearMonth);
+app.get('/tempSalesChartCall', adminServices.tempChartCall);
+
 app.get('/promocodes', adminServices.getPromoCodes);
 app.post('/addItem', itemServices.addItem);
 app.post('/changeItem', itemServices.changeItem);
 app.post('/deleteItem/:itemID', itemServices.deleteItem);
-app.post('/editInventory', adminServices.editInventory);
-app.get('/tempSalesChartCall', adminServices.tempChartCall);
-
-
+app.post('/updateInventory', adminServices.updateInventory);
+app.post('/changeRating', adminServices.changeRating);

@@ -8,61 +8,71 @@ define([
     inventoryTmpl
 ) {
     return Backbone.View.extend({
-
         curInventory : undefined,
 
         initialize: function () {
         },
 
         events: {
-            'click .update-items' :  'editQuantity',
-            'click .commit-changes' : 'commitChanges'
+            'click .update-items': 'updateQuantity',
+            'blur .update-stock': 'checkForChange'
         },
 
-        editQuantity: function() {
-            $('.submitted-change').css('display', 'none');
-            var itemsToChange = [];
-            this.$('.inventory-wrapper > .item-box > .update-stock').each(function (index) {
+        checkForChange: function (e) {
+            var el = $(e.target).closest('.update-stock'),
+                val = parseInt(el.val(), 10),
+                orig = parseInt(el.closest('.item-box').find('.item-stock').text(), 10);
 
-                var thisValue = $(this).val();
-                if (thisValue > 0 && !isNaN(thisValue)) {
-                    var thisItem = {
-                        index : index,
-                        newValue : thisValue
+            if (!isNaN(val) && val !== orig) {
+                el.closest('.item-box').css('background-color', 'orange');
+            } else {
+                el.closest('.item-box').css('background-color', '');
+            }
+        },
+
+        updateQuantity: function (e) {
+            var items = this.$('.update-stock');
+
+            var toUpdate = [];
+            for (var i = 0; i < items.length; ++i) {
+                var item = $(items[i]),
+                    val = parseInt(item.val(), 10);
+                if (!isNaN(val)) {
+                    var myBox = item.closest('.item-box');
+                    var orig = parseInt(myBox.find('.item-stock').text(), 10);
+                    if (orig !== val) {
+                        toUpdate.push({
+                            id: parseInt(myBox.find('.item-id').text(), 10),
+                            val: val
+                        });
+
+                        myBox.find('.item-stock').text(val);
                     }
-
-                    itemsToChange.push(thisItem);
                 }
-           });
+            }
 
-           for (var x = 0; x < itemsToChange.length; ++x)
-                for (var n = 0; n < this.curInventory.length; ++n)
-                        if (itemsToChange[x].index == this.curInventory[n].id)
-                            this.curInventory[n].available = itemsToChange[x].newValue;
-
-            this.$el.html(inventoryTmpl(this.curInventory));
-        },
-
-        checkLowInventory: function(){
-                $('.item-stock').each(function (index) {
-
-                var thisValue = parseInt($(this).html());
-                    if(thisValue < 5)
-                            $(this).parent().css('color', 'red');
-
-            });
-        },
-
-        commitChanges: function() {
-            console.log('sending:');
-
-            $.post('/editInventory', JSON.stringify(this.curInventory), function (resp) {
-                console.log("Response: " + JSON.stringify(resp));
-            });
-
-            $('.submitted-change').css('display', 'inline');
+            if (toUpdate.length > 0) {
+                $.post('/updateInventory', JSON.stringify(toUpdate), function () {
+                    $('.submitted-change').show();
+                });
+            }
 
             this.checkLowInventory();
+            items.val('');
+        },
+
+        checkLowInventory: function () {
+            this.$('.item-box').css({
+                color: '',
+                'background-color': ''
+            });
+
+            this.$('.item-stock').each(function (index) {
+                var thisValue = parseInt($(this).html());
+                if (thisValue < 5) {
+                    $(this).parent().css('color', 'red');
+                }
+            });
         },
 
         render: function () {

@@ -5,7 +5,7 @@ module.exports = function (app) {
     return {
         getSalesByYear: function (request, response, next) {
             var year = request.params.yearID,
-                sales = app.shopData.test,
+                sales = app.shopData.analytics,
                 newArr = [];
 
             for (var i = 0; i < sales.length; ++i) {
@@ -36,7 +36,7 @@ module.exports = function (app) {
         getSalesByYearMonth: function (request, response, next) {
             var year = request.params.yearID,
                 month = request.params.monthID,
-                sales = app.shopData.test,
+                sales = app.shopData.analytics,
                 newArr = [];
 
             for (var i = 0; i < sales.length; ++i) {
@@ -61,7 +61,7 @@ module.exports = function (app) {
 
         tempChartCall: function (request, response, next) {
             var year = 2012,
-                sales = app.shopData.test,
+                sales = app.shopData.analytics,
                 newArr = [];
 
             for (var i = 0; i < sales.length; ++i) {
@@ -110,7 +110,9 @@ module.exports = function (app) {
             response.send(codes);
         },
 
-        editInventory: function(request, response, next) {
+        updateInventory: function (request, response, next) {
+            var items = app.shopData.items;
+
             var input = '';
             request.on('data', function (chunk) {
                 input += chunk;
@@ -118,7 +120,41 @@ module.exports = function (app) {
 
             request.on('end', function () {
                 input = JSON.parse(input);
-                fs.writeFileSync('serverData/items.json', JSON.stringify(input));
+
+                for (var i = 0; i < input.length; ++i) {
+                    var found = false;
+                    for (var j = 0; j < items.length && !found; ++j) {
+                        if (items[j].id == input[i].id) {
+                            items[j].available = input[i].val;
+                            found = true;
+                        }
+                    }
+                }
+                fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+                response.send('ok');
+            });
+        },
+
+        changeRating: function (request, response, next) {
+            var items = app.shopData.items;
+
+            var input = '';
+            request.on('data', function (chunk) {
+                input += chunk;
+            });
+
+            request.on('end', function () {
+                input = JSON.parse(input);
+
+                for (var i = 0; i < items.length; ++i) {
+                    if (items[i].id == input.id) {
+                        items[i].rating = input.rating;
+                        fs.writeFileSync('serverData/items.json', JSON.stringify(items));
+                        response.send('ok');
+                        return;
+                    }
+                }
+                response.send('error');
             });
         }
     };
