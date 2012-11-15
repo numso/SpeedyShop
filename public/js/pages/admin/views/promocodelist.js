@@ -14,8 +14,8 @@ define([
         },
 
         events: {
-            "click .add-new-btn": "addNew",
-            "click .row" : "openPromo"
+            "click .row" : "openPromo",
+            'click .delete-promo': 'deletePromo'
         },
 
         render: function () {
@@ -27,12 +27,13 @@ define([
             return this;
         },
 
-        addNew: function () {
-            console.log("im in here!");
+        addPromo: function (data) {
+            this.codeList.push(data);
+            this.$el.html(promocodelistTmpl(this.codeList));
         },
 
         openPromo: function (e) {
-            var el = parseInt($(e.target).closest('.code-field').html(), 10);
+            var el = parseInt($(e.target).closest('.row').find('.code-field').html(), 10);
 
             for(var n = 0; n < this.codeList.length; ++n)
                 if(this.codeList[n].code == el)
@@ -40,6 +41,34 @@ define([
 
             this.model.showPromo(pickedPromo);
 
+        },
+
+        deletePromo: function(e){
+            var el = parseInt($(e.target).closest('.row').find('.code-field').html(), 10);
+            
+            for(var n = 0; n < this.codeList.length; ++n)
+                if(this.codeList[n].code == el)
+                    var killPromo = this.codeList[n];
+
+
+            var newList = [];
+            for(var n = 0; n < this.codeList.length; ++n)
+                {
+                    if(this.codeList[n] == killPromo)
+                    {
+                        console.log(this.codeList[n]);
+                        console.log(killPromo);
+                    }
+                    else
+                    {
+                        newList.push(this.codeList[n]);
+                    }
+                }
+
+            console.log(newList);
+
+            this.codeList = newList;
+            this.$el.html(promocodelistTmpl(newList));
         }
 
 

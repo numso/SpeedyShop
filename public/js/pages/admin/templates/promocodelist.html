@@ -1,15 +1,22 @@
-<div class="outer-area">
-	<button class = "add-new-btn">Add New</button>
-</div>
 <div class="code-list">
 	<table>
+		<th>Scope</th><th>Products</th><th>Promo Code</th><th>Percent Off</th><th>Dollar Off</th><th>Start</th><th>End</th><th>Stackable</th>
+
 	{{#each this}}
 			<tr class="row">
-				<td><span class="product-detail-field">{{product-detail}}</span></td>
+				<td><span class="scope">{{product}}</span></td>
+				<td><span class="product-detail-field">{{detail}}</span></td>
 				<td><span class="code-field">{{code}}</span></td>
 				<td><span class="percent-field"> {{percent}}% </span></td>
 				<td><span class="amount-field">{{amount}}</span></td>
-				<td><button>x</button></td>
+				<td><span class = 'start-date'>{{start}}</span></td>
+				<td><span class = 'end-date'>{{end}}</span></td>
+				{{#if stackable}}
+				<td><span class = 'isStackable'>{{stackable}}</span></td>
+				{{else}}
+				<td><span class = 'isStackable'>false</span></td>
+				{{/if}}
+				<td><button class = 'delete-promo'>x</button></td>
 			</tr>
 	{{/each}}
 	</table>
