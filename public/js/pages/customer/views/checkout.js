@@ -200,7 +200,7 @@ define([
             return {
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal,
-                newTotal: this.cardData.total - this.promoTotal, //Mauriel, apply discount here
+                newTotal: this.cartData.total - this.promoTotal, //Mauriel, apply discount here
                 total: this.cartData.total, //Mauriel, apply discount here
 
                 addresses: [

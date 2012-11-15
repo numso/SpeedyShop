@@ -19,7 +19,7 @@ define([
             'click #check-out-btn': 'clickedCheckout',
             'click .qty-cnt': 'sanitizeQuantityInput',
             'mousewheel .qty-cnt': 'sanitizeQuantityInput',
-            'click .X-button': 'removeItem',
+            'click .X-button': 'removeItem'
         },
 
         render: function () {
