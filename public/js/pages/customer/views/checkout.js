@@ -21,7 +21,7 @@ define([
         index: 0,
         cartData: undefined,
         explanatoryText: undefined,
-        orderData: [],
+        checkoutData: [],
 
         initialize: function () {
             this.myTmpls = [
@@ -47,8 +47,8 @@ define([
         events: {
             'click #checkout-next-step': 'showNext',
             'click #checkout-prev-step': 'showPrev',
-            'click .same-question': 'addressesSame'
-           // 'click input': 'verifyFields'
+            'click .same-question': 'addressesSame',
+            'keypress input': 'verifyFields'
         },
 
         render: function () {
@@ -57,7 +57,6 @@ define([
         },
 
         showCartConfirm: function (cart) {
-
             var total = 0;
             for (var i = 0; i < cart.length; ++i) {
                 total += cart[i].quantity * cart[i].price;
@@ -74,7 +73,7 @@ define([
         showNext: function (e) {
             this.saveOffPageData();
             if (this.index == this.myTmpls.length - 1)
-                this.completeTransaction(); //they clicked Next on the last page
+                this.completeTransaction(); //they clicked Done on the last page
             else
             {
                 this.index = Math.min(this.myTmpls.length - 1, this.index + 1);
@@ -94,11 +93,12 @@ define([
             this.model.updateBreadcrumbs(this.index);
             this.$('.checkout-title').html(this.myTmpls[this.index].name);
 
-            // update buttons
+            // update previous nav buttons
             this.$('#checkout-prev-step').hide();
             if (this.index > 0)
                 this.$('#checkout-prev-step').show();
 
+            // update next nav button
             this.$('#checkout-next-step').text('Next>');
             if (this.index >= this.myTmpls.length - 1)
                 this.$('#checkout-next-step').text('Done');
@@ -114,6 +114,8 @@ define([
                 this.$('.checkout-body').html(this.myTmpls[this.index].tmpl(this.assembleOrder()));
             else
                  this.$('.checkout-body').html(this.myTmpls[this.index].tmpl);
+
+            this.verifyFields(null);
         },
 
         addressesSame: function (e) {
@@ -130,6 +132,8 @@ define([
                 var checkbox = this.$('#sameCheckbox');
                 checkbox.attr('checked', !checkbox.attr('checked'));
             }
+
+            this.verifyFields(null);
         },
 
         collectCartInformation: function () {
@@ -155,33 +159,35 @@ define([
                 addresses: [
                     {
                         shippingAddress: true,
-                        firstName: this.orderData[1].data[0],
-                        lastName: this.orderData[1].data[1],
-                        street1: this.orderData[1].data[2],
-                        street2: this.orderData[1].data[3],
-                        city: this.orderData[1].data[4],
-                        state: this.orderData[1].data[5],
-                        zip: this.orderData[1].data[6]
+                        firstName: this.checkoutData[1].data[0],
+                        lastName: this.checkoutData[1].data[1],
+                        street1: this.checkoutData[1].data[2],
+                        street2: this.checkoutData[1].data[3],
+                        city: this.checkoutData[1].data[4],
+                        state: this.checkoutData[1].data[5],
+                        zip: this.checkoutData[1].data[6]
                     },
                     {
                         shippingAddress: false,
-                        firstName: this.orderData[1].data[8],
-                        lastName: this.orderData[1].data[9],
-                        street1: this.orderData[1].data[10],
-                        street2: this.orderData[1].data[11],
-                        city: this.orderData[1].data[12],
-                        state: this.orderData[1].data[13],
-                        zip: this.orderData[1].data[14]
+                        firstName: this.checkoutData[1].data[8],
+                        lastName: this.checkoutData[1].data[9],
+                        street1: this.checkoutData[1].data[10],
+                        street2: this.checkoutData[1].data[11],
+                        city: this.checkoutData[1].data[12],
+                        state: this.checkoutData[1].data[13],
+                        zip: this.checkoutData[1].data[14]
                     }
                 ],
 
                 card: {
-                    name: this.orderData[2].data[0],
-                    number: this.orderData[2].data[1],
-                    MM: this.orderData[2].data[2],
-                    YYYY: this.orderData[2].data[3],
-                    CVC: this.orderData[2].data[4]
-                }
+                    name: this.checkoutData[2].data[0],
+                    number: this.checkoutData[2].data[1],
+                    MM: this.checkoutData[2].data[2],
+                    YYYY: this.checkoutData[2].data[3],
+                    CVC: this.checkoutData[2].data[4]
+                },
+
+                notes: this.checkoutData[1].notes
             };
         },
 
@@ -190,7 +196,7 @@ define([
             var orderToServer = {
                 address: assembledOrder.addresses[0],
                 items: [], //will populate in loop below
-                notes: "herp derp"
+                notes: assembledOrder.notes
             };
 
             for (var j = 0; j < assembledOrder.order.length; ++j) {
@@ -207,6 +213,7 @@ define([
             var response = $.post("/submitOrder", JSON.stringify(orderToServer), function (response) {
                 if (response.status === "OK") {
                     window.alert("Order successfully submitted!\nThank your for shopping with SpeedyShop. :)");
+                    this.$('#checkout-next-step').attr('disabled', true); //prevents
                 }
                 else {
                     window.alert("Error submitting order!\nServer responded: " + response.status);
@@ -217,32 +224,33 @@ define([
         saveOffPageData: function () {
             var pageData = {
                     pageIndex: this.index,
-                    data: []
+                    data: [],
+                    notes: this.$('textarea').val()
                 };
             var inputs = this.$('input');
             for (var j = 0; j < inputs.length; ++j)
                 pageData.data.push($(inputs[j]).val());
 
             var savedLoc = undefined;
-            for (var j = 0; j < this.orderData.length; ++j)
-                if (this.orderData[j].pageIndex == this.index)
+            for (var j = 0; j < this.checkoutData.length; ++j)
+                if (this.checkoutData[j].pageIndex == this.index)
                     savedLoc = j;
 
             if (savedLoc)
-                this.orderData[savedLoc] = pageData;
+                this.checkoutData[savedLoc] = pageData;
             else
-                this.orderData.push(pageData);
+                this.checkoutData.push(pageData);
         },
 
         restorePageData: function () {
             var savedLoc = undefined;
-            for (var j = 0; j < this.orderData.length; ++j)
-                if (this.orderData[j].pageIndex == this.index)
+            for (var j = 0; j < this.checkoutData.length; ++j)
+                if (this.checkoutData[j].pageIndex == this.index)
                     savedLoc = j;
 
             if (savedLoc)
             { //restore data to page
-                var savedInputs = this.orderData[savedLoc].data;
+                var savedInputs = this.checkoutData[savedLoc].data;
                 var templateInputs = this.$('input');
                 for (var j = 0; j < savedInputs.length; ++j)
                     $(templateInputs[j]).val(savedInputs[j]);
@@ -250,21 +258,21 @@ define([
         },
 
         verifyFields: function (e) {
-            var inputs = this.$('input textarea');
+            if (this.index == 0 || this.index == this.myTmpls.length - 1) {
+                this.$('#checkout-next-step').attr('disabled', false);
+                return; //skip analysis of first and last pages
+            }
 
+            var inputs = this.$('input');
             var allFilled = true;
-            for (var j = 0; j < inputs.length; ++j) {
-                console.log(inputs[j].val());
-                if (!inputs[j].val())
+            for (var j = 0; j < inputs.length; ++j)
+                if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
-            }
 
-
-            if (allFilled) {
+            if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
-            } else {
+            else
                 this.$('#checkout-next-step').attr('disabled', true); //need to fill out more fields
-            }
         }
     });
 });
