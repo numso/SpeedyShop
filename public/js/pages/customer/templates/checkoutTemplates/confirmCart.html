@@ -30,7 +30,7 @@
 
     <div class="totals-wrapper">
         <label>Original: ${{total}}</label>
-        <label>Discount: $0.00</label>
-        <label>Total: ${{total}}</label>
+        <label>Discount: ${{discount}}</label>
+        <label>Total: $ {{#if newTotal}} {{newTotal}} {{else}} {{total}}{{/if}}</label>
     </div>
 </div>

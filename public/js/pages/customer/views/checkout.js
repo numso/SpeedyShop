@@ -24,6 +24,7 @@ define([
         checkoutData: [],
         itemPromo: [],
         genPromo: undefined,
+        promoTotal: 0,
 
 
         initialize: function () {
@@ -69,7 +70,9 @@ define([
             }
             this.cartData = {
                 cart: cart,
-                total: total
+                total: total,
+                discount: this.promoTotal,
+                newTotal: total - this.promoTotal
             };
 
             this.index = 0;
@@ -149,7 +152,7 @@ define([
                     itemQuantity: this.cartData.cart[j].quantity,
                     itemName: this.cartData.cart[j].name,
                     itemID: this.cartData.cart[j].id,
-                    promoDiscount: "0.00", //Mauriel, apply discount here
+                    promoDiscount: this.promoTotal, //Mauriel, apply discount here
                     finalPrice: this.cartData.cart[j].price - 0 //Mauriel, apply discount here
                 });
             }
@@ -167,18 +170,37 @@ define([
             var enteredItemPromo = this.$('.promo-code-text').val();
             this.itemPromo.push(enteredItemPromo);
             console.log(this.itemPromo);
+            this.calcItemPromo();
         },
 
         applyGenPromo: function(){
             this.genPromo = this.$('.general-promo-text').val();
             console.log(this.genPromo);
+            this.calcGenPromo();
+        },
+
+        calcGenPromo: function(){
+            console.log("I'm in here!");
+            for(var n = 0; n < this.promoList.length; ++n)
+                if(this.promoList[n].code == this.genPromo)
+                    console.log(this.promoList[n]);
+
+        },
+
+        calcItemPromo: function(){
+            console.log("I'm in here!");
+            for(var n = 0; n < this.promoList.length; ++n)
+                for(var x = 0; x < this.itemPromo.length; ++x)
+                        if(this.promoList[n].code == this.itemPromo[x])
+                            console.log(this.promoList[n]);
         },
 
 
         assembleOrder: function () {
             return {
                 order: this.collectCartInformation(),
-                totalDiscounts: "0.00", //Mauriel, apply discount here
+                totalDiscounts: this.promoTotal,
+                newTotal: this.cardData.total - this.promoTotal, //Mauriel, apply discount here
                 total: this.cartData.total, //Mauriel, apply discount here
 
                 addresses: [

@@ -58,5 +58,17 @@
 		"end": "",
 		"neverend": true, 
 		"stackable": true
+	},
+	{
+		"product": "Category",
+		"detail": "Books",
+		"code": 1234,
+		"amount": 23,
+		"percent":6,
+		"start": "",
+		"now": true,
+		"end": "",
+		"neverend": true, 
+		"stackable": true
 	}
 ]
