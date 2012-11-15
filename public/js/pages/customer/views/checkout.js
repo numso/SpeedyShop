@@ -22,6 +22,9 @@ define([
         cartData: undefined,
         explanatoryText: undefined,
         checkoutData: [],
+        itemPromo: [],
+        genPromo: undefined,
+
 
         initialize: function () {
             this.myTmpls = [
@@ -48,11 +51,14 @@ define([
             'click #checkout-next-step': 'showNext',
             'click #checkout-prev-step': 'showPrev',
             'click .same-question': 'addressesSame',
-            'keypress input': 'verifyFields'
+            'keypress input': 'verifyFields',
+            'click .item-promo-btn': 'applyItemPromo',
+            'click .gen-promo-btn': 'applyGenPromo'
         },
 
         render: function () {
             this.$el.html(checkoutTmpl());
+            this.getPromos();
             return this;
         },
 
@@ -149,6 +155,25 @@ define([
             }
             return finalCart;
         },
+
+        getPromos: function(){
+            var that = this;
+            $.get('/promocodes', function (items) {
+                that.promoList = JSON.parse(items);
+            });
+        },
+
+        applyItemPromo: function(){
+            var enteredItemPromo = this.$('.promo-code-text').val();
+            this.itemPromo.push(enteredItemPromo);
+            console.log(this.itemPromo);
+        },
+
+        applyGenPromo: function(){
+            this.genPromo = this.$('.general-promo-text').val();
+            console.log(this.genPromo);
+        },
+
 
         assembleOrder: function () {
             return {
