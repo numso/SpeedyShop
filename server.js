@@ -71,8 +71,8 @@ app.post("/createReview/:objID", reviewServices.createReview);
 
 // Employee Stuff
 app.get('/orders', employeeServices.getOrders);
-app.post('/updateThisOrder', employeeServices.updateThisOrder);
-app.post('/updateItemsAfterOrder', employeeServices.updateQuantity);
+app.post('/processOrder/:orderNum', employeeServices.processOrder);
+app.post('/updateAvailability', employeeServices.updateAvailability);
 app.post('/submitOrder', employeeServices.submitOrder);
 
 // Authentication Stuff

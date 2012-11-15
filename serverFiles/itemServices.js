@@ -35,7 +35,7 @@ module.exports = function (app) {
             for (var i = 0; i < items.length; ++i) {
                 if (items[i].id == id) {
                     ++items[i].popularity;
-                    fs.writeFile('serverData/items.json', JSON.stringify(items));
+                    fs.writeFileSync('serverData/items.json', JSON.stringify(items));
                     break;
                 }
             }

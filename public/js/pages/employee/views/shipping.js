@@ -9,13 +9,12 @@ define([
 ) {
     return Backbone.View.extend({
         pickedOrder: undefined,
-        curInventory: undefined,
 
         initialize: function () {
         },
 
         events: {
-            'click .completed-btn': 'updateOrders',
+            'click .completed-btn': 'processOrder',
             'click .print-shipping-label': 'printLabel'
         },
 
@@ -25,9 +24,6 @@ define([
             }));
 
             var that = this;
-            $.get('/getItems', function (data) {
-                that.curInventory = data;
-            });
             return this;
         },
 
@@ -62,42 +58,45 @@ define([
             this.pickedOrder = data;
             this.$el.html(shippingTmpl(data));
             this.showLabel();
+
+            if (this.pickedOrder.orderStatus === "Completed") {
+                this.$('.completed-btn').hide();
+            }
         },
 
-        updateOrders: function () {
-            console.log(this.curInventory);
+        processOrder: function () {
             if(this.isValid()) {
-                    this.pickedOrder.orderStatus = "Completed";
+                this.pickedOrder.orderStatus = "Completed";
 
-                    console.log(this.pickedOrder);
-
-                    for(var x = 0; x < this.pickedOrder.items.length; ++x)
-                        for(var n = 0; n < this.curInventory.length; ++n)
-                            if(this.pickedOrder.items[x].itemID == this.curInventory[n].id)
-                            {
-                                console.log(this.curInventory[n].available);
-                                this.curInventory[n].available -= this.pickedOrder.items[x].quantity
-                                console.log(this.curInventory[n].available);
-                            }
-                    $.post('/updateItemsAfterOrder', JSON.stringify(this.curInventory), function (resp) {
-                        console.log("Response: " + JSON.stringify(resp));
+                var decrements = [];
+                for (var i = 0; i < this.pickedOrder.items.length; ++i) {
+                    decrements.push({
+                        id: this.pickedOrder.items[i].itemID,
+                        qty: this.pickedOrder.items[i].quantity
                     });
+                }
 
-                    $.post('/updateThisOrder', JSON.stringify(this.pickedOrder), function (resp) {
-                        console.log("Response: " + JSON.stringify(resp));
-                    });
+                $.post('/updateAvailability', JSON.stringify(decrements));
+                $.post('/processOrder/' + this.pickedOrder.orderNum, '');
 
-                    this.$('.error-msg').css('display', 'none');
-                    this.$('.submitted-msg').css('display', 'inline');
+                this.$('.shipping-order-status').html('Order Status: Completed');
+                this.$('.completed-btn').hide();
+
+                var menuEl = $('#' + this.pickedOrder.orderNum + '-order');
+                menuEl.removeClass('Processed-item');
+                menuEl.addClass('Completed-item');
+                menuEl.hide();
+
+                this.$('.error-msg').css('display', 'none');
+                this.$('.submitted-msg').css('display', 'inline');
             } else {
-                console.log("im in here!");
                 this.$('.error-msg').css('display', 'inline');
                 this.$('.submitted-msg').css('display', 'none');
             }
         },
 
         isValid: function () {
-            flag = true;
+            var flag = true;
             this.$('.item-check').each(function (index){
                 var thisValue = $(this).is(':checked');
                 if(!thisValue)

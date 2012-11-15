@@ -23,9 +23,8 @@ module.exports = function (app) {
         },
 
         createReview: function (request, response, next){
-            var reviews = app.shopData.reviews;
-
-            var id = request.params.objID;
+            var reviews = app.shopData.reviews,
+                id = request.params.objID;
 
             var data = '';
             request.on('data', function (chunk) {
@@ -40,7 +39,7 @@ module.exports = function (app) {
                 },
                     added = false;
 
-                for (var i = 0; i < reviews.length; ++i) {
+                for (var i = 0; i < reviews.length && !added; ++i) {
                     if (id == reviews[i].id) {
                         reviews[i].stars[data.stars - 1].reviews.push(revObj);
                         added = true;
@@ -62,6 +61,7 @@ module.exports = function (app) {
                         id: id,
                         stars: starsArr
                     });
+
                     fs.writeFile('serverData/reviews.json', JSON.stringify(reviews));
                     response.send(starsArr);
                 }

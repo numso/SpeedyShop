@@ -4,21 +4,11 @@
 </div>
 
 <div class = "order-wrapper">
-	{{#each this}}
-		<div class="order-box {{orderStatus}}-item " id='{{orderNum}}-order'>
-		    <div class="order-status">Status: {{orderStatus}}</div>
-		    <div class="order-num">Order Number: {{orderNum}}</div>
-		    <ul>
-		    {{#each items}}
-		    	<li>
-		    	<div class = "order-item">Item #: {{itemID}}</div>
-		    	<div class = "order-quantity">-Quantity: {{quantity}}</div>
-		    	</li>
-		    {{/each}}
-			</ul>
-			<div class="order-weight">Package Weight: {{estimatedWeight}} lbs</div>
-		</div>
-	{{/each}}
+    {{#each this}}
+        <div class="order-box {{orderStatus}}-item" id='{{orderNum}}-order'>
+            <div class="order-num">Order Number: {{orderNum}}</div>
+        </div>
+    {{/each}}
 </div>
 
 
