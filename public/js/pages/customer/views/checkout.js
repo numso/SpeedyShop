@@ -25,6 +25,7 @@ define([
         itemPromo: [],
         genPromo: undefined,
         promoTotal: 0,
+        promoGenTotal: 0,
 
 
         initialize: function () {
@@ -68,6 +69,8 @@ define([
             for (var i = 0; i < cart.length; ++i) {
                 total += cart[i].quantity * cart[i].price;
             }
+            console.log(this.promoTotal);
+            total -= this.promoTotal;
             this.cartData = {
                 cart: cart,
                 total: total,
@@ -153,7 +156,7 @@ define([
                     itemName: this.cartData.cart[j].name,
                     itemID: this.cartData.cart[j].id,
                     promoDiscount: this.promoTotal, //Mauriel, apply discount here
-                    finalPrice: this.cartData.cart[j].price - 0 //Mauriel, apply discount here
+                    finalPrice: (this.cartData.cart[j].price - this.promoTotal) //Mauriel, apply discount here
                 });
             }
             return finalCart;
@@ -168,9 +171,20 @@ define([
 
         applyItemPromo: function(){
             var enteredItemPromo = this.$('.promo-code-text').val();
-            this.itemPromo.push(enteredItemPromo);
-            console.log(this.itemPromo);
-            this.calcItemPromo();
+            var flag = true;
+            for(var n = 0; n < this.itemPromo.length; ++n)
+            {
+                if(this.itemPromo[n] == enteredItemPromo)
+                    {
+                        console.log("Promo already entered!");
+                        flag = false;
+                    }
+            }
+            if(flag == true)
+                {
+                    this.itemPromo.push(enteredItemPromo);
+                    this.calcItemPromo();
+                }
         },
 
         applyGenPromo: function(){
@@ -180,26 +194,68 @@ define([
         },
 
         calcGenPromo: function(){
-            console.log("I'm in here!");
+            console.log("Inside calcGenPromo!");
+            console.log(this.genPromo);
             for(var n = 0; n < this.promoList.length; ++n)
                 if(this.promoList[n].code == this.genPromo)
-                    console.log(this.promoList[n]);
+                    {
+                        if(this.promoList[n].amount == 0)
+                            this.percentGenPromo(this.promoList[n]);
+                        if(this.promoList[n].percent == 0)
+                            {
+                                this.promoTotal += this.promoList[n].amount;
+                                this.cartData.total -+ this.promoTotal;
+                            }
+                    }
 
         },
 
         calcItemPromo: function(){
-            console.log("I'm in here!");
+            console.log("I'm in calcItemPromo!");
             for(var n = 0; n < this.promoList.length; ++n)
                 for(var x = 0; x < this.itemPromo.length; ++x)
                         if(this.promoList[n].code == this.itemPromo[x])
-                            console.log(this.promoList[n]);
+                                {
+                                    if(this.promoList[n].amount == 0)
+                                        this.percentItemPromo(this.promoList[n]);
+                                    if(this.promoList[n].percent == 0)
+                                        {
+                                            this.promoTotal += this.promoList[n].amount;
+                                            this.cartData.total -= this.promoTotal;
+                                        }
+                                }
+        },
+
+        percentItemPromo: function(promo){
+            console.log("Inside percentPromo");
+            console.log(promo);
+
+        },
+
+        percentGenPromo: function(promo){
+            console.log("Inside amountPromo");
+            console.log(promo);
+            var newTotal = this.cartData.total;
+            console.log(newTotal);
+            var percentOff = (100 - promo.percent) / 100;
+            console.log(percentOff);
+            newTotal = newTotal * percentOff;
+            console.log(newTotal);
+            var diff = this.cartData.total - newTotal;
+            console.log(diff.toFixed(2));
+            if(this.promoTotal == 0)
+                this.promoGenTotal = diff.toFixed(2);
+            else
+                this.promoGenTotal += diff.toFixed(2);
+
+            this.cartData.total = newTotal;
         },
 
 
         assembleOrder: function () {
             return {
                 order: this.collectCartInformation(),
-                totalDiscounts: this.promoTotal,
+                totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
                 newTotal: this.cartData.total - this.promoTotal, //Mauriel, apply discount here
                 total: this.cartData.total, //Mauriel, apply discount here
 
