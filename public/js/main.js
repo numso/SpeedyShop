@@ -347,6 +347,60 @@ require([
         }
     };
 
+    var adm_showGiftCards = function (cb) {
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 2;
+
+            if ($('.admin-items-view')[0] !== curMid[0]) {
+                rotateView($('.admin-items-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.admin-items-view');
+                    decrementAnimCount(cb);
+                });
+            } else {
+                decrementAnimCount(cb);
+            }
+
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount(cb);
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount(cb);
+            }
+        }
+    };
+
+    var adm_showStateTaxes = function (cb) {
+        if (!isAnimating) {
+            isAnimating = true;
+            animCount = 2;
+
+            if ($('.admin-items-view')[0] !== curMid[0]) {
+                rotateView($('.admin-items-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.admin-items-view');
+                    decrementAnimCount(cb);
+                });
+            } else {
+                decrementAnimCount(cb);
+            }
+
+            if ($('.cart')[0] !== curRight[0]) {
+                window.setTimeout(function () {
+                    rotateView($('.cart'), curRight, $('.right-panel'), function () {
+                        curRight = $('.cart');
+                        decrementAnimCount(cb);
+                    });
+                }, animTime);
+            } else {
+                decrementAnimCount(cb);
+            }
+        }
+    };
+
     var cust_showFilters = function () {
         if (!isAnimating) {
             isAnimating = true;
@@ -493,7 +547,9 @@ require([
             showInventory: adm_showInventory,
             showItems: adm_showItems,
             //showMarketing: adm_showMarketing,
-            showPromoCode: adm_showPromoCode
+            showPromoCode: adm_showPromoCode,
+            showGiftCards: adm_showGiftCards,
+            showStateTaxes: adm_showStateTaxes
         }
     });
     $(".left-panel").append(adminMenuView.render().el);
