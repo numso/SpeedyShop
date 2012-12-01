@@ -7,7 +7,7 @@
                 <img src="{{imgURL}}">
             </div>
             <div class='checkout-item-info'>
-                <div>{{name}}</div>
+                <div class = 'item-name'>{{name}}</div>
                 <div class='sc-price'>$<span>{{price}}</span></div>
                 <div>Quantity: {{quantity}}</div>
             </div>
@@ -25,12 +25,9 @@
         <input class="general-promo-text" type="text">
         <button class = 'gen-promo-btn'>Add</button>
         <br/>
-        <label>15% Electronics Discount</label>
     </div>
 
     <div class="totals-wrapper">
-        <label>Original: ${{total}}</label>
-        <label>Discount: ${{discount}}</label>
-        <label>Total: $ {{#if newTotal}} {{newTotal}} {{else}} {{total}}{{/if}}</label>
+        <label>Total: ${{total}}</label>
     </div>
 </div>
