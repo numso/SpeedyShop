@@ -29,7 +29,6 @@ require.config({
 require([
     'jquery',
     'backbone',
-
     'pages/common/views/header',
     'pages/common/views/footer',
 

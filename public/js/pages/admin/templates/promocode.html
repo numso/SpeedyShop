@@ -1,49 +1,9 @@
 {{#if msg}}
 <div class="promocode-module">
-
 	<div class="promocode-title">Promo Codes</div>
-	<div class="product-label-div"><span class = "promo-text">Product:</span>
-		<select>
-			<option>All</option>
-			<option>Category</option>
-			<option>Item</option>
-		</select>
-	</div>
-	<table>
-		<tr>
-			<td>Name: </td>
-			<td><input class="name-input" type="search"/>	</td>
-		</tr>
-		<tr>
-			<td>Code: </td>
-			<td><input class="code-input" type="text"/></td>
-		</tr>
-		<tr>
-			<td><span>Amount:</span></td>
-			<td><input class="amount-input" type="number"></td>
-		</tr>
-		<tr>
-			<td><span>Percent:</span></td>
-			<td><input class="percent-input" type="number"></td>
-		</tr>
-	</table>
-	<hr/>
-	<div>Starts:<input class="now-btn" type="checkbox" unchecked> Now</input></div>
-	<input id="start-date-txt" class="input-date" type="date" enabled>
-	<div>Ends:<input class="never-btn" type="checkbox" unchecked>Never</input></div>
-	<input id="end-date-txt" class="input-date" type="date" enabled>
-	<div class="stackable-div" >
-		<input class = 'stack-check' type="checkbox" unchecked>
-		<span class = 'stack'>Stackable?</span>
-	</div>
-</div>
-<hr/>
-<div class="outer-area">
-	<button class ="save-btn">Save</button>
-</div>
+	<div class="quick-message"> Click a promocode to edit </div>
 {{else}}
 <div class="promocode-module">
-
 	<div class="promocode-title">Promo Codes</div>
 	<div class="product-label-div"><span class = "promo-text">Product:</span>
 		<select class = 'cat-sel'>
@@ -63,11 +23,11 @@
 		</tr>
 		<tr>
 			<td><span>Amount:</span></td>
-			<td><input class="amount" type="number" value = "{{amount}}"></td>
+			<td><input class="amount-input" type="number" value = "{{amount}}"></td>
 		</tr>
 		<tr>
 			<td><span>Percent:</span></td>
-			<td><input class="percent" type="number" value = "{{percent}}"></td>
+			<td><input class="percent-input" type="number" value = "{{percent}}"></td>
 		</tr>
 	</table>
 	<hr/>
@@ -86,9 +46,7 @@
 	<div>Ends:<input class="never-btn" type="checkbox" unchecked>Never</input></div>
 	<input class="end-date-txt" class="input-date" type="date" value = "{{end}}">
 	{{/if}}
-
 	<div class="stackable-div" >
-
 		{{#if stackable}}
 		<input class = 'stack-check' type="checkbox" checked>
 		<span class = 'stack'>Stackable?</span>
@@ -96,7 +54,6 @@
 		<input class = 'stack-check' type="checkbox" unchecked>
 		<span class = 'stack'>Stackable?</span>
 		{{/if}}
-
 	</div>
 </div>
 <hr/>

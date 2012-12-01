@@ -18,7 +18,7 @@ define([
         events: {
             "click #now-btn": "setNow",
             "click #never-btn": "setNever",
-            'click .save-btn': 'savePromo'
+            "click #save-btn": "savePromo"
         },
 
         render: function () {
