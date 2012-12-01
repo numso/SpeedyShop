@@ -23,7 +23,9 @@ define([
         explanatoryText: undefined,
         checkoutData: [],
         itemPromo: [],
+        giftCardList: [],
         genPromo: undefined,
+        genGiftCard:undefined,
         promoTotal: 0,
         promoGenTotal: 0,
 
@@ -55,13 +57,20 @@ define([
             'click .same-question': 'addressesSame',
             'keypress input': 'verifyFields',
             'click .item-promo-btn': 'applyItemPromo',
-            'click .gen-promo-btn': 'applyGenPromo'
+            'click .gen-promo-btn': 'applyGenPromo',
+            'click .gen-gift-card-btn': 'applyGiftCard'
         },
 
         render: function () {
             this.$el.html(checkoutTmpl());
             this.getPromos();
             return this;
+        },
+
+        applyGiftCard: function(){
+            this.genGiftCard = this.$('.gift-card-text').val();
+            console.log(this.genGiftCard);
+            this.calcGenPromo();
         },
 
         showCartConfirm: function (cart) {
@@ -162,6 +171,12 @@ define([
             return finalCart;
         },
 
+        getGiftCards: function(){
+            var that = this;
+            $.get('', function(items){
+                that.giftCardList = JSON.parse(items);
+            })
+        },
         getPromos: function(){
             var that = this;
             $.get('/promocodes', function (items) {
