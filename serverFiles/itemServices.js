@@ -220,6 +220,52 @@ module.exports = function (app) {
                 status: "error",
                 code: "not found"
             });
-        }
+        },
+
+        getGiftCardValue: function (request, response, next) {
+            var cards = app.shopData.giftCards;
+
+            for (var i = 0; i < cards.length; ++i) {
+                if (cards[i].code == request.params.code) {
+                    if (cards[i].used) {
+                        response.send({
+                            status: "used"
+                        });
+                        return;
+                    }
+                    else {
+                        response.send({
+                            status: "success",
+                            item: cards[i]
+                        });
+                        return;
+                    }                    
+                }
+            }
+
+            response.send({
+                status: "error"
+            });
+        },
+
+        invalidateGiftCard: function (request, response, next) {
+            var cards = app.shopData.giftCards;
+
+            for (var i = 0; i < cards.length; ++i) {
+                if (cards[i].code == request.params.code) {
+                    cards[i].used = true;
+
+                    response.send({
+                        status: "success"
+                    });
+                    return;
+                }
+            }
+
+            response.send({
+                status: "error",
+                code: "not found"
+            });
+        },
     };
 };

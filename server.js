@@ -21,6 +21,7 @@ console.log('Server running on port:' + PORT);
     app.shopData.promoCodes = JSON.parse(fs.readFileSync('serverData/promoCodes.json'));
     app.shopData.reviews = JSON.parse(fs.readFileSync('serverData/reviews.json'));
     app.shopData.stateTaxes = JSON.parse(fs.readFileSync('serverData/stateTaxes.json'));
+    app.shopData.giftCards = JSON.parse(fs.readFileSync('serverData/giftCards.json'));
 
     app.shopData.users = JSON.parse(fs.readFileSync('serverData/users.json'));
     app.shopData.usersWin = JSON.parse(fs.readFileSync('serverData/usersWin.json'));
@@ -57,6 +58,8 @@ app.get('/getItems', itemServices.getItems);
 app.get('/getItems/:catID', itemServices.getItems);
 app.get('/incrementPopularity/:itemNumber', itemServices.incrementPopularity);
 app.post('/search', itemServices.search);
+app.get('/getGiftCardValue', itemServices.getGiftCardValue);
+app.post('/invalidateGiftCard', itemServices.invalidateGiftCard);
 
 // Cart Stuff
 app.get('/getItem/:id', itemServices.getItem);
