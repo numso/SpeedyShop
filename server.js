@@ -22,6 +22,7 @@ console.log('Server running on port:' + PORT);
     app.shopData.reviews = JSON.parse(fs.readFileSync('serverData/reviews.json'));
     app.shopData.stateTaxes = JSON.parse(fs.readFileSync('serverData/stateTaxes.json'));
     app.shopData.giftCards = JSON.parse(fs.readFileSync('serverData/giftCards.json'));
+    
     app.shopData.users = JSON.parse(fs.readFileSync('serverData/users.json'));
     app.shopData.usersWin = JSON.parse(fs.readFileSync('serverData/usersWin.json'));
 }());
