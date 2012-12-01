@@ -34,7 +34,8 @@ define([
             "click .item-small-img": "loadImage",
             "click #back-btn": "back",
             "click .add-to-cart": "addItemToCart",
-            "click .items-bottom-nav": "pageItems"
+            "click .items-bottom-nav": "pageItems",
+            "blur .submitted-price": "updatePrice"
         },
 
         addItemToCart: function (e) {
@@ -51,10 +52,20 @@ define([
                     $(this.$('.item-small-img')[0]).addClass('selected-img');
                     this.model.showReviews(id);
                     $.get("/incrementPopularity/" + id);
-                    
                     return;
                 }
             }
+        },
+
+        updatePrice: function (e){
+            var text = this.$('.submitted-price').attr('value');
+            var el = parseInt(text.replace(/[^0-9]/g, ''), 10);
+            console.log(el);
+            if (isNaN(el) || text.charAt(0) == '-'){
+                this.filteredItems.price = el;
+
+            }
+            console.log (this.filteredItems);
         },
 
         render: function () {
