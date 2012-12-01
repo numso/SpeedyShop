@@ -18,7 +18,8 @@ define([
         events: {
             "click #now-btn": "setNow",
             "click #never-btn": "setNever",
-            "click #save-btn": "savePromo"
+            "click #save-btn": "savePromo",
+            "click .new-btn": "clearFields"
         },
 
         render: function () {
@@ -42,6 +43,18 @@ define([
             this.thisPromo = data;
             this.$el.html(promocodeTmpl(data));
 
+        },
+
+        clearFields: function(){
+            this.$(".name-input").val("");
+            this.$(".code-input").val("");
+            this.$(".amount-input").val("");
+            this.$('.percent-input').val("");
+            this.$('.start-date-txt').val("");
+            this.$('.end-date-txt').val("");
+            this.$('.now-btn').attr('checked', false);
+            this.$('.never-btn').attr('checked', false);
+            this.$('.stack-check').attr('checked', false);
         },
 
         savePromo: function(){
