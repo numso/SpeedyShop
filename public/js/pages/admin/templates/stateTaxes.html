@@ -2,13 +2,15 @@
     <table>
         <tr>
             <th>State</th>
-            <th>Tax Rate</th>
+            <th>Tax Rate (%)</th>
+            <th>Action</th>
         </tr>
         
         {{#each this}}
         <tr>
             <td>{{state}}</td>
             <td><input class="tax-rate" type="text" value="{{rate}}"></td>
+            <td class="{{state}}"><button class="submitChange">Submit Change</button></td>
         </tr>
         {{/each}}
 

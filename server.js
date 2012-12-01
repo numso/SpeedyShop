@@ -92,3 +92,4 @@ app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/updateInventory', adminServices.updateInventory);
 app.post('/changeRating', adminServices.changeRating);
 app.get('/getStateTaxes', adminServices.getStateTaxes);
+app.post('/changeTax', adminServices.changeTax);
