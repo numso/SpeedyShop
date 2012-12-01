@@ -84,5 +84,11 @@
 			"Uniforms",
 			"Posters"
 		]
+	},
+	{
+		"title": "Gift Cards",
+		"subCats": [
+			"Gift Card"
+		]
 	}
 ]

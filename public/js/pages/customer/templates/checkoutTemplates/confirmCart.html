@@ -1,5 +1,4 @@
 <div class="confirm-cart-page">
-
     <hr/>
     {{#each cart}}
         <div class='checkout-item' id="{{id}}-item">
@@ -20,6 +19,11 @@
         <hr/>
     {{/each}}
 
+    <div class="gift-cards-wrapper">
+        <label>Gift Card code:</label>
+        <input class="gift-card-text" type="text">
+        <button class = 'gen-gift-card-btn'>Add</button>
+    </div>
      <div class="general-promo-wrapper">
         <label>General promo code:</label>
         <input class="general-promo-text" type="text">
@@ -28,6 +32,12 @@
     </div>
 
     <div class="totals-wrapper">
+<<<<<<< HEAD
         <label>Total: ${{total}}</label>
+=======
+        <label>Original: ${{total}}</label>
+        <label>Discount: ${{#if discount}}{{discount}}{{else}}0.00{{/if}}</label>
+        <label>Total: $ {{#if newTotal}} {{newTotal}} {{else}} {{total}}{{/if}}</label>
+>>>>>>> 170273a49ef23628c188b6fc77ea2f2f23122e4a
     </div>
 </div>

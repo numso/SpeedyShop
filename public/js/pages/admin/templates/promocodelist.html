@@ -4,11 +4,11 @@
 
 	{{#each this}}
 			<tr class="row">
-				<td><span class="scope">{{product}}</span></td>
-				<td><span class="product-detail-field">{{detail}}</span></td>
+				<td><span class="scope-field">{{product}}</span></td>
+				<td><span class="product-name-field">{{detail}}</span></td>
 				<td><span class="code-field">{{code}}</span></td>
 				<td><span class="percent-field"> {{percent}}% </span></td>
-				<td><span class="amount-field">{{amount}}</span></td>
+				<td><span class="amount-field">${{amount}}</span></td>
 				<td><span class = 'start-date'>{{start}}</span></td>
 				<td><span class = 'end-date'>{{end}}</span></td>
 				{{#if stackable}}
@@ -20,5 +20,6 @@
 			</tr>
 	{{/each}}
 	</table>
+	<button class="add-new-btn">Add New</button>
 </div>
 

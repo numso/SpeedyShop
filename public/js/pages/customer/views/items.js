@@ -34,7 +34,8 @@ define([
             "click .item-small-img": "loadImage",
             "click #back-btn": "back",
             "click .add-to-cart": "addItemToCart",
-            "click .items-bottom-nav": "pageItems"
+            "click .items-bottom-nav": "pageItems",
+            "blur .submitted-price": "updatePrice"
         },
 
         addItemToCart: function (e) {
@@ -54,6 +55,15 @@ define([
                     return;
                 }
             }
+        },
+
+        updatePrice: function (e){
+            var text = this.$('.submitted-price').attr('value');
+            var el = parseInt(text.replace(/[^0-9]/g, ''), 10);
+            if (!isNaN(el) || !text.charAt(0) == '-'){
+                this.filteredItems.price = el;
+            }
+            
         },
 
         render: function () {

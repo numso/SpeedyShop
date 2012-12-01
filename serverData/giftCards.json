@@ -1,0 +1,17 @@
+[
+	{
+		"code":"596544", 
+		"amount":"10",
+		"used":"false"
+	},
+	{
+		"code":"36982", 
+		"amount":"20",
+		"used":"false"
+	},
+    {
+        "code": 1,
+        "amount": 25,
+        "used": false
+    }
+]

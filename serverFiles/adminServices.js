@@ -141,6 +141,32 @@ module.exports = function (app) {
                 }
                 response.send('error');
             });
+        },
+
+        getStateTaxes: function (request, response, next) {
+            var taxes = app.shopData.stateTaxes;
+            response.send(taxes);
+        },
+
+        changeTax: function (request, response, next) {
+            var taxes = app.shopData.stateTaxes;
+
+            var input = '';
+            request.on('data', function (chunk) {
+                input += chunk;
+            });
+
+            request.on('end', function () {
+                input = JSON.parse(input);
+
+                for (var i = 0; i < taxes.length; ++i) {
+                    if (taxes[i].state == input.state)
+                        taxes[i].rate = input.newRate;
+                }
+
+                fs.writeFileSync('serverData/stateTaxes.json', JSON.stringify(taxes));
+                response.send('OK');
+            });
         }
     };
 };
