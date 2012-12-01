@@ -5,4 +5,4 @@ SpeedyShop is a Javascript-powered website for our CS3450 School Project in whic
 add them to a cart, and psuedo-purchase them. Employees manage employees,
 while admins can view sales and manage the item list.
 
-The project is live on http://speedyshop.herokuapp.com
+The project is live on http://speedyshop.herokuapp.com, which is manually updated. Run the code here for the latest version.
