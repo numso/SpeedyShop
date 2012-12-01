@@ -78,14 +78,14 @@ define([
             var total = 0;
             for (var i = 0; i < cart.length; ++i) {
                 total += cart[i].quantity * cart[i].price;
+                console.log(cart[i]);
             }
             total -= this.promoTotal;
             this.cartData = {
                 cart: cart,
                 total: total,
                 discount: parseFloat(this.promoTotal),
-                newTotal: total - this.promoTotal,
-                giftCard: undefined
+                newTotal: total - this.promoTotal
             };
 
             this.index = 0;
