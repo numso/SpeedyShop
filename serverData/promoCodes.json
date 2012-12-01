@@ -38,8 +38,8 @@
 		{
 		"product": "Category",
 		"detail": "Computers",
-		"code": 4564,
-		"amount": 15,
+		"code": 4567,
+		"amount": 20,
 		"percent":0,
 		"start": "2012-11-06",
 		"now": false,

@@ -6,7 +6,7 @@
                 <img src="{{imgURL}}">
             </div>
             <div class='checkout-item-info'>
-                <div>{{name}}</div>
+                <div class = 'item-name'>{{name}}</div>
                 <div class='sc-price'>$<span>{{price}}</span></div>
                 <div>Quantity: {{quantity}}</div>
             </div>
@@ -32,8 +32,6 @@
     </div>
 
     <div class="totals-wrapper">
-        <label>Original: ${{total}}</label>
-        <label>Discount: ${{#if discount}}{{discount}}{{else}}0.00{{/if}}</label>
-        <label>Total: $ {{#if newTotal}} {{newTotal}} {{else}} {{total}}{{/if}}</label>
+        <label>Total: ${{total}}</label>
     </div>
 </div>
