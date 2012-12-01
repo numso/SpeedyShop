@@ -150,7 +150,6 @@ define([
         collectCartInformation: function () {
             var finalCart = [];
             var that = this;
-            console.log(this.itemPromo);
             var findPromo = function(name, price){
                 for(var n = 0; n < that.itemPromo.length; ++n)
                 {
