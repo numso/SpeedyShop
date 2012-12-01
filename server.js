@@ -20,6 +20,7 @@ console.log('Server running on port:' + PORT);
     app.shopData.orders = JSON.parse(fs.readFileSync('serverData/orders.json'));
     app.shopData.promoCodes = JSON.parse(fs.readFileSync('serverData/promoCodes.json'));
     app.shopData.reviews = JSON.parse(fs.readFileSync('serverData/reviews.json'));
+    app.shopData.stateTaxes = JSON.parse(fs.readFileSync('serverData/stateTaxes.json'));
 
     app.shopData.users = JSON.parse(fs.readFileSync('serverData/users.json'));
     app.shopData.usersWin = JSON.parse(fs.readFileSync('serverData/usersWin.json'));
@@ -90,3 +91,5 @@ app.post('/changeItem', itemServices.changeItem);
 app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/updateInventory', adminServices.updateInventory);
 app.post('/changeRating', adminServices.changeRating);
+app.get('/getStateTaxes', adminServices.getStateTaxes);
+app.post('/changeTax', adminServices.changeTax);

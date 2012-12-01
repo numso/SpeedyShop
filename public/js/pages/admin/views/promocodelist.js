@@ -15,7 +15,8 @@ define([
 
         events: {
             "click .row" : "openPromo",
-            'click .delete-promo': 'deletePromo'
+            'click .delete-promo': 'deletePromo',
+            "click .add-new-btn": "showAddNew"
         },
 
         render: function () {
@@ -30,6 +31,10 @@ define([
         addPromo: function (data) {
             this.codeList.push(data);
             this.$el.html(promocodelistTmpl(this.codeList));
+        },
+
+        showAddNew: function(){
+            
         },
 
         openPromo: function (e) {

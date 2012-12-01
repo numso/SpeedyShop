@@ -29,7 +29,6 @@ require.config({
 require([
     'jquery',
     'backbone',
-
     'pages/common/views/header',
     'pages/common/views/footer',
 
@@ -184,7 +183,7 @@ require([
                 decrementAnimCount();
             }
 
-            $('.qty-cnt, .X-button').attr('disabled', false);
+            $('.qty-cnt, .X-button, #check-out-btn').attr('disabled', false);
         }
     };
 
