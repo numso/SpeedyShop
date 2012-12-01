@@ -85,8 +85,7 @@ define([
                 cart: cart,
                 total: total,
                 discount: parseFloat(this.promoTotal),
-                newTotal: total - this.promoTotal,
-                giftCard: undefined
+                newTotal: total - this.promoTotal
             };
 
             this.index = 0;
