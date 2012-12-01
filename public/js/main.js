@@ -47,6 +47,8 @@ require([
     'pages/admin/views/inventory',
     'pages/admin/views/items',
     'pages/employee/views/shipping',
+    'pages/admin/views/giftCards',
+    'pages/admin/views/stateTaxes',
 
     'pages/customer/views/cart'
 ], function (
@@ -70,6 +72,8 @@ require([
     InventoryView,
     AdminItemsView,
     ShippingView,
+    GiftCardsView,
+    StateTaxesView,
 
     CartView
 ) {
@@ -352,9 +356,9 @@ require([
             isAnimating = true;
             animCount = 2;
 
-            if ($('.admin-items-view')[0] !== curMid[0]) {
-                rotateView($('.admin-items-view'), curMid, $('.mid-panel'), function () {
-                    curMid = $('.admin-items-view');
+            if ($('.gift-card-view')[0] !== curMid[0]) {
+                rotateView($('.gift-card-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.gift-card-view');
                     decrementAnimCount(cb);
                 });
             } else {
@@ -379,9 +383,9 @@ require([
             isAnimating = true;
             animCount = 2;
 
-            if ($('.admin-items-view')[0] !== curMid[0]) {
-                rotateView($('.admin-items-view'), curMid, $('.mid-panel'), function () {
-                    curMid = $('.admin-items-view');
+            if ($('.state-taxes-view')[0] !== curMid[0]) {
+                rotateView($('.state-taxes-view'), curMid, $('.mid-panel'), function () {
+                    curMid = $('.state-taxes-view');
                     decrementAnimCount(cb);
                 });
             } else {
@@ -628,6 +632,18 @@ require([
         model: {}
     });
     $(".mid-panel").append(shippingView.render().el);
+
+    var giftCardsView = new GiftCardsView({
+        className: "panel gift-card-view hidden",
+        model: {}
+    });
+    $(".mid-panel").append(giftCardsView.render().el);
+
+    var stateTaxesView = new StateTaxesView({
+        className: "panel state-taxes-view hidden",
+        model: {}
+    });
+    $(".mid-panel").append(stateTaxesView.render().el);
 
 
     // Create all the Right Side Views
