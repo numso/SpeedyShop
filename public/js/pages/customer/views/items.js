@@ -60,12 +60,10 @@ define([
         updatePrice: function (e){
             var text = this.$('.submitted-price').attr('value');
             var el = parseInt(text.replace(/[^0-9]/g, ''), 10);
-            console.log(el);
-            if (isNaN(el) || text.charAt(0) == '-'){
+            if (!isNaN(el) || !text.charAt(0) == '-'){
                 this.filteredItems.price = el;
-
             }
-            console.log (this.filteredItems);
+            
         },
 
         render: function () {
