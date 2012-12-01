@@ -51,6 +51,7 @@ define([
                     $(this.$('.item-small-img')[0]).addClass('selected-img');
                     this.model.showReviews(id);
                     $.get("/incrementPopularity/" + id);
+                    
                     return;
                 }
             }
