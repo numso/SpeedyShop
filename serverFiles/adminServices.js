@@ -141,6 +141,11 @@ module.exports = function (app) {
                 }
                 response.send('error');
             });
+        },
+
+        getStateTaxes: function (request, response, next) {
+            var taxes = app.shopData.stateTaxes;
+            response.send(taxes);
         }
     };
 };

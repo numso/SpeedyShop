@@ -10,7 +10,7 @@
     <div class='item-details-box'>
         <button id="back-btn">Back</button>
         <div class='item-detail-name'>{{name}}</div>
-        <div class='item-detail-price'>Price: ${{price}}</div>
+        <div class='item-detail-price'>Price: ${{#if price}}{{price}}{{else}}<input id="submitted-price">{{/if}}</input></div>
         <img class='item-detail-rating' src="img/ratings/{{rating}}.png">
         <div class='availability'>Availability: {{#if available}}<span style="color: green;">In Stock{{else}}<span style="color: red;">Out of Stock{{/if}}</span></div>
         <button class='add-to-cart'>Add to Cart</button>
