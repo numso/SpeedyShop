@@ -1,0 +1,1926 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.1.61
+3 info using node@v0.8.9
+4 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\package.json
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ 'c:\\Users\\Mauriel\\Desktop\\SpeedyShop',
+6 verbose install   [ 'express', 'bcrypt', 'nodemailer' ] ]
+7 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\package.json
+8 info preinstall SpeedyShop@0.0.1
+9 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\package.json
+10 verbose readDependencies using package.json deps
+11 verbose cache add [ 'express@3.0.1', null ]
+12 silly cache add name=undefined spec="express@3.0.1" args=["express@3.0.1",null]
+13 verbose parsed url { pathname: 'express@3.0.1',
+13 verbose parsed url   path: 'express@3.0.1',
+13 verbose parsed url   href: 'express@3.0.1' }
+14 silly cache add name="express" spec="3.0.1" args=["express","3.0.1"]
+15 verbose parsed url { pathname: '3.0.1', path: '3.0.1', href: '3.0.1' }
+16 verbose addNamed [ 'express', '3.0.1' ]
+17 verbose addNamed [ '3.0.1', '3.0.1' ]
+18 verbose cache add [ 'bcrypt@0.7.2', null ]
+19 silly cache add name=undefined spec="bcrypt@0.7.2" args=["bcrypt@0.7.2",null]
+20 verbose parsed url { pathname: 'bcrypt@0.7.2',
+20 verbose parsed url   path: 'bcrypt@0.7.2',
+20 verbose parsed url   href: 'bcrypt@0.7.2' }
+21 silly cache add name="bcrypt" spec="0.7.2" args=["bcrypt","0.7.2"]
+22 verbose parsed url { pathname: '0.7.2', path: '0.7.2', href: '0.7.2' }
+23 verbose addNamed [ 'bcrypt', '0.7.2' ]
+24 verbose addNamed [ '0.7.2', '0.7.2' ]
+25 verbose cache add [ 'nodemailer@0.3.31', null ]
+26 silly cache add name=undefined spec="nodemailer@0.3.31" args=["nodemailer@0.3.31",null]
+27 verbose parsed url { pathname: 'nodemailer@0.3.31',
+27 verbose parsed url   path: 'nodemailer@0.3.31',
+27 verbose parsed url   href: 'nodemailer@0.3.31' }
+28 silly cache add name="nodemailer" spec="0.3.31" args=["nodemailer","0.3.31"]
+29 verbose parsed url { pathname: '0.3.31', path: '0.3.31', href: '0.3.31' }
+30 verbose addNamed [ 'nodemailer', '0.3.31' ]
+31 verbose addNamed [ '0.3.31', '0.3.31' ]
+32 silly lockFile 9a1fe1b2-express-3-0-1 express@3.0.1
+33 verbose lock express@3.0.1 C:\Users\Mauriel\AppData\Roaming\npm-cache\9a1fe1b2-express-3-0-1.lock
+34 silly lockFile b9391e73-bcrypt-0-7-2 bcrypt@0.7.2
+35 verbose lock bcrypt@0.7.2 C:\Users\Mauriel\AppData\Roaming\npm-cache\b9391e73-bcrypt-0-7-2.lock
+36 silly lockFile 42903d83-nodemailer-0-3-31 nodemailer@0.3.31
+37 verbose lock nodemailer@0.3.31 C:\Users\Mauriel\AppData\Roaming\npm-cache\42903d83-nodemailer-0-3-31.lock
+38 verbose url raw nodemailer/0.3.31
+39 verbose url resolving [ 'https://registry.npmjs.org/', './nodemailer/0.3.31' ]
+40 verbose url resolved https://registry.npmjs.org/nodemailer/0.3.31
+41 info trying registry request attempt 1 at 12:04:40
+42 verbose etag "BZR86FYETCOPOCMRDI8CV5TGS"
+43 http GET https://registry.npmjs.org/nodemailer/0.3.31
+44 verbose url raw bcrypt/0.7.2
+45 verbose url resolving [ 'https://registry.npmjs.org/', './bcrypt/0.7.2' ]
+46 verbose url resolved https://registry.npmjs.org/bcrypt/0.7.2
+47 info trying registry request attempt 1 at 12:04:40
+48 verbose etag "3T4MKP86DYFH1WTKTGTUJO7F6"
+49 http GET https://registry.npmjs.org/bcrypt/0.7.2
+50 verbose url raw express/3.0.1
+51 verbose url resolving [ 'https://registry.npmjs.org/', './express/3.0.1' ]
+52 verbose url resolved https://registry.npmjs.org/express/3.0.1
+53 info trying registry request attempt 1 at 12:04:40
+54 verbose etag "6Y15RTW2DSI1Z4QA4N698IPM9"
+55 http GET https://registry.npmjs.org/express/3.0.1
+56 http 200 https://registry.npmjs.org/bcrypt/0.7.2
+57 silly registry.get cb [ 200,
+57 silly registry.get   { vary: 'Accept',
+57 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+57 silly registry.get     etag: '"3VVFHF0SFGG0HZZR3FEUMCV1J"',
+57 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:07 GMT',
+57 silly registry.get     'content-type': 'application/json',
+57 silly registry.get     'content-length': '10895' } ]
+58 warn deprecated bcrypt@0.7.2: version 0.7.3 fixes potential memory issue
+59 silly lockFile 9a9acd36-pmjs-org-bcrypt-bcrypt-0-7-2-tgz https://registry.npmjs.org/bcrypt/-/bcrypt-0.7.2.tgz
+60 verbose lock https://registry.npmjs.org/bcrypt/-/bcrypt-0.7.2.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\9a9acd36-pmjs-org-bcrypt-bcrypt-0-7-2-tgz.lock
+61 verbose addRemoteTarball [ 'https://registry.npmjs.org/bcrypt/-/bcrypt-0.7.2.tgz',
+61 verbose addRemoteTarball   'e5cef20f2456630787bae59f5825f61c65508766' ]
+62 info retry fetch attempt 1 at 12:04:42
+63 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\tmp.tgz
+64 http GET https://registry.npmjs.org/bcrypt/-/bcrypt-0.7.2.tgz
+65 http 200 https://registry.npmjs.org/express/3.0.1
+66 silly registry.get cb [ 200,
+66 silly registry.get   { vary: 'Accept',
+66 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+66 silly registry.get     etag: '"80GGDHAP6X4OEPTNFCPEV8S72"',
+66 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:07 GMT',
+66 silly registry.get     'content-type': 'application/json',
+66 silly registry.get     'content-length': '7585' } ]
+67 silly lockFile 0b7e55ac-js-org-express-express-3-0-1-tgz https://registry.npmjs.org/express/-/express-3.0.1.tgz
+68 verbose lock https://registry.npmjs.org/express/-/express-3.0.1.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\0b7e55ac-js-org-express-express-3-0-1-tgz.lock
+69 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-3.0.1.tgz',
+69 verbose addRemoteTarball   '36a5008d158a97e82817f45b89561633b61a1be8' ]
+70 info retry fetch attempt 1 at 12:04:43
+71 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\tmp.tgz
+72 http GET https://registry.npmjs.org/express/-/express-3.0.1.tgz
+73 http 200 https://registry.npmjs.org/bcrypt/-/bcrypt-0.7.2.tgz
+74 silly shasum updated bytes 25675
+75 info shasum e5cef20f2456630787bae59f5825f61c65508766
+75 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\tmp.tgz
+76 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\tmp.tgz
+77 silly lockFile fc9c47f3-82776-0-6789485092740506-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\package
+78 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\package C:\Users\Mauriel\AppData\Roaming\npm-cache\fc9c47f3-82776-0-6789485092740506-package.lock
+79 silly gunzTarPerm modes [ '755', '644' ]
+80 silly gunzTarPerm extractEntry package.json
+81 silly gunzTarPerm extractEntry .npmignore
+82 silly gunzTarPerm extractEntry README.md
+83 silly gunzTarPerm extractEntry LICENSE
+84 silly gunzTarPerm extractEntry bcrypt.js
+85 silly gunzTarPerm extractEntry CHANGELOG
+86 silly gunzTarPerm extractEntry Makefile
+87 silly gunzTarPerm extractEntry examples/forever_gen_salt.js
+88 silly gunzTarPerm extractEntry examples/async_compare.js
+89 silly gunzTarPerm extractEntry test/async.js
+90 silly gunzTarPerm extractEntry test/deprecated.js
+91 silly gunzTarPerm extractEntry test/repetitions.js
+92 silly gunzTarPerm extractEntry test/sync.js
+93 silly gunzTarPerm extractEntry src/bcrypt.cc
+94 silly gunzTarPerm extractEntry src/node_blf.h
+95 silly gunzTarPerm extractEntry src/blowfish.cc
+96 silly gunzTarPerm extractEntry src/bcrypt_node.cc
+97 silly gunzTarPerm extractEntry .travis.yml
+98 silly gunzTarPerm extractEntry wscript
+99 silly gunzTarPerm extractEntry binding.gyp
+100 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\package\package.json
+101 silly lockFile fc9c47f3-82776-0-6789485092740506-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\package
+102 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\package\package.json
+103 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\bcrypt\\0.7.2\\package.tgz',
+103 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388682776-0.6789485092740506\\package' ]
+104 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz
+105 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388682776-0.6789485092740506\package
+106 silly lockFile 615129e3-m-cache-bcrypt-0-7-2-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz
+107 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\615129e3-m-cache-bcrypt-0-7-2-package-tgz.lock
+108 silly lockFile 615129e3-m-cache-bcrypt-0-7-2-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz
+109 silly lockFile 8f76bfc7-g-npm-cache-bcrypt-0-7-2-package C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package
+110 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package C:\Users\Mauriel\AppData\Roaming\npm-cache\8f76bfc7-g-npm-cache-bcrypt-0-7-2-package.lock
+111 silly lockFile 8f76bfc7-g-npm-cache-bcrypt-0-7-2-package C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package
+112 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz
+113 silly lockFile 8f76bfc7-g-npm-cache-bcrypt-0-7-2-package C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package
+114 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package C:\Users\Mauriel\AppData\Roaming\npm-cache\8f76bfc7-g-npm-cache-bcrypt-0-7-2-package.lock
+115 silly gunzTarPerm modes [ '755', '644' ]
+116 silly gunzTarPerm extractEntry package.json
+117 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+118 silly gunzTarPerm extractEntry .npmignore
+119 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+120 silly gunzTarPerm extractEntry README.md
+121 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+122 silly gunzTarPerm extractEntry LICENSE
+123 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+124 silly gunzTarPerm extractEntry bcrypt.js
+125 silly gunzTarPerm modified mode [ 'bcrypt.js', 438, 420 ]
+126 silly gunzTarPerm extractEntry CHANGELOG
+127 silly gunzTarPerm modified mode [ 'CHANGELOG', 438, 420 ]
+128 silly gunzTarPerm extractEntry examples/async_compare.js
+129 silly gunzTarPerm modified mode [ 'examples/async_compare.js', 438, 420 ]
+130 silly gunzTarPerm extractEntry examples/forever_gen_salt.js
+131 silly gunzTarPerm modified mode [ 'examples/forever_gen_salt.js', 438, 420 ]
+132 silly gunzTarPerm extractEntry .travis.yml
+133 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+134 silly gunzTarPerm extractEntry Makefile
+135 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+136 silly gunzTarPerm extractEntry binding.gyp
+137 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+138 silly gunzTarPerm extractEntry src/bcrypt.cc
+139 silly gunzTarPerm modified mode [ 'src/bcrypt.cc', 438, 420 ]
+140 silly gunzTarPerm extractEntry src/bcrypt_node.cc
+141 silly gunzTarPerm modified mode [ 'src/bcrypt_node.cc', 438, 420 ]
+142 silly gunzTarPerm extractEntry src/blowfish.cc
+143 silly gunzTarPerm modified mode [ 'src/blowfish.cc', 438, 420 ]
+144 silly gunzTarPerm extractEntry src/node_blf.h
+145 silly gunzTarPerm modified mode [ 'src/node_blf.h', 438, 420 ]
+146 silly gunzTarPerm extractEntry test/async.js
+147 silly gunzTarPerm modified mode [ 'test/async.js', 438, 420 ]
+148 silly gunzTarPerm extractEntry test/deprecated.js
+149 silly gunzTarPerm modified mode [ 'test/deprecated.js', 438, 420 ]
+150 silly gunzTarPerm extractEntry test/repetitions.js
+151 silly gunzTarPerm modified mode [ 'test/repetitions.js', 438, 420 ]
+152 silly gunzTarPerm extractEntry test/sync.js
+153 silly gunzTarPerm modified mode [ 'test/sync.js', 438, 420 ]
+154 silly gunzTarPerm extractEntry wscript
+155 silly gunzTarPerm modified mode [ 'wscript', 438, 420 ]
+156 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package\package.json
+157 silly lockFile 8f76bfc7-g-npm-cache-bcrypt-0-7-2-package C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package
+158 silly shasum updated bytes 25403
+159 info shasum b14ea9e2a0319420989cb0634eb36a4e336c882f
+159 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz
+160 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package\package.json
+161 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz 644
+162 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz
+163 silly lockFile 9a9acd36-pmjs-org-bcrypt-bcrypt-0-7-2-tgz https://registry.npmjs.org/bcrypt/-/bcrypt-0.7.2.tgz
+164 silly lockFile b9391e73-bcrypt-0-7-2 bcrypt@0.7.2
+165 http 200 https://registry.npmjs.org/express/-/express-3.0.1.tgz
+166 http 200 https://registry.npmjs.org/nodemailer/0.3.31
+167 silly registry.get cb [ 200,
+167 silly registry.get   { vary: 'Accept',
+167 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+167 silly registry.get     etag: '"8XFIQCUA2Q8MA02WVSMVS97N8"',
+167 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:09 GMT',
+167 silly registry.get     'content-type': 'application/json',
+167 silly registry.get     'content-length': '26304' } ]
+168 silly lockFile dcc9d506-nodemailer-nodemailer-0-3-31-tgz https://registry.npmjs.org/nodemailer/-/nodemailer-0.3.31.tgz
+169 verbose lock https://registry.npmjs.org/nodemailer/-/nodemailer-0.3.31.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\dcc9d506-nodemailer-nodemailer-0-3-31-tgz.lock
+170 verbose addRemoteTarball [ 'https://registry.npmjs.org/nodemailer/-/nodemailer-0.3.31.tgz',
+170 verbose addRemoteTarball   'd29f7c294aaec251ed9709a34031e85f6a0e303b' ]
+171 info retry fetch attempt 1 at 12:04:44
+172 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\tmp.tgz
+173 http GET https://registry.npmjs.org/nodemailer/-/nodemailer-0.3.31.tgz
+174 silly shasum updated bytes 34548
+175 info shasum 36a5008d158a97e82817f45b89561633b61a1be8
+175 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\tmp.tgz
+176 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\tmp.tgz
+177 silly lockFile 98ddc7b2-3476-0-16040813573636115-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\package
+178 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\package C:\Users\Mauriel\AppData\Roaming\npm-cache\98ddc7b2-3476-0-16040813573636115-package.lock
+179 silly gunzTarPerm modes [ '755', '644' ]
+180 silly gunzTarPerm extractEntry package.json
+181 silly gunzTarPerm extractEntry .npmignore
+182 silly gunzTarPerm extractEntry LICENSE
+183 silly gunzTarPerm extractEntry client.js
+184 silly gunzTarPerm extractEntry index.js
+185 silly gunzTarPerm extractEntry test.js
+186 silly gunzTarPerm extractEntry .travis.yml
+187 silly gunzTarPerm extractEntry History.md
+188 silly gunzTarPerm extractEntry Makefile
+189 silly gunzTarPerm extractEntry bin/express
+190 silly gunzTarPerm extractEntry Readme.md
+191 silly gunzTarPerm extractEntry lib/application.js
+192 silly gunzTarPerm extractEntry lib/express.js
+193 silly gunzTarPerm extractEntry lib/middleware.js
+194 silly gunzTarPerm extractEntry lib/request.js
+195 silly gunzTarPerm extractEntry lib/response.js
+196 silly gunzTarPerm extractEntry lib/utils.js
+197 silly gunzTarPerm extractEntry lib/view.js
+198 silly gunzTarPerm extractEntry lib/router/index.js
+199 silly gunzTarPerm extractEntry lib/router/route.js
+200 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\package\package.json
+201 silly lockFile 98ddc7b2-3476-0-16040813573636115-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\package
+202 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\package\package.json
+203 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\express\\3.0.1\\package.tgz',
+203 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388683476-0.16040813573636115\\package' ]
+204 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz
+205 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388683476-0.16040813573636115\package
+206 silly lockFile a98c0698--cache-express-3-0-1-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz
+207 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\a98c0698--cache-express-3-0-1-package-tgz.lock
+208 silly lockFile a98c0698--cache-express-3-0-1-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz
+209 silly lockFile 91f075f9--npm-cache-express-3-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package
+210 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package C:\Users\Mauriel\AppData\Roaming\npm-cache\91f075f9--npm-cache-express-3-0-1-package.lock
+211 silly lockFile 91f075f9--npm-cache-express-3-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package
+212 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz
+213 silly lockFile 91f075f9--npm-cache-express-3-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package
+214 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package C:\Users\Mauriel\AppData\Roaming\npm-cache\91f075f9--npm-cache-express-3-0-1-package.lock
+215 silly gunzTarPerm modes [ '755', '644' ]
+216 silly gunzTarPerm extractEntry package.json
+217 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+218 silly gunzTarPerm extractEntry .npmignore
+219 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+220 silly gunzTarPerm extractEntry LICENSE
+221 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+222 silly gunzTarPerm extractEntry client.js
+223 silly gunzTarPerm modified mode [ 'client.js', 438, 420 ]
+224 silly gunzTarPerm extractEntry index.js
+225 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+226 silly gunzTarPerm extractEntry test.js
+227 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+228 silly gunzTarPerm extractEntry .travis.yml
+229 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+230 silly gunzTarPerm extractEntry History.md
+231 silly gunzTarPerm modified mode [ 'History.md', 438, 420 ]
+232 silly gunzTarPerm extractEntry Makefile
+233 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+234 silly gunzTarPerm extractEntry bin/express
+235 silly gunzTarPerm modified mode [ 'bin/express', 438, 420 ]
+236 silly gunzTarPerm extractEntry Readme.md
+237 silly gunzTarPerm modified mode [ 'Readme.md', 438, 420 ]
+238 silly gunzTarPerm extractEntry lib/application.js
+239 silly gunzTarPerm modified mode [ 'lib/application.js', 438, 420 ]
+240 silly gunzTarPerm extractEntry lib/express.js
+241 silly gunzTarPerm modified mode [ 'lib/express.js', 438, 420 ]
+242 silly gunzTarPerm extractEntry lib/middleware.js
+243 silly gunzTarPerm modified mode [ 'lib/middleware.js', 438, 420 ]
+244 silly gunzTarPerm extractEntry lib/request.js
+245 silly gunzTarPerm modified mode [ 'lib/request.js', 438, 420 ]
+246 silly gunzTarPerm extractEntry lib/response.js
+247 silly gunzTarPerm modified mode [ 'lib/response.js', 438, 420 ]
+248 silly gunzTarPerm extractEntry lib/utils.js
+249 silly gunzTarPerm modified mode [ 'lib/utils.js', 438, 420 ]
+250 silly gunzTarPerm extractEntry lib/view.js
+251 silly gunzTarPerm modified mode [ 'lib/view.js', 438, 420 ]
+252 silly gunzTarPerm extractEntry lib/router/index.js
+253 silly gunzTarPerm modified mode [ 'lib/router/index.js', 438, 420 ]
+254 silly gunzTarPerm extractEntry lib/router/route.js
+255 silly gunzTarPerm modified mode [ 'lib/router/route.js', 438, 420 ]
+256 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package\package.json
+257 silly lockFile 91f075f9--npm-cache-express-3-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package
+258 silly shasum updated bytes 34424
+259 info shasum c0a22bf02de61faa95e92fc9d35cb12af4c682f5
+259 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz
+260 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package\package.json
+261 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz 644
+262 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz
+263 silly lockFile 0b7e55ac-js-org-express-express-3-0-1-tgz https://registry.npmjs.org/express/-/express-3.0.1.tgz
+264 silly lockFile 9a1fe1b2-express-3-0-1 express@3.0.1
+265 http 200 https://registry.npmjs.org/nodemailer/-/nodemailer-0.3.31.tgz
+266 silly shasum updated bytes 40960
+267 silly shasum updated bytes 15050
+268 info shasum d29f7c294aaec251ed9709a34031e85f6a0e303b
+268 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\tmp.tgz
+269 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\tmp.tgz
+270 silly lockFile ace15089-84653-0-3392855701968074-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\package
+271 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\package C:\Users\Mauriel\AppData\Roaming\npm-cache\ace15089-84653-0-3392855701968074-package.lock
+272 silly gunzTarPerm modes [ '755', '644' ]
+273 silly gunzTarPerm extractEntry package.json
+274 silly gunzTarPerm extractEntry .npmignore
+275 silly gunzTarPerm extractEntry README.md
+276 silly gunzTarPerm extractEntry LICENSE
+277 silly gunzTarPerm extractEntry .travis.yml
+278 silly gunzTarPerm extractEntry bin/nodemailer
+279 silly gunzTarPerm extractEntry examples/example_dkim.js
+280 silly gunzTarPerm extractEntry examples/example_sendmail.js
+281 silly gunzTarPerm extractEntry examples/example_ses.js
+282 silly gunzTarPerm extractEntry examples/example_smtp.js
+283 silly gunzTarPerm extractEntry examples/example_xoauth.js
+284 silly gunzTarPerm extractEntry examples/example_xoauth2.js
+285 silly gunzTarPerm extractEntry examples/nyan.gif
+286 silly gunzTarPerm extractEntry examples/test_private.pem
+287 silly gunzTarPerm extractEntry lib/helpers.js
+288 silly gunzTarPerm extractEntry lib/nodemailer.js
+289 silly gunzTarPerm extractEntry lib/transport.js
+290 silly gunzTarPerm extractEntry lib/wellknown.js
+291 silly gunzTarPerm extractEntry lib/xoauth.js
+292 silly gunzTarPerm extractEntry lib/engines/sendmail.js
+293 silly gunzTarPerm extractEntry lib/engines/ses.js
+294 silly gunzTarPerm extractEntry lib/engines/smtp.js
+295 silly gunzTarPerm extractEntry lib/engines/stub.js
+296 silly gunzTarPerm extractEntry test/nodemailer.js
+297 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\package\package.json
+298 silly lockFile ace15089-84653-0-3392855701968074-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\package
+299 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\package\package.json
+300 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\nodemailer\\0.3.31\\package.tgz',
+300 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388684653-0.3392855701968074\\package' ]
+301 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz
+302 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388684653-0.3392855701968074\package
+303 silly lockFile e26ab2e7-he-nodemailer-0-3-31-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz
+304 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\e26ab2e7-he-nodemailer-0-3-31-package-tgz.lock
+305 silly lockFile e26ab2e7-he-nodemailer-0-3-31-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz
+306 silly lockFile 72bb104d--cache-nodemailer-0-3-31-package C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package
+307 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package C:\Users\Mauriel\AppData\Roaming\npm-cache\72bb104d--cache-nodemailer-0-3-31-package.lock
+308 silly lockFile 72bb104d--cache-nodemailer-0-3-31-package C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package
+309 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz
+310 silly lockFile 72bb104d--cache-nodemailer-0-3-31-package C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package
+311 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package C:\Users\Mauriel\AppData\Roaming\npm-cache\72bb104d--cache-nodemailer-0-3-31-package.lock
+312 silly gunzTarPerm modes [ '755', '644' ]
+313 silly gunzTarPerm extractEntry package.json
+314 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+315 silly gunzTarPerm extractEntry .npmignore
+316 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+317 silly gunzTarPerm extractEntry README.md
+318 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+319 silly gunzTarPerm extractEntry LICENSE
+320 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+321 silly gunzTarPerm extractEntry .travis.yml
+322 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+323 silly gunzTarPerm extractEntry bin/nodemailer
+324 silly gunzTarPerm modified mode [ 'bin/nodemailer', 438, 420 ]
+325 silly gunzTarPerm extractEntry examples/example_dkim.js
+326 silly gunzTarPerm modified mode [ 'examples/example_dkim.js', 438, 420 ]
+327 silly gunzTarPerm extractEntry examples/example_sendmail.js
+328 silly gunzTarPerm modified mode [ 'examples/example_sendmail.js', 438, 420 ]
+329 silly gunzTarPerm extractEntry examples/example_ses.js
+330 silly gunzTarPerm modified mode [ 'examples/example_ses.js', 438, 420 ]
+331 silly gunzTarPerm extractEntry examples/example_smtp.js
+332 silly gunzTarPerm modified mode [ 'examples/example_smtp.js', 438, 420 ]
+333 silly gunzTarPerm extractEntry examples/example_xoauth.js
+334 silly gunzTarPerm modified mode [ 'examples/example_xoauth.js', 438, 420 ]
+335 silly gunzTarPerm extractEntry examples/example_xoauth2.js
+336 silly gunzTarPerm modified mode [ 'examples/example_xoauth2.js', 438, 420 ]
+337 silly gunzTarPerm extractEntry examples/nyan.gif
+338 silly gunzTarPerm modified mode [ 'examples/nyan.gif', 438, 420 ]
+339 silly gunzTarPerm extractEntry examples/test_private.pem
+340 silly gunzTarPerm modified mode [ 'examples/test_private.pem', 438, 420 ]
+341 silly gunzTarPerm extractEntry lib/helpers.js
+342 silly gunzTarPerm modified mode [ 'lib/helpers.js', 438, 420 ]
+343 silly gunzTarPerm extractEntry lib/nodemailer.js
+344 silly gunzTarPerm modified mode [ 'lib/nodemailer.js', 438, 420 ]
+345 silly gunzTarPerm extractEntry lib/transport.js
+346 silly gunzTarPerm modified mode [ 'lib/transport.js', 438, 420 ]
+347 silly gunzTarPerm extractEntry lib/wellknown.js
+348 silly gunzTarPerm modified mode [ 'lib/wellknown.js', 438, 420 ]
+349 silly gunzTarPerm extractEntry lib/xoauth.js
+350 silly gunzTarPerm modified mode [ 'lib/xoauth.js', 438, 420 ]
+351 silly gunzTarPerm extractEntry lib/engines/sendmail.js
+352 silly gunzTarPerm modified mode [ 'lib/engines/sendmail.js', 438, 420 ]
+353 silly gunzTarPerm extractEntry lib/engines/ses.js
+354 silly gunzTarPerm modified mode [ 'lib/engines/ses.js', 438, 420 ]
+355 silly gunzTarPerm extractEntry lib/engines/smtp.js
+356 silly gunzTarPerm modified mode [ 'lib/engines/smtp.js', 438, 420 ]
+357 silly gunzTarPerm extractEntry lib/engines/stub.js
+358 silly gunzTarPerm modified mode [ 'lib/engines/stub.js', 438, 420 ]
+359 silly gunzTarPerm extractEntry test/nodemailer.js
+360 silly gunzTarPerm modified mode [ 'test/nodemailer.js', 438, 420 ]
+361 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package\package.json
+362 silly lockFile 72bb104d--cache-nodemailer-0-3-31-package C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package
+363 silly shasum updated bytes 40960
+364 silly shasum updated bytes 14923
+365 info shasum 9a7132531c30b6236ccfd1a079d766cbb9dda66b
+365 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz
+366 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package\package.json
+367 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz 644
+368 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz
+369 silly lockFile dcc9d506-nodemailer-nodemailer-0-3-31-tgz https://registry.npmjs.org/nodemailer/-/nodemailer-0.3.31.tgz
+370 silly lockFile 42903d83-nodemailer-0-3-31 nodemailer@0.3.31
+371 silly resolved [ { name: 'bcrypt',
+371 silly resolved     description: 'A bcrypt library for NodeJS.',
+371 silly resolved     keywords:
+371 silly resolved      [ 'bcrypt',
+371 silly resolved        'password',
+371 silly resolved        'auth',
+371 silly resolved        'authentication',
+371 silly resolved        'encryption',
+371 silly resolved        'crypt',
+371 silly resolved        'crypto' ],
+371 silly resolved     main: './bcrypt',
+371 silly resolved     version: '0.7.2',
+371 silly resolved     author: { name: 'Nick Campbell', url: 'http://github.com/ncb000gt' },
+371 silly resolved     engines: { node: '>= 0.6.0' },
+371 silly resolved     repository:
+371 silly resolved      { type: 'git',
+371 silly resolved        url: 'http://github.com/ncb000gt/node.bcrypt.js.git' },
+371 silly resolved     licenses: [ [Object] ],
+371 silly resolved     bugs: { url: 'http://github.com/ncb000gt/node.bcrypt.js/issues' },
+371 silly resolved     scripts:
+371 silly resolved      { test: 'node-gyp configure build && nodeunit test',
+371 silly resolved        install: 'node-gyp rebuild' },
+371 silly resolved     dependencies: { bindings: '1.0.0' },
+371 silly resolved     devDependencies: { nodeunit: '>=0.6.4' },
+371 silly resolved     contributors:
+371 silly resolved      [ [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object],
+371 silly resolved        [Object] ],
+371 silly resolved     gypfile: true,
+371 silly resolved     readme: 'node.bcrypt.js\n=============\n\n[![Build Status](https://secure.travis-ci.org/ncb000gt/node.bcrypt.js.png)](http://travis-ci.org/#!/ncb000gt/node.bcrypt.js) \n\nLib to help you hash passwords.\n[bcrypt on wikipedia][bcryptwiki]\n\nCatalyst for this module: [How To Safely Store A Password][codahale]\n\nIf You Are Submitting Bugs/Issues\n=============\n\nBecause we can\'t magically know what you are doing to expose an issue, it is best if you provide a snippet of code. This snippet need not include your secret sauce, but it must replicate the issue you are describing. The issues that get closed without resolution tend to be the ones without code examples. Thanks.\n\n\nVersion Compatability\n=============\n\n<table>\n<tr>\n<td>Node Ver</td><td>Bcrypt Version</td>\n</tr>\n<tr>\n<td>&lt;= 0.4.x</td><td>&lt;= 0.4.x</td>\n</tr>\n<tr>\n<td>&gt;= 0.6.x</td><td>&gt;= 0.5.x</td>\n</tr>\n</table>\n\nWindows users should make sure to have at least node 0.8.5 installed and version >= 0.7.1 of this module.\n\n\nSecurity Issues/Concerns\n=============\n\nAs should be the case with any security tool, this library should be scrutinized by anyone using it. If you find or suspect an issue with the code- please bring it to my attention and I\'ll spend some time trying to make sure that this tool is as secure as possible.\n\nTo make it easier for people using this tool to analyze what has been surveyed, here is a list of BCrypt related security issues/concerns as they\'ve come up.\n\n* An [issue with passwords][jtr] was found with a version of the Blowfish algorithm developed for John the Ripper. This is not present in the OpenBSD version and is thus not a problem for this module. HT [zooko][zooko].\n\nDependencies\n=============\n\n* NodeJS\n* OpenSSL (Development Libraries (header files) for compilation)\n * For Windows you\'ll need http://slproweb.com/products/Win32OpenSSL.html installed to the default location of `C:\\OpenSSL-Win32`\n  * For 64 bit use the 64 bit version and install to `C:\\OpenSSL-Win64`\n* `node-gyp`\n * Please check the dependencies for this tool at: https://github.com/TooTallNate/node-gyp/\n  * Windows users will need the options for c# and c++ installed with their visual studio instance.\n  * Python 2.x\n\nFrom NPM\n============\n\nnpm install bcrypt\n\n\nFrom Source\n============\n\nAssuming you\'ve already built node, you can compile the module with `node-gyp`:\n\n```\ngit clone git://github.com/ncb000gt/node.bcrypt.js.git\ncd node.bcrypt.js\nnode-gyp configure\nnode-gyp build\n```\n\nNote: if you do not have node-gyp installed, install it using: `npm install -g node-gyp`\n\nUsage - Sync\n============\n\nTo hash a password:  \n\n```javascript\nvar bcrypt = require(\'bcrypt\');\nvar salt = bcrypt.genSaltSync(10);\nvar hash = bcrypt.hashSync("B4c0/\\/", salt);\n// Store hash in your password DB.\n```\n\nTo check a password:  \n\n```javascript\n// Load hash from your password DB.\nbcrypt.compareSync("B4c0/\\/", hash); // true\nbcrypt.compareSync("not_bacon", hash); // false\n```\n\nAuto-gen a salt and hash:\n\n```javascript\nvar hash = bcrypt.hashSync(\'bacon\', 8);\n```\n\nUsage - Async\n============\n\nTo hash a password:  \n\n```javascript\nvar bcrypt = require(\'bcrypt\');\nbcrypt.genSalt(10, function(err, salt) {\n    bcrypt.hash("B4c0/\\/", salt, function(err, hash) {\n        // Store hash in your password DB.\n    });\n});\n```\n\nTo check a password:  \n\n```javascript\n// Load hash from your password DB.\nbcrypt.compare("B4c0/\\/", hash, function(err, res) {\n    // res == true\n});\nbcrypt.compare("not_bacon", hash, function(err, res) {\n    // res = false\n});\n```\n\nAuto-gen a salt and hash:\n\n```javascript\nbcrypt.hash(\'bacon\', 8, function(err, hash) {\n});\n```\n\nAPI\n============\n\n`BCrypt.`\n\n  * `genSaltSync(rounds, seed_length)`\n    * `rounds` - [OPTIONAL] - the number of rounds to process the data for. (default - 10)\n    * `seed_length` - [OPTIONAL] - RAND_bytes wants a length. to make that a bit flexible, you can specify a seed_length. (default - 20)\n  * `genSalt(rounds, seed_length, cb)`\n    * `rounds` - [OPTIONAL] - the number of rounds to process the data for. (default - 10)\n    * `seed_length` - [OPTIONAL] - RAND_bytes wants a length. to make that a bit flexible, you can specify a seed_length. (default - 20)\n    * `cb` - [REQUIRED] - a callback to be fired once the salt has been generated. uses eio making it asynchronous.\n      * `err` - First parameter to the callback detailing any errors.\n      * `salt` - Second parameter to the callback providing the generated salt.\n  * `hashSync(data, salt)`\n    * `data` - [REQUIRED] - the data to be encrypted.\n    * `salt` - [REQUIRED] - the salt to be used in encryption.\n  * `hash(data, salt, cb)`\n    * `data` - [REQUIRED] - the data to be encrypted.\n    * `salt` - [REQUIRED] - the salt to be used to hash the password. if specified as a number then a salt will be generated and used (see examples).\n    * `cb` - [REQUIRED] - a callback to be fired once the data has been encrypted. uses eio making it asynchronous.\n      * `err` - First parameter to the callback detailing any errors.\n      * `encrypted` - Second parameter to the callback providing the encrypted form.\n  * `compareSync(data, encrypted)`\n    * `data` - [REQUIRED] - data to compare.\n    * `encrypted` - [REQUIRED] - data to be compared to.\n  * `compare(data, encrypted, cb)`\n    * `data` - [REQUIRED] - data to compare.\n    * `encrypted` - [REQUIRED] - data to be compared to.\n    * `cb` - [REQUIRED] - a callback to be fired once the data has been compared. uses eio making it asynchronous.\n      * `err` - First parameter to the callback detailing any errors.\n      * `same` - Second parameter to the callback providing whether the data and encrypted forms match [true | false].\n  * `getRounds(encrypted)` - return the number of rounds used to encrypt a given hash\n    * `encrypted` - [REQUIRED] - hash from which the number of rounds used should be extracted.\n\n\nHash Info\n============\n\nThe characters that comprise the resultant hash are `./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$`.\n\nTesting\n============\n\nIf you create a pull request, tests better pass :)\n\n    npm install\n    npm test\n\nCredits\n============\n\nThe code for this comes from a few sources:\n\n* blowfish.cc - OpenBSD\n* bcrypt.cc - OpenBSD\n* bcrypt::gen_salt - [gen_salt inclusion to bcrypt][bcryptgs]\n* bcrypt_node.cc - me\n\nContributors\n============\n\n* [Antonio Salazar Cardozo][shadowfiend] - Early MacOS X support (when we used libbsd)\n* [Ben Glow][pixelglow] - Fixes for thread safety with async calls\n* [Van Nguyen][thegoleffect] - Found a timing attack in the comparator\n* [NewITFarmer][newitfarmer] - Initial Cygwin support\n* [David Trejo][dtrejo] - packaging fixes\n* [Alfred Westerveld][alfredwesterveld] - packaging fixes\n* [Vincent Côté-Roy][vincentr] - Testing around concurrency issues\n* [Lloyd Hilaiel][lloyd] - Documentation fixes\n* [Roman Shtylman][shtylman] - Code refactoring, general rot reduction, compile options, better memory management with delete and new, and an upgrade to libuv over eio/ev.\n* [Vadim Graboys][vadimg] - Code changes to support 0.5.5+\n* [Ben Noordhuis][bnoordhuis] - Fixed a thread safety issue in nodejs that was perfectly mappable to this module.\n* [Nate Rajlich][tootallnate] - Bindings and build process.\n* [Sean McArthur][seanmonstar] - Windows Support\n* [Fanie Oosthuysen][weareu] - Windows Support\n\nLicense\n============\n\nUnless stated elsewhere, file headers or otherwise, the license as stated in the LICENSE file.\n\n\n\n[bcryptwiki]: http://en.wikipedia.org/wiki/Crypt_(Unix)#Blowfish-based_scheme  \n[bcryptgs]: http://mail-index.netbsd.org/tech-crypto/2002/05/24/msg000204.html\n[codahale]: http://codahale.com/how-to-safely-store-a-password/\n[gh13]: https://github.com/ncb000gt/node.bcrypt.js/issues/13\n[jtr]: http://www.openwall.com/lists/oss-security/2011/06/20/2\n\n[shadowfiend]:https://github.com/Shadowfiend\n[thegoleffect]:https://github.com/thegoleffect\n[pixelglow]:https://github.com/pixelglow\n[dtrejo]:https://github.com/dtrejo\n[alfredwesterveld]:https://github.com/alfredwesterveld\n[newitfarmer]:https://github.com/newitfarmer\n[zooko]:https://twitter.com/zooko\n[vincentr]:https://twitter.com/vincentcr\n[lloyd]:https://github.com/lloyd\n[shtylman]:https://github.com/shtylman\n[vadimg]:https://github.com/vadimg\n[bnoordhuis]:https://github.com/bnoordhuis\n[tootallnate]:https://github.com/tootallnate\n[seanmonstar]:https://github.com/seanmonstar\n[weareu]:https://github.com/weareu\n',
+371 silly resolved     _id: 'bcrypt@0.7.2',
+371 silly resolved     dist: { shasum: 'b14ea9e2a0319420989cb0634eb36a4e336c882f' },
+371 silly resolved     deprecated: 'version 0.7.3 fixes potential memory issue',
+371 silly resolved     _from: 'bcrypt@0.7.2' },
+371 silly resolved   { name: 'express',
+371 silly resolved     description: 'Sinatra inspired web development framework',
+371 silly resolved     version: '3.0.1',
+371 silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+371 silly resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+371 silly resolved     dependencies:
+371 silly resolved      { connect: '2.6.2',
+371 silly resolved        commander: '0.6.1',
+371 silly resolved        'range-parser': '0.0.4',
+371 silly resolved        mkdirp: '0.3.3',
+371 silly resolved        cookie: '0.0.4',
+371 silly resolved        crc: '0.2.0',
+371 silly resolved        fresh: '0.1.0',
+371 silly resolved        methods: '0.0.1',
+371 silly resolved        send: '0.1.0',
+371 silly resolved        'cookie-signature': '0.0.1',
+371 silly resolved        debug: '*' },
+371 silly resolved     devDependencies:
+371 silly resolved      { ejs: '*',
+371 silly resolved        mocha: '*',
+371 silly resolved        jade: '*',
+371 silly resolved        hjs: '*',
+371 silly resolved        stylus: '*',
+371 silly resolved        should: '*',
+371 silly resolved        'connect-redis': '*',
+371 silly resolved        'github-flavored-markdown': '*',
+371 silly resolved        supertest: '0.0.1' },
+371 silly resolved     keywords:
+371 silly resolved      [ 'express',
+371 silly resolved        'framework',
+371 silly resolved        'sinatra',
+371 silly resolved        'web',
+371 silly resolved        'rest',
+371 silly resolved        'restful',
+371 silly resolved        'router',
+371 silly resolved        'app',
+371 silly resolved        'api' ],
+371 silly resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/express' },
+371 silly resolved     main: 'index',
+371 silly resolved     bin: { express: './bin/express' },
+371 silly resolved     scripts: { prepublish: 'npm prune', test: 'make test' },
+371 silly resolved     engines: { node: '*' },
+371 silly resolved     readme: '![express logo](http://f.cl.ly/items/0V2S1n0K1i3y1c122g04/Screen%20Shot%202012-04-11%20at%209.59.42%20AM.png)\n\n  Fast, unopinionated, minimalist web framework for [node](http://nodejs.org). [![Build Status](https://secure.travis-ci.org/visionmedia/express.png)](http://travis-ci.org/visionmedia/express)\n\n```js\nvar express = require(\'express\');\nvar app = express();\n\napp.get(\'/\', function(req, res){\n  res.send(\'Hello World\');\n});\n\napp.listen(3000);\n```\n\n## Installation\n\n    $ npm install -g express\n\n To install the 3.0 alpha:\n \n    $ npm install -g express@3.0\n\n## Quick Start\n\n The quickest way to get started with express is to utilize the executable `express(1)` to generate an application as shown below:\n\n Create the app:\n\n    $ npm install -g express\n    $ express /tmp/foo && cd /tmp/foo\n\n Install dependencies:\n\n    $ npm install\n\n Start the server:\n\n    $ node app\n\n## Features\n\n  * Built on [Connect](http://github.com/senchalabs/connect)\n  * Robust routing\n  * HTTP helpers (redirection, caching, etc)\n  * View system supporting 14+ template engines\n  * Content negotiation\n  * Focus on high performance\n  * Environment based configuration\n  * Executable for generating applications quickly\n  * High test coverage\n\n## Philosophy\n\n  The Express philosophy is to provide small, robust tooling for HTTP servers. Making\n  it a great solution for single page applications, web sites, hybrids, or public\n  HTTP APIs.\n  \n  Built on Connect you can use _only_ what you need, and nothing more, applications\n  can be as big or as small as you like, even a single file. Express does\n  not force you to use any specific ORM or template engine. With support for over\n  14 template engines via [Consolidate.js](http://github.com/visionmedia/consolidate.js)\n  you can quickly craft your perfect framework.\n\n## More Information\n\n  * Join #express on freenode\n  * [Google Group](http://groups.google.com/group/express-js) for discussion\n  * Follow [tjholowaychuk](http://twitter.com/tjholowaychuk) on twitter for updates\n  * Visit the [Wiki](http://github.com/visionmedia/express/wiki)\n  * [日本語ドキュメンテーション](http://hideyukisaito.com/doc/expressjs/) by [hideyukisaito](https://github.com/hideyukisaito)\n  * [Русскоязычная документация](http://express-js.ru/)\n\n## Viewing Examples\n\nClone the Express repo, then install the dev dependencies to install all the example / test suite deps:\n\n    $ git clone git://github.com/visionmedia/express.git --depth 1\n    $ cd express\n    $ npm install\n\nthen run whichever tests you want:\n\n    $ node examples/content-negotiation\n\n## Running Tests\n\nTo run the test suite first invoke the following command within the repo, installing the development dependencies:\n\n    $ npm install\n\nthen run the tests:\n\n    $ make test\n\n## Contributors\n\n```\nproject: express\ncommits: 3559\nactive : 468 days\nfiles  : 237\nauthors: \n 1891\tTj Holowaychuk          53.1%\n 1285\tvisionmedia             36.1%\n  182\tTJ Holowaychuk          5.1%\n   54\tAaron Heckmann          1.5%\n   34\tcsausdev                1.0%\n   26\tciaranj                 0.7%\n   21\tRobert Sköld          0.6%\n    6\tGuillermo Rauch         0.2%\n    3\tDav Glass               0.1%\n    3\tNick Poulden            0.1%\n    2\tRandy Merrill           0.1%\n    2\tBenny Wong              0.1%\n    2\tHunter Loftis           0.1%\n    2\tJake Gordon             0.1%\n    2\tBrian McKinney          0.1%\n    2\tRoman Shtylman          0.1%\n    2\tBen Weaver              0.1%\n    2\tDave Hoover             0.1%\n    2\tEivind Fjeldstad        0.1%\n    2\tDaniel Shaw             0.1%\n    1\tMatt Colyer             0.0%\n    1\tPau Ramon               0.0%\n    1\tPero Pejovic            0.0%\n    1\tPeter Rekdal Sunde      0.0%\n    1\tRaynos                  0.0%\n    1\tTeng Siong Ong          0.0%\n    1\tViktor Kelemen          0.0%\n    1\tctide                   0.0%\n    1\t8bitDesigner            0.0%\n    1\tisaacs                  0.0%\n    1\tmgutz                   0.0%\n    1\tpikeas                  0.0%\n    1\tshuwatto                0.0%\n    1\ttstrimple               0.0%\n    1\tewoudj                  0.0%\n    1\tAdam Sanderson          0.0%\n    1\tAndrii Kostenko         0.0%\n    1\tAndy Hiew               0.0%\n    1\tArpad Borsos            0.0%\n    1\tAshwin Purohit          0.0%\n    1\tBenjen                  0.0%\n    1\tDarren Torpey           0.0%\n    1\tGreg Ritter             0.0%\n    1\tGregory Ritter          0.0%\n    1\tJames Herdman           0.0%\n    1\tJim Snodgrass           0.0%\n    1\tJoe McCann              0.0%\n    1\tJonathan Dumaine        0.0%\n    1\tJonathan Palardy        0.0%\n    1\tJonathan Zacsh          0.0%\n    1\tJustin Lilly            0.0%\n    1\tKen Sato                0.0%\n    1\tMaciej Małecki         0.0%\n    1\tMasahiro Hayashi        0.0%\n```\n\n## License \n\n(The MIT License)\n\nCopyright (c) 2009-2012 TJ Holowaychuk &lt;tj@vision-media.ca&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\'Software\'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \'AS IS\', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+371 silly resolved     _id: 'express@3.0.1',
+371 silly resolved     dist: { shasum: 'c0a22bf02de61faa95e92fc9d35cb12af4c682f5' },
+371 silly resolved     _from: 'express@3.0.1' },
+371 silly resolved   { name: 'nodemailer',
+371 silly resolved     description: 'Easy to use module to send e-mails, supports unicode and SSL/TLS',
+371 silly resolved     version: '0.3.31',
+371 silly resolved     author: { name: 'Andris Reinman' },
+371 silly resolved     maintainers: [ [Object] ],
+371 silly resolved     homepage: 'http://github.com/andris9/nodemailer',
+371 silly resolved     repository: { type: 'git', url: 'http://github.com/andris9/nodemailer.git' },
+371 silly resolved     scripts: { test: 'nodeunit test/' },
+371 silly resolved     main: './lib/nodemailer',
+371 silly resolved     licenses: [ [Object] ],
+371 silly resolved     dependencies:
+371 silly resolved      { mailcomposer: '>= 0.1.19',
+371 silly resolved        simplesmtp: '>= 0.1.22',
+371 silly resolved        optimist: '*' },
+371 silly resolved     devDependencies: { nodeunit: '*' },
+371 silly resolved     engine: { node: '>=0.6' },
+371 silly resolved     bin: { nodemailer: './bin/nodemailer' },
+371 silly resolved     keywords: [ 'e-mail', 'mime', 'email', 'mail', 'sendmail', 'ses' ],
+371 silly resolved     readme: 'Nodemailer\n==========\n\n**Nodemailer** is an easy to use module to send e-mails with Node.JS (using\nSMTP or sendmail or Amazon SES) and is unicode friendly - You can use any characters you like ✔\n\nNodemailer is Windows friendly, you can install it with *npm* on Windows just like any other module, there are no compiled dependencies. Use it from Azure or from your Windows box hassle free.\n\nVersion v0.3 of Nodemailer is built from scratch and might break some existing scripts, so beware while upgrading. Nodemailer should be backwards compatible - if your script worked before, then it should work now, even if Nodemailer documentation differs from your code (method names, properties etc.).\n\nUse [DocumentUp](http://documentup.com/andris9/nodemailer/) to read this README\nin a more structured way (with TOC).\n\n[![Build Status](https://secure.travis-ci.org/andris9/Nodemailer.png)](http://travis-ci.org/andris9/Nodemailer)\n\n## Nodemailer supports\n\n  * **Unicode** to use any characters\n  * **HTML content** as well as **plain text** alternative\n  * **Attachments** (including attachment **streaming** for sending larger files)\n  * **Embedded images** in HTML\n  * **SSL/STARTTLS** for secure e-mail delivery\n  * Different transport methods - **SMTP**, **sendmail** and **Amazon SES**\n  * SMTP **Connection pool** and connection reuse for rapid delivery\n  * **Preconfigured** services for using SMTP with Gmail, Hotmail etc.\n  * Use objects as header values for **SendGrid** SMTP API\n  * **XOAUTH2** authentication and token generation support - useful with Gmail\n  * **DKIM** signing\n  * Send e-mail from **command line**\n\n## Support Nodemailer development\n\n[![Donate to author](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DB26KWR2BQX5W)\n\n## Check out my other mail related modules\n\nIf you want to parse generated or received e-mail instead of sending it, check\nout [MailParser](https://github.com/andris9/mailparser).\n\nIf you only want to generate the raw e-mail stream, check out\n[MailComposer](https://github.com/andris9/mailcomposer).\n\nIf you only want to communicate with the SMTP (both as client and the server),\ncheck out [simplesmtp](https://github.com/andris9/simplesmtp).\n\n## Templates\n\nTo use Nodemailer with templates, please see documentation for [node-email-templates](https://github.com/niftylettuce/node-email-templates).\n\n## Example\n\nThis is a complete example to send an e-mail with plaintext and HTML body\n\n```javascript\nvar nodemailer = require("nodemailer");\n\n// create reusable transport method (opens pool of SMTP connections)\nvar smtpTransport = nodemailer.createTransport("SMTP",{\n    service: "Gmail",\n    auth: {\n        user: "gmail.user@gmail.com",\n        pass: "userpass"\n    }\n});\n\n// setup e-mail data with unicode symbols\nvar mailOptions = {\n    from: "Sender Name ✔ <sender@example.com>", // sender address\n    to: "receiver1@example.com, receiver2@example.com", // list of receivers\n    subject: "Hello ✔", // Subject line\n    text: "Hello world ✔", // plaintext body\n    html: "<b>Hello world ✔</b>" // html body\n}\n\n// send mail with defined transport object\nsmtpTransport.sendMail(mailOptions, function(error, response){\n    if(error){\n        console.log(error);\n    }else{\n        console.log("Message sent: " + response.message);\n    }\n\n    // if you don\'t want to use this transport object anymore, uncomment following line\n    //smtpTransport.close(); // shut down the connection pool, no more messages\n});\n```\n\nSee also the [examples folder](https://github.com/andris9/Nodemailer/tree/master/examples)\nfor full featured examples\n\n## Installation\n\nInstall through NPM\n\n```\nnpm install nodemailer\n```\n\n## Usage\n\nInclude the module\n\n```javascript\nvar nodemailer = require("nodemailer");\n```\n\nAn e-mail can be sent with `sendMail(mailOptions[, callback])` command\n\n```javascript\ntransport.sendMail(mailOptions, callback);\n```\n\nWhere\n\n  * `transport` is a transport object created from the `nodemailer.createTransport` method\n  * **mailOptions** defines the e-mail (set its subject, body text, receivers etc.), see **E-mail Message Fields** for details\n  * **callback** is the callback function that will be run after the e-mail is sent or the sending failed (see **Return callback** for details)\n\n## Setting up a transport method\n\nBefore you can send any e-mails you need to set up a transport method. This can\nbe done with `nodemailer.createTransport(type, options)` where `type` indicates\nthe transport protocol and `options` defines how it is used.\n\n```javascript\nvar transport = nodemailer.createTransport("SMTP", {smtp_options});\n```\n\nThe same transport object can and should be reused several times.\n\nWhen the transport method is defined, it can be used to send e-mail with `sendMail`\n\n```javascript\nvar transport = nodemailer.createTransport("SMTP", {smtp_options});\n\ntransport.sendMail({\n    from: "sender@tr.ee",\n    to: "receiver@tr.ee"\n    ...\n});\n```\n\n### Possible transport methods\n\nRequired `type` parameter can be one of the following:\n\n  * **SMTP** for using SMTP\n  * **SES** for using Amazon SES\n  * **Sendmail** for utilizing systems *sendmail* command\n\n### Setting up SMTP\n\nSMTP is different from the other transport mechanisms, as in its case a connection\npool is created. All the connections try to stay alive as long as possible and\nare reusable to minimize the protocol overhead delay - for example setting up\nTLS for authenticating is relatively lengthy process (in CPU terms, not by human\nterms), you do not want to do it several times.\n\nPossible SMTP options are the following:\n\n * **service** - an optional well known service identifier ("Gmail", "Hotmail" etc., see **Well known Services** for a list of supported services) to auto-configure host, port and secure connection settings\n * **host** - hostname of the SMTP server (defaults to "localhost", not needed with `service`)\n * **port** - port of the SMTP server (defaults to 25, not needed with `service`)\n * **secureConnection** - use SSL (default is `false`, not needed with `service`). If you\'re using port 587 then keep `secureConnection` false, since the connection is started in insecure plain text mode and only later upgraded with STARTTLS\n * **name** - the name of the client server (defaults to machine name)\n * **auth** - authentication object as `{user:"...", pass:"..."}` or  `{XOAuth2: {xoauth2_options}}` or  `{XOAuthToken: "base64data"}`\n * **ignoreTLS** - ignore server support for STARTTLS (defaults to `false`)\n * **debug** - output client and server messages to console\n * **maxConnections** - how many connections to keep in the pool (defaults to 5)\n\nExample:\n\n```javascript\nvar transport = nodemailer.createTransport("SMTP", {\n    service: "Gmail",\n    auth: {\n        user: "gmail.user@gmail.com",\n        pass: "userpass"\n    }\n});\n```\n\nor the same without `service` parameter\n\n```javascript\nvar transport = nodemailer.createTransport("SMTP", {\n    host: "smtp.gmail.com", // hostname\n    secureConnection: true, // use SSL\n    port: 465, // port for secure SMTP\n    auth: {\n        user: "gmail.user@gmail.com",\n        pass: "userpass"\n    }\n});\n```\n\n**NB!** if you want to close the pool (cancel all open connections) you can use `transport.close()`\n\n```javascript\n\nvar transport = nodemailer.createTransport("SMTP",{});\n...\ntransport.close(); // close the pool\n```\n\n\n#### SMTP XOAUTH and token generation\n\n##### XOAUTH2\n\n**nodemailer** supports XOAUTH2 authentication protocol. To use this you need to obtain a Client ID and a Client Secret from [Google API Console](https://code.google.com/apis/console) (Open "API Access" and create "Client ID for web applications") and then request a refresh token for an user. See [Google OAuth 2.0 Offline Access](https://developers.google.com/accounts/docs/OAuth2WebServer#offline) for more information.\n\nOnce you have obtained the Client ID, Client Secret and a Refresh Token for an user, you can use these values to send mail on behalf of the user.\n\n```javascript\nvar transportOptions = {\n    ...,\n    auth: {\n        XOAuth2: {\n            user: "example.user@gmail.com",\n            clientId: "8819981768.apps.googleusercontent.com",\n            clientSecret: "{client_secret}",\n            refreshToken: "1/xEoDL4iW3cxlI7yDbSRFYNG01kVKM2C-259HOF2aQbI",\n            accessToken: "vF9dft4qmTc2Nvb3RlckBhdHRhdmlzdGEuY29tCg==",\n            timeout: 3600\n        }\n    }\n}\n```\n\n`accessToken` and `timeout` values are both optional. If XOAUTH2 login fails a new access token is generated automatically and the login is retried.\n\n##### XOAUTH\n\nOlder XOAUTH is also supporteb by **nodemailer** for SMTP. XOAUTH is based on OAuth protocol 1.0 and is considered deprecated.\n\nTo use this, include `XOAuthToken` option in `auth` instead of the regular `user` and `pass`.\n\n```javascript\nvar transportOptions = {\n    ...,\n    auth: {\n        XOAuthToken: "R0VUIGh0dHBzOi8vbWFpbC5nb29...."\n    }\n}\n```\n\n**nodemailer** includes also built in XOAUTH token generator which can be used\nwith `nodemailer.createXOAuthGenerator()`. The function is preconfigured for\nGmail, so in this case only mandatory options are `user`, `token` and `tokenSecret`.\n\n```javascript\nvar XOAuthTokenGenerator = nodemailer.createXOAuthGenerator({\n        user: "test.nodemailer@gmail.com",\n        // requestUrl: "https://oauth.access.point",\n        // consumerKey: "anonymous",\n        // consumerSecret: "anonymous",\n        token: "1/O_HgoO4h2uOUfpus0V--7mygICXrQQ0ZajB3ZH52KqM",\n        tokenSecret: "_mUBkIwNPnfQBUIWrJrpXJ0c"\n    });\n```\n\nOne of `user` or `requestUrl` is mandatory. `consumerKey` and `consumerSecret` both\ndefault to `"anonymous"`.\n\n```javascript\nvar transportOptions = {\n    service: "Gmail",\n    auth: {\n        XOAuthToken: nodemailer.createXOAuthGenerator({\n            user: "test.nodemailer@gmail.com",\n            token: "1/O_HgoO4h2uOUfpus0V--7mygICXrQQ0ZajB3ZH52KqM",\n            tokenSecret: "_mUBkIwNPnfQBUIWrJrpXJ0c"\n        })\n    }\n}\n```\n\n### Setting up SES\n\nSES is actually a HTTP based protocol, the compiled e-mail and related info\n(signatures and such) are sent as a HTTP request to SES servers.\n\nPossible SES options are the following:\n\n * **AWSAccessKeyID** - AWS access key (required)\n * **AWSSecretKey** - AWS secret (required)\n * **ServiceUrl** - optional API end point URL (defaults to *"https://email.us-east-1.amazonaws.com"*)\n\nExample:\n\n```javascript\nvar transport = nodemailer.createTransport("SES", {\n    AWSAccessKeyID: "AWSACCESSKEY",\n    AWSSecretKey: "AWS/Secret/key"\n});\n```\n\n### Setting up Sendmail\n\nSendmail transport method streams the compiled message to the *stdin* of *sendmail*\ncommand.\n\nOptions object is optional, possible sendmail options are the following:\n\n  * **path** - path to the `sendmail` command (defaults to *"sendmail"*)\n  * **args** - an array of extra command line options to pass to the `sendmail` command (ie. `["-f sender@example.com"]`)\n\nExample:\n\n```javascript\nvar transport = nodemailer.createTransport("sendmail");\n```\n\nor\n\n```javascript\nvar transport = nodemailer.createTransport("sendmail", {\n    path: "/usr/local/bin/sendmail",\n    args: ["-f sender@example.com"]\n});\n```\n\n### DKIM Signing\n\n**Nodemailer** supports DKIM signing with very simple setup. Use this with caution\nthough since the generated message needs to be buffered entirely before it can be\nsigned. Not a big deal with small messages but might consume a lot of RAM when\nusing larger attachments.\n\nSet up the DKIM signing with `useDKIM` method for a transport object:\n\n```javascript\ntransport.useDKIM(dkimOptions)\n```\n\nWhere `dkimOptions` includes necessary options for signing\n\n  * **domainName** - the domainname that is being used for signing\n  * **keySelector** - key selector. If you have set up a TXT record with DKIM public key at *zzz._domainkey.example.com* then `zzz` is the selector\n  * **privateKey** - DKIM private key that is used for signing as a string\n  * **headerFieldNames** - optional colon separated list of header fields to sign, by default all fields suggested by RFC4871 #5.5 are used\n\nAll messages transmitted through this transport objects are from now on DKIM signed.\n\nCurrently if several header fields with the same name exists, only the last one (the one in the bottom) is signed.\n\nExample:\n\n```javascript\nvar transport = nodemailer.createTransport("Sendmail");\n\ntransport.useDKIM({\n    domainName: "node.ee",\n    keySelector: "dkim",\n    privateKey: fs.readFileSync("private_key.pem")\n});\n\ntransport.sendMail(mailOptions);\n```\n\nSee examples/example_dkim.js for a complete example.\n\n**NB!** Be careful when using services like Gmail, SES etc. through SMTP\n(SES API is handled by Nodemailer automatically) - these tend to modify some\nheaders like Message-Id or Date which invalidates the signature. In this case use\n`headerFieldNames` property to define only fields that won\'t be changed and leave\nout `Date` or any other unsupported field.\n\n### Well known services for SMTP\n\nIf you want to use a well known service as the SMTP host, you do not need\nto enter the hostname or port number, just use the `service` parameter (**NB!** case sensitive).\n\nCurrently supported services are:\n\n  * **"DynectEmail"** for DynECT Email Delivery\n  * **"Gmail"** for Google Mail\n  * **"hot.ee"** for www.hot.ee\n  * **"Hotmail"** for Microsoft Live Hotmail\n  * **"iCloud"** for Apple iCloud\n  * **"mail.ee"** for www.mail.ee\n  * **"Postmark"** for Postmark App\n  * **"SendGrid"** for SendGrid\n  * **"SES"** for Amazon SES\n  * **"Yahoo"** for Yahoo Mail\n  * **"Zoho"** for Zoho Mail\n\nPredefined service data covers `host`, `port` and secure connection settings,\nany other parameters (ie. `auth`) need to be set separately.\n\n## E-mail message fields\n\nThe following are the possible fields of an e-mail message:\n\n  - **from** - The e-mail address of the sender. All e-mail addresses can be plain `sender@server.com` or formatted `Sender Name <sender@server.com>`\n  - **to** - Comma separated list of recipients e-mail addresses that will appear on the `To:` field\n  - **cc** - Comma separated list of recipients e-mail addresses that will appear on the `Cc:` field\n  - **bcc** - Comma separated list of recipients e-mail addresses that will appear on the `Bcc:` field\n  - **replyTo** - An e-mail address that will appear on the `Reply-To:` field\n  - **inReplyTo** - The message-id this message is replying\n  - **references** - Message-id list\n  - **subject** - The subject of the e-mail\n  - **text** - The plaintext version of the message\n  - **html** - The HTML version of the message\n  - **generateTextFromHTML** - if set to true uses HTML to generate plain text body part from the HTML if the text is not defined\n  - **headers** - An object of additional header fields `{"X-Key-Name": "key value"}` (NB! values are passed as is, you should do your own encoding to 7bit if needed)\n  - **attachments** - An array of attachment objects.\n  - **envelope** - optional SMTP envelope, if auto generated envelope is not suitable\n  - **messageId** - optional Message-Id value, random value will be generated if not set. Set to false to omit the Message-Id header\n  - **date** - optional Date value, current UTC string will be used if not set\n  - **encoding** - optional transfer encoding for the textual parts (defaults to "quoted-printable")\n  - **charset** - optional output character set for the textual parts (defaults to "utf-8")\n\nAll text fields (e-mail addresses, plaintext body, html body) use UTF-8 as the encoding.\nAttachments are streamed as binary.\n\nExample:\n\n```javascript\nvar transport = nodemailer.createTransport("Sendmail");\n\nvar mailOptions = {\n    from: "me@tr.ee",\n    to: "me@tr.ee",\n    subject: "Hello world!",\n    text: "Plaintext body"\n}\n\ntransport.sendMail(mailOptions);\n```\n\n### SendGrid support\n\nNodemailer supports SendGrid [SMTP API](http://docs.sendgrid.com/documentation/api/smtp-api/) out of the box - you can\nuse objects as header values and these are automatically JSONized (and mime encoded if needed).\n\n```javascript\nvar mailOptions = {\n    ...,\n    headers: {\n        \'X-SMTPAPI\': {\n            category : "newuser",\n            sub:{\n                "%name%": ["Žiguli Õllepruul"]\n            }\n        }\n    },\n    subject: "Hello, %name%"\n}\n```\n\nThis also applies to any other service that expects a JSON string as a header value for specified key.\n\n### Generate Text from HTML\n\nIf `generateTextFromHTML` option is set to true, then HTML contents of the mail is automatically converted\nto plaintext format when plaintext content is empty or missing.\n\nFor example\n\n```javascript\nmailOptions = {\n    ...,\n    generateTextFromHTML: true,\n    html: \'<h1>Hello world</h1><p><b>How</b> are you?\',\n    // text: \'\' // no text part\n}\n```\n\nis automatically converted in the backround by Nodemailer to:\n\n```javascript\nmailOptions = {\n    ...,\n    // source html:\n    html: \'<h1>Hello world</h1><p><b>How</b> are you?\',\n    // automatically generated plaintext message:\n    text: "Hello world\\n"+\n          "===========\\n"+\n          "\\n"+\n          "**How** are you?"\n}\n```\n\nAs you can see the output syntax for `generateTextFromHTML` looks similar to markdown, and that\nis exactly the case here - Nodemailer includes a simple HTML to markdown converter. But don\'t\nexpect too much from it, it\'s not full featured or perfect, just some regexes here and there.\n\n### Attachment fields\n\nAttahcment object consists of the following properties:\n\n  * **fileName** - filename to be reported as the name of the attached file, use of unicode is allowed (except when using Amazon SES which doesn\'t like it)\n  * **cid** - optional content id for using inline images in HTML message source\n  * **contents** - String or a Buffer contents for the attachment\n  * **filePath** - path to a file or an URL if you want to stream the file instead of including it (better for larger attachments)\n  * **streamSource** - Stream object for arbitrary binary streams if you want to stream the contents (needs to support *pause*/*resume*)\n  * **contentType** - optional content type for the attachment, if not set will be derived from the `fileName` property\n  * **contentDisposition** - optional content disposition type for the attachment, defaults to "attachment"\n\nOne of `contents`, `filePath` or `streamSource` must be specified, if none is\npresent, the attachment will be discarded. Other fields are optional.\n\nAttachments can be added as many as you want.\n\n```javascript\nvar mailOptions = {\n    ...\n    attachments: [\n        {   // utf-8 string as an attachment\n            fileName: "text1.txt",\n            contents: "hello world!"\n        },\n        {   // binary buffer as an attachment\n            fileName: "text2.txt",\n            contents: new Buffer("hello world!","utf-8")\n        },\n        {   // file on disk as an attachment\n            fileName: "text3.txt",\n            filePath: "/path/to/file.txt" // stream this file\n        },\n        {   // fileName and content type is derived from filePath\n            filePath: "/path/to/file.txt"\n        },\n        {   // stream as an attachment\n            fileName: "text4.txt",\n            streamSource: fs.createReadStream("file.txt")\n        },\n        {   // define custom content type for the attachment\n            fileName: "text.bin",\n            contents: "hello world!",\n            contentType: "text/plain"\n        },\n        {   // use URL as an attachment\n            fileName: "license.txt",\n            filePath: "https://raw.github.com/andris9/Nodemailer/master/LICENSE"\n        }\n    ]\n}\n```\n\n### Address Formatting\n\nAll the e-mail addresses can be plain e-mail address\n\n```\nusername@example.com\n```\n\nor with formatted name (includes unicode support)\n\n```\n"Ноде Майлер" <username@example.com>\n```\n\nTo, Cc and Bcc fields accept comma separated list of e-mails. Formatting can be mixed.\n\n```\nusername@example.com, "Ноде Майлер" <username@example.com>, "Name, User" <username@example.com>\n```\n\nYou can even use unicode domain and user names, these are automatically converted\nto the supported form\n\n```\n"Uncode Domain" <info@müriaad-polüteism.info>\n```\n\n### SMTP envelope\n\nSMTP envelope is usually auto generated from `from`, `to`, `cc` and `bcc` fields but\nif for some reason you want to specify it yourself, you can do it with `envelope` property.\n\n`envelope` is an object with the following params: `from`, `to`, `cc` and `bcc` just like\nwith regular mail options. You can also use the regular address format.\n\n```javascript\nmailOptions = {\n    ...,\n    from: "mailer@node.ee",\n    to: "daemon@node.ee",\n    envelope: {\n        from: "Daemon <deamon@node.ee>",\n        to: "mailer@node.ee, Mailer <mailer2@node.ee>"\n    }\n}\n```\n\n### Using Embedded Images\n\nAttachments can be used as embedded images in the HTML body. To use this\nfeature, you need to set additional property of the attachment - `cid` (unique\nidentifier of the file) which is a reference to the attachment file. The same\n`cid` value must be used as the image URL in HTML (using `cid:` as the URL\nprotocol, see example below).\n\n**NB!** the cid value should be as unique as possible!\n\n```javascript\nvar mailOptions = {\n    ...\n    html: "Embedded image: <img src=\'cid:unique@node.ee\' />",\n    attachments: [{\n        filename: "image.png",\n        filePath: "/path/to/file",\n        cid: "unique@node.ee" //same cid value as in the html img src\n    }]\n}\n```\n\n## Return callback\n\nReturn callback gets two parameters\n\n  * **error** - an error object if the message failed\n  * **responseStatus** - an object with some information about the status on success\n\nExample:\n\n```javascript\nnodemailer.sendMail(mailOptions, function(error, responseStatus){\n    if(!error){\n        console.log(responseStatus.message); // response from the server\n    }\n});\n```\n\n## Command line usage\n\nIf installed globally with -g, ndoemailer command enables to send mail from the command line. Run nodemailer --help for usage instructions.\n\n    npm install -g nodemailer\n    nodemailer --help\n\nAnd the response should be\n\n```\nSend mail with Nodemailer\nhttp://github.com/andris9/Nodemailer\n\nSyntax:\nnodemailer [options]\n\n --help                   show this message\n --transport=[transport]  "smtp", "ses", "sendmail"\n --debug=true             show debug log\n\nSMTP options\n --host=[hostname]        SMTP server hostname\n --port=[port]            SMTP server port\n --secure=[true:false]    Use SSL when connecting\n --user=[username]        SMTP username\n --pass=[password]        SMTP password\n\nAmazon SES options\n --key=[AWSKey]           Amazon SES key\n --secret=[AWSSecret]     Amazon SES secret\n\nMail options\n --from=[address]         Sender of the mail\n --to=[addresslist]       Comma separated list of To: addresses\n --cc=[addresslist]       Comma separated list of Cc: addresses\n --bcc=[addresslist]      Comma separated list of Bcc: addresses\n --subject=[subject]      Message subject\n --text=[plaintext]       Plain text mail body\n --html=[html]            HTML mail body\n --textFile=[path]        Plain text mail body from a file\n --htmlFile=[path]        HTML mail body from a file\n --stdin=[target]         Read "text" or "html" from stdin\n --attachments=[pathlist] Comma separated list of file paths\n```\n\nExample\n\n```\nnodemailer --host=smtp.gmail.com --port=465 --secure=true --user="myuser@gmail.com" --pass="mypass" --from="myuser@gmail.com" --to="target@example.com" --subject="test" --text="hello world!"\n```\n\n\n## Tests\n\nRun the tests with npm in Nodemailer\'s directory\n\n```\nnpm test\n```\n\nThere aren\'t currently many tests for Nodemailer but there are a lot of tests\nin the modules that are used to generate the raw e-mail body and to use the\nSMTP client connection.\n\n## Tweaking\n\nNodemailer in itself is actually more like a wrapper for my other modules\n[mailcomposer](https://github.com/andris9/mailcomposer) for composing the raw message stream\nand [simplesmtp](https://github.com/andris9/simplesmtp) for delivering it, by providing an\nunified API. If there\'s some problems with particular parts of the\nmessage composing/sending process you should look at the  appropriate module.\n\n## License\n\n**Nodemailer** is licensed under [MIT license](https://github.com/andris9/Nodemailer/blob/master/LICENSE). Basically you can do whatever you want to with it.\n',
+371 silly resolved     _id: 'nodemailer@0.3.31',
+371 silly resolved     dist: { shasum: '9a7132531c30b6236ccfd1a079d766cbb9dda66b' },
+371 silly resolved     _from: 'nodemailer@0.3.31' } ]
+372 info install bcrypt@0.7.2 into c:\Users\Mauriel\Desktop\SpeedyShop
+373 info install express@3.0.1 into c:\Users\Mauriel\Desktop\SpeedyShop
+374 info install nodemailer@0.3.31 into c:\Users\Mauriel\Desktop\SpeedyShop
+375 info installOne bcrypt@0.7.2
+376 info installOne express@3.0.1
+377 info installOne nodemailer@0.3.31
+378 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package\package.json
+379 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package\package.json
+380 info c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt unbuild
+381 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\package.json
+382 info c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\express unbuild
+383 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\express\package.json
+384 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package\package.json
+385 info c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\nodemailer unbuild
+386 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\nodemailer\package.json
+387 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\bcrypt\0.7.2\package.tgz
+388 silly lockFile 52935756-p-SpeedyShop-node-modules-bcrypt c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt
+389 verbose lock c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt C:\Users\Mauriel\AppData\Roaming\npm-cache\52935756-p-SpeedyShop-node-modules-bcrypt.lock
+390 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\express\3.0.1\package.tgz
+391 silly lockFile f1ae0825--SpeedyShop-node-modules-express c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\express
+392 verbose lock c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\express C:\Users\Mauriel\AppData\Roaming\npm-cache\f1ae0825--SpeedyShop-node-modules-express.lock
+393 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\nodemailer\0.3.31\package.tgz
+394 silly lockFile b5202dd8-eedyShop-node-modules-nodemailer c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\nodemailer
+395 verbose lock c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\nodemailer C:\Users\Mauriel\AppData\Roaming\npm-cache\b5202dd8-eedyShop-node-modules-nodemailer.lock
+396 silly gunzTarPerm modes [ '755', '644' ]
+397 silly gunzTarPerm modes [ '755', '644' ]
+398 silly gunzTarPerm modes [ '755', '644' ]
+399 silly gunzTarPerm extractEntry package.json
+400 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+401 silly gunzTarPerm extractEntry package.json
+402 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+403 silly gunzTarPerm extractEntry package.json
+404 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+405 silly gunzTarPerm extractEntry .npmignore
+406 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+407 silly gunzTarPerm extractEntry README.md
+408 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+409 silly gunzTarPerm extractEntry .npmignore
+410 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+411 silly gunzTarPerm extractEntry README.md
+412 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+413 silly gunzTarPerm extractEntry .npmignore
+414 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+415 silly gunzTarPerm extractEntry LICENSE
+416 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+417 silly gunzTarPerm extractEntry LICENSE
+418 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+419 silly gunzTarPerm extractEntry LICENSE
+420 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+421 silly gunzTarPerm extractEntry client.js
+422 silly gunzTarPerm modified mode [ 'client.js', 438, 420 ]
+423 silly gunzTarPerm extractEntry bcrypt.js
+424 silly gunzTarPerm modified mode [ 'bcrypt.js', 438, 420 ]
+425 silly gunzTarPerm extractEntry .travis.yml
+426 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+427 silly gunzTarPerm extractEntry bin/nodemailer
+428 silly gunzTarPerm modified mode [ 'bin/nodemailer', 438, 420 ]
+429 silly gunzTarPerm extractEntry index.js
+430 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+431 silly gunzTarPerm extractEntry test.js
+432 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+433 silly gunzTarPerm extractEntry CHANGELOG
+434 silly gunzTarPerm modified mode [ 'CHANGELOG', 438, 420 ]
+435 silly gunzTarPerm extractEntry examples/async_compare.js
+436 silly gunzTarPerm modified mode [ 'examples/async_compare.js', 438, 420 ]
+437 silly gunzTarPerm extractEntry examples/forever_gen_salt.js
+438 silly gunzTarPerm modified mode [ 'examples/forever_gen_salt.js', 438, 420 ]
+439 silly gunzTarPerm extractEntry .travis.yml
+440 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+441 silly gunzTarPerm extractEntry .travis.yml
+442 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+443 silly gunzTarPerm extractEntry History.md
+444 silly gunzTarPerm modified mode [ 'History.md', 438, 420 ]
+445 silly gunzTarPerm extractEntry examples/example_dkim.js
+446 silly gunzTarPerm modified mode [ 'examples/example_dkim.js', 438, 420 ]
+447 silly gunzTarPerm extractEntry examples/example_sendmail.js
+448 silly gunzTarPerm modified mode [ 'examples/example_sendmail.js', 438, 420 ]
+449 silly gunzTarPerm extractEntry Makefile
+450 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+451 silly gunzTarPerm extractEntry Makefile
+452 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+453 silly gunzTarPerm extractEntry examples/example_ses.js
+454 silly gunzTarPerm modified mode [ 'examples/example_ses.js', 438, 420 ]
+455 silly gunzTarPerm extractEntry binding.gyp
+456 silly gunzTarPerm modified mode [ 'binding.gyp', 438, 420 ]
+457 silly gunzTarPerm extractEntry examples/example_smtp.js
+458 silly gunzTarPerm modified mode [ 'examples/example_smtp.js', 438, 420 ]
+459 silly gunzTarPerm extractEntry src/bcrypt.cc
+460 silly gunzTarPerm modified mode [ 'src/bcrypt.cc', 438, 420 ]
+461 silly gunzTarPerm extractEntry examples/example_xoauth.js
+462 silly gunzTarPerm modified mode [ 'examples/example_xoauth.js', 438, 420 ]
+463 silly gunzTarPerm extractEntry src/bcrypt_node.cc
+464 silly gunzTarPerm modified mode [ 'src/bcrypt_node.cc', 438, 420 ]
+465 silly gunzTarPerm extractEntry examples/example_xoauth2.js
+466 silly gunzTarPerm modified mode [ 'examples/example_xoauth2.js', 438, 420 ]
+467 silly gunzTarPerm extractEntry src/blowfish.cc
+468 silly gunzTarPerm modified mode [ 'src/blowfish.cc', 438, 420 ]
+469 silly gunzTarPerm extractEntry examples/nyan.gif
+470 silly gunzTarPerm modified mode [ 'examples/nyan.gif', 438, 420 ]
+471 silly gunzTarPerm extractEntry src/node_blf.h
+472 silly gunzTarPerm modified mode [ 'src/node_blf.h', 438, 420 ]
+473 silly gunzTarPerm extractEntry test/async.js
+474 silly gunzTarPerm modified mode [ 'test/async.js', 438, 420 ]
+475 silly gunzTarPerm extractEntry examples/test_private.pem
+476 silly gunzTarPerm modified mode [ 'examples/test_private.pem', 438, 420 ]
+477 silly gunzTarPerm extractEntry lib/helpers.js
+478 silly gunzTarPerm modified mode [ 'lib/helpers.js', 438, 420 ]
+479 silly gunzTarPerm extractEntry test/deprecated.js
+480 silly gunzTarPerm modified mode [ 'test/deprecated.js', 438, 420 ]
+481 silly gunzTarPerm extractEntry lib/nodemailer.js
+482 silly gunzTarPerm modified mode [ 'lib/nodemailer.js', 438, 420 ]
+483 silly gunzTarPerm extractEntry bin/express
+484 silly gunzTarPerm modified mode [ 'bin/express', 438, 420 ]
+485 silly gunzTarPerm extractEntry Readme.md
+486 silly gunzTarPerm modified mode [ 'Readme.md', 438, 420 ]
+487 silly gunzTarPerm extractEntry test/repetitions.js
+488 silly gunzTarPerm modified mode [ 'test/repetitions.js', 438, 420 ]
+489 silly gunzTarPerm extractEntry lib/transport.js
+490 silly gunzTarPerm modified mode [ 'lib/transport.js', 438, 420 ]
+491 silly gunzTarPerm extractEntry test/sync.js
+492 silly gunzTarPerm modified mode [ 'test/sync.js', 438, 420 ]
+493 silly gunzTarPerm extractEntry lib/wellknown.js
+494 silly gunzTarPerm modified mode [ 'lib/wellknown.js', 438, 420 ]
+495 silly gunzTarPerm extractEntry wscript
+496 silly gunzTarPerm modified mode [ 'wscript', 438, 420 ]
+497 silly gunzTarPerm extractEntry lib/xoauth.js
+498 silly gunzTarPerm modified mode [ 'lib/xoauth.js', 438, 420 ]
+499 silly gunzTarPerm extractEntry lib/engines/sendmail.js
+500 silly gunzTarPerm modified mode [ 'lib/engines/sendmail.js', 438, 420 ]
+501 silly gunzTarPerm extractEntry lib/engines/ses.js
+502 silly gunzTarPerm modified mode [ 'lib/engines/ses.js', 438, 420 ]
+503 silly gunzTarPerm extractEntry lib/engines/smtp.js
+504 silly gunzTarPerm modified mode [ 'lib/engines/smtp.js', 438, 420 ]
+505 silly gunzTarPerm extractEntry lib/engines/stub.js
+506 silly gunzTarPerm modified mode [ 'lib/engines/stub.js', 438, 420 ]
+507 silly gunzTarPerm extractEntry test/nodemailer.js
+508 silly gunzTarPerm modified mode [ 'test/nodemailer.js', 438, 420 ]
+509 silly gunzTarPerm extractEntry lib/application.js
+510 silly gunzTarPerm modified mode [ 'lib/application.js', 438, 420 ]
+511 silly gunzTarPerm extractEntry lib/express.js
+512 silly gunzTarPerm modified mode [ 'lib/express.js', 438, 420 ]
+513 silly gunzTarPerm extractEntry lib/middleware.js
+514 silly gunzTarPerm modified mode [ 'lib/middleware.js', 438, 420 ]
+515 silly gunzTarPerm extractEntry lib/request.js
+516 silly gunzTarPerm modified mode [ 'lib/request.js', 438, 420 ]
+517 silly gunzTarPerm extractEntry lib/response.js
+518 silly gunzTarPerm modified mode [ 'lib/response.js', 438, 420 ]
+519 silly gunzTarPerm extractEntry lib/utils.js
+520 silly gunzTarPerm modified mode [ 'lib/utils.js', 438, 420 ]
+521 silly gunzTarPerm extractEntry lib/view.js
+522 silly gunzTarPerm modified mode [ 'lib/view.js', 438, 420 ]
+523 silly gunzTarPerm extractEntry lib/router/index.js
+524 silly gunzTarPerm modified mode [ 'lib/router/index.js', 438, 420 ]
+525 silly gunzTarPerm extractEntry lib/router/route.js
+526 silly gunzTarPerm modified mode [ 'lib/router/route.js', 438, 420 ]
+527 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\package.json
+528 silly lockFile 52935756-p-SpeedyShop-node-modules-bcrypt c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt
+529 info preinstall bcrypt@0.7.2
+530 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\package.json
+531 verbose readDependencies using package.json deps
+532 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\package.json
+533 verbose readDependencies using package.json deps
+534 verbose cache add [ 'bindings@1.0.0', null ]
+535 silly cache add name=undefined spec="bindings@1.0.0" args=["bindings@1.0.0",null]
+536 verbose parsed url { pathname: 'bindings@1.0.0',
+536 verbose parsed url   path: 'bindings@1.0.0',
+536 verbose parsed url   href: 'bindings@1.0.0' }
+537 silly cache add name="bindings" spec="1.0.0" args=["bindings","1.0.0"]
+538 verbose parsed url { pathname: '1.0.0', path: '1.0.0', href: '1.0.0' }
+539 verbose addNamed [ 'bindings', '1.0.0' ]
+540 verbose addNamed [ '1.0.0', '1.0.0' ]
+541 silly lockFile f01e5454-bindings-1-0-0 bindings@1.0.0
+542 verbose lock bindings@1.0.0 C:\Users\Mauriel\AppData\Roaming\npm-cache\f01e5454-bindings-1-0-0.lock
+543 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\express\package.json
+544 silly lockFile f1ae0825--SpeedyShop-node-modules-express c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\express
+545 info preinstall express@3.0.1
+546 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\express\package.json
+547 verbose readDependencies using package.json deps
+548 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\express\package.json
+549 verbose readDependencies using package.json deps
+550 verbose url raw bindings/1.0.0
+551 verbose url resolving [ 'https://registry.npmjs.org/', './bindings/1.0.0' ]
+552 verbose url resolved https://registry.npmjs.org/bindings/1.0.0
+553 info trying registry request attempt 1 at 12:04:46
+554 verbose etag "9OIIS4YU3XTPWRBT47K46CQMO"
+555 http GET https://registry.npmjs.org/bindings/1.0.0
+556 verbose cache add [ 'connect@2.6.2', null ]
+557 silly cache add name=undefined spec="connect@2.6.2" args=["connect@2.6.2",null]
+558 verbose parsed url { pathname: 'connect@2.6.2',
+558 verbose parsed url   path: 'connect@2.6.2',
+558 verbose parsed url   href: 'connect@2.6.2' }
+559 silly cache add name="connect" spec="2.6.2" args=["connect","2.6.2"]
+560 verbose parsed url { pathname: '2.6.2', path: '2.6.2', href: '2.6.2' }
+561 verbose addNamed [ 'connect', '2.6.2' ]
+562 verbose addNamed [ '2.6.2', '2.6.2' ]
+563 silly lockFile 8d40981c-connect-2-6-2 connect@2.6.2
+564 verbose lock connect@2.6.2 C:\Users\Mauriel\AppData\Roaming\npm-cache\8d40981c-connect-2-6-2.lock
+565 verbose cache add [ 'commander@0.6.1', null ]
+566 silly cache add name=undefined spec="commander@0.6.1" args=["commander@0.6.1",null]
+567 verbose parsed url { pathname: 'commander@0.6.1',
+567 verbose parsed url   path: 'commander@0.6.1',
+567 verbose parsed url   href: 'commander@0.6.1' }
+568 silly cache add name="commander" spec="0.6.1" args=["commander","0.6.1"]
+569 verbose parsed url { pathname: '0.6.1', path: '0.6.1', href: '0.6.1' }
+570 verbose addNamed [ 'commander', '0.6.1' ]
+571 verbose addNamed [ '0.6.1', '0.6.1' ]
+572 silly lockFile fa16a2ce-commander-0-6-1 commander@0.6.1
+573 verbose lock commander@0.6.1 C:\Users\Mauriel\AppData\Roaming\npm-cache\fa16a2ce-commander-0-6-1.lock
+574 verbose cache add [ 'range-parser@0.0.4', null ]
+575 silly cache add name=undefined spec="range-parser@0.0.4" args=["range-parser@0.0.4",null]
+576 verbose parsed url { pathname: 'range-parser@0.0.4',
+576 verbose parsed url   path: 'range-parser@0.0.4',
+576 verbose parsed url   href: 'range-parser@0.0.4' }
+577 silly cache add name="range-parser" spec="0.0.4" args=["range-parser","0.0.4"]
+578 verbose parsed url { pathname: '0.0.4', path: '0.0.4', href: '0.0.4' }
+579 verbose addNamed [ 'range-parser', '0.0.4' ]
+580 verbose addNamed [ '0.0.4', '0.0.4' ]
+581 silly lockFile 0760c556-range-parser-0-0-4 range-parser@0.0.4
+582 verbose lock range-parser@0.0.4 C:\Users\Mauriel\AppData\Roaming\npm-cache\0760c556-range-parser-0-0-4.lock
+583 verbose cache add [ 'mkdirp@0.3.3', null ]
+584 silly cache add name=undefined spec="mkdirp@0.3.3" args=["mkdirp@0.3.3",null]
+585 verbose parsed url { pathname: 'mkdirp@0.3.3',
+585 verbose parsed url   path: 'mkdirp@0.3.3',
+585 verbose parsed url   href: 'mkdirp@0.3.3' }
+586 silly cache add name="mkdirp" spec="0.3.3" args=["mkdirp","0.3.3"]
+587 verbose parsed url { pathname: '0.3.3', path: '0.3.3', href: '0.3.3' }
+588 verbose addNamed [ 'mkdirp', '0.3.3' ]
+589 verbose addNamed [ '0.3.3', '0.3.3' ]
+590 silly lockFile 453bb99b-mkdirp-0-3-3 mkdirp@0.3.3
+591 verbose lock mkdirp@0.3.3 C:\Users\Mauriel\AppData\Roaming\npm-cache\453bb99b-mkdirp-0-3-3.lock
+592 verbose cache add [ 'cookie@0.0.4', null ]
+593 silly cache add name=undefined spec="cookie@0.0.4" args=["cookie@0.0.4",null]
+594 verbose parsed url { pathname: 'cookie@0.0.4',
+594 verbose parsed url   path: 'cookie@0.0.4',
+594 verbose parsed url   href: 'cookie@0.0.4' }
+595 silly cache add name="cookie" spec="0.0.4" args=["cookie","0.0.4"]
+596 verbose parsed url { pathname: '0.0.4', path: '0.0.4', href: '0.0.4' }
+597 verbose addNamed [ 'cookie', '0.0.4' ]
+598 verbose addNamed [ '0.0.4', '0.0.4' ]
+599 silly lockFile c11bcebd-cookie-0-0-4 cookie@0.0.4
+600 verbose lock cookie@0.0.4 C:\Users\Mauriel\AppData\Roaming\npm-cache\c11bcebd-cookie-0-0-4.lock
+601 verbose cache add [ 'crc@0.2.0', null ]
+602 silly cache add name=undefined spec="crc@0.2.0" args=["crc@0.2.0",null]
+603 verbose parsed url { pathname: 'crc@0.2.0', path: 'crc@0.2.0', href: 'crc@0.2.0' }
+604 silly cache add name="crc" spec="0.2.0" args=["crc","0.2.0"]
+605 verbose parsed url { pathname: '0.2.0', path: '0.2.0', href: '0.2.0' }
+606 verbose addNamed [ 'crc', '0.2.0' ]
+607 verbose addNamed [ '0.2.0', '0.2.0' ]
+608 silly lockFile 3e4de13a-crc-0-2-0 crc@0.2.0
+609 verbose lock crc@0.2.0 C:\Users\Mauriel\AppData\Roaming\npm-cache\3e4de13a-crc-0-2-0.lock
+610 verbose cache add [ 'fresh@0.1.0', null ]
+611 silly cache add name=undefined spec="fresh@0.1.0" args=["fresh@0.1.0",null]
+612 verbose parsed url { pathname: 'fresh@0.1.0',
+612 verbose parsed url   path: 'fresh@0.1.0',
+612 verbose parsed url   href: 'fresh@0.1.0' }
+613 silly cache add name="fresh" spec="0.1.0" args=["fresh","0.1.0"]
+614 verbose parsed url { pathname: '0.1.0', path: '0.1.0', href: '0.1.0' }
+615 verbose addNamed [ 'fresh', '0.1.0' ]
+616 verbose addNamed [ '0.1.0', '0.1.0' ]
+617 silly lockFile 3dea7da8-fresh-0-1-0 fresh@0.1.0
+618 verbose lock fresh@0.1.0 C:\Users\Mauriel\AppData\Roaming\npm-cache\3dea7da8-fresh-0-1-0.lock
+619 verbose cache add [ 'methods@0.0.1', null ]
+620 silly cache add name=undefined spec="methods@0.0.1" args=["methods@0.0.1",null]
+621 verbose parsed url { pathname: 'methods@0.0.1',
+621 verbose parsed url   path: 'methods@0.0.1',
+621 verbose parsed url   href: 'methods@0.0.1' }
+622 silly cache add name="methods" spec="0.0.1" args=["methods","0.0.1"]
+623 verbose parsed url { pathname: '0.0.1', path: '0.0.1', href: '0.0.1' }
+624 verbose addNamed [ 'methods', '0.0.1' ]
+625 verbose addNamed [ '0.0.1', '0.0.1' ]
+626 silly lockFile 209c2920-methods-0-0-1 methods@0.0.1
+627 verbose lock methods@0.0.1 C:\Users\Mauriel\AppData\Roaming\npm-cache\209c2920-methods-0-0-1.lock
+628 verbose cache add [ 'send@0.1.0', null ]
+629 silly cache add name=undefined spec="send@0.1.0" args=["send@0.1.0",null]
+630 verbose parsed url { pathname: 'send@0.1.0',
+630 verbose parsed url   path: 'send@0.1.0',
+630 verbose parsed url   href: 'send@0.1.0' }
+631 silly cache add name="send" spec="0.1.0" args=["send","0.1.0"]
+632 verbose parsed url { pathname: '0.1.0', path: '0.1.0', href: '0.1.0' }
+633 verbose addNamed [ 'send', '0.1.0' ]
+634 verbose addNamed [ '0.1.0', '0.1.0' ]
+635 silly lockFile ef2886cd-send-0-1-0 send@0.1.0
+636 verbose lock send@0.1.0 C:\Users\Mauriel\AppData\Roaming\npm-cache\ef2886cd-send-0-1-0.lock
+637 verbose cache add [ 'cookie-signature@0.0.1', null ]
+638 silly cache add name=undefined spec="cookie-signature@0.0.1" args=["cookie-signature@0.0.1",null]
+639 verbose parsed url { pathname: 'cookie-signature@0.0.1',
+639 verbose parsed url   path: 'cookie-signature@0.0.1',
+639 verbose parsed url   href: 'cookie-signature@0.0.1' }
+640 silly cache add name="cookie-signature" spec="0.0.1" args=["cookie-signature","0.0.1"]
+641 verbose parsed url { pathname: '0.0.1', path: '0.0.1', href: '0.0.1' }
+642 verbose addNamed [ 'cookie-signature', '0.0.1' ]
+643 verbose addNamed [ '0.0.1', '0.0.1' ]
+644 silly lockFile f4fbff07-cookie-signature-0-0-1 cookie-signature@0.0.1
+645 verbose lock cookie-signature@0.0.1 C:\Users\Mauriel\AppData\Roaming\npm-cache\f4fbff07-cookie-signature-0-0-1.lock
+646 verbose cache add [ 'debug@*', null ]
+647 silly cache add name=undefined spec="debug@*" args=["debug@*",null]
+648 verbose parsed url { pathname: 'debug@*', path: 'debug@*', href: 'debug@*' }
+649 silly cache add name="debug" spec="*" args=["debug","*"]
+650 verbose parsed url { pathname: '*', path: '*', href: '*' }
+651 verbose addNamed [ 'debug', '*' ]
+652 verbose addNamed [ null, '' ]
+653 silly lockFile 3ac45eff-debug debug@*
+654 verbose lock debug@* C:\Users\Mauriel\AppData\Roaming\npm-cache\3ac45eff-debug.lock
+655 silly addNameRange { name: 'debug', range: '', hasData: false }
+656 verbose url raw methods/0.0.1
+657 verbose url resolving [ 'https://registry.npmjs.org/', './methods/0.0.1' ]
+658 verbose url resolved https://registry.npmjs.org/methods/0.0.1
+659 info trying registry request attempt 1 at 12:04:46
+660 verbose etag "46UESBCD54QD061PN10YE6OTI"
+661 http GET https://registry.npmjs.org/methods/0.0.1
+662 verbose url raw cookie-signature/0.0.1
+663 verbose url resolving [ 'https://registry.npmjs.org/', './cookie-signature/0.0.1' ]
+664 verbose url resolved https://registry.npmjs.org/cookie-signature/0.0.1
+665 info trying registry request attempt 1 at 12:04:46
+666 verbose etag "DYBEPD0KKKOEQ0CN084I0KGAE"
+667 http GET https://registry.npmjs.org/cookie-signature/0.0.1
+668 verbose url raw commander/0.6.1
+669 verbose url resolving [ 'https://registry.npmjs.org/', './commander/0.6.1' ]
+670 verbose url resolved https://registry.npmjs.org/commander/0.6.1
+671 info trying registry request attempt 1 at 12:04:46
+672 verbose etag "59UGOBY870YNPGXJNNGBOVQBO"
+673 http GET https://registry.npmjs.org/commander/0.6.1
+674 verbose url raw mkdirp/0.3.3
+675 verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp/0.3.3' ]
+676 verbose url resolved https://registry.npmjs.org/mkdirp/0.3.3
+677 info trying registry request attempt 1 at 12:04:46
+678 verbose etag "4VY93YHIIJ11G0NNP12CLD9IC"
+679 http GET https://registry.npmjs.org/mkdirp/0.3.3
+680 verbose url raw crc/0.2.0
+681 verbose url resolving [ 'https://registry.npmjs.org/', './crc/0.2.0' ]
+682 verbose url resolved https://registry.npmjs.org/crc/0.2.0
+683 info trying registry request attempt 1 at 12:04:46
+684 verbose etag "C0BGMK5C4Y2J8KRM83QOTUY4U"
+685 http GET https://registry.npmjs.org/crc/0.2.0
+686 verbose url raw fresh/0.1.0
+687 verbose url resolving [ 'https://registry.npmjs.org/', './fresh/0.1.0' ]
+688 verbose url resolved https://registry.npmjs.org/fresh/0.1.0
+689 info trying registry request attempt 1 at 12:04:46
+690 verbose etag "77B6VRU58E4IE6KUOEJU987WG"
+691 http GET https://registry.npmjs.org/fresh/0.1.0
+692 verbose url raw debug
+693 verbose url resolving [ 'https://registry.npmjs.org/', './debug' ]
+694 verbose url resolved https://registry.npmjs.org/debug
+695 info trying registry request attempt 1 at 12:04:46
+696 verbose etag "59FK4FRE43E3SJ92QJ5AIU6IS"
+697 http GET https://registry.npmjs.org/debug
+698 verbose url raw connect/2.6.2
+699 verbose url resolving [ 'https://registry.npmjs.org/', './connect/2.6.2' ]
+700 verbose url resolved https://registry.npmjs.org/connect/2.6.2
+701 info trying registry request attempt 1 at 12:04:46
+702 verbose etag "CDYC7Y209AZF1LOXVSLUR2E49"
+703 http GET https://registry.npmjs.org/connect/2.6.2
+704 verbose url raw cookie/0.0.4
+705 verbose url resolving [ 'https://registry.npmjs.org/', './cookie/0.0.4' ]
+706 verbose url resolved https://registry.npmjs.org/cookie/0.0.4
+707 info trying registry request attempt 1 at 12:04:46
+708 verbose etag "ANC2JFZR4WAZ37PL1NHVC03U3"
+709 http GET https://registry.npmjs.org/cookie/0.0.4
+710 verbose url raw send/0.1.0
+711 verbose url resolving [ 'https://registry.npmjs.org/', './send/0.1.0' ]
+712 verbose url resolved https://registry.npmjs.org/send/0.1.0
+713 info trying registry request attempt 1 at 12:04:46
+714 verbose etag "EAY4GFY2SVUQPESD8JYYMOKQ7"
+715 http GET https://registry.npmjs.org/send/0.1.0
+716 verbose url raw range-parser/0.0.4
+717 verbose url resolving [ 'https://registry.npmjs.org/', './range-parser/0.0.4' ]
+718 verbose url resolved https://registry.npmjs.org/range-parser/0.0.4
+719 info trying registry request attempt 1 at 12:04:46
+720 verbose etag "7X110V5WTRF1C4PDEMNM4JSUN"
+721 http GET https://registry.npmjs.org/range-parser/0.0.4
+722 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\nodemailer\package.json
+723 silly lockFile b5202dd8-eedyShop-node-modules-nodemailer c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\nodemailer
+724 info preinstall nodemailer@0.3.31
+725 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\nodemailer\package.json
+726 verbose readDependencies using package.json deps
+727 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\nodemailer\package.json
+728 verbose readDependencies using package.json deps
+729 verbose cache add [ 'mailcomposer@>= 0.1.19', null ]
+730 silly cache add name=undefined spec="mailcomposer@>= 0.1.19" args=["mailcomposer@>= 0.1.19",null]
+731 verbose parsed url { pathname: 'mailcomposer@%3E=%200.1.19',
+731 verbose parsed url   path: 'mailcomposer@%3E=%200.1.19',
+731 verbose parsed url   href: 'mailcomposer@%3E=%200.1.19' }
+732 silly cache add name="mailcomposer" spec=">= 0.1.19" args=["mailcomposer",">= 0.1.19"]
+733 verbose parsed url { pathname: '%3E=%200.1.19',
+733 verbose parsed url   path: '%3E=%200.1.19',
+733 verbose parsed url   href: '%3E=%200.1.19' }
+734 verbose addNamed [ 'mailcomposer', '>= 0.1.19' ]
+735 verbose addNamed [ null, '>=0.1.19' ]
+736 silly lockFile a20c80f1-mailcomposer-0-1-19 mailcomposer@>= 0.1.19
+737 verbose lock mailcomposer@>= 0.1.19 C:\Users\Mauriel\AppData\Roaming\npm-cache\a20c80f1-mailcomposer-0-1-19.lock
+738 verbose cache add [ 'simplesmtp@>= 0.1.22', null ]
+739 silly cache add name=undefined spec="simplesmtp@>= 0.1.22" args=["simplesmtp@>= 0.1.22",null]
+740 verbose parsed url { pathname: 'simplesmtp@%3E=%200.1.22',
+740 verbose parsed url   path: 'simplesmtp@%3E=%200.1.22',
+740 verbose parsed url   href: 'simplesmtp@%3E=%200.1.22' }
+741 silly cache add name="simplesmtp" spec=">= 0.1.22" args=["simplesmtp",">= 0.1.22"]
+742 verbose parsed url { pathname: '%3E=%200.1.22',
+742 verbose parsed url   path: '%3E=%200.1.22',
+742 verbose parsed url   href: '%3E=%200.1.22' }
+743 verbose addNamed [ 'simplesmtp', '>= 0.1.22' ]
+744 verbose addNamed [ null, '>=0.1.22' ]
+745 silly lockFile 1648ad97-simplesmtp-0-1-22 simplesmtp@>= 0.1.22
+746 verbose lock simplesmtp@>= 0.1.22 C:\Users\Mauriel\AppData\Roaming\npm-cache\1648ad97-simplesmtp-0-1-22.lock
+747 verbose cache add [ 'optimist@*', null ]
+748 silly cache add name=undefined spec="optimist@*" args=["optimist@*",null]
+749 verbose parsed url { pathname: 'optimist@*',
+749 verbose parsed url   path: 'optimist@*',
+749 verbose parsed url   href: 'optimist@*' }
+750 silly cache add name="optimist" spec="*" args=["optimist","*"]
+751 verbose parsed url { pathname: '*', path: '*', href: '*' }
+752 verbose addNamed [ 'optimist', '*' ]
+753 verbose addNamed [ null, '' ]
+754 silly lockFile 942cd351-optimist optimist@*
+755 verbose lock optimist@* C:\Users\Mauriel\AppData\Roaming\npm-cache\942cd351-optimist.lock
+756 silly addNameRange { name: 'mailcomposer', range: '>=0.1.19', hasData: false }
+757 silly addNameRange { name: 'simplesmtp', range: '>=0.1.22', hasData: false }
+758 silly addNameRange { name: 'optimist', range: '', hasData: false }
+759 verbose url raw simplesmtp
+760 verbose url resolving [ 'https://registry.npmjs.org/', './simplesmtp' ]
+761 verbose url resolved https://registry.npmjs.org/simplesmtp
+762 info trying registry request attempt 1 at 12:04:46
+763 verbose etag "7OY3Z6KE69BXMADK0OKICOGID"
+764 http GET https://registry.npmjs.org/simplesmtp
+765 verbose url raw mailcomposer
+766 verbose url resolving [ 'https://registry.npmjs.org/', './mailcomposer' ]
+767 verbose url resolved https://registry.npmjs.org/mailcomposer
+768 info trying registry request attempt 1 at 12:04:46
+769 verbose etag "EKUJXTNJ2ZPVJ65B1YZ5T9KNV"
+770 http GET https://registry.npmjs.org/mailcomposer
+771 verbose url raw optimist
+772 verbose url resolving [ 'https://registry.npmjs.org/', './optimist' ]
+773 verbose url resolved https://registry.npmjs.org/optimist
+774 info trying registry request attempt 1 at 12:04:46
+775 verbose etag "3T2VRAGARMNNMM78O3SHRX2OV"
+776 http GET https://registry.npmjs.org/optimist
+777 http 200 https://registry.npmjs.org/methods/0.0.1
+778 silly registry.get cb [ 200,
+778 silly registry.get   { vary: 'Accept',
+778 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+778 silly registry.get     etag: '"9WQCTURRUKLOS53F2GVAOU321"',
+778 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+778 silly registry.get     'content-type': 'application/json',
+778 silly registry.get     'content-length': '496' } ]
+779 silly lockFile 0b9c0212-js-org-methods-methods-0-0-1-tgz https://registry.npmjs.org/methods/-/methods-0.0.1.tgz
+780 verbose lock https://registry.npmjs.org/methods/-/methods-0.0.1.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\0b9c0212-js-org-methods-methods-0-0-1-tgz.lock
+781 verbose addRemoteTarball [ 'https://registry.npmjs.org/methods/-/methods-0.0.1.tgz',
+781 verbose addRemoteTarball   '277c90f8bef39709645a8371c51c3b6c648e068c' ]
+782 info retry fetch attempt 1 at 12:04:47
+783 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\tmp.tgz
+784 http GET https://registry.npmjs.org/methods/-/methods-0.0.1.tgz
+785 http 200 https://registry.npmjs.org/crc/0.2.0
+786 silly registry.get cb [ 200,
+786 silly registry.get   { vary: 'Accept',
+786 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+786 silly registry.get     etag: '"8VB59Q7NIQON07Q184BJHVN14"',
+786 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+786 silly registry.get     'content-type': 'application/json',
+786 silly registry.get     'content-length': '770' } ]
+787 silly lockFile abf86be0-stry-npmjs-org-crc-crc-0-2-0-tgz https://registry.npmjs.org/crc/-/crc-0.2.0.tgz
+788 verbose lock https://registry.npmjs.org/crc/-/crc-0.2.0.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\abf86be0-stry-npmjs-org-crc-crc-0-2-0-tgz.lock
+789 verbose addRemoteTarball [ 'https://registry.npmjs.org/crc/-/crc-0.2.0.tgz',
+789 verbose addRemoteTarball   'f4486b9bf0a12df83c3fca14e31e030fdabd9454' ]
+790 info retry fetch attempt 1 at 12:04:47
+791 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\tmp.tgz
+792 http 200 https://registry.npmjs.org/bindings/1.0.0
+793 silly registry.get cb [ 200,
+793 silly registry.get   { vary: 'Accept',
+793 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+793 silly registry.get     etag: '"64PA4SD751I7ZJ5D8J6WAIMVP"',
+793 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+793 silly registry.get     'content-type': 'application/json',
+793 silly registry.get     'content-length': '4132' } ]
+794 http GET https://registry.npmjs.org/crc/-/crc-0.2.0.tgz
+795 silly lockFile ccf0f56a--org-bindings-bindings-1-0-0-tgz https://registry.npmjs.org/bindings/-/bindings-1.0.0.tgz
+796 verbose lock https://registry.npmjs.org/bindings/-/bindings-1.0.0.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\ccf0f56a--org-bindings-bindings-1-0-0-tgz.lock
+797 verbose addRemoteTarball [ 'https://registry.npmjs.org/bindings/-/bindings-1.0.0.tgz',
+797 verbose addRemoteTarball   'c3ccde60e9de6807c6f1aa4ef4843af29191c828' ]
+798 info retry fetch attempt 1 at 12:04:47
+799 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\tmp.tgz
+800 http GET https://registry.npmjs.org/bindings/-/bindings-1.0.0.tgz
+801 http 200 https://registry.npmjs.org/cookie-signature/0.0.1
+802 silly registry.get cb [ 200,
+802 silly registry.get   { vary: 'Accept',
+802 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+802 silly registry.get     etag: '"D7HZOW1WU8EE6OC594E2NF3NU"',
+802 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+802 silly registry.get     'content-type': 'application/json',
+802 silly registry.get     'content-length': '527' } ]
+803 silly lockFile fff727c9-ature-cookie-signature-0-0-1-tgz https://registry.npmjs.org/cookie-signature/-/cookie-signature-0.0.1.tgz
+804 verbose lock https://registry.npmjs.org/cookie-signature/-/cookie-signature-0.0.1.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\fff727c9-ature-cookie-signature-0-0-1-tgz.lock
+805 verbose addRemoteTarball [ 'https://registry.npmjs.org/cookie-signature/-/cookie-signature-0.0.1.tgz',
+805 verbose addRemoteTarball   '13d3603b5cf63befbf85a8801e37aa900db46985' ]
+806 info retry fetch attempt 1 at 12:04:47
+807 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\tmp.tgz
+808 http GET https://registry.npmjs.org/cookie-signature/-/cookie-signature-0.0.1.tgz
+809 http 200 https://registry.npmjs.org/fresh/0.1.0
+810 silly registry.get cb [ 200,
+810 silly registry.get   { vary: 'Accept',
+810 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+810 silly registry.get     etag: '"BO3Y8STBKV90Y3IKZ4W2MCLLV"',
+810 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+810 silly registry.get     'content-type': 'application/json',
+810 silly registry.get     'content-length': '699' } ]
+811 silly lockFile 0e5f2eb8--npmjs-org-fresh-fresh-0-1-0-tgz https://registry.npmjs.org/fresh/-/fresh-0.1.0.tgz
+812 verbose lock https://registry.npmjs.org/fresh/-/fresh-0.1.0.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\0e5f2eb8--npmjs-org-fresh-fresh-0-1-0-tgz.lock
+813 verbose addRemoteTarball [ 'https://registry.npmjs.org/fresh/-/fresh-0.1.0.tgz',
+813 verbose addRemoteTarball   '03e4b0178424e4c2d5d19a54d8814cdc97934850' ]
+814 info retry fetch attempt 1 at 12:04:47
+815 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\tmp.tgz
+816 http GET https://registry.npmjs.org/fresh/-/fresh-0.1.0.tgz
+817 http 200 https://registry.npmjs.org/commander/0.6.1
+818 silly registry.get cb [ 200,
+818 silly registry.get   { vary: 'Accept',
+818 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+818 silly registry.get     etag: '"4TQ4WA6MSKFB2U87PJ6TZKCCG"',
+818 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+818 silly registry.get     'content-type': 'application/json',
+818 silly registry.get     'content-length': '7887' } ]
+819 http 200 https://registry.npmjs.org/debug
+820 silly registry.get cb [ 200,
+820 silly registry.get   { vary: 'Accept',
+820 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+820 silly registry.get     etag: '"1VV6MMVNM344VBG8CYRJFZAZI"',
+820 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+820 silly registry.get     'content-type': 'application/json',
+820 silly registry.get     'content-length': '9344' } ]
+821 silly lockFile 378c912a-rg-commander-commander-0-6-1-tgz https://registry.npmjs.org/commander/-/commander-0.6.1.tgz
+822 verbose lock https://registry.npmjs.org/commander/-/commander-0.6.1.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\378c912a-rg-commander-commander-0-6-1-tgz.lock
+823 silly addNameRange number 2 { name: 'debug', range: '', hasData: true }
+824 silly addNameRange versions [ 'debug',
+824 silly addNameRange   [ '0.0.1',
+824 silly addNameRange     '0.1.0',
+824 silly addNameRange     '0.2.0',
+824 silly addNameRange     '0.3.0',
+824 silly addNameRange     '0.4.0',
+824 silly addNameRange     '0.4.1',
+824 silly addNameRange     '0.5.0',
+824 silly addNameRange     '0.6.0',
+824 silly addNameRange     '0.7.0' ] ]
+825 verbose addNamed [ 'debug', '0.7.0' ]
+826 verbose addNamed [ '0.7.0', '0.7.0' ]
+827 silly lockFile a3c3658f-debug-0-7-0 debug@0.7.0
+828 verbose lock debug@0.7.0 C:\Users\Mauriel\AppData\Roaming\npm-cache\a3c3658f-debug-0-7-0.lock
+829 verbose addRemoteTarball [ 'https://registry.npmjs.org/commander/-/commander-0.6.1.tgz',
+829 verbose addRemoteTarball   'fa68a14f6a945d54dbbe50d8cdb3320e9e3b1a06' ]
+830 info retry fetch attempt 1 at 12:04:47
+831 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\tmp.tgz
+832 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\debug\0.7.0\package\package.json
+833 http GET https://registry.npmjs.org/commander/-/commander-0.6.1.tgz
+834 silly lockFile a3c3658f-debug-0-7-0 debug@0.7.0
+835 silly lockFile 3ac45eff-debug debug@*
+836 http 200 https://registry.npmjs.org/range-parser/0.0.4
+837 silly registry.get cb [ 200,
+837 silly registry.get   { vary: 'Accept',
+837 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+837 silly registry.get     etag: '"AKBE8DZX1QIIFDPDNZED2IPJ9"',
+837 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+837 silly registry.get     'content-type': 'application/json',
+837 silly registry.get     'content-length': '728' } ]
+838 silly lockFile edd85cc6-ge-parser-range-parser-0-0-4-tgz https://registry.npmjs.org/range-parser/-/range-parser-0.0.4.tgz
+839 verbose lock https://registry.npmjs.org/range-parser/-/range-parser-0.0.4.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\edd85cc6-ge-parser-range-parser-0-0-4-tgz.lock
+840 verbose addRemoteTarball [ 'https://registry.npmjs.org/range-parser/-/range-parser-0.0.4.tgz',
+840 verbose addRemoteTarball   'c0427ffef51c10acba0782a46c9602e744ff620b' ]
+841 info retry fetch attempt 1 at 12:04:47
+842 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\tmp.tgz
+843 http GET https://registry.npmjs.org/range-parser/-/range-parser-0.0.4.tgz
+844 http 200 https://registry.npmjs.org/send/0.1.0
+845 silly registry.get cb [ 200,
+845 silly registry.get   { vary: 'Accept',
+845 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+845 silly registry.get     etag: '"46HIWDP2EYYWQ5D4BDFXE81LN"',
+845 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+845 silly registry.get     'content-type': 'application/json',
+845 silly registry.get     'content-length': '4391' } ]
+846 silly lockFile c7198075-ry-npmjs-org-send-send-0-1-0-tgz https://registry.npmjs.org/send/-/send-0.1.0.tgz
+847 verbose lock https://registry.npmjs.org/send/-/send-0.1.0.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\c7198075-ry-npmjs-org-send-send-0-1-0-tgz.lock
+848 verbose addRemoteTarball [ 'https://registry.npmjs.org/send/-/send-0.1.0.tgz',
+848 verbose addRemoteTarball   'cfb08ebd3cec9b7fc1a37d9ff9e875a971cf4640' ]
+849 info retry fetch attempt 1 at 12:04:47
+850 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\tmp.tgz
+851 http GET https://registry.npmjs.org/send/-/send-0.1.0.tgz
+852 http 200 https://registry.npmjs.org/mkdirp/0.3.3
+853 silly registry.get cb [ 200,
+853 silly registry.get   { vary: 'Accept',
+853 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+853 silly registry.get     etag: '"AHKPZ9B5R2AVAN24CLVUD937X"',
+853 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+853 silly registry.get     'content-type': 'application/json',
+853 silly registry.get     'content-length': '855' } ]
+854 silly lockFile 56e05e36-pmjs-org-mkdirp-mkdirp-0-3-3-tgz https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.3.tgz
+855 verbose lock https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.3.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\56e05e36-pmjs-org-mkdirp-mkdirp-0-3-3-tgz.lock
+856 verbose addRemoteTarball [ 'https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.3.tgz',
+856 verbose addRemoteTarball   '595e251c1370c3a68bab2136d0e348b8105adf13' ]
+857 info retry fetch attempt 1 at 12:04:47
+858 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687841-0.6182756694033742\tmp.tgz
+859 http GET https://registry.npmjs.org/mkdirp/-/mkdirp-0.3.3.tgz
+860 http 200 https://registry.npmjs.org/cookie/0.0.4
+861 silly registry.get cb [ 200,
+861 silly registry.get   { vary: 'Accept',
+861 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+861 silly registry.get     etag: '"CGWLTFZV1RT7WUUDFMQSL0IXP"',
+861 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+861 silly registry.get     'content-type': 'application/json',
+861 silly registry.get     'content-length': '793' } ]
+862 silly lockFile a4925ecb-pmjs-org-cookie-cookie-0-0-4-tgz https://registry.npmjs.org/cookie/-/cookie-0.0.4.tgz
+863 verbose lock https://registry.npmjs.org/cookie/-/cookie-0.0.4.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\a4925ecb-pmjs-org-cookie-cookie-0-0-4-tgz.lock
+864 verbose addRemoteTarball [ 'https://registry.npmjs.org/cookie/-/cookie-0.0.4.tgz',
+864 verbose addRemoteTarball   '5456bd47aee2666eac976ea80a6105940483fe98' ]
+865 info retry fetch attempt 1 at 12:04:47
+866 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\tmp.tgz
+867 http GET https://registry.npmjs.org/cookie/-/cookie-0.0.4.tgz
+868 http 200 https://registry.npmjs.org/methods/-/methods-0.0.1.tgz
+869 silly shasum updated bytes 469
+870 info shasum 277c90f8bef39709645a8371c51c3b6c648e068c
+870 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\tmp.tgz
+871 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\tmp.tgz
+872 silly lockFile 058ce2cd-7384-0-07365679065696895-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\package
+873 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\package C:\Users\Mauriel\AppData\Roaming\npm-cache\058ce2cd-7384-0-07365679065696895-package.lock
+874 silly gunzTarPerm modes [ '755', '644' ]
+875 silly gunzTarPerm extractEntry package.json
+876 silly gunzTarPerm extractEntry index.js
+877 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\package\package.json
+878 warn package.json methods@0.0.1 No README.md file found!
+879 silly lockFile 058ce2cd-7384-0-07365679065696895-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\package
+880 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\package\package.json
+881 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\methods\\0.0.1\\package.tgz',
+881 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687384-0.07365679065696895\\package' ]
+882 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package.tgz
+883 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687384-0.07365679065696895\package
+884 silly lockFile 406e15c6--cache-methods-0-0-1-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package.tgz
+885 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\406e15c6--cache-methods-0-0-1-package-tgz.lock
+886 silly lockFile 406e15c6--cache-methods-0-0-1-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package.tgz
+887 silly lockFile 55eec239--npm-cache-methods-0-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package
+888 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package C:\Users\Mauriel\AppData\Roaming\npm-cache\55eec239--npm-cache-methods-0-0-1-package.lock
+889 silly lockFile 55eec239--npm-cache-methods-0-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package
+890 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package.tgz
+891 silly lockFile 55eec239--npm-cache-methods-0-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package
+892 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package C:\Users\Mauriel\AppData\Roaming\npm-cache\55eec239--npm-cache-methods-0-0-1-package.lock
+893 silly gunzTarPerm modes [ '755', '644' ]
+894 silly gunzTarPerm extractEntry package.json
+895 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+896 silly gunzTarPerm extractEntry index.js
+897 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+898 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package\package.json
+899 silly lockFile 55eec239--npm-cache-methods-0-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package
+900 silly shasum updated bytes 460
+901 info shasum ee3ba23abaf742852fa4d2aaf1d17d35e347ec21
+901 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package.tgz
+902 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package\package.json
+903 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package.tgz 644
+904 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\methods\0.0.1\package.tgz
+905 silly lockFile 0b9c0212-js-org-methods-methods-0-0-1-tgz https://registry.npmjs.org/methods/-/methods-0.0.1.tgz
+906 silly lockFile 209c2920-methods-0-0-1 methods@0.0.1
+907 http 200 https://registry.npmjs.org/crc/-/crc-0.2.0.tgz
+908 silly shasum updated bytes 10240
+909 info shasum f4486b9bf0a12df83c3fca14e31e030fdabd9454
+909 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\tmp.tgz
+910 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\tmp.tgz
+911 silly lockFile da03190a-7468-0-12716312729753554-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\package
+912 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\package C:\Users\Mauriel\AppData\Roaming\npm-cache\da03190a-7468-0-12716312729753554-package.lock
+913 silly gunzTarPerm modes [ '755', '644' ]
+914 silly gunzTarPerm extractEntry .gitignore
+915 silly gunzTarPerm extractEntry .gitmodules
+916 silly gunzTarPerm extractEntry Makefile
+917 silly gunzTarPerm extractEntry package.json
+918 silly gunzTarPerm extractEntry README.md
+919 silly gunzTarPerm extractEntry lib/crc.js
+920 silly gunzTarPerm extractEntry test/crc.js
+921 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\package\package.json
+922 silly lockFile da03190a-7468-0-12716312729753554-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\package
+923 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\package\package.json
+924 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\crc\\0.2.0\\package.tgz',
+924 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687468-0.12716312729753554\\package' ]
+925 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package.tgz
+926 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687468-0.12716312729753554\package
+927 silly lockFile 0ea6a7eb--npm-cache-crc-0-2-0-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package.tgz
+928 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\0ea6a7eb--npm-cache-crc-0-2-0-package-tgz.lock
+929 silly lockFile 0ea6a7eb--npm-cache-crc-0-2-0-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package.tgz
+930 silly lockFile d6e85798-ming-npm-cache-crc-0-2-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package
+931 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package C:\Users\Mauriel\AppData\Roaming\npm-cache\d6e85798-ming-npm-cache-crc-0-2-0-package.lock
+932 silly lockFile d6e85798-ming-npm-cache-crc-0-2-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package
+933 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package.tgz
+934 silly lockFile d6e85798-ming-npm-cache-crc-0-2-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package
+935 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package C:\Users\Mauriel\AppData\Roaming\npm-cache\d6e85798-ming-npm-cache-crc-0-2-0-package.lock
+936 silly gunzTarPerm modes [ '755', '644' ]
+937 silly gunzTarPerm extractEntry package.json
+938 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+939 silly gunzTarPerm extractEntry .npmignore
+940 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+941 silly gunzTarPerm extractEntry README.md
+942 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+943 silly gunzTarPerm extractEntry .gitmodules
+944 silly gunzTarPerm modified mode [ '.gitmodules', 438, 420 ]
+945 silly gunzTarPerm extractEntry lib/crc.js
+946 silly gunzTarPerm modified mode [ 'lib/crc.js', 438, 420 ]
+947 silly gunzTarPerm extractEntry Makefile
+948 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+949 silly gunzTarPerm extractEntry test/crc.js
+950 silly gunzTarPerm modified mode [ 'test/crc.js', 438, 420 ]
+951 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package\package.json
+952 silly lockFile d6e85798-ming-npm-cache-crc-0-2-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package
+953 silly shasum updated bytes 7544
+954 info shasum 1fd9277eca20f0910d5f5f78768111bb2d21311a
+954 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package.tgz
+955 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package\package.json
+956 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package.tgz 644
+957 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\crc\0.2.0\package.tgz
+958 silly lockFile abf86be0-stry-npmjs-org-crc-crc-0-2-0-tgz https://registry.npmjs.org/crc/-/crc-0.2.0.tgz
+959 silly lockFile 3e4de13a-crc-0-2-0 crc@0.2.0
+960 http 200 https://registry.npmjs.org/connect/2.6.2
+961 silly registry.get cb [ 200,
+961 silly registry.get   { vary: 'Accept',
+961 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+961 silly registry.get     etag: '"2I46QHZVCUN2VMI87S83SB5S2"',
+961 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+961 silly registry.get     'content-type': 'application/json',
+961 silly registry.get     'content-length': '6132' } ]
+962 silly lockFile 7a11a01e-js-org-connect-connect-2-6-2-tgz https://registry.npmjs.org/connect/-/connect-2.6.2.tgz
+963 verbose lock https://registry.npmjs.org/connect/-/connect-2.6.2.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\7a11a01e-js-org-connect-connect-2-6-2-tgz.lock
+964 verbose addRemoteTarball [ 'https://registry.npmjs.org/connect/-/connect-2.6.2.tgz',
+964 verbose addRemoteTarball   '2c66ea6583de62475fe15ba03e5f074e53050efb' ]
+965 info retry fetch attempt 1 at 12:04:48
+966 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388688370-0.4345129751600325\tmp.tgz
+967 http GET https://registry.npmjs.org/connect/-/connect-2.6.2.tgz
+968 http 200 https://registry.npmjs.org/cookie-signature/-/cookie-signature-0.0.1.tgz
+969 http 200 https://registry.npmjs.org/bindings/-/bindings-1.0.0.tgz
+970 silly shasum updated bytes 3456
+971 info shasum c3ccde60e9de6807c6f1aa4ef4843af29191c828
+971 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\tmp.tgz
+972 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\tmp.tgz
+973 silly lockFile 7927d99d-87485-0-5294367505703121-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\package
+974 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\package C:\Users\Mauriel\AppData\Roaming\npm-cache\7927d99d-87485-0-5294367505703121-package.lock
+975 silly gunzTarPerm modes [ '755', '644' ]
+976 silly gunzTarPerm extractEntry package.json
+977 silly gunzTarPerm extractEntry README.md
+978 silly gunzTarPerm extractEntry bindings.js
+979 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\package\package.json
+980 silly lockFile 7927d99d-87485-0-5294367505703121-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\package
+981 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\package\package.json
+982 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\bindings\\1.0.0\\package.tgz',
+982 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687485-0.5294367505703121\\package' ]
+983 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz
+984 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687485-0.5294367505703121\package
+985 silly lockFile a4d9d323-cache-bindings-1-0-0-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz
+986 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\a4d9d323-cache-bindings-1-0-0-package-tgz.lock
+987 silly lockFile a4d9d323-cache-bindings-1-0-0-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz
+988 silly lockFile e8c60f17-npm-cache-bindings-1-0-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package
+989 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package C:\Users\Mauriel\AppData\Roaming\npm-cache\e8c60f17-npm-cache-bindings-1-0-0-package.lock
+990 silly lockFile e8c60f17-npm-cache-bindings-1-0-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package
+991 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz
+992 silly lockFile e8c60f17-npm-cache-bindings-1-0-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package
+993 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package C:\Users\Mauriel\AppData\Roaming\npm-cache\e8c60f17-npm-cache-bindings-1-0-0-package.lock
+994 silly gunzTarPerm modes [ '755', '644' ]
+995 silly gunzTarPerm extractEntry package.json
+996 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+997 silly gunzTarPerm extractEntry README.md
+998 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+999 silly gunzTarPerm extractEntry bindings.js
+1000 silly gunzTarPerm modified mode [ 'bindings.js', 438, 420 ]
+1001 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package\package.json
+1002 silly lockFile e8c60f17-npm-cache-bindings-1-0-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package
+1003 silly shasum updated bytes 3437
+1004 info shasum 658f2a4c4c121a2331666f856eaa95d38e724840
+1004 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz
+1005 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package\package.json
+1006 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz 644
+1007 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz
+1008 silly lockFile ccf0f56a--org-bindings-bindings-1-0-0-tgz https://registry.npmjs.org/bindings/-/bindings-1.0.0.tgz
+1009 silly lockFile f01e5454-bindings-1-0-0 bindings@1.0.0
+1010 silly resolved [ { name: 'bindings',
+1010 silly resolved     description: 'Helper module for loading your native module\'s .node file',
+1010 silly resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+1010 silly resolved     version: '1.0.0',
+1010 silly resolved     author:
+1010 silly resolved      { name: 'Nathan Rajlich',
+1010 silly resolved        email: 'nathan@tootallnate.net',
+1010 silly resolved        url: 'http://tootallnate.net' },
+1010 silly resolved     repository:
+1010 silly resolved      { type: 'git',
+1010 silly resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+1010 silly resolved     main: './bindings.js',
+1010 silly resolved     readme: 'node-bindings\n=============\n### Helper module for loading your native module\'s .node file\n\nThis is a helper module for authors of Node.js native addon modules.\nIt is basically the "swiss army knife" of `require()`ing your native module\'s\n`.node` file.\n\nThroughout the course of Node\'s native addon history, addons have ended up being\ncompiled in a variety of different places, depending on which build tool and which\nversion of node was used. To make matters worse, now the _gyp_ build tool can\nproduce either a _Release_ or _Debug_ build, each being built into different\nlocations.\n\nThis module checks _all_ the possible locations that a native addon would be built\nat, and returns the first one that loads successfully.\n\n\nInstallation\n------------\n\nInstall with `npm`:\n\n``` bash\n$ npm install bindings\n```\n\nOr add it to the `"dependencies"` section of your _package.json_ file.\n\n\nExample\n-------\n\n`require()`ing the proper bindings file for the current node version, platform\nand architecture is as simple as:\n\n``` js\nvar bindings = require(\'bindings\')(\'binding.node\')\n\n// Use your bindings defined in your C files\nbindings.your_c_function()\n```\n\n\nNice Error Output\n-----------------\n\nWhen the `.node` file could not be loaded, `node-bindings` throws an Error with\na nice error message telling you exactly what was tried. You can also check the\n`err.tries` Array property.\n\n```\nError: Could not load the bindings file. Tried:\n → /Users/nrajlich/ref/build/binding.node\n → /Users/nrajlich/ref/build/Debug/binding.node\n → /Users/nrajlich/ref/build/Release/binding.node\n → /Users/nrajlich/ref/out/Debug/binding.node\n → /Users/nrajlich/ref/Debug/binding.node\n → /Users/nrajlich/ref/out/Release/binding.node\n → /Users/nrajlich/ref/Release/binding.node\n → /Users/nrajlich/ref/build/default/binding.node\n → /Users/nrajlich/ref/compiled/0.8.2/darwin/x64/binding.node\n    at bindings (/Users/nrajlich/ref/node_modules/bindings/bindings.js:84:13)\n    at Object.<anonymous> (/Users/nrajlich/ref/lib/ref.js:5:47)\n    at Module._compile (module.js:449:26)\n    at Object.Module._extensions..js (module.js:467:10)\n    at Module.load (module.js:356:32)\n    at Function.Module._load (module.js:312:12)\n    ...\n```\n\n\nLicense\n-------\n\n(The MIT License)\n\nCopyright (c) 2012 Nathan Rajlich &lt;nathan@tootallnate.net&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\'Software\'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \'AS IS\', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+1010 silly resolved     _id: 'bindings@1.0.0',
+1010 silly resolved     dist: { shasum: '658f2a4c4c121a2331666f856eaa95d38e724840' },
+1010 silly resolved     _from: 'bindings@1.0.0' } ]
+1011 info install bindings@1.0.0 into c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt
+1012 info installOne bindings@1.0.0
+1013 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package\package.json
+1014 info c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings unbuild
+1015 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings\package.json
+1016 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\bindings\1.0.0\package.tgz
+1017 silly lockFile cb23c71a-les-bcrypt-node-modules-bindings c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings
+1018 verbose lock c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings C:\Users\Mauriel\AppData\Roaming\npm-cache\cb23c71a-les-bcrypt-node-modules-bindings.lock
+1019 silly gunzTarPerm modes [ '755', '644' ]
+1020 silly gunzTarPerm extractEntry package.json
+1021 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1022 silly gunzTarPerm extractEntry README.md
+1023 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1024 silly gunzTarPerm extractEntry bindings.js
+1025 silly gunzTarPerm modified mode [ 'bindings.js', 438, 420 ]
+1026 verbose read json c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings\package.json
+1027 silly lockFile cb23c71a-les-bcrypt-node-modules-bindings c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings
+1028 info preinstall bindings@1.0.0
+1029 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings\package.json
+1030 verbose readDependencies using package.json deps
+1031 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings\package.json
+1032 verbose readDependencies using package.json deps
+1033 silly resolved []
+1034 verbose about to build c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings
+1035 info build c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings
+1036 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\node_modules\bindings\package.json
+1037 verbose linkStuff [ false,
+1037 verbose linkStuff   false,
+1037 verbose linkStuff   false,
+1037 verbose linkStuff   'c:\\Users\\Mauriel\\Desktop\\SpeedyShop\\node_modules\\bcrypt\\node_modules' ]
+1038 info linkStuff bindings@1.0.0
+1039 verbose linkBins bindings@1.0.0
+1040 verbose linkMans bindings@1.0.0
+1041 verbose rebuildBundles bindings@1.0.0
+1042 info install bindings@1.0.0
+1043 info postinstall bindings@1.0.0
+1044 verbose about to build c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt
+1045 info build c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt
+1046 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\package.json
+1047 verbose linkStuff [ false,
+1047 verbose linkStuff   false,
+1047 verbose linkStuff   false,
+1047 verbose linkStuff   'c:\\Users\\Mauriel\\Desktop\\SpeedyShop\\node_modules' ]
+1048 info linkStuff bcrypt@0.7.2
+1049 verbose linkBins bcrypt@0.7.2
+1050 verbose linkMans bcrypt@0.7.2
+1051 verbose rebuildBundles bcrypt@0.7.2
+1052 verbose rebuildBundles [ 'bindings' ]
+1053 info install bcrypt@0.7.2
+1054 verbose unsafe-perm in lifecycle true
+1055 silly exec cmd "/c" "node-gyp rebuild"
+1056 silly cmd,/c,node-gyp rebuild,c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt spawning
+1057 http 200 https://registry.npmjs.org/mailcomposer
+1058 silly registry.get cb [ 200,
+1058 silly registry.get   { vary: 'Accept',
+1058 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+1058 silly registry.get     etag: '"8IQSNIM6QJS5DMX46HG3CJKGU"',
+1058 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+1058 silly registry.get     'content-type': 'application/json',
+1058 silly registry.get     'content-length': '188137' } ]
+1059 silly addNameRange number 2 { name: 'mailcomposer', range: '>=0.1.19', hasData: true }
+1060 silly addNameRange versions [ 'mailcomposer',
+1060 silly addNameRange   [ '0.1.0',
+1060 silly addNameRange     '0.1.1',
+1060 silly addNameRange     '0.1.2',
+1060 silly addNameRange     '0.1.3',
+1060 silly addNameRange     '0.1.4',
+1060 silly addNameRange     '0.1.5',
+1060 silly addNameRange     '0.1.6',
+1060 silly addNameRange     '0.1.7',
+1060 silly addNameRange     '0.1.8',
+1060 silly addNameRange     '0.1.9',
+1060 silly addNameRange     '0.1.10',
+1060 silly addNameRange     '0.1.11',
+1060 silly addNameRange     '0.1.12',
+1060 silly addNameRange     '0.1.13',
+1060 silly addNameRange     '0.1.14',
+1060 silly addNameRange     '0.1.15',
+1060 silly addNameRange     '0.1.16',
+1060 silly addNameRange     '0.1.17',
+1060 silly addNameRange     '0.1.18',
+1060 silly addNameRange     '0.1.19',
+1060 silly addNameRange     '0.1.20',
+1060 silly addNameRange     '0.1.21',
+1060 silly addNameRange     '0.1.22',
+1060 silly addNameRange     '0.1.23',
+1060 silly addNameRange     '0.1.24',
+1060 silly addNameRange     '0.1.25',
+1060 silly addNameRange     '0.1.26',
+1060 silly addNameRange     '0.1.27' ] ]
+1061 verbose addNamed [ 'mailcomposer', '0.1.27' ]
+1062 verbose addNamed [ '0.1.27', '0.1.27' ]
+1063 silly lockFile c40c6d2e-mailcomposer-0-1-27 mailcomposer@0.1.27
+1064 verbose lock mailcomposer@0.1.27 C:\Users\Mauriel\AppData\Roaming\npm-cache\c40c6d2e-mailcomposer-0-1-27.lock
+1065 silly lockFile 8bdc6a9a-composer-mailcomposer-0-1-27-tgz https://registry.npmjs.org/mailcomposer/-/mailcomposer-0.1.27.tgz
+1066 verbose lock https://registry.npmjs.org/mailcomposer/-/mailcomposer-0.1.27.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\8bdc6a9a-composer-mailcomposer-0-1-27-tgz.lock
+1067 verbose addRemoteTarball [ 'https://registry.npmjs.org/mailcomposer/-/mailcomposer-0.1.27.tgz',
+1067 verbose addRemoteTarball   '62e5c054df3ac2a3e3eb592e7691a0e7268aa2ad' ]
+1068 info retry fetch attempt 1 at 12:04:49
+1069 verbose fetch to= C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388689392-0.8483150664251298\tmp.tgz
+1070 http GET https://registry.npmjs.org/mailcomposer/-/mailcomposer-0.1.27.tgz
+1071 http 200 https://registry.npmjs.org/fresh/-/fresh-0.1.0.tgz
+1072 silly shasum updated bytes 1087
+1073 silly shasum updated bytes 1748
+1074 info shasum 03e4b0178424e4c2d5d19a54d8814cdc97934850
+1074 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\tmp.tgz
+1075 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\tmp.tgz
+1076 silly lockFile 5dca21f8-87546-0-9363562937360257-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\package
+1077 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\package C:\Users\Mauriel\AppData\Roaming\npm-cache\5dca21f8-87546-0-9363562937360257-package.lock
+1078 info shasum 13d3603b5cf63befbf85a8801e37aa900db46985
+1078 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\tmp.tgz
+1079 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\tmp.tgz
+1080 silly lockFile f1e35f3f-7506-0-11990928160957992-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\package
+1081 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\package C:\Users\Mauriel\AppData\Roaming\npm-cache\f1e35f3f-7506-0-11990928160957992-package.lock
+1082 http 200 https://registry.npmjs.org/commander/-/commander-0.6.1.tgz
+1083 silly gunzTarPerm modes [ '755', '644' ]
+1084 silly gunzTarPerm modes [ '755', '644' ]
+1085 silly gunzTarPerm extractEntry package.json
+1086 silly gunzTarPerm extractEntry package.json
+1087 silly gunzTarPerm extractEntry .npmignore
+1088 silly gunzTarPerm extractEntry index.js
+1089 silly gunzTarPerm extractEntry .npmignore
+1090 silly gunzTarPerm extractEntry index.js
+1091 silly gunzTarPerm extractEntry Makefile
+1092 silly gunzTarPerm extractEntry Readme.md
+1093 silly gunzTarPerm extractEntry History.md
+1094 silly gunzTarPerm extractEntry Makefile
+1095 silly gunzTarPerm extractEntry Readme.md
+1096 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\package\package.json
+1097 silly lockFile 5dca21f8-87546-0-9363562937360257-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\package
+1098 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\package\package.json
+1099 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\fresh\\0.1.0\\package.tgz',
+1099 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687546-0.9363562937360257\\package' ]
+1100 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package.tgz
+1101 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687546-0.9363562937360257\package
+1102 silly lockFile 791d12a5-pm-cache-fresh-0-1-0-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package.tgz
+1103 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\791d12a5-pm-cache-fresh-0-1-0-package-tgz.lock
+1104 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\package\package.json
+1105 silly lockFile f1e35f3f-7506-0-11990928160957992-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\package
+1106 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\package\package.json
+1107 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\cookie-signature\\0.0.1\\package.tgz',
+1107 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687506-0.11990928160957992\\package' ]
+1108 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package.tgz
+1109 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687506-0.11990928160957992\package
+1110 silly lockFile 457d1668-okie-signature-0-0-1-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package.tgz
+1111 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\457d1668-okie-signature-0-0-1-package-tgz.lock
+1112 http 200 https://registry.npmjs.org/optimist
+1113 silly registry.get cb [ 200,
+1113 silly registry.get   { vary: 'Accept',
+1113 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+1113 silly registry.get     etag: '"59OHSV46U08OX04MAYXXUDZ7L"',
+1113 silly registry.get     date: 'Sat, 01 Dec 2012 19:04:12 GMT',
+1113 silly registry.get     'content-type': 'application/json',
+1113 silly registry.get     'content-length': '36111' } ]
+1114 silly lockFile 791d12a5-pm-cache-fresh-0-1-0-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package.tgz
+1115 silly addNameRange number 2 { name: 'optimist', range: '', hasData: true }
+1116 silly addNameRange versions [ 'optimist',
+1116 silly addNameRange   [ '0.0.1',
+1116 silly addNameRange     '0.0.2',
+1116 silly addNameRange     '0.0.4',
+1116 silly addNameRange     '0.0.5',
+1116 silly addNameRange     '0.0.6',
+1116 silly addNameRange     '0.0.7',
+1116 silly addNameRange     '0.1.0',
+1116 silly addNameRange     '0.1.1',
+1116 silly addNameRange     '0.1.2',
+1116 silly addNameRange     '0.1.3',
+1116 silly addNameRange     '0.1.4',
+1116 silly addNameRange     '0.1.5',
+1116 silly addNameRange     '0.1.6',
+1116 silly addNameRange     '0.1.7',
+1116 silly addNameRange     '0.1.8',
+1116 silly addNameRange     '0.1.9',
+1116 silly addNameRange     '0.0.3',
+1116 silly addNameRange     '0.2.0',
+1116 silly addNameRange     '0.2.1',
+1116 silly addNameRange     '0.2.2',
+1116 silly addNameRange     '0.2.3',
+1116 silly addNameRange     '0.2.4',
+1116 silly addNameRange     '0.2.5',
+1116 silly addNameRange     '0.2.6',
+1116 silly addNameRange     '0.2.7',
+1116 silly addNameRange     '0.2.8',
+1116 silly addNameRange     '0.3.0',
+1116 silly addNameRange     '0.3.1',
+1116 silly addNameRange     '0.3.3',
+1116 silly addNameRange     '0.3.4',
+1116 silly addNameRange     '0.3.5' ] ]
+1117 verbose addNamed [ 'optimist', '0.3.5' ]
+1118 verbose addNamed [ '0.3.5', '0.3.5' ]
+1119 silly lockFile 72e2da2d-optimist-0-3-5 optimist@0.3.5
+1120 verbose lock optimist@0.3.5 C:\Users\Mauriel\AppData\Roaming\npm-cache\72e2da2d-optimist-0-3-5.lock
+1121 silly lockFile 11321ab8-ng-npm-cache-fresh-0-1-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package
+1122 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package C:\Users\Mauriel\AppData\Roaming\npm-cache\11321ab8-ng-npm-cache-fresh-0-1-0-package.lock
+1123 silly shasum updated bytes 9774
+1124 info shasum fa68a14f6a945d54dbbe50d8cdb3320e9e3b1a06
+1124 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\tmp.tgz
+1125 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\tmp.tgz
+1126 silly lockFile 254ed028-87616-0-6818104072008282-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\package
+1127 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\package C:\Users\Mauriel\AppData\Roaming\npm-cache\254ed028-87616-0-6818104072008282-package.lock
+1128 silly gunzTarPerm modes [ '755', '644' ]
+1129 silly gunzTarPerm extractEntry .npmignore
+1130 silly gunzTarPerm extractEntry .travis.yml
+1131 silly gunzTarPerm extractEntry History.md
+1132 silly lockFile 457d1668-okie-signature-0-0-1-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package.tgz
+1133 silly lockFile feccc8d8-e-cookie-signature-0-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package
+1134 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package C:\Users\Mauriel\AppData\Roaming\npm-cache\feccc8d8-e-cookie-signature-0-0-1-package.lock
+1135 silly gunzTarPerm extractEntry index.js
+1136 silly gunzTarPerm extractEntry lib/
+1137 silly gunzTarPerm extractEntry lib/commander.js
+1138 silly gunzTarPerm extractEntry Makefile
+1139 silly gunzTarPerm extractEntry package.json
+1140 silly gunzTarPerm extractEntry Readme.md
+1141 silly lockFile 11321ab8-ng-npm-cache-fresh-0-1-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package
+1142 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package.tgz
+1143 silly lockFile 11321ab8-ng-npm-cache-fresh-0-1-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package
+1144 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package C:\Users\Mauriel\AppData\Roaming\npm-cache\11321ab8-ng-npm-cache-fresh-0-1-0-package.lock
+1145 silly gunzTarPerm modes [ '755', '644' ]
+1146 silly gunzTarPerm extractEntry package.json
+1147 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1148 silly gunzTarPerm extractEntry .npmignore
+1149 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1150 silly gunzTarPerm extractEntry index.js
+1151 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+1152 http 200 https://registry.npmjs.org/send/-/send-0.1.0.tgz
+1153 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\optimist\0.3.5\package\package.json
+1154 silly gunzTarPerm extractEntry Makefile
+1155 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+1156 silly gunzTarPerm extractEntry Readme.md
+1157 silly gunzTarPerm modified mode [ 'Readme.md', 438, 420 ]
+1158 http 200 https://registry.npmjs.org/range-parser/-/range-parser-0.0.4.tgz
+1159 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package\package.json
+1160 silly lockFile 11321ab8-ng-npm-cache-fresh-0-1-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package
+1161 http 200 https://registry.npmjs.org/cookie/-/cookie-0.0.4.tgz
+1162 silly lockFile feccc8d8-e-cookie-signature-0-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package
+1163 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package.tgz
+1164 silly lockFile feccc8d8-e-cookie-signature-0-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package
+1165 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package C:\Users\Mauriel\AppData\Roaming\npm-cache\feccc8d8-e-cookie-signature-0-0-1-package.lock
+1166 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\package\package.json
+1167 silly shasum updated bytes 1056
+1168 info shasum 063823aa7dbf013348fc05d75f4146ebb9a841f2
+1168 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package.tgz
+1169 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package\package.json
+1170 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package.tgz 644
+1171 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\fresh\0.1.0\package.tgz
+1172 silly gunzTarPerm modes [ '755', '644' ]
+1173 silly lockFile 0e5f2eb8--npmjs-org-fresh-fresh-0-1-0-tgz https://registry.npmjs.org/fresh/-/fresh-0.1.0.tgz
+1174 silly lockFile 3dea7da8-fresh-0-1-0 fresh@0.1.0
+1175 silly lockFile 254ed028-87616-0-6818104072008282-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\package
+1176 silly gunzTarPerm extractEntry package.json
+1177 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1178 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\package\package.json
+1179 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\commander\\0.6.1\\package.tgz',
+1179 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687616-0.6818104072008282\\package' ]
+1180 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package.tgz
+1181 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687616-0.6818104072008282\package
+1182 silly lockFile c183001a-ache-commander-0-6-1-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package.tgz
+1183 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\c183001a-ache-commander-0-6-1-package-tgz.lock
+1184 silly gunzTarPerm extractEntry .npmignore
+1185 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1186 silly gunzTarPerm extractEntry index.js
+1187 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+1188 silly gunzTarPerm extractEntry History.md
+1189 silly gunzTarPerm modified mode [ 'History.md', 438, 420 ]
+1190 silly gunzTarPerm extractEntry Makefile
+1191 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+1192 silly gunzTarPerm extractEntry Readme.md
+1193 silly gunzTarPerm modified mode [ 'Readme.md', 438, 420 ]
+1194 silly lockFile 72e2da2d-optimist-0-3-5 optimist@0.3.5
+1195 silly lockFile 942cd351-optimist optimist@*
+1196 silly lockFile c183001a-ache-commander-0-6-1-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package.tgz
+1197 silly lockFile d816f149-pm-cache-commander-0-6-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package
+1198 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package C:\Users\Mauriel\AppData\Roaming\npm-cache\d816f149-pm-cache-commander-0-6-1-package.lock
+1199 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package\package.json
+1200 silly lockFile feccc8d8-e-cookie-signature-0-0-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package
+1201 silly shasum updated bytes 1727
+1202 info shasum 1b9a6402c3a34ba9045b8faee31cd087ed4f251b
+1202 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package.tgz
+1203 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package\package.json
+1204 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package.tgz 644
+1205 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie-signature\0.0.1\package.tgz
+1206 silly lockFile fff727c9-ature-cookie-signature-0-0-1-tgz https://registry.npmjs.org/cookie-signature/-/cookie-signature-0.0.1.tgz
+1207 silly lockFile f4fbff07-cookie-signature-0-0-1 cookie-signature@0.0.1
+1208 silly shasum updated bytes 2254
+1209 silly shasum updated bytes 5657
+1210 info shasum 5456bd47aee2666eac976ea80a6105940483fe98
+1210 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\tmp.tgz
+1211 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\tmp.tgz
+1212 silly lockFile 0e4c3dad-87855-0-7096414617262781-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\package
+1213 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\package C:\Users\Mauriel\AppData\Roaming\npm-cache\0e4c3dad-87855-0-7096414617262781-package.lock
+1214 info shasum cfb08ebd3cec9b7fc1a37d9ff9e875a971cf4640
+1214 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\tmp.tgz
+1215 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\tmp.tgz
+1216 silly lockFile e4d387de-87744-0-6215867232531309-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\package
+1217 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\package C:\Users\Mauriel\AppData\Roaming\npm-cache\e4d387de-87744-0-6215867232531309-package.lock
+1218 silly gunzTarPerm modes [ '755', '644' ]
+1219 silly gunzTarPerm modes [ '755', '644' ]
+1220 silly gunzTarPerm extractEntry package.json
+1221 silly gunzTarPerm extractEntry package.json
+1222 silly gunzTarPerm extractEntry .npmignore
+1223 silly gunzTarPerm extractEntry README.md
+1224 silly gunzTarPerm extractEntry .npmignore
+1225 silly gunzTarPerm extractEntry index.js
+1226 silly gunzTarPerm extractEntry index.js
+1227 silly gunzTarPerm extractEntry .travis.yml
+1228 silly gunzTarPerm extractEntry History.md
+1229 silly gunzTarPerm extractEntry lib/send.js
+1230 silly gunzTarPerm extractEntry test/parse.js
+1231 silly gunzTarPerm extractEntry test/serialize.js
+1232 silly gunzTarPerm extractEntry lib/utils.js
+1233 silly gunzTarPerm extractEntry Makefile
+1234 silly gunzTarPerm extractEntry test/mocha.opts
+1235 silly gunzTarPerm extractEntry Readme.md
+1236 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\package\package.json
+1237 silly lockFile 0e4c3dad-87855-0-7096414617262781-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\package
+1238 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\package\package.json
+1239 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\cookie\\0.0.4\\package.tgz',
+1239 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687855-0.7096414617262781\\package' ]
+1240 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package.tgz
+1241 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687855-0.7096414617262781\package
+1242 silly lockFile b1ff22a9-m-cache-cookie-0-0-4-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package.tgz
+1243 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\b1ff22a9-m-cache-cookie-0-0-4-package-tgz.lock
+1244 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\package\package.json
+1245 silly lockFile d816f149-pm-cache-commander-0-6-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package
+1246 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package.tgz
+1247 silly lockFile d816f149-pm-cache-commander-0-6-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package
+1248 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package C:\Users\Mauriel\AppData\Roaming\npm-cache\d816f149-pm-cache-commander-0-6-1-package.lock
+1249 silly lockFile e4d387de-87744-0-6215867232531309-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\package
+1250 silly gunzTarPerm modes [ '755', '644' ]
+1251 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\package\package.json
+1252 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\send\\0.1.0\\package.tgz',
+1252 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687744-0.6215867232531309\\package' ]
+1253 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package.tgz
+1254 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687744-0.6215867232531309\package
+1255 silly lockFile b49bb37e-npm-cache-send-0-1-0-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package.tgz
+1256 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\b49bb37e-npm-cache-send-0-1-0-package-tgz.lock
+1257 silly gunzTarPerm extractEntry package.json
+1258 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1259 silly gunzTarPerm extractEntry .npmignore
+1260 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1261 silly gunzTarPerm extractEntry index.js
+1262 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+1263 silly gunzTarPerm extractEntry .travis.yml
+1264 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+1265 silly gunzTarPerm extractEntry History.md
+1266 silly gunzTarPerm modified mode [ 'History.md', 438, 420 ]
+1267 silly gunzTarPerm extractEntry lib/commander.js
+1268 silly gunzTarPerm modified mode [ 'lib/commander.js', 438, 420 ]
+1269 silly gunzTarPerm extractEntry Makefile
+1270 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+1271 http 200 https://registry.npmjs.org/connect/-/connect-2.6.2.tgz
+1272 http 200 https://registry.npmjs.org/mailcomposer/-/mailcomposer-0.1.27.tgz
+1273 silly lockFile b1ff22a9-m-cache-cookie-0-0-4-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package.tgz
+1274 silly lockFile 81627e6c-g-npm-cache-cookie-0-0-4-package C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package
+1275 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package C:\Users\Mauriel\AppData\Roaming\npm-cache\81627e6c-g-npm-cache-cookie-0-0-4-package.lock
+1276 silly lockFile b49bb37e-npm-cache-send-0-1-0-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package.tgz
+1277 silly lockFile b7df00bd-ing-npm-cache-send-0-1-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package
+1278 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package C:\Users\Mauriel\AppData\Roaming\npm-cache\b7df00bd-ing-npm-cache-send-0-1-0-package.lock
+1279 silly gunzTarPerm extractEntry Readme.md
+1280 silly gunzTarPerm modified mode [ 'Readme.md', 438, 420 ]
+1281 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package\package.json
+1282 silly lockFile d816f149-pm-cache-commander-0-6-1-package C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package
+1283 silly shasum updated bytes 9697
+1284 info shasum b48bd7775e74071105f911eb4d49cab82b1fe88c
+1284 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package.tgz
+1285 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package\package.json
+1286 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package.tgz 644
+1287 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\commander\0.6.1\package.tgz
+1288 silly lockFile 378c912a-rg-commander-commander-0-6-1-tgz https://registry.npmjs.org/commander/-/commander-0.6.1.tgz
+1289 silly lockFile fa16a2ce-commander-0-6-1 commander@0.6.1
+1290 silly lockFile b7df00bd-ing-npm-cache-send-0-1-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package
+1291 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package.tgz
+1292 silly lockFile b7df00bd-ing-npm-cache-send-0-1-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package
+1293 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package C:\Users\Mauriel\AppData\Roaming\npm-cache\b7df00bd-ing-npm-cache-send-0-1-0-package.lock
+1294 silly gunzTarPerm modes [ '755', '644' ]
+1295 silly gunzTarPerm extractEntry package.json
+1296 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1297 silly gunzTarPerm extractEntry .npmignore
+1298 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1299 silly gunzTarPerm extractEntry index.js
+1300 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+1301 silly gunzTarPerm extractEntry History.md
+1302 silly gunzTarPerm modified mode [ 'History.md', 438, 420 ]
+1303 silly gunzTarPerm extractEntry lib/send.js
+1304 silly gunzTarPerm modified mode [ 'lib/send.js', 438, 420 ]
+1305 silly gunzTarPerm extractEntry lib/utils.js
+1306 silly gunzTarPerm modified mode [ 'lib/utils.js', 438, 420 ]
+1307 silly gunzTarPerm extractEntry Makefile
+1308 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+1309 silly gunzTarPerm extractEntry Readme.md
+1310 silly gunzTarPerm modified mode [ 'Readme.md', 438, 420 ]
+1311 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package\package.json
+1312 silly lockFile b7df00bd-ing-npm-cache-send-0-1-0-package C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package
+1313 silly shasum updated bytes 5614
+1314 info shasum fb19b794289dde61154c13df5042fc8c4dfd5255
+1314 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package.tgz
+1315 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package\package.json
+1316 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package.tgz 644
+1317 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\send\0.1.0\package.tgz
+1318 silly lockFile c7198075-ry-npmjs-org-send-send-0-1-0-tgz https://registry.npmjs.org/send/-/send-0.1.0.tgz
+1319 silly lockFile ef2886cd-send-0-1-0 send@0.1.0
+1320 silly lockFile 81627e6c-g-npm-cache-cookie-0-0-4-package C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package
+1321 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package.tgz
+1322 silly lockFile 81627e6c-g-npm-cache-cookie-0-0-4-package C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package
+1323 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package C:\Users\Mauriel\AppData\Roaming\npm-cache\81627e6c-g-npm-cache-cookie-0-0-4-package.lock
+1324 silly gunzTarPerm modes [ '755', '644' ]
+1325 silly gunzTarPerm extractEntry package.json
+1326 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1327 silly gunzTarPerm extractEntry .npmignore
+1328 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1329 silly gunzTarPerm extractEntry README.md
+1330 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1331 silly gunzTarPerm extractEntry index.js
+1332 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+1333 silly gunzTarPerm extractEntry .travis.yml
+1334 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+1335 silly gunzTarPerm extractEntry test/parse.js
+1336 silly gunzTarPerm modified mode [ 'test/parse.js', 438, 420 ]
+1337 silly gunzTarPerm extractEntry test/serialize.js
+1338 silly gunzTarPerm modified mode [ 'test/serialize.js', 438, 420 ]
+1339 silly gunzTarPerm extractEntry test/mocha.opts
+1340 silly gunzTarPerm modified mode [ 'test/mocha.opts', 438, 420 ]
+1341 verbose read json C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package\package.json
+1342 silly lockFile 81627e6c-g-npm-cache-cookie-0-0-4-package C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package
+1343 silly shasum updated bytes 2212
+1344 info shasum 272bbfc15c42cea668ca127ba1e30eb11dd92a33
+1344 info shasum C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package.tgz
+1345 verbose from cache C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package\package.json
+1346 verbose chmod C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package.tgz 644
+1347 silly chown skipping for windows C:\Users\Mauriel\AppData\Roaming\npm-cache\cookie\0.0.4\package.tgz
+1348 silly lockFile a4925ecb-pmjs-org-cookie-cookie-0-0-4-tgz https://registry.npmjs.org/cookie/-/cookie-0.0.4.tgz
+1349 silly lockFile c11bcebd-cookie-0-0-4 cookie@0.0.4
+1350 silly shasum updated bytes 1283
+1351 info shasum c0427ffef51c10acba0782a46c9602e744ff620b
+1351 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\tmp.tgz
+1352 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\tmp.tgz
+1353 silly lockFile 9c5bee73-87711-0-8199470271356404-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\package
+1354 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\package C:\Users\Mauriel\AppData\Roaming\npm-cache\9c5bee73-87711-0-8199470271356404-package.lock
+1355 silly gunzTarPerm modes [ '755', '644' ]
+1356 silly gunzTarPerm extractEntry package.json
+1357 silly gunzTarPerm extractEntry .npmignore
+1358 silly gunzTarPerm extractEntry index.js
+1359 silly gunzTarPerm extractEntry History.md
+1360 silly gunzTarPerm extractEntry Makefile
+1361 silly gunzTarPerm extractEntry Readme.md
+1362 verbose read json C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\package\package.json
+1363 silly shasum updated bytes 40960
+1364 silly lockFile 9c5bee73-87711-0-8199470271356404-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\package
+1365 silly shasum updated bytes 34243
+1366 info shasum 2c66ea6583de62475fe15ba03e5f074e53050efb
+1366 info shasum C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388688370-0.4345129751600325\tmp.tgz
+1367 verbose tar unpack C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388688370-0.4345129751600325\tmp.tgz
+1368 silly lockFile 4d5a8044-88370-0-4345129751600325-package C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388688370-0.4345129751600325\package
+1369 verbose lock C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388688370-0.4345129751600325\package C:\Users\Mauriel\AppData\Roaming\npm-cache\4d5a8044-88370-0-4345129751600325-package.lock
+1370 verbose from cache C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\package\package.json
+1371 silly gunzTarPerm modes [ '755', '644' ]
+1372 verbose tar pack [ 'C:\\Users\\Mauriel\\AppData\\Roaming\\npm-cache\\range-parser\\0.0.4\\package.tgz',
+1372 verbose tar pack   'C:\\Users\\Mauriel\\AppData\\Local\\Temp\\npm-6052\\1354388687711-0.8199470271356404\\package' ]
+1373 verbose tarball C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package.tgz
+1374 verbose folder C:\Users\Mauriel\AppData\Local\Temp\npm-6052\1354388687711-0.8199470271356404\package
+1375 silly lockFile 4ce22481-e-range-parser-0-0-4-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package.tgz
+1376 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package.tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\4ce22481-e-range-parser-0-0-4-package-tgz.lock
+1377 silly gunzTarPerm extractEntry package.json
+1378 silly gunzTarPerm extractEntry .npmignore
+1379 silly gunzTarPerm extractEntry LICENSE
+1380 silly gunzTarPerm extractEntry index.js
+1381 silly gunzTarPerm extractEntry test.js
+1382 silly gunzTarPerm extractEntry .travis.yml
+1383 silly gunzTarPerm extractEntry lib/cache.js
+1384 silly gunzTarPerm extractEntry lib/connect.js
+1385 silly gunzTarPerm extractEntry lib/index.js
+1386 silly gunzTarPerm extractEntry lib/patch.js
+1387 silly lockFile 4ce22481-e-range-parser-0-0-4-package-tgz C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package.tgz
+1388 silly lockFile a86f3bf8-cache-range-parser-0-0-4-package C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package
+1389 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package C:\Users\Mauriel\AppData\Roaming\npm-cache\a86f3bf8-cache-range-parser-0-0-4-package.lock
+1390 silly gunzTarPerm extractEntry lib/proto.js
+1391 silly gunzTarPerm extractEntry lib/utils.js
+1392 silly gunzTarPerm extractEntry lib/middleware/basicAuth.js
+1393 silly gunzTarPerm extractEntry lib/middleware/errorHandler.js
+1394 silly gunzTarPerm extractEntry lib/middleware/favicon.js
+1395 silly gunzTarPerm extractEntry lib/middleware/json.js
+1396 silly gunzTarPerm extractEntry lib/middleware/limit.js
+1397 silly gunzTarPerm extractEntry lib/middleware/directory.js
+1398 silly gunzTarPerm extractEntry lib/middleware/methodOverride.js
+1399 silly gunzTarPerm extractEntry lib/middleware/multipart.js
+1400 silly gunzTarPerm extractEntry lib/middleware/query.js
+1401 silly gunzTarPerm extractEntry lib/middleware/responseTime.js
+1402 silly gunzTarPerm extractEntry lib/middleware/urlencoded.js
+1403 silly gunzTarPerm extractEntry lib/middleware/csrf.js
+1404 silly gunzTarPerm extractEntry lib/middleware/session.js
+1405 silly gunzTarPerm extractEntry lib/middleware/cookieSession.js
+1406 silly gunzTarPerm extractEntry lib/middleware/static.js
+1407 silly gunzTarPerm extractEntry lib/middleware/cookieParser.js
+1408 silly gunzTarPerm extractEntry lib/middleware/staticCache.js
+1409 silly gunzTarPerm extractEntry lib/middleware/compress.js
+1410 silly gunzTarPerm extractEntry lib/middleware/timeout.js
+1411 silly gunzTarPerm extractEntry lib/middleware/bodyParser.js
+1412 silly gunzTarPerm extractEntry lib/middleware/vhost.js
+1413 silly gunzTarPerm extractEntry lib/middleware/logger.js
+1414 silly gunzTarPerm extractEntry lib/middleware/session/cookie.js
+1415 silly gunzTarPerm extractEntry lib/middleware/session/memory.js
+1416 silly gunzTarPerm extractEntry lib/middleware/session/session.js
+1417 silly gunzTarPerm extractEntry lib/middleware/session/store.js
+1418 silly gunzTarPerm extractEntry lib/public/directory.html
+1419 silly gunzTarPerm extractEntry lib/public/error.html
+1420 silly gunzTarPerm extractEntry lib/public/favicon.ico
+1421 silly gunzTarPerm extractEntry lib/public/icons/page_white_edit.png
+1422 silly gunzTarPerm extractEntry lib/public/icons/page.png
+1423 silly gunzTarPerm extractEntry lib/public/icons/page_attach.png
+1424 silly gunzTarPerm extractEntry lib/public/icons/page_code.png
+1425 silly gunzTarPerm extractEntry lib/public/icons/page_copy.png
+1426 silly gunzTarPerm extractEntry lib/public/icons/page_delete.png
+1427 silly gunzTarPerm extractEntry lib/public/icons/page_edit.png
+1428 silly gunzTarPerm extractEntry lib/public/icons/page_error.png
+1429 silly gunzTarPerm extractEntry lib/public/icons/page_excel.png
+1430 silly gunzTarPerm extractEntry lib/public/icons/page_find.png
+1431 silly gunzTarPerm extractEntry lib/public/icons/page_gear.png
+1432 silly gunzTarPerm extractEntry lib/public/icons/page_go.png
+1433 silly gunzTarPerm extractEntry lib/public/icons/page_green.png
+1434 silly gunzTarPerm extractEntry lib/public/icons/page_key.png
+1435 silly gunzTarPerm extractEntry lib/public/icons/page_lightning.png
+1436 silly gunzTarPerm extractEntry lib/public/icons/page_link.png
+1437 silly gunzTarPerm extractEntry lib/public/icons/page_paintbrush.png
+1438 silly gunzTarPerm extractEntry lib/public/icons/page_paste.png
+1439 silly gunzTarPerm extractEntry lib/public/icons/page_red.png
+1440 silly gunzTarPerm extractEntry lib/public/icons/page_refresh.png
+1441 silly gunzTarPerm extractEntry lib/public/icons/page_save.png
+1442 silly gunzTarPerm extractEntry lib/public/icons/page_white.png
+1443 silly gunzTarPerm extractEntry lib/public/icons/page_white_acrobat.png
+1444 silly gunzTarPerm extractEntry lib/public/icons/page_white_actionscript.png
+1445 silly gunzTarPerm extractEntry lib/public/icons/page_white_add.png
+1446 silly gunzTarPerm extractEntry lib/public/icons/page_white_c.png
+1447 silly gunzTarPerm extractEntry lib/public/icons/page_white_camera.png
+1448 silly gunzTarPerm extractEntry lib/public/icons/page_white_cd.png
+1449 silly gunzTarPerm extractEntry lib/public/icons/page_white_code.png
+1450 silly gunzTarPerm extractEntry lib/public/icons/page_white_code_red.png
+1451 silly gunzTarPerm extractEntry lib/public/icons/page_white_coldfusion.png
+1452 silly gunzTarPerm extractEntry lib/public/icons/page_white_compressed.png
+1453 silly gunzTarPerm extractEntry lib/public/icons/page_white_copy.png
+1454 silly gunzTarPerm extractEntry lib/public/icons/page_white_cplusplus.png
+1455 silly gunzTarPerm extractEntry lib/public/icons/page_white_csharp.png
+1456 silly gunzTarPerm extractEntry lib/public/icons/page_white_cup.png
+1457 silly gunzTarPerm extractEntry lib/public/icons/page_white_database.png
+1458 silly gunzTarPerm extractEntry lib/public/icons/page_white_delete.png
+1459 silly gunzTarPerm extractEntry lib/public/icons/page_white_dvd.png
+1460 silly gunzTarPerm extractEntry lib/public/icons/page_add.png
+1461 silly gunzTarPerm extractEntry lib/public/icons/page_white_error.png
+1462 silly gunzTarPerm extractEntry lib/public/icons/page_white_excel.png
+1463 silly gunzTarPerm extractEntry lib/public/icons/page_white_find.png
+1464 silly gunzTarPerm extractEntry lib/public/icons/page_white_flash.png
+1465 silly gunzTarPerm extractEntry lib/public/icons/page_white_freehand.png
+1466 silly gunzTarPerm extractEntry lib/public/icons/page_white_gear.png
+1467 silly gunzTarPerm extractEntry lib/public/icons/page_white_get.png
+1468 silly gunzTarPerm extractEntry lib/public/icons/page_white_go.png
+1469 silly gunzTarPerm extractEntry lib/public/icons/page_white_h.png
+1470 silly gunzTarPerm extractEntry lib/public/icons/page_white_horizontal.png
+1471 silly gunzTarPerm extractEntry lib/public/icons/page_white_key.png
+1472 silly gunzTarPerm extractEntry lib/public/icons/page_white_lightning.png
+1473 silly gunzTarPerm extractEntry lib/public/icons/page_white_link.png
+1474 silly gunzTarPerm extractEntry lib/public/icons/page_white_magnify.png
+1475 silly gunzTarPerm extractEntry lib/public/icons/page_white_medal.png
+1476 silly gunzTarPerm extractEntry lib/public/icons/page_white_office.png
+1477 silly gunzTarPerm extractEntry lib/public/icons/page_white_paint.png
+1478 silly gunzTarPerm extractEntry lib/public/icons/page_white_paintbrush.png
+1479 silly gunzTarPerm extractEntry lib/public/icons/page_white_paste.png
+1480 silly gunzTarPerm extractEntry lib/public/icons/page_white_php.png
+1481 silly gunzTarPerm extractEntry lib/public/icons/page_white_picture.png
+1482 silly gunzTarPerm extractEntry lib/public/icons/page_white_powerpoint.png
+1483 silly gunzTarPerm extractEntry lib/public/icons/page_white_put.png
+1484 silly gunzTarPerm extractEntry lib/public/icons/page_white_ruby.png
+1485 silly gunzTarPerm extractEntry lib/public/icons/page_white_stack.png
+1486 silly gunzTarPerm extractEntry lib/public/icons/page_white_star.png
+1487 silly gunzTarPerm extractEntry lib/public/icons/page_white_swoosh.png
+1488 silly gunzTarPerm extractEntry lib/public/icons/page_white_text.png
+1489 silly gunzTarPerm extractEntry lib/public/icons/page_white_text_width.png
+1490 silly gunzTarPerm extractEntry lib/public/icons/page_white_tux.png
+1491 silly gunzTarPerm extractEntry lib/public/icons/page_white_vector.png
+1492 silly gunzTarPerm extractEntry lib/public/icons/page_white_visualstudio.png
+1493 silly gunzTarPerm extractEntry lib/public/icons/page_white_width.png
+1494 silly gunzTarPerm extractEntry lib/public/icons/page_white_word.png
+1495 silly gunzTarPerm extractEntry lib/public/icons/page_white_world.png
+1496 silly gunzTarPerm extractEntry lib/public/icons/page_white_wrench.png
+1497 silly gunzTarPerm extractEntry lib/public/icons/page_white_zip.png
+1498 silly gunzTarPerm extractEntry lib/public/icons/page_word.png
+1499 silly gunzTarPerm extractEntry lib/public/icons/page_world.png
+1500 silly gunzTarPerm extractEntry lib/public/style.css
+1501 silly gunzTarPerm extractEntry Readme.md
+1502 info bcrypt@0.7.2 Failed to exec install script
+1503 info c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt unbuild
+1504 verbose from cache c:\Users\Mauriel\Desktop\SpeedyShop\node_modules\bcrypt\package.json
+1505 info preuninstall bcrypt@0.7.2
+1506 info uninstall bcrypt@0.7.2
+1507 verbose true,c:\Users\Mauriel\Desktop\SpeedyShop\node_modules,c:\Users\Mauriel\Desktop\SpeedyShop\node_modules unbuild bcrypt@0.7.2
+1508 info postuninstall bcrypt@0.7.2
+1509 silly lockFile a86f3bf8-cache-range-parser-0-0-4-package C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package
+1510 verbose tar unpack C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package.tgz
+1511 silly lockFile a86f3bf8-cache-range-parser-0-0-4-package C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package
+1512 verbose lock C:\Users\Mauriel\AppData\Roaming\npm-cache\range-parser\0.0.4\package C:\Users\Mauriel\AppData\Roaming\npm-cache\a86f3bf8-cache-range-parser-0-0-4-package.lock
+1513 silly gunzTarPerm modes [ '755', '644' ]
+1514 silly gunzTarPerm extractEntry package.json
+1515 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1516 error bcrypt@0.7.2 install: `node-gyp rebuild`
+1516 error `cmd "/c" "node-gyp rebuild"` failed with 1
+1517 error Failed at the bcrypt@0.7.2 install script.
+1517 error This is most likely a problem with the bcrypt package,
+1517 error not with npm itself.
+1517 error Tell the author that this fails on your system:
+1517 error     node-gyp rebuild
+1517 error You can get their info via:
+1517 error     npm owner ls bcrypt
+1517 error There is likely additional logging output above.
+1518 error System Windows_NT 6.1.7600
+1519 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+1520 error cwd c:\Users\Mauriel\Desktop\SpeedyShop
+1521 error node -v v0.8.9
+1522 error npm -v 1.1.61
+1523 error code ELIFECYCLE
+1524 verbose exit [ 1, true ]
