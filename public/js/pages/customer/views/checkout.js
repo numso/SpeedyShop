@@ -69,8 +69,15 @@ define([
 
         applyGiftCard: function(){
             this.genGiftCard = this.$('.gift-card-text').val();
-            console.log(this.genGiftCard);
-            this.calcGenPromo();
+            this.calcGiftCard();
+        },
+
+        calcGiftCard: function(){
+            that=this;
+            $.get('getGiftCardValue', this.genGiftCard, function(card){
+                console.log("the card status is: " + card.status);
+                //that.cartData.total -= card.amount;
+            });
         },
 
         showCartConfirm: function (cart) {
@@ -78,12 +85,11 @@ define([
             for (var i = 0; i < cart.length; ++i) {
                 total += cart[i].quantity * cart[i].price;
             }
-            console.log(this.promoTotal);
             total -= this.promoTotal;
             this.cartData = {
                 cart: cart,
                 total: total,
-                discount: this.promoTotal,
+                discount: parseFloat(this.promoTotal),
                 newTotal: total - this.promoTotal
             };
 
@@ -159,24 +165,39 @@ define([
 
         collectCartInformation: function () {
             var finalCart = [];
+            var that = this;
+            var findPromo = function(name, price){
+                for(var n = 0; n < that.itemPromo.length; ++n)
+                {
+                    if(that.itemPromo[n].item == name)
+                    {
+                        var temp = that.calcItemPromo(that.itemPromo[n].promo, price);
+                        return temp;
+                    }
+
+                }
+                return 0;
+
+            };
             for (var j = 0; j < this.cartData.cart.length; ++j) {
                 finalCart.push({
                     itemQuantity: this.cartData.cart[j].quantity,
                     itemName: this.cartData.cart[j].name,
                     itemID: this.cartData.cart[j].id,
-                    promoDiscount: this.promoTotal, //Mauriel, apply discount here
-                    finalPrice: (this.cartData.cart[j].price - this.promoTotal) //Mauriel, apply discount here
+                    promoDiscount: findPromo(this.cartData.cart[j].name, this.cartData.cart[j].price), //Mauriel, apply discount here
+                    finalPrice: this.cartData.cart[j].price //Mauriel, apply discount here
                 });
             }
             return finalCart;
         },
 
-        getGiftCards: function(){
-            var that = this;
-            $.get('', function(items){
-                that.giftCardList = JSON.parse(items);
-            })
+
+        findPromo: function(name){
+            for(var n = 0; n < this.itemPromo.length; ++n)
+                if(this.itemPromo[n].name == name)
+                    console.log(this.itemPromo[n].promo);
         },
+
         getPromos: function(){
             var that = this;
             $.get('/promocodes', function (items) {
@@ -184,8 +205,10 @@ define([
             });
         },
 
-        applyItemPromo: function(){
-            var enteredItemPromo = this.$('.promo-code-text').val();
+        applyItemPromo: function(e){
+            var enteredItemPromo = $(e.target).closest('.checkout-item').find('.promo-code-text').val();
+            var thisItemName = $(e.target).closest('.checkout-item').find('.item-name').html();
+            //var itemToDiscount = this.$()
             var flag = true;
             for(var n = 0; n < this.itemPromo.length; ++n)
             {
@@ -197,8 +220,11 @@ define([
             }
             if(flag == true)
                 {
-                    this.itemPromo.push(enteredItemPromo);
-                    this.calcItemPromo();
+                    var itemObj = {
+                        promo : enteredItemPromo,
+                        item : thisItemName
+                    }
+                    this.itemPromo.push(itemObj);
                 }
         },
 
@@ -209,7 +235,6 @@ define([
         },
 
         calcGenPromo: function(){
-            console.log("Inside calcGenPromo!");
             console.log(this.genPromo);
             for(var n = 0; n < this.promoList.length; ++n)
                 if(this.promoList[n].code == this.genPromo)
@@ -225,39 +250,35 @@ define([
 
         },
 
-        calcItemPromo: function(){
-            console.log("I'm in calcItemPromo!");
+        calcItemPromo: function(name, price){
             for(var n = 0; n < this.promoList.length; ++n)
-                for(var x = 0; x < this.itemPromo.length; ++x)
-                        if(this.promoList[n].code == this.itemPromo[x])
-                                {
-                                    if(this.promoList[n].amount == 0)
-                                        this.percentItemPromo(this.promoList[n]);
-                                    if(this.promoList[n].percent == 0)
-                                        {
-                                            this.promoTotal += this.promoList[n].amount;
-                                            this.cartData.total -= this.promoTotal;
-                                        }
-                                }
+                if(this.promoList[n].code == name)
+                    {
+                        if(this.promoList[n].amount == 0)
+                            {
+                                var discount = this.percentItemPromo(this.promoList[n], price);
+                                this.promoTotal = this.promoTotal + parseFloat(discount);
+                                return discount;
+                            }
+                        if(this.promoList[n].percent == 0)
+                            {
+                                this.promoTotal = this.promoTotal + parseFloat(this.promoList[n].amount);
+                                return this.promoList[n].amount;
+                            }
+                    }
         },
 
-        percentItemPromo: function(promo){
-            console.log("Inside percentPromo");
-            console.log(promo);
-
+        percentItemPromo: function(promo, amount){
+            var percentOff = promo.percent / 100;
+            var discount = amount * percentOff;
+            return discount.toFixed(2);
         },
 
         percentGenPromo: function(promo){
-            console.log("Inside amountPromo");
-            console.log(promo);
             var newTotal = this.cartData.total;
-            console.log(newTotal);
             var percentOff = (100 - promo.percent) / 100;
-            console.log(percentOff);
             newTotal = newTotal * percentOff;
-            console.log(newTotal);
             var diff = this.cartData.total - newTotal;
-            console.log(diff.toFixed(2));
             if(this.promoTotal == 0)
                 this.promoGenTotal = diff.toFixed(2);
             else
@@ -271,8 +292,8 @@ define([
             return {
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
-                newTotal: this.cartData.total - this.promoTotal, //Mauriel, apply discount here
-                total: this.cartData.total, //Mauriel, apply discount here
+                newTotal: this.cartData.total - parseFloat(this.promoTotal), //Mauriel, apply discount here
+                total: this.cartData.total - parseFloat(this.promoTotal), //Mauriel, apply discount here
 
                 addresses: [
                     {
@@ -387,6 +408,7 @@ define([
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
 
+            allFilled = true;
             if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
