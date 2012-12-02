@@ -1,0 +1,19 @@
+<div class='item-detail-view id-cont' id="{{id}}-item">
+    <div class='item-images'>
+        <img class='item-big-img' src="{{img}}">
+        <div class='item-small-img-group'>
+            {{#each images}}
+                <img class='item-small-img' src="{{this}}">
+            {{/each}}
+        </div>
+    </div>
+    <div class='item-details-box'>
+        <button id="back-btn">Back</button>
+        <div class='item-detail-name'>{{name}}</div>
+        <div class='item-detail-price'>Gift Card Amount: $<input class = 'gift-price' type = 'text' size = '5'></div>
+        <img class='item-detail-rating' src="img/ratings/{{rating}}.png">
+        <div class='availability'>Availability: {{#if available}}<span style="color: green;">In Stock{{else}}<span style="color: red;">Out of Stock{{/if}}</span></div>
+        <button class='add-to-cart'>Add to Cart</button>
+    </div>
+    <div class='item-detail-desc'>{{desc}}</div>
+</div>

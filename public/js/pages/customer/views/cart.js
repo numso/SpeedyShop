@@ -71,14 +71,13 @@ define([
                 $.get('/getItem/' + id, function (data) {
                     if (data.status === "success") {
                         if(data.item.name == "Gift Card"){
+                            var giftPrice = $('.gift-price').val();
                             var itemObj = {
                             id: id,
                             imgURL: data.item.imgURL,
                             name: data.item.name,
-                            price: data.item.price,
+                            price: giftPrice,
                             quantity: 1,
-                            giftCard: true
-
                             };
                         }
                         else{

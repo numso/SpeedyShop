@@ -6,13 +6,15 @@ define([
     'tmpl!pages/customer/templates/itemsTemplates/itemsList',
     'tmpl!pages/customer/templates/itemsTemplates/itemsBlock',
     'tmpl!pages/customer/templates/itemsTemplates/itemDetail',
+    'tmpl!pages/customer/templates/itemsTemplates/giftDetail',
     'jquery-ui'
 ], function (
     Backbone,
     itemsTmpl,
     itemsListTmpl,
     itemsBlockTmpl,
-    itemDetailTmpl
+    itemDetailTmpl,
+    giftDetailTmpl
 ) {
     return Backbone.View.extend({
         rawItems: [],
@@ -39,6 +41,7 @@ define([
 
         addItemToCart: function (e) {
             var id = parseInt($(e.target).closest('.id-cont').attr('id'), 10);
+            console.log(id);
             this.model.addItemToCart(id);
             this.stopPropagation(e);
         },
@@ -47,6 +50,14 @@ define([
             var id = parseInt($(e.target).closest('.clickable-item').attr('id'), 10);
             for (var i = 0; i < this.filteredItems.length; ++i) {
                 if (this.filteredItems[i].id === id) {
+                    if(this.filteredItems[i].name == "Gift Card")
+                        {
+                            this.$el.html(giftDetailTmpl(this.filteredItems[i]));
+                            $(this.$('.item-small-img')[0]).addClass('selected-img');
+                            this.model.showReviews(id);
+                            $.get("/incrementPopularity/" + id);
+                            return;
+                        }
                     this.$el.html(itemDetailTmpl(this.filteredItems[i]));
                     $(this.$('.item-small-img')[0]).addClass('selected-img');
                     this.model.showReviews(id);
