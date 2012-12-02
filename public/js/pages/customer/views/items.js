@@ -25,6 +25,7 @@ define([
         subcatName: '',
         MAX_ITEMS: 15,
         curIndex: 0,
+        isGiftCard: false,
 
         initialize: function () {
         },
@@ -41,7 +42,6 @@ define([
 
         addItemToCart: function (e) {
             var id = parseInt($(e.target).closest('.id-cont').attr('id'), 10);
-            console.log(id);
             this.model.addItemToCart(id);
             this.stopPropagation(e);
         },
@@ -152,10 +152,14 @@ define([
 
         loadItems: function (catName, subcatName) {
             var that = this;
+            this.isGiftCard = false;
 
             //special case for Hot Items
             if (catName === "Hot Items") {
                 subcatName = catName;
+            }
+            if (catName === "Gift Cards"){
+                this.isGiftCard = true;
             }
 
             if (catName === "search") {
@@ -204,6 +208,10 @@ define([
 
         showItems: function () {
             this.updateFrame();
+            if(this.isGiftCard)
+            {
+                this.$el.html(giftDetailTmpl(this.dispItems[0]));
+            }
 
             if (this.isList) {
                 this.displayItemList();

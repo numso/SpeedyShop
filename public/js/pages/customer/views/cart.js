@@ -78,6 +78,7 @@ define([
                             name: data.item.name,
                             price: giftPrice,
                             quantity: 1,
+
                             };
                         }
                         else{

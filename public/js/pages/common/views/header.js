@@ -83,7 +83,6 @@ define([
         showItems: function (e) {
             var catName = $(e.target).closest('.category').find('span').text();
             var subcatName = $(e.target).closest('.show-items').text();
-            console.log(catName + subcatName);
             this.model.showItemsInList(catName, subcatName);
         },
 
