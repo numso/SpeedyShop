@@ -164,9 +164,8 @@ define([
                 var price = parseFloat(this.$(items[i]).find('.sc-price').find('span').html(), 10);
                 total += qty * price;
             }
-
             //disable the checkout button if the cart is empty
-            if (total === 0)
+            if (total === 0 && qty === 0)
                 this.$('#check-out-btn').attr("disabled", true);
             else
                 this.$('#check-out-btn').attr("disabled", false);

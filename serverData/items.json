@@ -4681,7 +4681,7 @@
             "Gift Card",
             "Subcat"
         ],
-        "price": " Determined at Checkout",
+        "price": 0,
         "rating": 5,
         "desc": "Enter the dollar amount of the Gift Card you wish to purchase",
         "images": [
