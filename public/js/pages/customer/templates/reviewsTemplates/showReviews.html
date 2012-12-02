@@ -15,11 +15,13 @@
         </div>
         <div class="reviews">
             {{#each reviews}}
-                <div class="individual-review {{ratings}}-rating">
-                    <img src="img/ratings/{{ratings}}.png">
-                    <span>{{name}}</span>
-                    <div >{{text}}</div>
-                </div>
+                {{#if text}}
+                    <div class="individual-review {{ratings}}-rating">
+                        <img src="img/ratings/{{ratings}}.png">
+                        <span>{{name}}</span>
+                        <div >{{text}}</div>
+                    </div>
+                {{/if}}
             {{/each}}
         </div>
     </div>

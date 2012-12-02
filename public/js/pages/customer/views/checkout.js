@@ -58,7 +58,16 @@ define([
             'keypress input': 'verifyFields',
             'click .item-promo-btn': 'applyItemPromo',
             'click .gen-promo-btn': 'applyGenPromo',
-            'click .gen-gift-card-btn': 'applyGiftCard'
+            'click .gen-gift-card-btn': 'applyGiftCard',
+            "blur .submitted-price": "giftCardPrice"
+        },
+
+        giftCardPrice: function (e){
+            var text = this.$('.submitted-price').attr('value');
+            var el = parseInt(text.replace(/[^0-9]/g, ''), 10);
+            if (!isNaN(el) || !text.charAt(0) == '-'){
+
+            }
         },
 
         render: function () {
@@ -84,6 +93,7 @@ define([
             var total = 0;
             for (var i = 0; i < cart.length; ++i) {
                 total += cart[i].quantity * cart[i].price;
+                console.log(cart[i]);
             }
             total -= this.promoTotal;
             this.cartData = {
@@ -185,7 +195,7 @@ define([
                     itemName: this.cartData.cart[j].name,
                     itemID: this.cartData.cart[j].id,
                     promoDiscount: findPromo(this.cartData.cart[j].name, this.cartData.cart[j].price), //Mauriel, apply discount here
-                    finalPrice: this.cartData.cart[j].price //Mauriel, apply discount here
+                    finalPrice: this.cartData.cart[j].price, //Mauriel, apply discount here
                 });
             }
             return finalCart;

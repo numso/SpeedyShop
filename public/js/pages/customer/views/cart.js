@@ -70,13 +70,26 @@ define([
             } else { //item is not already in cart, so find it and add it
                 $.get('/getItem/' + id, function (data) {
                     if (data.status === "success") {
+                        if(data.item.name == "Gift Card"){
+                            var itemObj = {
+                            id: id,
+                            imgURL: data.item.imgURL,
+                            name: data.item.name,
+                            price: data.item.price,
+                            quantity: 1,
+                            giftCard: true
+
+                            };
+                        }
+                        else{
                         var itemObj = {
                             id: id,
                             imgURL: data.item.imgURL,
                             name: data.item.name,
                             price: data.item.price,
-                            quantity: 1
+                            quantity: 1,
                         };
+                        }
 
                         that.cart.push(itemObj);
                         that.$('.sc-area').append(scItemTmpl(itemObj)); //show item
