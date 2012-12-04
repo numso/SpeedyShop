@@ -72,12 +72,14 @@ define([
                     if (data.status === "success") {
                         if(data.item.name == "Gift Card"){
                             var giftPrice = $('.gift-price').val();
+                            var email = $('.gift-email').val();
                             var itemObj = {
                             id: id,
                             imgURL: data.item.imgURL,
                             name: data.item.name,
                             price: giftPrice,
                             quantity: 1,
+                            email: email,
 
                             };
                         }
