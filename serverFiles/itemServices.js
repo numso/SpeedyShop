@@ -222,6 +222,7 @@ module.exports = function (app) {
             });
         },
 
+
         getGiftCardValue: function (request, response, next) {
             var cards = app.shopData.giftCards;
             for (var i = 0; i < cards.length; ++i) {
@@ -238,7 +239,7 @@ module.exports = function (app) {
                             item: cards[i]
                         });
                         return;
-                    }                    
+                    }
                 }
             }
 
