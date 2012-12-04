@@ -71,13 +71,13 @@ define([
                 $.get('/getItem/' + id, function (data) {
                     if (data.status === "success") {
                         if(data.item.name == "Gift Card"){
+                            var giftPrice = $('.gift-price').val();
                             var itemObj = {
                             id: id,
                             imgURL: data.item.imgURL,
                             name: data.item.name,
-                            price: data.item.price,
+                            price: giftPrice,
                             quantity: 1,
-                            giftCard: true
 
                             };
                         }
@@ -164,9 +164,8 @@ define([
                 var price = parseFloat(this.$(items[i]).find('.sc-price').find('span').html(), 10);
                 total += qty * price;
             }
-
             //disable the checkout button if the cart is empty
-            if (total === 0)
+            if (total === 0 && qty === 0)
                 this.$('#check-out-btn').attr("disabled", true);
             else
                 this.$('#check-out-btn').attr("disabled", false);

@@ -15,6 +15,7 @@ define([
 
         currentTab: undefined,
         inventory: undefined,
+        categories: undefined,
 
         initialize: function () {
         },
@@ -37,11 +38,15 @@ define([
 
         render: function () {
             var that = this;
-            this.$el.html(itemsTmpl());
-            this.$('#tab-0').trigger('click'); //fires a click event to open first tab
             $.get('/getItems', function (data) {
                 that.inventory = data;
             });
+            $.get('/getCategories', function(data){
+                that.categories = data;
+            });
+            
+            this.$el.html(itemsTmpl());
+            this.$('#tab-0').trigger('click'); //fires a click event to open first tab
 
             return this;
         },
@@ -68,7 +73,8 @@ define([
         showAddNewItemTemplate: function () {
             this.$('.items-body').html(editableItemTmpl({
                 type: "add",
-                submitText: "Add New Item"
+                submitText: "Add New Item",
+                categories: this.categories
             }));
             this.verify(null); //will disable submit button due to reset
         },
@@ -146,26 +152,34 @@ define([
         },
 
         editItem: function (e) {
-            var that = this;
             var id = this.$(e.target).closest('tr').attr('id');
-            $.get('/getItem/' + id, function (data) {
-                if (data.status === "success") {
-                    var obj = {
-                        submitText: "Submit Changes",
-                        type: "edit", //so event can be triggered from it
-                        id: id,
-                        name: data.item.name,
-                        price: data.item.price,
-                        desc: data.item.desc,
-                        imgUrl1: data.item.images[0], //why is data.images undefined? Dallin!
-                        imgUrl2: data.item.images[1],
-                        imgUrl3: data.item.images[2],
-                        imgUrl4: data.item.images[3]
-                    }
-                    that.$('.items-body').html(editableItemTmpl(obj)); //fill out fields
-                    that.verify(null);
-                }
-            });
+            for(var n = 0; n < this.inventory.length; ++n)
+                if(this.inventory[n].id == id)
+                    var pickedItem = this.inventory[n];
+
+            console.log(pickedItem);
+            var obj = {
+                submitText: "Submit Changes",
+                type: "edit", 
+                id: pickedItem.id,
+                name: pickedItem.name,
+                price: pickedItem.price,
+                desc: pickedItem.desc,
+                mainCat: pickedItem.cat[0],
+                subCat: pickedItem.cat[1],
+                imgUrl1: pickedItem.images[0],
+                imgUrl2: pickedItem.images[1],
+                imgUrl3: pickedItem.images[2],
+                imgUrl4: pickedItem.images[3],
+                categories: this.categories
+            }
+            console.log(this.categories);
+
+            this.$('.items-body').html(editableItemTmpl(obj));
+            this.verify(null);
+
+
+
         },
 
         submitEditedItem: function (e) {

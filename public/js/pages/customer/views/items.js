@@ -6,13 +6,15 @@ define([
     'tmpl!pages/customer/templates/itemsTemplates/itemsList',
     'tmpl!pages/customer/templates/itemsTemplates/itemsBlock',
     'tmpl!pages/customer/templates/itemsTemplates/itemDetail',
+    'tmpl!pages/customer/templates/itemsTemplates/giftDetail',
     'jquery-ui'
 ], function (
     Backbone,
     itemsTmpl,
     itemsListTmpl,
     itemsBlockTmpl,
-    itemDetailTmpl
+    itemDetailTmpl,
+    giftDetailTmpl
 ) {
     return Backbone.View.extend({
         rawItems: [],
@@ -23,6 +25,7 @@ define([
         subcatName: '',
         MAX_ITEMS: 15,
         curIndex: 0,
+        isGiftCard: false,
 
         initialize: function () {
         },
@@ -47,6 +50,14 @@ define([
             var id = parseInt($(e.target).closest('.clickable-item').attr('id'), 10);
             for (var i = 0; i < this.filteredItems.length; ++i) {
                 if (this.filteredItems[i].id === id) {
+                    if(this.filteredItems[i].name == "Gift Card")
+                        {
+                            this.$el.html(giftDetailTmpl(this.filteredItems[i]));
+                            $(this.$('.item-small-img')[0]).addClass('selected-img');
+                            this.model.showReviews(id);
+                            $.get("/incrementPopularity/" + id);
+                            return;
+                        }
                     this.$el.html(itemDetailTmpl(this.filteredItems[i]));
                     $(this.$('.item-small-img')[0]).addClass('selected-img');
                     this.model.showReviews(id);
@@ -141,10 +152,14 @@ define([
 
         loadItems: function (catName, subcatName) {
             var that = this;
+            this.isGiftCard = false;
 
             //special case for Hot Items
             if (catName === "Hot Items") {
                 subcatName = catName;
+            }
+            if (catName === "Gift Cards"){
+                this.isGiftCard = true;
             }
 
             if (catName === "search") {
@@ -193,6 +208,10 @@ define([
 
         showItems: function () {
             this.updateFrame();
+            if(this.isGiftCard)
+            {
+                this.$el.html(giftDetailTmpl(this.dispItems[0]));
+            }
 
             if (this.isList) {
                 this.displayItemList();

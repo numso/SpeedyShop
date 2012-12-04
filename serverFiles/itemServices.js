@@ -224,9 +224,8 @@ module.exports = function (app) {
 
         getGiftCardValue: function (request, response, next) {
             var cards = app.shopData.giftCards;
-
             for (var i = 0; i < cards.length; ++i) {
-                if (cards[i].code == request.params.code) {
+                if (cards[i].code == request.code) {
                     if (cards[i].used) {
                         response.send({
                             status: "used"
@@ -250,7 +249,6 @@ module.exports = function (app) {
 
         invalidateGiftCard: function (request, response, next) {
             var cards = app.shopData.giftCards;
-
             for (var i = 0; i < cards.length; ++i) {
                 if (cards[i].code == request.params.code) {
                     cards[i].used = true;

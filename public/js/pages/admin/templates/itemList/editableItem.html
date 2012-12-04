@@ -9,19 +9,30 @@
         <div class="categories">
             <label>Category: <label>
             <select class="main-cat">
-                <option value="Jewelry">Jewelry</option>
+                {{#if mainCat}}
+                <option selected = 'selected'>{{mainCat}}</option>
+                {{/if}}
+                {{#each categories}}
+                <option class="{{title}}">{{title}}</option>
+                {{/each}}
             </select>
             <select class="secondary-cat">
-                <option value="Other">Other</option>
-            </select>
-            <select class="type-cat">
-                <option value="Subcat">Subcat</option>
+                {{#if subCat}}
+                <option selected = 'selected'>{{subCat}}</option>
+                {{/if}}
+                {{#each categories}}
+                {{#each subCats}}
+                <option class="{{this}}">{{this}}</option>
+                {{/each}}
+                {{/each}}
             </select>
         </div>
-        <div class="cost">
+
+<!--   took this out because we don't have a cost column in our items.json    
+      <div class="cost">
             <label>Cost: $</label>
             <input class='item-cost' type='text' placeholder='Item cost' value="{{cost}}">
-        </div>
+        </div> -->
         <div class="price">
             <label>Price: $</label>
             <input class='item-price' type='text' placeholder='Sale price' value="{{price}}">

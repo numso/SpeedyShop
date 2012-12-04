@@ -23,7 +23,9 @@ define([
         explanatoryText: undefined,
         checkoutData: [],
         itemPromo: [],
+        giftCardList: [],
         genPromo: undefined,
+        genGiftCard:undefined,
         promoTotal: 0,
         promoGenTotal: 0,
 
@@ -56,6 +58,7 @@ define([
             'keypress input': 'verifyFields',
             'click .item-promo-btn': 'applyItemPromo',
             'click .gen-promo-btn': 'applyGenPromo',
+            'click .gen-gift-card-btn': 'applyGiftCard',
             "blur .submitted-price": "giftCardPrice"
         },
 
@@ -65,13 +68,25 @@ define([
             if (!isNaN(el) || !text.charAt(0) == '-'){
 
             }
-            
         },
 
         render: function () {
             this.$el.html(checkoutTmpl());
             this.getPromos();
             return this;
+        },
+
+        applyGiftCard: function(){
+            this.genGiftCard = this.$('.gift-card-text').val();
+            this.calcGiftCard();
+        },
+
+        calcGiftCard: function(){
+            that=this;
+            $.get('getGiftCardValue', this.genGiftCard, function(card){
+                console.log("the card status is: " + card.status);
+                //that.cartData.total -= card.amount;
+            });
         },
 
         showCartConfirm: function (cart) {
@@ -185,6 +200,7 @@ define([
             }
             return finalCart;
         },
+
 
         findPromo: function(name){
             for(var n = 0; n < this.itemPromo.length; ++n)
@@ -402,7 +418,6 @@ define([
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
 
-            allFilled = true;
             if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
