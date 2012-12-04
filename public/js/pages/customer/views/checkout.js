@@ -213,13 +213,14 @@ define([
         applyItemPromo: function(e){
             var enteredItemPromo = $(e.target).closest('.checkout-item').find('.promo-code-text').val();
             var thisItemName = $(e.target).closest('.checkout-item').find('.item-name').html();
-            //var itemToDiscount = this.$()
             var flag = true;
             for(var n = 0; n < this.itemPromo.length; ++n)
             {
-                if(this.itemPromo[n] == enteredItemPromo)
+                console.log(this.itemPromo[n].code);
+                if(this.itemPromo[n].promo == enteredItemPromo)
                     {
                         console.log("Promo already entered!");
+                        $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code already used!").css('color', 'red');
                         flag = false;
                     }
             }
@@ -230,20 +231,26 @@ define([
                         item : thisItemName
                     }
                     this.itemPromo.push(itemObj);
+                    $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code successfully applied").css('color', 'green');
                 }
         },
 
         applyGenPromo: function(){
-            this.genPromo = this.$('.general-promo-text').val();
-            console.log(this.genPromo);
-            this.calcGenPromo();
+            var possiblePromo = this.$('.general-promo-text').val();
+            if(this.genPromo == possiblePromo)
+                this.$('.gen-promo-feedback').html('Promo Code already used!').css('color', 'red');
+            else
+            {
+                this.genPromo = possiblePromo;
+                this.calcGenPromo();
+            }
         },
 
         calcGenPromo: function(){
-            console.log(this.genPromo);
             for(var n = 0; n < this.promoList.length; ++n)
                 if(this.promoList[n].code == this.genPromo)
                     {
+                        this.$('.gen-promo-feedback').html('Promo code successfully applied').css('color', 'green');
                         if(this.promoList[n].amount == 0)
                             this.percentGenPromo(this.promoList[n]);
                         if(this.promoList[n].percent == 0)
