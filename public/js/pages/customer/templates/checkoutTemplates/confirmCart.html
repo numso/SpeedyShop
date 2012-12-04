@@ -7,13 +7,18 @@
             </div>
             <div class='checkout-item-info'>
                 <div class = 'item-name'>{{name}}</div>
+
                 <div class='sc-price'>$<span>{{price}}</span></div>
                 <div>Quantity: {{quantity}}</div>
             </div>
             <div class="item-promo-wrapper">
-                <label>Promo code:</label>
-                <input class="promo-code-text" type="text">
-                <button class = 'item-promo-btn'>Apply</button>
+                {{#if email}}
+                    <div>Send to: {{email}}</div>
+                {{else}}
+                    <label>Promo code:</label>
+                    <input class="promo-code-text" type="text">
+                    <button class = 'item-promo-btn'>Apply</button>
+                {{/if}}
             </div>
         </div>
         <hr/>

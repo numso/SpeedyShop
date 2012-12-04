@@ -80,17 +80,17 @@ define([
                             price: giftPrice,
                             quantity: 1,
                             email: email,
-
                             };
                         }
                         else{
-                        var itemObj = {
-                            id: id,
-                            imgURL: data.item.imgURL,
-                            name: data.item.name,
-                            price: data.item.price,
-                            quantity: 1,
-                        };
+                            var itemObj = {
+                                id: id,
+                                imgURL: data.item.imgURL,
+                                name: data.item.name,
+                                price: data.item.price,
+                                quantity: 1,
+                                email:undefined
+                            };
                         }
 
                         that.cart.push(itemObj);

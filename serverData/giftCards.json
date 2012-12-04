@@ -12,7 +12,22 @@
 	,
     {
         "code": 1,
-        "amount": 25,
+        "amount": 10,
+        "used": false
+    },
+    {
+        "code": 2,
+        "amount": 20,
+        "used": false
+    },
+    {
+        "code": 3,
+        "amount": 30,
+        "used": false
+    },
+    {
+        "code": 4,
+        "amount": 40,
         "used": false
     }
 ]
