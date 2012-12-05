@@ -19,7 +19,8 @@ define([
             'click #check-out-btn': 'clickedCheckout',
             'click .qty-cnt': 'sanitizeQuantityInput',
             'mousewheel .qty-cnt': 'sanitizeQuantityInput',
-            'click .X-button': 'removeItem'
+            'click .X-button': 'removeItem',
+            'keypress .sc-area': 'changeItemAmount'
         },
 
         render: function () {
@@ -55,7 +56,7 @@ define([
 
             this.$('.qty-cnt, .X-button').attr('disabled', false);
 
-            var el = that.$('#' + id);
+            var el = this.$('#' + id);
             if (el.length > 0) {
                 //item is already in cart, so just increment its quantity
                 for (var i = 0; i < this.cart.length; ++i) {
@@ -68,48 +69,45 @@ define([
                 this.recalculateTotal();
 
             } else { //item is not already in cart, so find it and add it
-                $.get('/getItem/' + id, function (data) {
-                    if (data.status === "success") {
-                        if(data.item.name == "Gift Card"){
-                            var giftPrice = $('.gift-price').val();
-                            var email = $('.gift-email').val();
-                            var itemObj = {
-                            id: id,
-                            imgURL: data.item.imgURL,
-                            name: data.item.name,
-                            price: giftPrice,
-                            quantity: 1,
-                            email: email,
-                            };
-                        }
-                        else{
+                if (typeof id === "string" && id.substr(0, 2) === 'gc') {
+                    var itemObj = {
+                        id: id,
+                        imgURL: '',
+                        name: "Gift Card",
+                        price: $('.gift-price').val(),
+                        quantity: 1,
+                        email: $('.gift-email').val()
+                    };
+                    addItToDaCart(itemObj);
+                } else {
+                    $.get('/getItem/' + id, function (data) {
+                        if (data.status === "success") {
                             var itemObj = {
                                 id: id,
                                 imgURL: data.item.imgURL,
                                 name: data.item.name,
                                 price: data.item.price,
                                 quantity: 1,
-                                email:undefined
+                                email: undefined
                             };
+                            addItToDaCart(itemObj);
                         }
+                    });
+                }
 
-                        that.cart.push(itemObj);
-                        that.$('.sc-area').append(scItemTmpl(itemObj)); //show item
-                        that.$('#check-out-btn').removeAttr("disabled"); //enable checkout button
-                        that.recalculateTotal();
+                function addItToDaCart(itemObj) {
+                    that.cart.push(itemObj);
+                    that.$('.sc-area').append(scItemTmpl(itemObj)); //show item
+                    that.$('#check-out-btn').removeAttr("disabled"); //enable checkout button
+                    that.recalculateTotal();
+                };
+            }
+        },
 
-                    } else {
-                        console.log('uh oh, something\'s up. Could\'t get the item');
-                    }
-                });
-
-                //add event to item div so that user can type in a new quantity then press Enter
-                this.$('.sc-area').keypress(function(event) {
-                    var keycode = (event.keyCode ? event.keyCode : event.which);
-                    if (keycode == '13') {
-                        that.sanitizeQuantityInput();
-                    }
-                });
+        changeItemAmount: function (e) {
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            if (keycode == '13') {
+                that.sanitizeQuantityInput();
             }
         },
 

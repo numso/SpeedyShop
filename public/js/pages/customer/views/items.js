@@ -62,11 +62,13 @@ define([
         addItemToCart: function (e) {
             var id = parseInt($(e.target).closest('.id-cont').attr('id'), 10);
             if (this.isGiftCard) {
-                var amt = parseInt(this.$('price').val(), 10);
+                var amt = parseInt(this.$('.gift-price').val(), 10);
                 if (isNaN(amt) || amt === 0 || !this.verifyEmail())
                     return;
+                this.model.addItemToCart('gc-' + amt + '-' + this.$('.gift-email').val().replace(/\./g, '').replace(/\@/g, ''));
+            } else {
+                this.model.addItemToCart(id);
             }
-            this.model.addItemToCart(id);
             this.stopPropagation(e);
         },
 
