@@ -43,6 +43,14 @@ module.exports = function (app) {
             }
         },
 
+        getUserNameEmail: function (req, res, next) {
+            res.myUser = {
+                name: userDB[req.cookies.loggedInName].fname,
+                email: userDB[req.cookies.loggedInName].email
+            };
+            next();
+        },
+
         checkUserExistence: function (req, res, next) {
             var input = '';
             req.on('data', function (d) {
