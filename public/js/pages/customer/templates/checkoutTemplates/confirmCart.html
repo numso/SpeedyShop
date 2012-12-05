@@ -16,7 +16,7 @@
                     <div>Send to: {{email}}</div>
                 {{else}}
                     <label>Promo code:</label>
-                    <input class="promo-code-text" type="text">
+                    <input class="promo-code-text" type="text"><div class = 'promo-feedback'></div>
                     <button class = 'item-promo-btn'>Apply</button>
                 {{/if}}
             </div>
@@ -25,13 +25,14 @@
     {{/each}}
 
     <div class="gift-cards-wrapper">
-        <label>Gift Card code:</label>
+        <label>Gift Card Code:</label>
         <input class="gift-card-text" type="text">
         <button class = 'gen-gift-card-btn'>Apply</button>
+        <div class="invalide-gift-card"></div>
     </div>
      <div class="general-promo-wrapper">
         <label>General promo code:</label>
-        <input class="general-promo-text" type="text">
+        <input class="general-promo-text" type="text" size="5"><div class = 'gen-promo-feedback'></div>
         <button class = 'gen-promo-btn'>Apply</button>
         <br/>
     </div>

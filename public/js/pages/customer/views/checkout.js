@@ -59,15 +59,6 @@ define([
             'click .item-promo-btn': 'applyItemPromo',
             'click .gen-promo-btn': 'applyGenPromo',
             'click .gen-gift-card-btn': 'applyGiftCard',
-            "blur .submitted-price": "giftCardPrice"
-        },
-
-        giftCardPrice: function (e){
-            var text = this.$('.submitted-price').attr('value');
-            var el = parseInt(text.replace(/[^0-9]/g, ''), 10);
-            if (!isNaN(el) || !text.charAt(0) == '-'){
-
-            }
         },
 
         render: function () {
@@ -82,10 +73,15 @@ define([
         },
 
         calcGiftCard: function(){
-            that=this;
+            var that=this;
             $.get('getGiftCardValue', this.genGiftCard, function(card){
                 console.log("the card status is: " + card.status);
-                //that.cartData.total -= card.amount;
+                if (card.status == "success"){
+                    that.$('.invalide-gift-card').html("Gift Card Successfully Applied").css('color', 'green');
+                    that.cartData.total -= card.amount;
+                }else{
+                    that.$('.invalide-gift-card').html('Invalid').css('color', 'red');
+                }
             });
         },
 
@@ -93,7 +89,6 @@ define([
             var total = 0;
             for (var i = 0; i < cart.length; ++i) {
                 total += cart[i].quantity * cart[i].price;
-                console.log(cart[i]);
             }
             total -= this.promoTotal;
             this.cartData = {
@@ -218,13 +213,14 @@ define([
         applyItemPromo: function(e){
             var enteredItemPromo = $(e.target).closest('.checkout-item').find('.promo-code-text').val();
             var thisItemName = $(e.target).closest('.checkout-item').find('.item-name').html();
-            //var itemToDiscount = this.$()
             var flag = true;
             for(var n = 0; n < this.itemPromo.length; ++n)
             {
-                if(this.itemPromo[n] == enteredItemPromo)
+                console.log(this.itemPromo[n].code);
+                if(this.itemPromo[n].promo == enteredItemPromo)
                     {
                         console.log("Promo already entered!");
+                        $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code already used!").css('color', 'red');
                         flag = false;
                     }
             }
@@ -235,28 +231,40 @@ define([
                         item : thisItemName
                     }
                     this.itemPromo.push(itemObj);
+                    $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code successfully applied").css('color', 'green');
                 }
         },
 
         applyGenPromo: function(){
-            this.genPromo = this.$('.general-promo-text').val();
-            console.log(this.genPromo);
-            this.calcGenPromo();
+            var possiblePromo = this.$('.general-promo-text').val();
+            if(this.genPromo == possiblePromo)
+                this.$('.gen-promo-feedback').html('Promo Code already used!').css('color', 'red');
+            else
+            {
+                this.genPromo = possiblePromo;
+                this.calcGenPromo();
+            }
         },
 
         calcGenPromo: function(){
-            console.log(this.genPromo);
+            var flag = false;
             for(var n = 0; n < this.promoList.length; ++n)
-                if(this.promoList[n].code == this.genPromo)
-                    {
-                        if(this.promoList[n].amount == 0)
-                            this.percentGenPromo(this.promoList[n]);
-                        if(this.promoList[n].percent == 0)
-                            {
-                                this.promoTotal += this.promoList[n].amount;
-                                this.cartData.total -+ this.promoTotal;
-                            }
-                    }
+                    if(this.promoList[n].code == this.genPromo)
+                        {
+                            flag = true;
+                            this.$('.gen-promo-feedback').html('Promo code successfully applied').css('color', 'green');
+                            if(this.promoList[n].amount == 0)
+                                this.percentGenPromo(this.promoList[n]);
+                            if(this.promoList[n].percent == 0)
+                                {
+                                    this.promoTotal += this.promoList[n].amount;
+                                    this.cartData.total -+ this.promoTotal;
+                                }
+                        }
+
+                if(flag == false)
+                    this.$('.gen-promo-feedback').html('Invalid Promo Code').css('color', 'red');
+      
 
         },
 
