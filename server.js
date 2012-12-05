@@ -72,7 +72,7 @@ app.get('/getItems', itemServices.getItems);
 app.get('/getItems/:catID', itemServices.getItems);
 app.get('/incrementPopularity/:itemNumber', itemServices.incrementPopularity);
 app.post('/search', itemServices.search);
-app.get('/getGiftCardValue', itemServices.getGiftCardValue);
+app.get('/getGiftCardValue/:code', itemServices.getGiftCardValue);
 app.post('/invalidateGiftCard', itemServices.invalidateGiftCard);
 
 // Cart Stuff

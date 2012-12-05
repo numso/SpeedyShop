@@ -28,6 +28,7 @@ define([
         genGiftCard:undefined,
         promoTotal: 0,
         promoGenTotal: 0,
+        giftCardDiscount:undefined,
 
 
         initialize: function () {
@@ -74,11 +75,13 @@ define([
 
         calcGiftCard: function(){
             var that=this;
-            $.get('getGiftCardValue', this.genGiftCard, function(card){
+            $.get('getGiftCardValue/' + this.genGiftCard, function(card){
                 console.log("the card status is: " + card.status);
                 if (card.status == "success"){
                     that.$('.invalide-gift-card').html("Gift Card Successfully Applied").css('color', 'green');
-                    that.cartData.total -= card.amount;
+                    console.log(card);
+                    // that.cartData.total -= card.item.amount;
+                    that.giftCardDiscount = card.item.amount;
                 }else{
                     that.$('.invalide-gift-card').html('Invalid').css('color', 'red');
                 }
@@ -311,7 +314,9 @@ define([
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
                 newTotal: this.cartData.total - parseFloat(this.promoTotal), //Mauriel, apply discount here
-                total: this.cartData.total - parseFloat(this.promoTotal), //Mauriel, apply discount here
+                total: this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount, //Mauriel, apply discount here
+                giftCard:this.giftCardDiscount,
+
 
                 addresses: [
                     {
@@ -426,7 +431,7 @@ define([
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
 
-            if (allFilled || true)
+            if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
                 this.$('#checkout-next-step').attr('disabled', true); //need to fill out more fields
