@@ -73,14 +73,14 @@ define([
         },
 
         calcGiftCard: function(){
-            that=this;
+            var that=this;
             $.get('getGiftCardValue', this.genGiftCard, function(card){
                 console.log("the card status is: " + card.status);
                 if (card.status == "success"){
-                    that.$('invalide-gift-card').hide();
+                    that.$('.invalide-gift-card').html("Gift Card Successfully Applied").css('color', 'green');
                     that.cartData.total -= card.amount;
                 }else{
-                    that.$('invalide-gift-card').show();
+                    that.$('.invalide-gift-card').html('Invalid').css('color', 'red');
                 }
             });
         },
