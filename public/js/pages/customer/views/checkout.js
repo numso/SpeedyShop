@@ -252,18 +252,24 @@ define([
         },
 
         calcGenPromo: function(){
+            var flag = false;
             for(var n = 0; n < this.promoList.length; ++n)
-                if(this.promoList[n].code == this.genPromo)
-                    {
-                        this.$('.gen-promo-feedback').html('Promo code successfully applied').css('color', 'green');
-                        if(this.promoList[n].amount == 0)
-                            this.percentGenPromo(this.promoList[n]);
-                        if(this.promoList[n].percent == 0)
-                            {
-                                this.promoTotal += this.promoList[n].amount;
-                                this.cartData.total -+ this.promoTotal;
-                            }
-                    }
+                    if(this.promoList[n].code == this.genPromo)
+                        {
+                            flag = true;
+                            this.$('.gen-promo-feedback').html('Promo code successfully applied').css('color', 'green');
+                            if(this.promoList[n].amount == 0)
+                                this.percentGenPromo(this.promoList[n]);
+                            if(this.promoList[n].percent == 0)
+                                {
+                                    this.promoTotal += this.promoList[n].amount;
+                                    this.cartData.total -+ this.promoTotal;
+                                }
+                        }
+
+                if(flag == false)
+                    this.$('.gen-promo-feedback').html('Invalid Promo Code').css('color', 'red');
+      
 
         },
 
