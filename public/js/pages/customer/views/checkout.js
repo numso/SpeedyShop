@@ -344,6 +344,8 @@ define([
             var assembledOrder = this.assembleOrder();
             var orderToServer = {
                 address: assembledOrder.addresses[0],
+                email: 'dosmun@gmail.com',
+                name: 'dallin',
                 items: [], //will populate in loop below
                 notes: assembledOrder.notes
             };

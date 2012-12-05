@@ -38,10 +38,34 @@ define([
             "click #back-btn": "back",
             "click .add-to-cart": "addItemToCart",
             "click .items-bottom-nav": "pageItems",
+            "keyup .gift-email": "verifyEmailInput"
+        },
+
+        verifyEmailInput: function (e) {
+            var theEmail = this.$('.gift-email').val();
+            if (theEmail === "") {
+                this.$('.gift-email').css('background-color', 'transparent');
+            } else if (this.verifyEmail()) {
+                this.$('.gift-email').css('background-color', 'rgba(60, 255, 60, 0.27)');
+            } else {
+                this.$('.gift-email').css('background-color', 'rgba(255, 60, 60, 0.27)');
+            }
+        },
+
+        verifyEmail: function () {
+            var theEmail = this.$('.gift-email').val();
+            if (theEmail !== "" && theEmail.match(/[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Za-z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b/))
+               return true;
+            return false;
         },
 
         addItemToCart: function (e) {
             var id = parseInt($(e.target).closest('.id-cont').attr('id'), 10);
+            if (this.isGiftCard) {
+                var amt = parseInt(this.$('price').val(), 10);
+                if (isNaN(amt) || amt === 0 || !this.verifyEmail())
+                    return;
+            }
             this.model.addItemToCart(id);
             this.stopPropagation(e);
         },
