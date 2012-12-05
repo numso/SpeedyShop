@@ -59,15 +59,6 @@ define([
             'click .item-promo-btn': 'applyItemPromo',
             'click .gen-promo-btn': 'applyGenPromo',
             'click .gen-gift-card-btn': 'applyGiftCard',
-            "blur .submitted-price": "giftCardPrice"
-        },
-
-        giftCardPrice: function (e){
-            var text = this.$('.submitted-price').attr('value');
-            var el = parseInt(text.replace(/[^0-9]/g, ''), 10);
-            if (!isNaN(el) || !text.charAt(0) == '-'){
-
-            }
         },
 
         render: function () {
@@ -82,10 +73,15 @@ define([
         },
 
         calcGiftCard: function(){
-            that=this;
+            var that=this;
             $.get('getGiftCardValue', this.genGiftCard, function(card){
                 console.log("the card status is: " + card.status);
-                //that.cartData.total -= card.amount;
+                if (card.status == "success"){
+                    that.$('.invalide-gift-card').html("Gift Card Successfully Applied").css('color', 'green');
+                    that.cartData.total -= card.amount;
+                }else{
+                    that.$('.invalide-gift-card').html('Invalid').css('color', 'red');
+                }
             });
         },
 
@@ -93,7 +89,6 @@ define([
             var total = 0;
             for (var i = 0; i < cart.length; ++i) {
                 total += cart[i].quantity * cart[i].price;
-                console.log(cart[i]);
             }
             total -= this.promoTotal;
             this.cartData = {
