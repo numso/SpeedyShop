@@ -89,7 +89,7 @@ app.post("/createReview/:objID", reviewServices.createReview);
 app.get('/orders', employeeServices.getOrders);
 app.post('/processOrder/:orderNum', employeeServices.processOrder);
 app.post('/updateAvailability', employeeServices.updateAvailability);
-app.post('/submitOrder', employeeServices.submitOrder);
+app.post('/submitOrder', authServices.getUserNameEmail, employeeServices.submitOrder);
 
 // Authentication Stuff
 app.post('/login', authServices.login);

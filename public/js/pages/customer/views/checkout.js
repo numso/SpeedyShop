@@ -352,8 +352,6 @@ define([
             var assembledOrder = this.assembleOrder();
             var orderToServer = {
                 address: assembledOrder.addresses[0],
-                email: 'dosmun@gmail.com',
-                name: 'dallin',
                 items: [], //will populate in loop below
                 notes: assembledOrder.notes
             };
@@ -428,7 +426,7 @@ define([
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
 
-            if (allFilled)
+            if (allFilled || true)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
                 this.$('#checkout-next-step').attr('disabled', true); //need to fill out more fields

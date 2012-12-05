@@ -1,21 +1,21 @@
 {
     "Admin": {
         "pass": "$2a$10$UnhX/6kTvefsZ3fPml1/ieRt4I6rpP1NZNss20u8mjVTGBBL8uyA.",
-        "email": "admin@speedyshop.com",
+        "email": "speedyshopsales@gmail.com",
         "fname": "Admin",
         "lname": "User",
         "type": 3
     },
     "Employee": {
         "pass": "$2a$10$98DhkdFrfMscMGweiR9NKeb6SMUDBITOd6UJl6lxjsOI5.qLQ0BIu",
-        "email": "employee@speedyshop.com",
+        "email": "speedyshopsales@gmail.com",
         "fname": "Employee",
         "lname": "User",
         "type": 2
     },
     "Customer": {
         "pass": "$2a$10$YmF4jXdfffljjshvdLL6h.JjeieX.BAABhrxV9B.lpkQbc07R3MCa",
-        "email": "customer@speedyshop.com",
+        "email": "speedyshopsales@gmail.com",
         "fname": "Customer",
         "lname": "User",
         "type": 1

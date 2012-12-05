@@ -1,1 +1,23 @@
-{"Admin":{"pass":"admin","email":"admin@speedyshop.com","fname":"Admin","lname":"User","type":3},"Employee":{"pass":"employee","email":"employee@speedyshop.com","fname":"Employee","lname":"User","type":2},"Customer":{"pass":"customer","email":"customer@speedyshop.com","fname":"Customer","lname":"User","type":1},"test":{"pass":"test","email":"test@test.com","fname":"test","lname":"test","type":1}}
+{
+    "Admin": {
+        "pass": "admin",
+        "email": "speedyshopsales@gmail.com",
+        "fname": "Admin",
+        "lname": "User",
+        "type": 3
+    },
+    "Employee": {
+        "pass": "employee",
+        "email": "speedyshopsales@gmail.com",
+        "fname": "Employee",
+        "lname": "User",
+        "type": 2
+    },
+    "Customer": {
+        "pass": "customer",
+        "email": "speedyshopsales@gmail.com",
+        "fname": "Customer",
+        "lname": "User",
+        "type": 1
+    }
+}

@@ -44,7 +44,7 @@ define([
         verifyEmailInput: function (e) {
             var theEmail = this.$('.gift-email').val();
             if (theEmail === "") {
-                this.$('.gift-email').css('background-color', 'transparent');
+                this.$('.gift-email').css('background-color', 'white');
             } else if (this.verifyEmail()) {
                 this.$('.gift-email').css('background-color', 'rgba(60, 255, 60, 0.27)');
             } else {
