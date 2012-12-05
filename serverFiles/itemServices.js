@@ -253,7 +253,7 @@ module.exports = function (app) {
             for (var i = 0; i < cards.length; ++i) {
                 if (cards[i].code == request.params.code) {
                     cards[i].used = true;
-
+                    fs.writeFileSync("serverData/giftCards.json", JSON.stringify(cards));
                     response.send({
                         status: "success"
                     });

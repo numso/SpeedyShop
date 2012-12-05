@@ -76,7 +76,6 @@ define([
         calcGiftCard: function(){
             var that=this;
             $.get('getGiftCardValue/' + this.genGiftCard, function(card){
-                console.log("the card status is: " + card.status);
                 if (card.status == "success"){
                     that.$('.invalide-gift-card').html("Gift Card Successfully Applied").css('color', 'green');
                     console.log(card);
@@ -382,6 +381,9 @@ define([
                 else {
                     window.alert("Error submitting order!\nServer responded: " + response.status);
                 }
+            });
+            $.post('invalidateGiftCard/' + this.genGiftCard, function(){
+                
             });
         },
 
