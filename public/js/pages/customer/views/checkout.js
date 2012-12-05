@@ -431,8 +431,7 @@ define([
             var allFilled = true;
             for (var j = 0; j < inputs.length; ++j)
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
-                    allFilled = false;//////////////////////////////////////////////////////////////////////////
-                allFilled = true;
+                    allFilled = true;
             if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
