@@ -1,6 +1,6 @@
 /*jshint node:true*/
 
-module.exports = function (app) {
+module.exports = function (app, smtpTransport, orderEmailFn) {
 
     var fs = require('fs');
 
@@ -74,6 +74,23 @@ module.exports = function (app) {
 
                 orders.push(orderObj);
                 fs.writeFileSync('serverData/orders.json', JSON.stringify(orders));
+
+                var mailOptions = {
+                    from: "Speedy Shop <speedyshopsales@gmail.com>", // sender address
+                    to: orderData.email, // list of receivers
+                    subject: "Thank you for your purchase!", // Subject line
+                    text: orderData.name + ", Thank you for your Purchase! We will do our best to ensure a reliable and fast delivery. Your order number is " + orderObj.orderNum + ". Sincerely, The Speedy Shop Team", // plaintext body
+                    html: orderEmailFn({ name: orderData.name, orderNum: orderObj.orderNum }) // html body
+                };
+
+                // send mail with defined transport object
+                smtpTransport.sendMail(mailOptions, function (err, response) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log("Message sent: " + response.message);
+                    }
+                });
 
                 response.send({
                     status: "OK"

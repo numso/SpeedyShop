@@ -6,10 +6,22 @@ var PORT = process.env.PORT || process.argv[2] || 80,
 
 var express = require('express'),
     fs = require('fs'),
-    app = express();
+    app = express(),
+    nodemailer = require("nodemailer"),
+    jade = require('jade');
 
 app.listen(PORT, HOST);
 console.log('Server running on port:' + PORT);
+
+var smtpTransport = nodemailer.createTransport("SMTP",{
+  service: "Gmail",
+  auth: {
+    user: "speedyshopsales@gmail.com",
+    pass: "speedyshop1"
+  }
+});
+
+var orderEmailFn = jade.compile(fs.readFileSync('serverFiles/orderEmail.jade'));
 
 (function () {
     app.shopData = {};
@@ -22,7 +34,7 @@ console.log('Server running on port:' + PORT);
     app.shopData.reviews = JSON.parse(fs.readFileSync('serverData/reviews.json'));
     app.shopData.stateTaxes = JSON.parse(fs.readFileSync('serverData/stateTaxes.json'));
     app.shopData.giftCards = JSON.parse(fs.readFileSync('serverData/giftCards.json'));
-    
+
     app.shopData.users = JSON.parse(fs.readFileSync('serverData/users.json'));
     app.shopData.usersWin = JSON.parse(fs.readFileSync('serverData/usersWin.json'));
 }());
@@ -30,7 +42,7 @@ console.log('Server running on port:' + PORT);
 var itemServices = require('./serverFiles/itemServices')(app),
     filterServices = require('./serverFiles/filterServices')(app),
     reviewServices = require('./serverFiles/reviewServices')(app),
-    employeeServices = require('./serverFiles/employeeServices')(app),
+    employeeServices = require('./serverFiles/employeeServices')(app, smtpTransport, orderEmailFn),
     adminServices = require('./serverFiles/adminServices')(app);
 
 if (ENV === 'prod') {
@@ -40,6 +52,8 @@ if (ENV === 'prod') {
 }
 
 app.configure(function () {
+    app.set('views', __dirname + '/serverFiles');
+    app.set('view engine', 'jade');
     app.use(express.logger({format: ':method :status :url'}));
     app.use(express.cookieParser());
     app.use(express.methodOverride());
@@ -96,3 +110,14 @@ app.post('/updateInventory', adminServices.updateInventory);
 app.post('/changeRating', adminServices.changeRating);
 app.get('/getStateTaxes', adminServices.getStateTaxes);
 app.post('/changeTax', adminServices.changeTax);
+
+
+app.get('/showEmailTemplate/order', function (req, res, next) {
+    var fn = jade.compile(fs.readFileSync('serverFiles/orderEmail.jade'));
+    var data = {
+        name: "Dallin",
+        orderNum: 12341234,
+    };
+    var html = fn(data);
+    res.send(html);
+});
