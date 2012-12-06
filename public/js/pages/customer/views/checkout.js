@@ -78,7 +78,6 @@ define([
             $.get('getGiftCardValue/' + this.genGiftCard, function(card){
                 if (card.status == "success"){
                     that.$('.invalide-gift-card').html("Gift Card Successfully Applied").css('color', 'green');
-                    console.log(card);
                     // that.cartData.total -= card.item.amount;
                     that.giftCardDiscount = card.item.amount;
                 }else{
@@ -199,10 +198,12 @@ define([
         },
 
 
-        findPromo: function(name){
-            for(var n = 0; n < this.itemPromo.length; ++n)
-                if(this.itemPromo[n].name == name)
-                    console.log(this.itemPromo[n].promo);
+        findPromo: function(code){
+            for(var n = 0; n < this.promoList.length; ++n)
+                if(this.promoList[n].code == code)
+                    return true;
+
+            return false;
         },
 
         getPromos: function(){
@@ -217,23 +218,26 @@ define([
             var thisItemName = $(e.target).closest('.checkout-item').find('.item-name').html();
             var flag = true;
             for(var n = 0; n < this.itemPromo.length; ++n)
-            {
-                console.log(this.itemPromo[n].code);
                 if(this.itemPromo[n].promo == enteredItemPromo)
                     {
                         console.log("Promo already entered!");
                         $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code already used!").css('color', 'red');
                         flag = false;
                     }
-            }
             if(flag == true)
                 {
                     var itemObj = {
                         promo : enteredItemPromo,
                         item : thisItemName
                     }
-                    this.itemPromo.push(itemObj);
-                    $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code successfully applied").css('color', 'green');
+                    if(this.findPromo(enteredItemPromo))
+                    {
+                        this.itemPromo.push(itemObj);
+                        $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code successfully applied").css('color', 'green');
+                    }
+                    else
+                        $(e.target).closest('.checkout-item').find('.promo-feedback').html("Invalid Promo Code").css('color', 'red');
+
                 }
         },
 
@@ -278,11 +282,13 @@ define([
                             {
                                 var discount = this.percentItemPromo(this.promoList[n], price);
                                 this.promoTotal = this.promoTotal + parseFloat(discount);
+                                console.log(this.promoTotal);
                                 return discount;
                             }
                         if(this.promoList[n].percent == 0)
                             {
                                 this.promoTotal = this.promoTotal + parseFloat(this.promoList[n].amount);
+                                console.log(this.promoTotal);
                                 return this.promoList[n].amount;
                             }
                     }
@@ -309,11 +315,17 @@ define([
 
 
         assembleOrder: function () {
+            var exists = 0;
+            console.log(this.promoTotal);
+            if(this.giftCardDiscount == undefined)
+                exists = this.cartData.total - parseFloat(this.promoTotal);
+            else
+                exists = this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount;
             return {
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
                 newTotal: this.cartData.total - parseFloat(this.promoTotal), //Mauriel, apply discount here
-                total: this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount, //Mauriel, apply discount here
+                total: exists, //Mauriel, apply discount here
                 giftCard:this.giftCardDiscount,
 
 
@@ -432,7 +444,7 @@ define([
             for (var j = 0; j < inputs.length; ++j)
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
-
+            allFilled = true;
             if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
