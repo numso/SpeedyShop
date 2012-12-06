@@ -10,7 +10,13 @@ define([
     return Backbone.View.extend({
 
         initialize: function () {
-            
+            var that = this;
+            $.get('/getGiftCards', function (data) {
+                var cards = data;
+                that.$el.html(giftCardTmpl(cards));
+            });
+
+            return this;  
         },
 
         events: {
