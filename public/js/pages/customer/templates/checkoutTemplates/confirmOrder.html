@@ -24,10 +24,15 @@
                 <div class="values">-${{totalDiscounts}}</div>
             </div>
             <div class="total">
+                <label>State Tax: </label>
+                <div class="values">+{{stateTax}}%</div>
+            </div>
+            <div class="total">
                 {{#if giftCard}}<div class="gift-card">Gift Card: -${{giftCard}}</div>{{/if}}
                 <label>Total: </label>
                 <div class="values">${{total}}</div>
             </div>
+            
         </div>
     </div>
 

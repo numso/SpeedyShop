@@ -152,7 +152,9 @@ module.exports = function (app) {
             var taxes = app.shopData.stateTaxes;
             for (var i = 0; i < taxes.length; ++i) {
                 if (taxes[i].stateCode == request.params.stateCode) {
-                    response.send(taxes[i].rate);
+                    response.send({
+                        taxRate: taxes[i].rate
+                    });
                     return;
                 }
             }
