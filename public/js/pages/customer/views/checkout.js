@@ -387,6 +387,14 @@ define([
             var that = this;
             var response = $.post("/submitOrder", JSON.stringify(orderToServer), function (response) {
                 if (response.status === "OK") {
+                    for (var i = 0; i < that.cartData.cart.length; ++i) {
+                        if (that.cartData.cart[i].name === "Gift Card") {
+                            $.post('/createGiftCard', JSON.stringify({
+                                amount: that.cartData.cart[i].price,
+                                email: that.cartData.cart[i].email
+                            }));
+                        }
+                    }
                     that.$('#checkout-next-step').attr('disabled', true); //prevents multiple submissions
                     window.alert("Order successfully submitted!\nThank your for shopping with SpeedyShop. :)");
                 }

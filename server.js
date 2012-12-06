@@ -22,6 +22,7 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
 });
 
 var orderEmailFn = jade.compile(fs.readFileSync('serverFiles/orderEmail.jade'));
+var giftCardEmailFn = jade.compile(fs.readFileSync('serverFiles/giftCardEmail.jade'));
 
 (function () {
     app.shopData = {};
@@ -39,7 +40,7 @@ var orderEmailFn = jade.compile(fs.readFileSync('serverFiles/orderEmail.jade'));
     app.shopData.usersWin = JSON.parse(fs.readFileSync('serverData/usersWin.json'));
 }());
 
-var itemServices = require('./serverFiles/itemServices')(app),
+var itemServices = require('./serverFiles/itemServices')(app, smtpTransport, giftCardEmailFn),
     filterServices = require('./serverFiles/filterServices')(app),
     reviewServices = require('./serverFiles/reviewServices')(app),
     employeeServices = require('./serverFiles/employeeServices')(app, smtpTransport, orderEmailFn),
@@ -75,6 +76,7 @@ app.post('/search', itemServices.search);
 app.get('/getGiftCards', itemServices.getGiftCards);
 app.get('/getGiftCardValue/:code', itemServices.getGiftCardValue);
 app.post('/invalidateGiftCard/:code', itemServices.invalidateGiftCard);
+app.post('/createGiftCard', itemServices.createGiftCard);
 
 // Cart Stuff
 app.get('/getItem/:id', itemServices.getItem);
@@ -118,7 +120,17 @@ app.get('/showEmailTemplate/order', function (req, res, next) {
     var fn = jade.compile(fs.readFileSync('serverFiles/orderEmail.jade'));
     var data = {
         name: "Dallin",
-        orderNum: 12341234,
+        orderNum: 12341234
+    };
+    var html = fn(data);
+    res.send(html);
+});
+
+app.get('/showEmailTemplate/giftCard', function (req, res, next) {
+    var fn = jade.compile(fs.readFileSync('serverFiles/giftCardEmail.jade'));
+    var data = {
+        cardNum: 12341234,
+        amount: 40
     };
     var html = fn(data);
     res.send(html);

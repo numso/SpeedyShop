@@ -1,6 +1,6 @@
 /*jshint node:true*/
 
-module.exports = function (app) {
+module.exports = function (app, smtpTransport, giftCardEmailFn) {
 
     var fs = require('fs');
 
@@ -270,5 +270,46 @@ module.exports = function (app) {
                 code: "not found"
             });
         },
+
+        createGiftCard: function (req, res, next) {
+            var data = '';
+
+            req.on('data', function (chunk) {
+                data += chunk;
+            });
+
+            req.on('end', function () {
+                data = JSON.parse(data);
+                data.cardNum = Math.floor(Math.random() * 10000000000);
+
+                var newObj = {
+                    code: data.cardNum,
+                    amount: parseInt(data.amount, 10),
+                    used: false
+                };
+
+                app.shopData.giftCards.push(newObj);
+                fs.writeFileSync("serverData/giftCards.json", JSON.stringify(app.shopData.giftCards));
+
+                var mailOptions = {
+                    from: "Speedy Shop <speedyshopsales@gmail.com>", // sender address
+                    to: data.email, // list of receivers
+                    subject: "You've got yourself a Gift Card!", // Subject line
+                    text: "Hey! Lucky You! Someone must really like you. They decided to send you a gift card. Card Number: " + data.cardNum + ". Card Amount: $" + data.amount + ".00. Use it at http://speedyshop.herokuapp.com. Sincerely, The Speedy Shop Team",
+                    html: giftCardEmailFn(data) // html body
+                };
+
+                // send mail with defined transport object
+                smtpTransport.sendMail(mailOptions, function (err, response) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log("Message sent: " + response.message);
+                    }
+                });
+
+                res.send('done');
+            });
+        }
     };
 };
