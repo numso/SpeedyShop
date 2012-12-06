@@ -202,19 +202,12 @@ define([
         },
 
 
-<<<<<<< HEAD
         findPromo: function(code){
             for(var n = 0; n < this.promoList.length; ++n)
                 if(this.promoList[n].code == code)
                     return true;
 
             return false;
-=======
-        findPromo: function(name) {
-            for(var n = 0; n < this.itemPromo.length; ++n)
-                if(this.itemPromo[n].name == name)
-                    console.log(this.itemPromo[n].promo);
->>>>>>> 668cdc0068c24a85f8c63c3f0e5933a64250129e
         },
 
         getPromos: function(){
@@ -228,7 +221,9 @@ define([
             var enteredItemPromo = $(e.target).closest('.checkout-item').find('.promo-code-text').val();
             var thisItemName = $(e.target).closest('.checkout-item').find('.item-name').html();
             var flag = true;
-<<<<<<< HEAD
+
+
+
             for(var n = 0; n < this.itemPromo.length; ++n)
                 if(this.itemPromo[n].promo == enteredItemPromo)
                     {
@@ -249,24 +244,6 @@ define([
                     }
                     else
                         $(e.target).closest('.checkout-item').find('.promo-feedback').html("Invalid Promo Code").css('color', 'red');
-
-=======
-            for(var n = 0; n < this.itemPromo.length; ++n) {
-                console.log(this.itemPromo[n].code);
-
-                if(this.itemPromo[n].promo == enteredItemPromo) {
-                    console.log("Promo already entered!");
-                    $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code already used!").css('color', 'red');
-                    flag = false;
-                }
-            }
-
-            if(flag == true) {
-                var itemObj = {
-                    promo : enteredItemPromo,
-                    item : thisItemName
->>>>>>> 668cdc0068c24a85f8c63c3f0e5933a64250129e
-                }
 
                 this.itemPromo.push(itemObj);
                 $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code successfully applied").css('color', 'green');
@@ -320,7 +297,6 @@ define([
                                 return this.promoList[n].amount;
                             }
                     }
-            }
         },
 
         percentItemPromo: function(promo, amount) {
@@ -359,17 +335,10 @@ define([
             return {
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
-<<<<<<< HEAD
-                newTotal: this.cartData.total - parseFloat(this.promoTotal), //Mauriel, apply discount here
-                total: exists, //Mauriel, apply discount here
-                giftCard:this.giftCardDiscount,
-
-=======
                 newTotal: this.cartData.total - parseFloat(this.promoTotal),
                 stateTax: this.stateTax,
                 total: (this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount) * (1 + this.stateTax / 100),
                 giftCard: this.giftCardDiscount,
->>>>>>> 668cdc0068c24a85f8c63c3f0e5933a64250129e
 
                 addresses: [
                 {
@@ -491,10 +460,6 @@ define([
             for (var j = 0; j < inputs.length; ++j)
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
-<<<<<<< HEAD
-=======
-
->>>>>>> 668cdc0068c24a85f8c63c3f0e5933a64250129e
             allFilled = true;
             if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
