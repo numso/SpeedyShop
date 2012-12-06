@@ -23,14 +23,14 @@ define([
         cartData: undefined,
         explanatoryText: undefined,
         checkoutData: [],
+        stateTax: undefined,
         itemPromo: [],
         giftCardList: [],
         genPromo: undefined,
-        genGiftCard:undefined,
+        genGiftCard: undefined,
         promoTotal: 0,
         promoGenTotal: 0,
-        giftCardDiscount:undefined,
-
+        giftCardDiscount: undefined,
 
         initialize: function () {
             this.myTmpls = [
@@ -69,20 +69,21 @@ define([
             return this;
         },
 
-        applyGiftCard: function(){
+        applyGiftCard: function() {
             this.genGiftCard = this.$('.gift-card-text').val();
             this.calcGiftCard();
         },
 
-        calcGiftCard: function(){
-            var that=this;
-            $.get('getGiftCardValue/' + this.genGiftCard, function(card){
-                if (card.status == "success"){
+        calcGiftCard: function() {
+            var that = this;
+            $.get('getGiftCardValue/' + this.genGiftCard, function(card) {
+                if (card.status == "success") {
                     that.$('.invalide-gift-card').html("Gift Card Successfully Applied").css('color', 'green');
                     console.log(card);
                     // that.cartData.total -= card.item.amount;
                     that.giftCardDiscount = card.item.amount;
-                }else{
+                }
+                else {
                     that.$('.invalide-gift-card').html('Invalid').css('color', 'red');
                 }
             });
@@ -107,6 +108,9 @@ define([
 
         showNext: function (e) {
             this.saveOffPageData();
+            if (this.index == 1)
+                this.getStateTax(); //updates this.stateTax
+
             if (this.index == this.myTmpls.length - 1)
                 this.completeTransaction(); //they clicked Done on the last page
             else
@@ -148,7 +152,7 @@ define([
             else if (this.index == 3)
                 this.$('.checkout-body').html(this.myTmpls[this.index].tmpl(this.assembleOrder()));
             else
-                 this.$('.checkout-body').html(this.myTmpls[this.index].tmpl);
+                this.$('.checkout-body').html(this.myTmpls[this.index].tmpl);
 
             this.verifyFields(null);
         },
@@ -305,23 +309,20 @@ define([
             this.cartData.total = newTotal;
         },
 
+        getStateTax: function() {
+            var that = this;       
+            $.get('/getStateTax/' + this.checkoutData[1].data[14], function (data) {
+                that.stateTax = data.taxRate;
+            });
+        },
 
         assembleOrder: function () {
-            var stateID = this.checkoutData[1].data[14];
-            console.log("calling getStateTax...");
-            console.log(stateID);
-            
-            $.get('/getStateTax/' + stateID, function (data) {
-                console.log("server returned!");
-                console.log(data);
-                console.log("server fin");
-            });
-
             return {
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
                 newTotal: this.cartData.total - parseFloat(this.promoTotal),
-                total: this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount,
+                stateTax: this.stateTax,
+                total: (this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount) * (1 + this.stateTax / 100),
                 giftCard: this.giftCardDiscount,
 
                 addresses: [
