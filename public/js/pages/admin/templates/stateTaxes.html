@@ -1,6 +1,7 @@
 <div class = 'state-taxes'>
     <table>
         <tr>
+            <th>State Code</th>
             <th>State</th>
             <th>Tax Rate (%)</th>
             <th>Action</th>
@@ -8,6 +9,7 @@
         
         {{#each this}}
         <tr>
+            <td>{{stateCode}}</td>
             <td>{{state}}</td>
             <td><input class="tax-rate" type="text" value="{{rate}}"></td>
             <td class="{{state}}"><button class="submitChange">Submit Change</button></td>

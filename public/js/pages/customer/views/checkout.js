@@ -307,7 +307,16 @@ define([
 
 
         assembleOrder: function () {
-            console.log(this.checkoutData);
+            var stateID = this.checkoutData[1].data[14];
+            console.log("calling getStateTax...");
+            console.log(stateID);
+            
+            $.get('/getStateTax/' + stateID, function (data) {
+                console.log("server returned!");
+                console.log(data);
+                console.log("server fin");
+            });
+
             return {
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
@@ -370,8 +379,8 @@ define([
             var that = this;
             var response = $.post("/submitOrder", JSON.stringify(orderToServer), function (response) {
                 if (response.status === "OK") {
+                    that.$('#checkout-next-step').attr('disabled', true); //prevents multiple submissions
                     window.alert("Order successfully submitted!\nThank your for shopping with SpeedyShop. :)");
-                    this.$('#checkout-next-step').attr('disabled', true); //prevents
                 }
                 else {
                     window.alert("Error submitting order!\nServer responded: " + response.status);

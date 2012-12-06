@@ -1,202 +1,252 @@
 [
     {
         "state": "Alabama",
+        "stateCode": "AL",
         "rate": 2.5
     },
     {
         "state": "Alaska",
+        "stateCode": "AK",
         "rate": 2.5
     },
     {
         "state": "Arizona",
+        "stateCode": "AZ",
         "rate": 2.5
     },
     {
         "state": "Arkansas",
+        "stateCode": "AR",
         "rate": 2.5
     },
     {
         "state": "California",
+        "stateCode": "CA",
         "rate": "7"
     },
     {
         "state": "Colorado",
+        "stateCode": "CO",
         "rate": 2.5
     },
     {
         "state": "Connecticut",
+        "stateCode": "CT",
         "rate": 2.5
     },
     {
         "state": "Delaware",
+        "stateCode": "DE",
         "rate": 2.5
     },
     {
         "state": "Florida",
+        "stateCode": "FL",
         "rate": 2.5
     },
     {
         "state": "Georgia",
+        "stateCode": "GA",
         "rate": 2.5
     },
     {
         "state": "Hawaii",
+        "stateCode": "HI",
         "rate": 2.5
     },
     {
         "state": "Idaho",
+        "stateCode": "ID",
         "rate": 2.5
     },
     {
         "state": "Illinois",
+        "stateCode": "IL",
         "rate": 2.5
     },
     {
         "state": "Indiana",
+        "stateCode": "IN",
         "rate": 2.5
     },
     {
         "state": "Iowa",
+        "stateCode": "IA",
         "rate": 2.5
     },
     {
         "state": "Kansas",
+        "stateCode": "KS",
         "rate": 2.5
     },
     {
         "state": "Kentucky",
+        "stateCode": "KY",
         "rate": 2.5
     },
     {
         "state": "Louisiana",
+        "stateCode": "LA",
         "rate": 2.5
     },
     {
         "state": "Maine",
+        "stateCode": "ME",
         "rate": 2.5
     },
     {
         "state": "Maryland",
+        "stateCode": "MD",
         "rate": 2.5
     },
     {
         "state": "Massachusetts",
+        "stateCode": "MA",
         "rate": 2.5
     },
     {
         "state": "Michigan",
+        "stateCode": "MI",
         "rate": 2.5
     },
     {
         "state": "Minnesota",
+        "stateCode": "MN",
         "rate": 2.5
     },
     {
         "state": "Mississippi",
+        "stateCode": "MS",
         "rate": 2.5
     },
     {
         "state": "Missouri",
+        "stateCode": "MO",
         "rate": 2.5
     },
     {
         "state": "Montana",
+        "stateCode": "MT",
         "rate": 2.5
     },
     {
         "state": "Nebraska",
+        "stateCode": "NE",
         "rate": 2.5
     },
     {
         "state": "Nevada",
+        "stateCode": "NV",
         "rate": 2.5
     },
     {
         "state": "New Hampshire",
+        "stateCode": "NH",
         "rate": 2.5
     },
     {
         "state": "New Jersey",
+        "stateCode": "NJ",
         "rate": 2.5
     },
     {
         "state": "New Mexico",
+        "stateCode": "NM",
         "rate": 2.5
     },
     {
         "state": "New York",
+        "stateCode": "NY",
         "rate": 2.5
     },
     {
         "state": "North Carolina",
+        "stateCode": "NC",
         "rate": 2.5
     },
     {
         "state": "North Dakota",
+        "stateCode": "ND",
         "rate": 2.5
     },
     {
         "state": "Ohio",
+        "stateCode": "OH",
         "rate": 2.5
     },
     {
         "state": "Oklahoma",
+        "stateCode": "OK",
         "rate": 2.5
     },
     {
         "state": "Oregon",
+        "stateCode": "OR",
         "rate": 2.5
     },
     {
         "state": "Pennsylvania",
+        "stateCode": "PA",
         "rate": 2.5
     },
     {
         "state": "Rhode Island",
+        "stateCode": "RI",
         "rate": 2.5
     },
     {
         "state": "South Carolina",
+        "stateCode": "SC",
         "rate": 2.5
     },
     {
         "state": "South Dakota",
+        "stateCode": "SD",
         "rate": 2.5
     },
     {
         "state": "Tennessee",
+        "stateCode": "TN",
         "rate": 2.5
     },
     {
         "state": "Texas",
+        "stateCode": "TX",
         "rate": 2.5
     },
     {
         "state": "Utah",
+        "stateCode": "UT",
         "rate": 2.5
     },
     {
         "state": "Vermont",
+        "stateCode": "VT",
         "rate": 2.5
     },
     {
         "state": "Virginia",
+        "stateCode": "VA",
         "rate": 2.5
     },
     {
         "state": "Washington",
+        "stateCode": "WA",
         "rate": 2.5
     },
     {
         "state": "West Virginia",
+        "stateCode": "WV",
         "rate": 2.5
     },
     {
         "state": "Wisconsin",
+        "stateCode": "WI",
         "rate": 2.5
     },
     {
         "state": "Wyoming",
+        "stateCode": "WY",
         "rate": 2.5
     }
 ]

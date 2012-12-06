@@ -109,6 +109,7 @@ app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/updateInventory', adminServices.updateInventory);
 app.post('/changeRating', adminServices.changeRating);
 app.get('/getStateTaxes', adminServices.getStateTaxes);
+app.get('/getStateTax/:stateCode', adminServices.getStateTax);
 app.post('/changeTax', adminServices.changeTax);
 
 

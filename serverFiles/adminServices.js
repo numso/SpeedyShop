@@ -148,6 +148,16 @@ module.exports = function (app) {
             response.send(taxes);
         },
 
+        getStateTax: function (request, response, next) {
+            var taxes = app.shopData.stateTaxes;
+            for (var i = 0; i < taxes.length; ++i) {
+                if (taxes[i].stateCode == request.params.stateCode) {
+                    response.send(taxes[i].rate);
+                    return;
+                }
+            }
+        },
+
         changeTax: function (request, response, next) {
             var taxes = app.shopData.stateTaxes;
 
