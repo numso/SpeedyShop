@@ -1,27 +1,44 @@
-.gift-cards {
+.gift-cards-table {
     overflow: auto;
     width: 100%;
     height: 100%;
 
     table {
 
-        width: 80%;
+        width: 50%;
 
         th {
             text-decoration: underline;
+            text-align: left;
         }
 
-        td, input {
-            text-align: center;
+        tr {
+            padding-right: 15px;
+            padding-bottom: 10px;
+
+            &:hover{
+                background-color: #BEBEBE;
+            }
+
         }
 
-        td, tr {
-            padding: 0px 15px;
-        }
+    }
+    h2{
+        text-align: left;
+    }
+}
+.new-gift-card-wrapper{
+    padding-bottom: 50px;
 
-        button {
-            width: 160px;
-            height: 30px;
-        }
+    .card-text{
+        display: inline-block;
+        text-align: right;
+        min-width: 100px;
+    }
+    .btn-wrapper{
+        padding-left: 150px;
+    }
+    h2{
+        text-align: left;
     }
 }
