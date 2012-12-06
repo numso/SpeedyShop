@@ -322,17 +322,21 @@ define([
 
         assembleOrder: function () {
             var exists = 0;
-            console.log(this.promoTotal);
-            if(this.giftCardDiscount == undefined)
-                exists = this.cartData.total - parseFloat(this.promoTotal);
+            if(this.giftCardDiscount == undefined && this.stateTax == undefined)
+                    exists = this.cartData.total - parseFloat(this.promoTotal);
+            else if(this.giftCardDiscount == undefined && this.stateTax)
+                    exists = (this.cartData.total - parseFloat(this.promoTotal)) * (1 + this.stateTax / 100);
+            else if(this.giftCardDiscount && this.stateTax == undefined)
+                    exists = this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount;
             else
-                exists = this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount;
+                    exists = (this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount) * (1 + this.stateTax / 100);
+
             return {
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
                 newTotal: this.cartData.total - parseFloat(this.promoTotal),
                 stateTax: this.stateTax,
-                total: (this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount) * (1 + this.stateTax / 100),
+                total: exists.toFixed(2),
                 giftCard: this.giftCardDiscount,
 
                 addresses: [
@@ -455,6 +459,8 @@ define([
             for (var j = 0; j < inputs.length; ++j)
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
+
+            allFilled = true;
             if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
