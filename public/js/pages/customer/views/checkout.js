@@ -240,7 +240,9 @@ define([
                     }
                     else
                         $(e.target).closest('.checkout-item').find('.promo-feedback').html("Invalid Promo Code").css('color', 'red');
-                }
+                this.itemPromo.push(itemObj);
+                $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code successfully applied").css('color', 'green');
+            }
         },
 
         applyGenPromo: function() {
@@ -328,9 +330,10 @@ define([
             return {
                 order: this.collectCartInformation(),
                 totalDiscounts: this.promoTotal + parseFloat(this.promoGenTotal),
-                newTotal: this.cartData.total - parseFloat(this.promoTotal), //Mauriel, apply discount here
-                total: exists, //Mauriel, apply discount here
-                giftCard:this.giftCardDiscount,
+                newTotal: this.cartData.total - parseFloat(this.promoTotal),
+                stateTax: this.stateTax,
+                total: (this.cartData.total - parseFloat(this.promoTotal) - this.giftCardDiscount) * (1 + this.stateTax / 100),
+                giftCard: this.giftCardDiscount,
 
                 addresses: [
                 {
@@ -452,7 +455,6 @@ define([
             for (var j = 0; j < inputs.length; ++j)
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
-
             if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
