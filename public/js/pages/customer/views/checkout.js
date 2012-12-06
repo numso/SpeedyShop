@@ -201,7 +201,6 @@ define([
             return finalCart;
         },
 
-
         findPromo: function(code){
             for(var n = 0; n < this.promoList.length; ++n)
                 if(this.promoList[n].code == code)
@@ -221,9 +220,6 @@ define([
             var enteredItemPromo = $(e.target).closest('.checkout-item').find('.promo-code-text').val();
             var thisItemName = $(e.target).closest('.checkout-item').find('.item-name').html();
             var flag = true;
-
-
-
             for(var n = 0; n < this.itemPromo.length; ++n)
                 if(this.itemPromo[n].promo == enteredItemPromo)
                     {
@@ -244,7 +240,6 @@ define([
                     }
                     else
                         $(e.target).closest('.checkout-item').find('.promo-feedback').html("Invalid Promo Code").css('color', 'red');
-
                 this.itemPromo.push(itemObj);
                 $(e.target).closest('.checkout-item').find('.promo-feedback').html("Promo Code successfully applied").css('color', 'green');
             }
@@ -460,7 +455,6 @@ define([
             for (var j = 0; j < inputs.length; ++j)
                 if (!$(inputs[j]).val() && !$(inputs[j]).hasClass('PO-box'))
                     allFilled = false;
-            allFilled = true;
             if (allFilled)
                 this.$('#checkout-next-step').attr('disabled', false); //we're good
             else
