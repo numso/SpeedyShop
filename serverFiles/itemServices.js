@@ -222,6 +222,10 @@ module.exports = function (app) {
             });
         },
 
+        getGiftCards: function (request, response, next) {
+            var cards = app.shopData.giftCards;
+            response.send(cards);
+        },
 
         getGiftCardValue: function (request, response, next) {
             var cards = app.shopData.giftCards;

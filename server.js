@@ -72,6 +72,7 @@ app.get('/getItems', itemServices.getItems);
 app.get('/getItems/:catID', itemServices.getItems);
 app.get('/incrementPopularity/:itemNumber', itemServices.incrementPopularity);
 app.post('/search', itemServices.search);
+app.get('/getGiftCards', itemServices.getGiftCards);
 app.get('/getGiftCardValue/:code', itemServices.getGiftCardValue);
 app.post('/invalidateGiftCard/:code', itemServices.invalidateGiftCard);
 
@@ -109,6 +110,7 @@ app.post('/deleteItem/:itemID', itemServices.deleteItem);
 app.post('/updateInventory', adminServices.updateInventory);
 app.post('/changeRating', adminServices.changeRating);
 app.get('/getStateTaxes', adminServices.getStateTaxes);
+app.get('/getStateTax/:stateCode', adminServices.getStateTax);
 app.post('/changeTax', adminServices.changeTax);
 
 
